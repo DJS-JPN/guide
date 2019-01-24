@@ -2,7 +2,8 @@
 	<img src="guide/images/branding/banner-alt-transparent.png" title="Discord.js Guide" alt="Discord.js Guide" />
 </div>
 
-# Discord.js Guide
+<!-- # Discord.js Guide -->
+# Discord.js ガイド
 
 The official guide for [discord.js](https://github.com/discordjs/discord.js), created and maintained by core members of its community and contributed to by [various others](https://github.com/discordjs/guide/graphs/contributors?type=a).
 
