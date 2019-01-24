@@ -5,7 +5,8 @@
 <!-- # Discord.js Guide -->
 # Discord.js ガイド
 
-The official guide for [discord.js](https://github.com/discordjs/discord.js), created and maintained by core members of its community and contributed to by [various others](https://github.com/discordjs/guide/graphs/contributors?type=a).
+<!-- The official guide for [discord.js](https://github.com/discordjs/discord.js), created and maintained by core members of its community and contributed to by [various others](https://github.com/discordjs/guide/graphs/contributors?type=a). -->
+これは [discord.js](https://github.com/discordjs/discord.js) の [公式ガイド](https://github.com/discordjs/guide) を翻訳した非公式ガイドです。DJS-JPNのメンバーなどの貢献により翻訳が行われています。
 
 ## About
 
