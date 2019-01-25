@@ -1,8 +1,11 @@
-# Command handling
+<!-- Command handling -->
+# コマンド処理
 
+<!-- As mentioned in a previous chapter, unless your bot project is a small one, it's not a very good idea to have a single file with a giant if/else if chain for commands. If you want to implement features into your bot and make your development process a lot less painful, you'll definitely want to use (or in this case, create) a command handler. Let's get started on that! -->
 As mentioned in a previous chapter, unless your bot project is a small one, it's not a very good idea to have a single file with a giant if/else if chain for commands. If you want to implement features into your bot and make your development process a lot less painful, you'll definitely want to use (or in this case, create) a command handler. Let's get started on that!
 
-Here's the base code we'll be using:
+<!-- Here's the base code we'll be using: -->
+これは、これから使用する基本コードです。
 
 ```js
 const Discord = require('discord.js');
@@ -30,14 +33,16 @@ client.on('message', message => {
 
 client.login(token);
 ```
-
-::: tip
+<!-- ::: tip -->
+::: ヒント
 We'll be moving over the commands created in [the previous page](/creating-your-bot/commands-with-user-input.md) as well, but for the sake of keeping the base code short, those commands have been omitted from the codeblock above.
 :::
 
-## Individual command files
+<!-- ## Individual command files -->
+## 個々のコマンドファイル
 
-Before anything, you may want to create a backup of your current bot file. If you've followed along so far, your entire folder structure should look something like this:
+<!-- Before anything, you may want to create a backup of your current bot file. If you've followed along so far, your entire folder structure should look something like this: -->
+何よりもまず、現在のボットファイルのバックアップを作成したいと思うかもしれません。 これまでの手順に従っていれば、フォルダ構造全体は次のようになります。
 
 ![Current folder structure](~@/images/BmS09fY.png)
 
