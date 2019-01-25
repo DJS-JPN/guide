@@ -1,3 +1,7 @@
+---
+title: Node.jsとdiscord.jsのインストール
+---
+
 # Installing Node.js and discord.js
 
 ## Installing Node.js
