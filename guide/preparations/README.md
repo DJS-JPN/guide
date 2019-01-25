@@ -2,26 +2,68 @@
 title: Node.jsとdiscord.jsのインストール
 ---
 
+<!--
 # Installing Node.js and discord.js
+-->
 
+# Node.jsとdiscord.jsのインストール
+
+<!--
 ## Installing Node.js
+-->
 
+## Node.jsのインストール
+
+<!--
 To use discord.js, you'll need to install Node.js. You can do so by going to [the Node.js website](https://nodejs.org/).
+-->
 
+discord.jsを使用するには、Node.jsをインストールする必要があります。[Node.jsのWebサイト](https://nodejs.org/)からインストールできます。
+
+<!--
 ### Installing on Windows
+-->
 
+### Windowsでのインストール
+
+<!--
 If you're developing on Windows, it's as simple as installing any other program. Go to [the Node.js website](https://nodejs.org/), download the latest version, open up the downloaded file, and follow the steps from the installer.
+-->
 
+Windowsで開発しているのなら、それは他のソフトをインストールするのと同じぐらい簡単です。[Node.jsのWebサイト](https://nodejs.org/)へ行き、最新版をダウンロードして、ダウンロードしたファイルを開いて、インストーラの手順に従ってください。
+
+<!--
 ### Installing on macOS
+-->
 
+### macOSでのインストール
+
+<!--
 If you're developing on macOS, you have a few options. You can go to [the Node.js website](https://nodejs.org/), download the latest version, double click the package installer, and follow the instructions. Or you can use a package manager like [Homebrew](https://brew.sh/) with the command `brew install node`.
+-->
 
+macOSで開発しているのなら、いくつかの選択肢があります。[Node.jsのWebサイト](https://nodejs.org/)へ行き、最新版をダウンロードして、パッケージマネージャをダブルクリックし、支持に従うことができます。あるいは、 `brew install node`コマンドで[Homebrew](https://brew.sh/)のようなパッケージマネージャーを使うこともできます。
+
+<!--
 ### Installing on Linux
+-->
 
+### Linuxでのインストール
+
+<!--
 If you're developing on Linux, you may consult [this page](https://nodejs.org/en/download/package-manager/) to determine how you should install Node.<br />On that note, there's a possibility that you may already have Node \(e.g. if you're using a VPS\). You can check by running the `node -v` command. If it outputs something like `v8.0.0` or higher, then you're good to go! Otherwise, take a look at the page linked above for instructions on installing Node on your OS.
+-->
 
+Linuxで開発しているのなら、どのようにNodeをインストールすべきかを決めるために[このページ](https://nodejs.org/en/download/package-manager/)を調べることができます。<br />注意として既にNodeがインストールされている可能性があります（例えば、あなたがVPSを使っている場合など）。`node -v`コマンドを実行して確認できます。もしそれが`v8.0.0`以上のバージョンを出力するなら、問題ないです！それ以外の場合は、上にリンクされているページを見て、あなたのOSにNodeをインストールしてください。
+
+<!--
 ::: warning
 If you _do_ have Node installed, but have an older version \(i.e. anything below 8.0.0\), you should upgrade to the latest version.
+:::
+-->
+
+::: warning
+Nodeをインストールしたが、古いバージョン（つまり8.0.0以下のもの）の場合は、最新のバージョンにアップグレードしてください。
 :::
 
 ---
