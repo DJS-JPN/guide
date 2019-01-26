@@ -2,9 +2,11 @@
 # コマンド処理
 
 <!-- As mentioned in a previous chapter, unless your bot project is a small one, it's not a very good idea to have a single file with a giant if/else if chain for commands. If you want to implement features into your bot and make your development process a lot less painful, you'll definitely want to use (or in this case, create) a command handler. Let's get started on that! -->
+
 As mentioned in a previous chapter, unless your bot project is a small one, it's not a very good idea to have a single file with a giant if/else if chain for commands. If you want to implement features into your bot and make your development process a lot less painful, you'll definitely want to use (or in this case, create) a command handler. Let's get started on that!
 
 <!-- Here's the base code we'll be using: -->
+
 これは、これから使用する基本コードです。
 
 ```js
@@ -33,7 +35,11 @@ client.on('message', message => {
 
 client.login(token);
 ```
-<!-- ::: tip -->
+
+<!-- 
+::: tip 
+-->
+
 ::: ヒント
 We'll be moving over the commands created in [the previous page](/creating-your-bot/commands-with-user-input.md) as well, but for the sake of keeping the base code short, those commands have been omitted from the codeblock above.
 :::
@@ -60,11 +66,19 @@ module.exports = {
 
 You can go ahead and do the same for the rest of your commands as well, putting their respective blocks of code inside the `execute()` function. If you've been using the same code as the guide thus far, you can copy & paste your commands into their own files now just fine without any issue, as long as you follow the format above. The `description` property is optional, but will be useful for the dynamic help command we'll be covering later.
 
+<!--
 ::: tip
+-->
+
+::: ヒント
 `module.exports` is how you export data in Node.js so that you can `require()` it in other files. If you're unfamiliar with it and want to read more, you can take a look at [the documentation](https://nodejs.org/api/modules.html#modules_module_exports) for more info.
 :::
 
+<!--
 ::: tip
+-->
+
+::: ヒント
 If you need to access your client instance from inside one of your command files, you can access it via `message.client`. If you need to access things such as external files or modules, you should re-require them at the top of the file.
 :::
 
@@ -81,11 +95,19 @@ const client = new Discord.Client();
 + client.commands = new Discord.Collection();
 ```
 
+<!--
 ::: tip
+-->
+
+::: ヒント
 `fs` is Node's native file system module. You can read the docs about it [here](https://nodejs.org/api/fs.html).
 :::
 
+<!--
 ::: tip
+-->
+
+::: ヒント
 If you aren't exactly sure what Collections are, they're a class that extend JS's native Map class and include more extensive, useful functionality. You can read about Maps [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), and see all the available Collection methods [here](https://discord.js.org/#/docs/main/stable/class/Collection).
 :::
 
