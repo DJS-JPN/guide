@@ -1,26 +1,25 @@
 # Introduction
 
-If you're reading this, it probably means you want to learn how make a bot with discord.js. Awesome! You've come to the right place.
-This guide will teach you things such as:
-* How to get a bot up and running from scratch;
-* How to properly create, organize, and expand on your commands;
-* How to use the best practices for common situations;
-* and much more.
+このページを読んでいるということは、おそらく discord.js を使用してのディスコードBOTの作り方を学びたいと考えていると思います。このページは正しくあなたの助けとなることでしょう。
+このガイドでは、例として以下のことを解説しています。
+* BOTをゼロから、機能するまで作成する方法。
+* BOTのコマンドを正しく、作成、整理、拡張させる方法。
+* よくある状況に関してのベストプラクティス。
+* など
 
-This guide will also cover subjects like common errors and how to solve them, keeping your code clean, setting up a proper development environment, etc.
-Sounds good? Great! Let's get started, then.
+このガイドでは上記の他によくあるエラーやその解決方法、コードを綺麗に保持する方法、正しい開発環境の構築方法などもカバーしています。
 
-## Before you begin...
+## 始める前に…
 
-Alright, making a bot is cool and all, but there are some prerequisites to it. To create a bot with discord.js, you should have a fairly decent grasp of JavaScript itself.
-While you _can_ make a bot with very little JS and programming knowledge, trying to do so without understanding the language first will only hinder you. You may get stuck on many uncomplicated issues, struggle with solutions to incredibly easy problems, and all-in-all end up frustrated. Sounds pretty annoying if you ask me.
+BOTを作る前に必要とされる要件がいくつかあります。discord.js でディスコードBOTを作るにはJavaScriptについての理解が必要となってきます。
+僅かなJSやプログラミングについての知識でもBOTを_作る_ことはできますが、プログラミング言語を理解しないまま作成に入るのは、製作に差し支えることとなります。複雑でもないことが問題になったり、簡単な問題の解決に四苦八苦し、最終的に挫折することになりかねません。こうした単純な質問は先達にとっても煩わしくもあります。
 
-If you don't know JS but would like to learn about it, here are a few links to help get you started:
+もしJSについて知らずとも学ぶ石があるのであれば、以下にいくつかの学習が可能なサイトを上げますので参考にしてください。
 
-* [CodeCademy's interactive JavaScript course](https://www.codecademy.com/learn/learn-javascript)
-* [Eloquent JavaScript, a free online book](http://eloquentjavascript.net/)
-* [Nodeschool, for both JavaScript and Node.js lessons](https://nodeschool.io/)
-* [MDN's JavaScript guide and full documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* [Google, your best friend](https://google.com)
+* [CodeCademyのJavaScriptコース](https://www.codecademy.com/learn/learn-javascript)
+* [Eloquent JavaScript](http://eloquentjavascript.net/):フリーのオンライン書籍
+* [Nodeschool](https://nodeschool.io/):JavascriptとNode.jsを学べるウェブスクール
+* [MDN's JavaScriptガイド](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Google大先生](https://google.com)
 
-Take your pick, learn some JS, and once you feel like you're confident enough to make a bot, come back and get started!
+JSを学んだ後、BOTを作るだけの知識を身に着けたと感じたならば、このサイトに戻ってきて制作を始めましょう。
