@@ -2,17 +2,38 @@
 title: はじめに
 ---
 
+<!--
 # Introduction
+-->
 
+# はじめに
+
+<!--
 If you're reading this, it probably means you want to learn how make a bot with discord.js. Awesome! You've come to the right place.
+-->
+
+このページを読んでいるということは、おそらくdiscord.jsでボットを作成する方法を学びたいということなのでしょう。すばらしい！あなたは正しい場所に来ました。
+
+<!--
 This guide will teach you things such as:
 * How to get a bot up and running from scratch;
 * How to properly create, organize, and expand on your commands;
 * How to use the best practices for common situations;
 * and much more.
+-->
 
+このガイドはあなたに次のようなことを教えるでしょう。
+* ボットを一から作る方法
+* コマンドを適切に作成、整理、拡張する方法
+* よくある状況でベストプラクティスを使用する方法
+* その他いろいろ
+
+<!--
 This guide will also cover subjects like common errors and how to solve them, keeping your code clean, setting up a proper development environment, etc.
 Sounds good? Great! Let's get started, then.
+-->
+
+このガイドでは、一般的なエラーやその解決方法、コードの整理、適切な開発環境の設定などについても説明します。すばらしい！それでは始めましょう。
 
 ## Before you begin...
 
