@@ -1,10 +1,12 @@
-# Setting up a bot application
+# Botの設定をしよう!
 
-## Creating your bot
+## あなたのBotを作ろう！
 
-Now that you've installed Node, discord.js, and hopefully a linter, you're almost ready to start coding! The next step you need to take is setting up an actual Discord bot application via Discord's website.
+Node, Discord.js うまく言ったならlinerもインストールしたので
+コードを書き始める準備は終わりましたZE☆
+でもその前にDiscordのwebsiteでBotの設定をしよう!
 
-It's incredibly easy to create one. The steps you need to take are as follows:
+めっちゃ簡単にできるから下の手順に沿ってね❤
 
 1. Open up [the Discord website](https://discordapp.com/) and [login](https://discordapp.com/login).
 2. Hover over the "Developers" drop-down menu and click on the [Developer Portal](https://discordapp.com/developers/docs/intro) link.
