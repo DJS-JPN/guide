@@ -4,15 +4,15 @@
 
 # Discord.js Guide
 
-[discord.js](https://github.com/discordjs/discord.js)の公式ガイドです,[色んな人](https://github.com/discordjs/guide/graphs/contributors?type=a)が作りました.
+The official guide for [discord.js](https://github.com/discordjs/discord.js), created and maintained by core members of its community and contributed to by [various others](https://github.com/discordjs/guide/graphs/contributors?type=a).
 
 ## About
 
-このガイドはJavascriptについては知ってるけどNode.jsについて,さらにはDiscord.jsについて全然知らないよって人向けです.
+This guide is aimed at users who are either unfamiliar or inexperienced with Node.js and creating Discord bots. It assumes you have a basic understanding of JavaScript.
 
-以下のようにいろんなテーマについて書いてあるよ
+There are many different subjects covered, such as:
 
-- Botを起動する方法もちろん[最初から](https://discordjs.guide/#/preparations/);
+- How to get a bot [up and running](https://discordjs.guide/#/preparations/) from scratch;
 - How to properly [create](https://discordjs.guide/#/creating-your-bot/), [organize](https://discordjs.guide/#/command-handling/), and [expand](https://discordjs.guide/#/command-handling/adding-features) on your commands;
 - In-depth explanations and examples regarding popular topics (e.g. [reactions](https://discordjs.guide/#/popular-topics/reactions), [embeds](https://discordjs.guide/#/popular-topics/embeds), [canvas](https://discordjs.guide/#/popular-topics/canvas));
 - Working with databases (e.g. [sequelize](https://discordjs.guide/#/sequelize/) and [keyv](https://discordjs.guide/#/keyv/));
