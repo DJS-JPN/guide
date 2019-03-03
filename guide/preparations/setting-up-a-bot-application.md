@@ -1,13 +1,17 @@
 # Botの設定をしよう!
 
 
-<!-- # Setting up a bot application -->
+<!-- 
+# Setting up a bot application 
+-->
 
 
 ## あなたのBotを作ろう！
 
 
-<!-- ## Creating your bot -->
+<!-- 
+## Creating your bot 
+-->
 
 
 Node, Discord.js うまく行ったならlinterもインストールしたので
@@ -17,7 +21,6 @@ Node, Discord.js うまく行ったならlinterもインストールしたので
 
 <!--
 Now that you've installed Node, discord.js, and hopefully a linter, you're almost ready to start coding! The next step you need to take is setting up an actual Discord bot application via Discord's website.
-
 -->
 
 すごい簡単にできるから下の手順に沿ってね
