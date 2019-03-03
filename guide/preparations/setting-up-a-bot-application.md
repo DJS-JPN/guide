@@ -2,7 +2,7 @@
 
 ## あなたのBotを作ろう！
 
-Node, Discord.js うまく言ったならlinerもインストールしたので
+Node, Discord.js うまく行ったならlinerもインストールしたので
 コードを書き始める準備は終わりましたZE☆
 でもその前にDiscordのwebsiteでBotの設定をしよう!
 
