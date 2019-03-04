@@ -95,12 +95,25 @@ You can install each of these directly inside the editors themselves. For Visual
 あなたは、これらをエディタに直接インストールすることができます。Visual Studio Codeでは`Ctrl + Shift + X`。Atomでは`Ctrl + ,`。Sublimeでは `Ctrl + Shift + P`([Package Control](https://packagecontrol.io/installation)をインストールしている必要があります)。その後、適切な拡張機能を見つけインストールしてください。
 :::
 
+<!--
 ## Setting up ESLint rules
+-->
 
+## ESLintのルール設定
+
+<!--
 ESLint may display a lot of warnings and errors about your code when you start using it, but don't let this startle you. In order to get started, follow these steps:
+-->
 
+ESLintを使い始めるとコードに対するエラーや警告がたくさん表示されると思います、驚いてはいけません。しっかりと利用するために以下のステップに従ってください。
+
+<!--
 1. Create a file in your root directory named `.eslintrc.json` (where your main project file is located).
 2. Copy the code below into the file.
+-->
+
+1. ルートディレクトリに`.eslintrc.json`というファイルを作成してください(ここには、このプロジェクトのメインファイルがあります)。
+2. 以下のコードをファイルに貼り付けてください。
 
 ```json
 {
@@ -118,11 +131,23 @@ ESLint may display a lot of warnings and errors about your code when you start u
 }
 ```
 
+<!--
 This is the base of what an ESLint file will look like. The `rules` object is where you'll define what rules you want to apply to ESLint. For example, if you want to make sure you never miss a semicolon, the `"semi": ["error", "always"]` rule is what you'll want to add inside that object.
+-->
 
+これは、ESLintファイルの基本です。`rules`オブジェクトはESLintのルールを定義する場所です。例えば、セミコロンを必ず付けるようにする場合、ルールに`"semi": ["error", "always"]`を追加します。
+
+<!--
 You can find a list of all of ESLint's rules on their site, located [here](https://eslint.org/). There are indeed many rules and it may be overwhelming at first, but you'll only need to go through the list and define your file once.
+-->
 
+ESLintのルールのは[ここ](https://eslint.org/)にあります。実際にたくさんのルールがありはじめは圧倒されると思いますが、リストをたどり一回設定してしまえばそれで済みます。
+
+<!--
 Alternatively, if you don't want to go through everything one-by-one on your own, you can use the ESLint file we use for this guide.
+-->
+
+自分で設定したくなければ、このガイドで利用しているルールを利用することもできます。
 
 ```json
 {
@@ -174,8 +199,13 @@ Alternatively, if you don't want to go through everything one-by-one on your own
 }
 ```
 
+<!--
 The major points of this setup would be:
+-->
 
+この設定の主なポイントは以下のとうりです。
+
+<!--
 * Allowing you to debug with `console.log()`;
 * Prefer using `const` over `let` or `var`, as well as disallow `var`;
 * Disapproving of variables with the same name in callbacks;
@@ -184,5 +214,20 @@ The major points of this setup would be:
 * Requiring accessing properties to be on the same line;
 * Requiring indenting to be done with tabs;
 * Limiting nested callbacks to 4. If you hit this error, it is a good idea to consider refactoring your code.
+-->
 
+* `console.log（）`でデバッグできるようにします。
+* `var`を禁止し、`var`や`let`ではなく`const`を最優先で使うようにします。
+* コールバック内で同じ名前の変数を許可しません。
+* ダブルクオート(`"`)ではなくシングルクオート(`'`)を利用するようにします。
+* セミコロンが必要です。JavaScriptでは必須ではありませんがつけるほうが良いとされています。
+* プロパティへのアクセスを同じ行にする必要があります。
+* タブでインデントすることを要求します。
+* ネストしたコールバックを4に制限します。このエラーが発生した場合は、コードのリファクタリングを検討することをお勧めします。
+
+<!--
 If your current code style is a bit different or you simply don't like a few of these rules, that's perfectly fine! Just head over to the [ESLint docs](https://eslint.org/docs/rules/), find the rule(s) you want to modify, and change them accordingly.
+-->
+
+現在のコードスタイルと少し違う場合や、これらの規則のいくつかが気に入らない場合は、それで問題ありません。
+[ESLint docs](https://eslint.org/docs/rules/)に行き、変更したいルールを見つけて、それに応じて変更してください。
