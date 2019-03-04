@@ -2,7 +2,7 @@
 # Setting up a linter
 -->
 
-# Linter(構文チェッカー)の設定
+# Linter(構文チェッカー)のセットアップ
 
 <!--
 As a developer, it's a good idea to make your development process as streamlined as possible. Installing and utilizing the right tools is an essential part of any project you're working on. Although it's not required, installing a linter will help you greatly.
@@ -203,7 +203,7 @@ Alternatively, if you don't want to go through everything one-by-one on your own
 The major points of this setup would be:
 -->
 
-この設定の主なポイントは以下のとうりです。
+この設定の主なポイントは以下のとおりです。
 
 <!--
 * Allowing you to debug with `console.log()`;
