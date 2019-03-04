@@ -1,6 +1,14 @@
+<!--
 # Setting up a linter
+-->
 
+# Linter(構文チェッカー)の設定
+
+<!--
 As a developer, it's a good idea to make your development process as streamlined as possible. Installing and utilizing the right tools is an essential part of any project you're working on. Although it's not required, installing a linter will help you greatly.
+-->
+
+開発者として、開発過程をできるだけ合理的にする事をおすすめします。適切なツールをインストールして利用することは、作業しているすべてのプロジェクトにとって不可欠なことです。必須ではありませんが linter(構文チェッカー)を利用することで、あなたを大いに助けることになるでしょう。
 
 ## Installing a code editor
 
