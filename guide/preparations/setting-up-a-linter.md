@@ -33,12 +33,25 @@ First, you will need a proper code editor. Using Notepad and Notepad++ is discou
 * [Atom](https://atom.io/) 簡単で扱いやすく、ユーザーにフレンドリーです。多くの開発者が始めに使用します。
 * [Sublime Text](https://www.sublimetext.com/) 洗練された外観でスピーディーかつ効率的に実行できることで知られてるもう一つの強力なエディタです。
 
+<!--
 ## Installing a linter
+-->
 
+## Linterのインストール
+
+<!--
 One of the major advantages proper code editors have over Notepad and Notepad++ is their ability to use linters. Linters check syntax and help you produce consistent code that follows certain style rules that you can define yourself, if you choose to do so. They help form good habits if you stick to a single configuration. When you start using a linter, you might be bombarded with errors at first. This is normal and perfectly fine. It might be a pain to get through during the initial process, but it's most definitely worth it.
+-->
 
+適切なコードエディタがメモ帳やNotepad++より優れている大きな理由の一つはLinterを利用することができることです。Linterは構文をチェックし、あなたが自分で定義できる特定のスタイルに従う一貫したコードを作成するのを助けます、あなたが利用することを選択した場合。あなたが決めたスタイルを守れば、これは良い習慣を定着させるのを助けます。
+
+<!--
 First, be sure to install the [ESLint package](https://www.npmjs.com/package/eslint) so that you have it available in your project.
+-->
 
+まず、[ESLint](https://www.npmjs.com/package/eslint)をインストールして、プロジェクトで利用できるようにします。
+
+<!--
 ```bash
 # locally
 npm install eslint
@@ -46,15 +59,40 @@ npm install eslint
 # globally
 npm install --global eslint
 ```
+-->
 
+```bash
+# ローカルインストール
+npm install eslint
+
+# グローバルインストール
+npm install --global eslint
+```
+
+<!--
 Afterwards, install the appropriate plugin(s) for your editor of choice.
+-->
 
+その後、エディタにあった拡張機能をインストールしてください。
+
+<!--
 * [ESLint for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 * [Linter-ESLint for Atom](https://atom.io/packages/linter-eslint) (requires [Linter for Atom](https://atom.io/packages/linter))
 * [ESLint for Sublime Text](https://packagecontrol.io/packages/ESLint)
+-->
 
+* [ESLint for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* [Linter-ESLint for Atom](https://atom.io/packages/linter-eslint) ( [Linter for Atom](https://atom.io/packages/linter)が必要です)
+* [ESLint for Sublime Text](https://packagecontrol.io/packages/ESLint)
+
+<!--
 ::: tip
 You can install each of these directly inside the editors themselves. For Visual Studio Code, press `Ctrl + Shift + X`. For Atom, press `Ctrl + ,` and click on "Install". For Sublime, press `Ctrl + Shift + P` and search for "Install Package" (available via [Package Control](https://packagecontrol.io/installation)). After that, you may then search for the appropriate plugin and install it through there.
+:::
+-->
+
+::: tip
+あなたは、これらをエディタに直接インストールすることができます。Visual Studio Codeでは`Ctrl + Shift + X`。Atomでは`Ctrl + ,`。Sublimeでは `Ctrl + Shift + P`([Package Control](https://packagecontrol.io/installation)これをインストールしている必要があります)。その後、適切な拡張機能を見つけインストールしてください。
 :::
 
 ## Setting up ESLint rules
