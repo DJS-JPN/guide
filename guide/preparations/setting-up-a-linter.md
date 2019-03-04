@@ -43,7 +43,7 @@ First, you will need a proper code editor. Using Notepad and Notepad++ is discou
 One of the major advantages proper code editors have over Notepad and Notepad++ is their ability to use linters. Linters check syntax and help you produce consistent code that follows certain style rules that you can define yourself, if you choose to do so. They help form good habits if you stick to a single configuration. When you start using a linter, you might be bombarded with errors at first. This is normal and perfectly fine. It might be a pain to get through during the initial process, but it's most definitely worth it.
 -->
 
-適切なコードエディタがメモ帳やNotepad++より優れている大きな理由の一つはLinterを利用することができることです。Linterは構文をチェックし、あなたが自分で定義できる特定のスタイルに従う一貫したコードを作成するのを助けます、あなたが利用することを選択した場合。あなたが決めたスタイルを守れば、これは良い習慣を定着させるのを助けます。
+適切なコードエディタがメモ帳やNotepad++より優れている大きな理由の一つはLinterを利用することができることです。Linterは構文をチェックし、あなたが利用することを選択した場合、自分で定義できる特定のスタイルに従う一貫したコードを作成するのを助けます。あなたが決めたスタイルを守れば、これは良い習慣を定着させるのを助けます。
 
 <!--
 First, be sure to install the [ESLint package](https://www.npmjs.com/package/eslint) so that you have it available in your project.
