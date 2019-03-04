@@ -10,13 +10,28 @@ As a developer, it's a good idea to make your development process as streamlined
 
 開発者として、開発過程をできるだけ合理的にする事をおすすめします。適切なツールをインストールして利用することは、作業しているすべてのプロジェクトにとって不可欠なことです。必須ではありませんが linter(構文チェッカー)を利用することで、あなたを大いに助けることになるでしょう。
 
+<!--
 ## Installing a code editor
+-->
 
+## コードエディタのインストール
+
+<!--
 First, you will need a proper code editor. Using Notepad and Notepad++ is discouraged, as they're inefficient for projects like these. If you are using either, it is highly recommended to switch in order to save everyone lots of headaches and unnecessary syntax error questions.
+-->
 
+はじめに、適切なコードエディタを用意しましょう。メモ帳やNotepad++は、はこのようなプロジェクトには向いていないのでおすすめしません。
+これらのエディタを利用すると多くの頭痛や構文エラーが発生します、良いエディタに切り替えることでみんなが救われるでしょう。
+
+<!--
 * [Visual Studio Code](https://code.visualstudio.com/) is a very popular choice known for being fast and powerful. It supports a broad range of languages and comes with its own terminal, as well as built-in intellisense and autocomplete for both JavaScript and TypeScript. This is the recommended choice.
 * [Atom](https://atom.io/) is user-friendly, being concise and easy to navigate. This is what many developers use to get started.
 * [Sublime Text](https://www.sublimetext.com/) is another powerful editor known for looking sleek and performing speedily and efficiently.
+-->
+
+* [Visual Studio Code](https://code.visualstudio.com/) 高速で高性能であるため非常に人気な選択肢です。これは広範囲の言語をサポートし独自のターミナルが付属しています、JavaScriptやTypeScriptのためのインテリセンスや自動補充も備わっています。これは、おすすめの選択です。
+* [Atom](https://atom.io/) 簡単で扱いやすく、ユーザーにフレンドリーです。多くの開発者が始めに使用します。
+* [Sublime Text](https://www.sublimetext.com/) 洗練された外観でスピーディーかつ効率的に実行できることで知られてるもう一つの強力なエディタです。
 
 ## Installing a linter
 
