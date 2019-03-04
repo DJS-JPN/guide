@@ -20,7 +20,7 @@ As a developer, it's a good idea to make your development process as streamlined
 First, you will need a proper code editor. Using Notepad and Notepad++ is discouraged, as they're inefficient for projects like these. If you are using either, it is highly recommended to switch in order to save everyone lots of headaches and unnecessary syntax error questions.
 -->
 
-はじめに、適切なコードエディタを用意しましょう。メモ帳やNotepad++は、はこのようなプロジェクトには向いていないのでおすすめしません。
+はじめに、適切なコードエディタを用意しましょう。メモ帳やNotepad++は、このようなプロジェクトには向いていないのでおすすめしません。
 これらのエディタを利用すると多くの頭痛や構文エラーが発生します、良いエディタに切り替えることでみんなが救われるでしょう。
 
 <!--
