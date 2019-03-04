@@ -1,35 +1,33 @@
-# Botの設定をしよう!
-
-
 <!-- 
 # Setting up a bot application 
 -->
+# Botの設定
 
-
-## あなたのBotを作ろう！
 
 
 <!-- 
 ## Creating your bot 
 -->
 
+## あなたのBotを作る
 
-Node, Discord.js うまく行ったならlinterもインストールしたので
-コードを書き始める準備は終わりました.
-でもその前にDiscordのwebsiteでBotの設定をしよう!
 
 
 <!--
 Now that you've installed Node, discord.js, and hopefully a linter, you're almost ready to start coding! The next step you need to take is setting up an actual Discord bot application via Discord's website.
 -->
 
-すごい簡単にできるから下の手順に沿ってね
+Node、Discord.js、うまく行ったならlinterもインストールしたのでコードを書き始める準備は終わりました。でもその前にDiscordのwebサイトでBotの設定をしましょう。
 
 
 <!--
 It's incredibly easy to create one. The steps you need to take are as follows:
-
 -->
+
+とても簡単にできるので下の手順に沿ってください。
+
+
+
 
 <!--
 1. Open up [the Discord website](https://discordapp.com/) and [login](https://discordapp.com/login).
@@ -39,10 +37,10 @@ It's incredibly easy to create one. The steps you need to take are as follows:
 -->
 
 
-1. [Discord公式サイト](https://discordapp.com/) を開いて [ログイン](https://discordapp.com/login)して.
-2. Hover over the "Developers" drop-down menu and click on the [Developer Portal](https://discordapp.com/developers/docs/intro) link.
-3. ヘッダーの[Applications](https://discordapp.com/developers/applications) をクリック!.
-4. "Create an application"をクリック.
+1. [Discord公式サイト](https://discordapp.com/) を開いて [ログイン](https://discordapp.com/login)してください。
+2. ページ上部の"デベロッパー向け"にカーソルを合わせ[Developer Portal](https://discordapp.com/developers/docs/intro) をクリック。
+3. ヘッダーの[Applications](https://discordapp.com/developers/applications) をクリック!。
+4. "Create an application"をクリック。
 
 
 
@@ -51,7 +49,7 @@ You should see a page like this:
 -->
 
 
-こんな感じになりましたか?
+こんな感じになったと思います。
 
 
 
@@ -65,8 +63,7 @@ You can optionally enter a name, description, and avatar for your application he
 -->
 
 
-ここはBotにはそんな影響はないけど自分が見やすくなるように
-名前,説明,アプリのアバターアイコンを決めておくといいかも
+ここはBotにはそこまで影響はありませんが、自分が見やすくなるように名前,説明,アプリのアバターアイコンを決めておくといいかもしれません。
 
 ![Create a bot UI](~@/images/create-bot.png)
 
@@ -76,8 +73,7 @@ Click the "Add Bot" button on the right and confirm the pop-up window by clickin
 -->
 
 
-右の"Add Bot"をクリックして,"Yes, do it!"をクリックしてポップアップウインドウを確認してくれ. よくやった, これで君も新品のBotのオーナーになった.
-でもまだ終わらない.
+右の"Add Bot"をクリックして,"Yes, do it!"をクリックしてポップアップウインドウを確認してださい。 おめでとうございます、 これであなたも新品のBotのオーナーになりました、でもまだ終わっていません。
 
 
 <!--
@@ -96,7 +92,7 @@ This section is very important, so pay close attention. It explains what your bo
 
 
 ::: danger
-ここからすごい重要,ちゃんと読んでね
+ここからとても重要です、しっかり読んでください
 :::
 
 
@@ -105,7 +101,7 @@ After creating a bot user, you'll see a section like this:
 -->
 
 
-Botユーザーを作り終わったら下の画像みたいになるよね
+Botユーザーを作り終わったら下の画像みたいになります。
 
 ![Bot application](~@/images/created-bot.png)
 
@@ -115,8 +111,7 @@ In this panel, you can give your bot a snazzy avatar, set its username, and make
 -->
 
 
-ここではBotに名前をつけたりアイコンを変えたり公開/非公開を切り替えたりいろんなことができる,そしてトークンを見たりコピーしたりしてコードを書くときに使ったりできる.
-もちろんトークンを忘れてもここに来ればまたコピーできる.
+ここではBotに名前をつけたりアイコンを変えたり公開/非公開を切り替えたりいろんなことができます。そしてトークンを見たりコピーしたりしてコードを書くときに使ったりできます。もちろんトークンを忘れてもここに来ればまたコピーできます。
 
 
 <!--
@@ -133,8 +128,7 @@ A token is essentially your bot's password; it's what your bot uses to login to 
 -->
 
 
-トークンってのはbotのパスワードみたいなもの; botがDiscordにログインするときに使うね. だからみんなこう言う, **故意だろうが偶然だろうが,それめっちゃ重要だから他人と共有しないで**. もし誰かにそれがバレたらどうなるかだって？たぶん彼らは君のbotをあたかも自分のもののように使い悪用するだろうね.
-たまに知らせてくれる人もいるけど...
+トークンってのはbotのパスワードみたいなものです。botがDiscordにログインするときに使います。だからみんなこう言います, **故意だろうが偶然だろうが,それはとても重要だから他人と共有しないでください。**. もし誰かにそれがバレたらどうなるか，たぶん彼らは君のbotをあたかも自分のもののように使い悪用するでしょう。
 
 
 <!--
@@ -156,15 +150,14 @@ Let's imagine that you have a bot on over 1,000 servers, and it took you many, m
 -->
 
 
-さあ想像してみよう
-君は1000台以上のサーバー君のbotが使われている,そして何ヶ月もコーディングして忍耐で乗り切った.
-でも誰かにトークンがバレた,そしてそいつはこんなことをするだろう
+さあ想像してみましょう。あなたは1000台以上のサーバー君のbotが使われています、そして何ヶ月もコーディングして忍耐で乗り切りました。
+でも誰かにトークンがバレてしまいました、そしてそいつはこんなことをするでしょう。
 
-* 君のbotを使ってすべてのサーバーでスパム;
-* できるだけ多くのユーザーのDMでスパム;
-* できるだけ多くのチャンネルを消す;
-* できるだけ多くのサーバーのメンバーをBANまたはKickするだろうね;
-* そして君のbotはすべてのサーバーから離れていく;
+* 君のbotを使ってすべてのサーバーでスパム。
+* できるだけ多くのユーザーのDMでスパム。
+* できるだけ多くのチャンネルを消す。
+* できるだけ多くのサーバーのメンバーをBANまたはKickするだろうね。
+* そして君のbotはすべてのサーバーから離れていく。
 
 
 <!--
@@ -172,8 +165,7 @@ All that and much, much more. Sounds pretty terrible, right? So make sure to kee
 -->
 
 
-これだけじゃないけど,やられたら...
-だから大切に保管しておこうね
+これが全てではありません、聞いただけでも怖いですよね？だから大切に保管しておきましょう!
 
 
 <!--
@@ -184,5 +176,5 @@ If you ever somehow leak your token (commit it to a repository, post it in a sup
 
 
 ::: danger
-もしトークンがバレたら (リポジトリにコミットしちゃったり, サポートちゃんねるに投稿しちゃったり,など.) さっきトークンをコピーしたページでトークンを再生成しよう,そうすると前のトークンは無効になる.
+もしトークンがバレたら (リポジトリにコミットしてしまったり、 サポートちゃんねるに投稿してしまったり,など.) さっきトークンをコピーしたページでトークンを再生成しましょう,そうすると前のトークンは無効になります。
 :::
