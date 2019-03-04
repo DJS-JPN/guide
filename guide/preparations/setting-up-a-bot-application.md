@@ -2,7 +2,7 @@
 # Setting up a bot application
 -->
 
-# Botの設定
+# Botのセットアップ
 
 
 
@@ -10,14 +10,14 @@
 ## Creating your bot
 -->
 
-## あなたのBotを作る
+## Botを作成する
 
 
 <!--
 Now that you've installed Node, discord.js, and hopefully a linter, you're almost ready to start coding! The next step you need to take is setting up an actual Discord bot application via Discord's website.
 -->
 
-Node、Discord.js、うまく行ったならlinterもインストールしたのでコードを書き始める準備は終わりました。でもその前にDiscordのwebサイトでBotの設定をしましょう。
+Node、Discord.js、うまく行ったならlinterもインストールしたのでコードを書き始める準備はほぼ終わりました。でもその前にDiscordのwebサイトでBotの設定をしましょう。
 
 <!--
 It's incredibly easy to create one. The steps you need to take are as follows:
@@ -32,9 +32,9 @@ It's incredibly easy to create one. The steps you need to take are as follows:
 4. Click on the "Create an application" button.
 -->
 
-1. [Discord公式サイト](https://discordapp.com/) を開いて [ログイン](https://discordapp.com/login)してください。
-2. ページ上部の"デベロッパー向け"にカーソルを合わせ[Developer Portal](https://discordapp.com/developers/docs/intro) をクリック。
-3. ヘッダーの[Applications](https://discordapp.com/developers/applications) をクリック!。
+1. [Discord公式サイト](https://discordapp.com/) を開いて [ログイン](https://discordapp.com/login)。
+2. ページ上部の"デベロッパー向け"にカーソルを合わせ[開発者ポータル](https://discordapp.com/developers/docs/intro) をクリック。
+3. ヘッダーの[Applications](https://discordapp.com/developers/applications) をクリック。
 4. "Create an application"をクリック。
 
 
@@ -44,9 +44,6 @@ You should see a page like this:
 
 こんな感じになったと思います。
 
-
-
-
 ![Successfully created application](~@/images/create-app.png)
 
 
@@ -54,8 +51,7 @@ You should see a page like this:
 You can optionally enter a name, description, and avatar for your application here. Once you've saved your changes, you can move on by selecting the "Bot" tab in the left pane.
 -->
 
-
-ここはBotにはそこまで影響はありませんが、自分が見やすくなるように名前,説明,アプリのアバターアイコンを決めておくといいかもしれません。
+ここはBotにはそこまで影響はありませんが、自分が見やすくなるように名前、説明、アプリのアバターアイコンを決めておくといいかもしれません。
 
 ![Create a bot UI](~@/images/create-bot.png)
 
@@ -63,13 +59,13 @@ You can optionally enter a name, description, and avatar for your application he
 Click the "Add Bot" button on the right and confirm the pop-up window by clicking "Yes, do it!". Congratulations, you're now the proud owner of a shiny new Discord bot! You're not quite done, though.
 -->
 
-右の"Add Bot"をクリックして,"Yes, do it!"をクリックしてポップアップウインドウを確認してださい。 おめでとうございます、 これであなたも新品のBotのオーナーになりました、でもまだ終わっていません。
+右の"Add Bot"をクリックして、"Yes, do it!"をクリックしてポップアップウインドウを確認してださい。 おめでとうございます、 これであなたも新品のBotのオーナーになりました、でもまだ終わっていません。
 
 <!--
 ## Your token
 -->
 
-## あなたのトークンについて
+## トークンについて
 
 <!--
 ::: danger
@@ -106,7 +102,7 @@ In this panel, you can give your bot a snazzy avatar, set its username, and make
 A token is essentially your bot's password; it's what your bot uses to login to Discord. With that being said, **it is vital that you do not ever share this token with anybody, purposely or accidentally**. If someone does manage to get a hold of your token, they can use your bot as if it were theirs—this means they can perform malicious acts with it.
 -->
 
-トークンってのはbotのパスワードみたいなものです。botがDiscordにログインするときに使います。だからみんなこう言います, **故意だろうが偶然だろうが,それはとても重要だから他人と共有しないでください。**. もし誰かにそれがバレたらどうなるか，たぶん彼らは君のbotをあたかも自分のもののように使い悪用するでしょう。
+トークンってのはbotのパスワードみたいなものです。botがDiscordにログインするときに使います。なので、**故意だろうが偶然だろうが,それはとても重要だから他人と共有しないでください。**。もし誰が入手に成功したら、君のbotをあたかも自分のもののように使い悪用するでしょう。
 
 <!--
 ### Token leak scenario
@@ -124,20 +120,20 @@ Let's imagine that you have a bot on over 1,000 servers, and it took you many, m
 * Make your bot leave all of the servers it has joined.
 -->
 
-さあ想像してみましょう。あなたは1000台以上のサーバー君のbotが使われています、そして何ヶ月もコーディングして忍耐で乗り切りました。
-でも誰かにトークンがバレてしまいました、そしてそいつはこんなことをするでしょう。
+さあ想像してみましょう。何ヶ月もコーディングして忍耐で乗り切りました。そしてあなたのbotは1000以上のサーバーで使われています。
+でも誰かにトークンがバレてしまいました。そしてその人はこんなことをするでしょう。
 
-* 君のbotを使ってすべてのサーバーでスパム。
-* できるだけ多くのユーザーのDMでスパム。
+* すべてのサーバーでスパム。
+* できるだけ多くのユーザーにDMでスパム。
 * できるだけ多くのチャンネルを消す。
-* できるだけ多くのサーバーのメンバーをBANまたはKickするでしょうね。
+* できるだけ多くのサーバーのメンバーをBANまたはKick。
 * そして君のbotはすべてのサーバーから離れていく。
 
 <!--
 All that and much, much more. Sounds pretty terrible, right? So make sure to keep your token as safe as possible!
 -->
 
-これが全てではありません、聞いただけでも怖いですよね？だから大切に保管しておきましょう!
+これが全てではありません。聞いただけでも怖いですよね？だからトークンを大切に保管しておきましょう！
 
 <!--
 ::: danger
@@ -146,5 +142,5 @@ If you ever somehow leak your token (commit it to a repository, post it in a sup
 -->
 
 ::: danger
-もしトークンがバレたら (リポジトリにコミットしてしまったり、 サポートちゃんねるに投稿してしまったり,など.) さっきトークンをコピーしたページでトークンを再生成しましょう,そうすると前のトークンは無効になります。
+もしトークンがバレたら（リポジトリにコミットしてしまったり、 サポートチャンネルに投稿してしまったり、など。）さっきトークンをコピーしたページでトークンを再生成しましょう,そうすると前のトークンは無効になります。
 :::
