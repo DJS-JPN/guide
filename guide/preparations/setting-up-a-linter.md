@@ -81,9 +81,9 @@ Afterwards, install the appropriate plugin(s) for your editor of choice.
 * [ESLint for Sublime Text](https://packagecontrol.io/packages/ESLint)
 -->
 
-* [ESLint for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-* [Linter-ESLint for Atom](https://atom.io/packages/linter-eslint) ([Linter for Atom](https://atom.io/packages/linter)が必要です)
-* [ESLint for Sublime Text](https://packagecontrol.io/packages/ESLint)
+* [Visual Studio Code : ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* [Atom : Linter-ESLint](https://atom.io/packages/linter-eslint) ([Atom : Linter](https://atom.io/packages/linter)が必要です)
+* [Sublime Text : ESLint](https://packagecontrol.io/packages/ESLint)
 
 <!--
 ::: tip
