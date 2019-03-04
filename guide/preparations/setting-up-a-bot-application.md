@@ -1,4 +1,4 @@
-<!-- 
+<!--
 # Setting up a bot application
 -->
 
@@ -6,7 +6,7 @@
 
 
 
-<!-- 
+<!--
 ## Creating your bot
 -->
 
