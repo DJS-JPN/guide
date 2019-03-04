@@ -1,5 +1,5 @@
 <!-- 
-# Setting up a bot application 
+# Setting up a bot application
 -->
 
 # Botの設定
@@ -7,11 +7,10 @@
 
 
 <!-- 
-## Creating your bot 
+## Creating your bot
 -->
 
 ## あなたのBotを作る
-
 
 
 <!--
@@ -20,15 +19,11 @@ Now that you've installed Node, discord.js, and hopefully a linter, you're almos
 
 Node、Discord.js、うまく行ったならlinterもインストールしたのでコードを書き始める準備は終わりました。でもその前にDiscordのwebサイトでBotの設定をしましょう。
 
-
 <!--
 It's incredibly easy to create one. The steps you need to take are as follows:
 -->
 
 とても簡単にできるので下の手順に沿ってください。
-
-
-
 
 <!--
 1. Open up [the Discord website](https://discordapp.com/) and [login](https://discordapp.com/login).
@@ -37,18 +32,15 @@ It's incredibly easy to create one. The steps you need to take are as follows:
 4. Click on the "Create an application" button.
 -->
 
-
 1. [Discord公式サイト](https://discordapp.com/) を開いて [ログイン](https://discordapp.com/login)してください。
 2. ページ上部の"デベロッパー向け"にカーソルを合わせ[Developer Portal](https://discordapp.com/developers/docs/intro) をクリック。
 3. ヘッダーの[Applications](https://discordapp.com/developers/applications) をクリック!。
 4. "Create an application"をクリック。
 
 
-
 <!--
 You should see a page like this:
 -->
-
 
 こんな感じになったと思います。
 
