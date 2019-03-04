@@ -156,7 +156,7 @@ Let's imagine that you have a bot on over 1,000 servers, and it took you many, m
 * 君のbotを使ってすべてのサーバーでスパム。
 * できるだけ多くのユーザーのDMでスパム。
 * できるだけ多くのチャンネルを消す。
-* できるだけ多くのサーバーのメンバーをBANまたはKickするだろうね。
+* できるだけ多くのサーバーのメンバーをBANまたはKickするでしょうね。
 * そして君のbotはすべてのサーバーから離れていく。
 
 
