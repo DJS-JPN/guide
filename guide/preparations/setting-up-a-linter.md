@@ -82,7 +82,7 @@ Afterwards, install the appropriate plugin(s) for your editor of choice.
 -->
 
 * [ESLint for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-* [Linter-ESLint for Atom](https://atom.io/packages/linter-eslint) ( [Linter for Atom](https://atom.io/packages/linter)が必要です)
+* [Linter-ESLint for Atom](https://atom.io/packages/linter-eslint) ([Linter for Atom](https://atom.io/packages/linter)が必要です)
 * [ESLint for Sublime Text](https://packagecontrol.io/packages/ESLint)
 
 <!--
@@ -92,7 +92,7 @@ You can install each of these directly inside the editors themselves. For Visual
 -->
 
 ::: tip
-あなたは、これらをエディタに直接インストールすることができます。Visual Studio Codeでは`Ctrl + Shift + X`。Atomでは`Ctrl + ,`。Sublimeでは `Ctrl + Shift + P`([Package Control](https://packagecontrol.io/installation)これをインストールしている必要があります)。その後、適切な拡張機能を見つけインストールしてください。
+あなたは、これらをエディタに直接インストールすることができます。Visual Studio Codeでは`Ctrl + Shift + X`。Atomでは`Ctrl + ,`。Sublimeでは `Ctrl + Shift + P`([Package Control](https://packagecontrol.io/installation)をインストールしている必要があります)。その後、適切な拡張機能を見つけインストールしてください。
 :::
 
 ## Setting up ESLint rules
