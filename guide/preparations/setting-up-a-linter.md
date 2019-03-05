@@ -20,8 +20,7 @@ As a developer, it's a good idea to make your development process as streamlined
 First, you will need a proper code editor. Using Notepad and Notepad++ is discouraged, as they're inefficient for projects like these. If you are using either, it is highly recommended to switch in order to save everyone lots of headaches and unnecessary syntax error questions.
 -->
 
-はじめに、適切なコードエディタを用意しましょう。メモ帳やNotepad++は、このようなプロジェクトには向いていないのでおすすめしません。
-これらのエディタを利用すると多くの頭痛や構文エラーが発生します、良いエディタに切り替えることでみんなが救われるでしょう。
+はじめに、適切なコードエディタを用意しましょう。メモ帳やNotepad++は、このようなプロジェクトには向いていないのでおすすめしません。これらのエディタを利用すると多くの頭痛や構文エラーが発生します、良いエディタに切り替えることでみんなが救われるでしょう。
 
 <!--
 * [Visual Studio Code](https://code.visualstudio.com/) is a very popular choice known for being fast and powerful. It supports a broad range of languages and comes with its own terminal, as well as built-in intellisense and autocomplete for both JavaScript and TypeScript. This is the recommended choice.
@@ -229,5 +228,4 @@ The major points of this setup would be:
 If your current code style is a bit different or you simply don't like a few of these rules, that's perfectly fine! Just head over to the [ESLint docs](https://eslint.org/docs/rules/), find the rule(s) you want to modify, and change them accordingly.
 -->
 
-現在のコードスタイルと少し違う場合や、これらの規則のいくつかが気に入らない場合は、それで問題ありません。
-[ESLint docs](https://eslint.org/docs/rules/)に行き、変更したいルールを見つけて、それに応じて変更してください。
+現在のコードスタイルと少し違う場合や、これらの規則のいくつかが気に入らない場合は、それで問題ありません。[ESLint docs](https://eslint.org/docs/rules/)に行き、変更したいルールを見つけて、それに応じて変更してください。
