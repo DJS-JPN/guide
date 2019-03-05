@@ -63,7 +63,7 @@ You can optionally enter a name, description, and avatar for your application he
 Click the "Add Bot" button on the right and confirm the pop-up window by clicking "Yes, do it!". Congratulations, you're now the proud owner of a shiny new Discord bot! You're not quite done, though.
 -->
 
-右の"Add Bot"をクリックして、"Yes, do it!"をクリックしてポップアップウインドウを確認してださい。 おめでとうございます、 これであなたも新品のBotのオーナーになりました、でもまだ終わっていません。
+右の"Add Bot"をクリックして、"Yes, do it!"をクリックしてポップアップウインドウを確認してください。おめでとうございます。これであなたも新品のBotのオーナーになりました。でもまだ終わっていません。
 
 <!--
 ## Your token
@@ -78,14 +78,14 @@ This section is very important, so pay close attention. It explains what your bo
 -->
 
 ::: danger
-ここからとても重要です、しっかり読んでください
+これからBotトークンとはなにか、セキュリティ面についてお話します。とても重要です、しっかり読んでください。
 :::
 
 <!--
 After creating a bot user, you'll see a section like this:
 -->
 
-Botユーザーを作り終わったら下の画像みたいになります。
+Botユーザーを作り終わったら下の画像のようになります。
 
 ![Bot application](~@/images/created-bot.png)
 
@@ -93,7 +93,7 @@ Botユーザーを作り終わったら下の画像みたいになります。
 In this panel, you can give your bot a snazzy avatar, set its username, and make it public or private. You can access your token in this panel as well, either by revealing it or simply pressing the "Copy" button. When we ask you to paste your token somewhere, this is the value that you need to put in. Don't worry if you do happen to lose it at some point; you can always come back to this page and copy it again.
 -->
 
-ここではBotに名前をつけたりアイコンを変えたり公開/非公開を切り替えたりいろんなことができます。そしてトークンを見たりコピーしたりしてコードを書くときに使ったりできます。もちろんトークンを忘れてもここに来ればまたコピーできます。
+このパネルではBotに名前をつけたりアイコンを変えたり公開/非公開を切り替えたりできます。そしてトークンを見たり、"Copy"ボタンを押すことによってコピーし、コードを書くときに使ったりできます。もちろんトークンを忘れてもここに来ればまたコピーできます。
 
 <!--
 ### What is a token, anyway?
@@ -106,7 +106,7 @@ In this panel, you can give your bot a snazzy avatar, set its username, and make
 A token is essentially your bot's password; it's what your bot uses to login to Discord. With that being said, **it is vital that you do not ever share this token with anybody, purposely or accidentally**. If someone does manage to get a hold of your token, they can use your bot as if it were theirs—this means they can perform malicious acts with it.
 -->
 
-トークンってのはbotのパスワードみたいなものです。botがDiscordにログインするときに使います。だからみんなこう言います、 **故意だろうが偶然だろうが、それはとても重要だから他人と共有しないでください。** もし誰かにそれがバレたらどうなるか，たぶん彼らは君のbotをあたかも自分のもののように使い悪用するでしょう。
+トークンはbotのパスワードのようなものです。botがDiscordにログインするときに使います。なので、 **故意だろうが偶然だろうが、それはとても重要だから他人と共有しないでください。** もし誰かが入手に成功したら、君のbotを我が物のように使い、悪用するでしょう。
 
 <!--
 ### Token leak scenario
@@ -124,11 +124,11 @@ Let's imagine that you have a bot on over 1,000 servers, and it took you many, m
 * Make your bot leave all of the servers it has joined.
 -->
 
-さあ想像してみましょう。何ヶ月もコーディングして忍耐で乗り切りました。そしてあなたのbotは1000以上のサーバーで使われています。
+さあ想像してみましょう。何ヶ月もコーディングして忍耐で乗り切りました。そしてBotは1000以上のサーバーで使われています。
 でも誰かにトークンがバレてしまいました。そしてその人はこんなことをするでしょう。
 
 * すべてのサーバーでスパム。
-* できるだけ多くのユーザーにDMでスパム。
+* できるだけ多くのユーザーにDMにスパム。
 * できるだけ多くのチャンネルを消す。
 * できるだけ多くのサーバーのメンバーをBANまたはKick。
 * そして君のbotはすべてのサーバーから離れていく。
@@ -137,7 +137,7 @@ Let's imagine that you have a bot on over 1,000 servers, and it took you many, m
 All that and much, much more. Sounds pretty terrible, right? So make sure to keep your token as safe as possible!
 -->
 
-これが全てではありません。聞いただけでも怖いですよね？だからトークンを大切に保管しておきましょう！
+これが全てではありません。聞いただけでも怖いですよね？なのでトークンを大切に保管しておきましょう！
 
 <!--
 ::: danger
@@ -146,5 +146,5 @@ If you ever somehow leak your token (commit it to a repository, post it in a sup
 -->
 
 ::: danger
-もしトークンがバレたら（リポジトリにコミットしてしまったり、 サポートチャンネルに投稿してしまったり、など。）さっきトークンをコピーしたページでトークンを再生成しましょう,そうすると前のトークンは無効になります。
+もしトークンがバレたら（リポジトリにコミットしてしまったり、 サポートチャンネルに投稿してしまったり、など。）さっきトークンをコピーしたページでトークンを再生成しましょう、そうすると前のトークンは無効になります。そしてトークンを書いたところすべてを更新してください
 :::
