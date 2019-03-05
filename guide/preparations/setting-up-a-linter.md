@@ -223,7 +223,7 @@ The major points of this setup would be:
 * セミコロンが必要です。JavaScriptでは必須ではありませんがつけるほうが良いとされています。
 * プロパティへのアクセスを同じ行にする必要があります。
 * タブでインデントすることを要求します。
-* ネストしたコールバックを4に制限します。このエラーが発生した場合は、コードのリファクタリングを検討することをお勧めします。
+* ネストしたコールバックを4つに制限します。このエラーが発生した場合は、コードのリファクタリングを検討することをお勧めします。
 
 <!--
 If your current code style is a bit different or you simply don't like a few of these rules, that's perfectly fine! Just head over to the [ESLint docs](https://eslint.org/docs/rules/), find the rule(s) you want to modify, and change them accordingly.
