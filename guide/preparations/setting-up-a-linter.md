@@ -216,7 +216,7 @@ The major points of this setup would be:
 * Limiting nested callbacks to 4. If you hit this error, it is a good idea to consider refactoring your code.
 -->
 
-* `console.log（）`でデバッグできるようにします。
+* `console.log()`でデバッグできるようにします。
 * `var`を禁止し、`var`や`let`ではなく`const`を最優先で使うようにします。
 * コールバック内で同じ名前の変数を許可しません。
 * ダブルクオート(`"`)ではなくシングルクオート(`'`)を利用するようにします。
