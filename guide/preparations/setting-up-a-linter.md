@@ -1,3 +1,7 @@
+---
+title: Linter(構文チェッカー)のセットアップ
+---
+
 <!--
 # Setting up a linter
 -->
