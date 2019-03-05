@@ -1,3 +1,7 @@
+---
+title: Botのセットアップ
+---
+
 <!--
 # Setting up a bot application
 -->
