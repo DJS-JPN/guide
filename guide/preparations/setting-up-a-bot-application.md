@@ -63,7 +63,7 @@ You can optionally enter a name, description, and avatar for your application he
 Click the "Add Bot" button on the right and confirm the pop-up window by clicking "Yes, do it!". Congratulations, you're now the proud owner of a shiny new Discord bot! You're not quite done, though.
 -->
 
-右の"Add Bot"をクリックして、"Yes, do it!"をクリックしてポップアップウインドウを確認してください。おめでとうございます。これであなたも新品のBotのオーナーになりました。でもまだ終わっていません。
+右の"Add Bot"、"Yes, do it!"の順にクリックしてポップアップウインドウを確認してください。おめでとうございます。これであなたも新品のBotのオーナーになりました。でもまだ終わっていません。
 
 <!--
 ## Your token
@@ -124,11 +124,10 @@ Let's imagine that you have a bot on over 1,000 servers, and it took you many, m
 * Make your bot leave all of the servers it has joined.
 -->
 
-さあ想像してみましょう。何ヶ月もコーディングして忍耐で乗り切りました。そしてBotは1000以上のサーバーで使われています。
-でも誰かにトークンがバレてしまいました。そしてその人はこんなことをするでしょう。
+さあ想像してみましょう。多くの時間を掛けて開発し、今では1000以上のサーバーで使われているBotのトークンが誰かにバレてしまいました。そしてその人はこんなことをするでしょう。
 
 * すべてのサーバーでスパム。
-* できるだけ多くのユーザーにDMにスパム。
+* できるだけ多くのユーザーのDMにスパム。
 * できるだけ多くのチャンネルを消す。
 * できるだけ多くのサーバーのメンバーをBANまたはKick。
 * そして君のbotはすべてのサーバーから離れていく。
