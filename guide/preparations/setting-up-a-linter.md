@@ -141,7 +141,7 @@ This is the base of what an ESLint file will look like. The `rules` object is wh
 You can find a list of all of ESLint's rules on their site, located [here](https://eslint.org/). There are indeed many rules and it may be overwhelming at first, but you'll only need to go through the list and define your file once.
 -->
 
-ESLintのルールのは[ここ](https://eslint.org/)にあります。実際にたくさんのルールがありはじめは圧倒されると思いますが、リストをたどり一回設定してしまえばそれで済みます。
+ESLintのすべてのルールは[ここ](https://eslint.org/)にあります。実際にたくさんのルールがありはじめは圧倒されると思いますが、リストをたどり一回設定してしまえばそれで済みます。
 
 <!--
 Alternatively, if you don't want to go through everything one-by-one on your own, you can use the ESLint file we use for this guide.
