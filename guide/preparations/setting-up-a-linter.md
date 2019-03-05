@@ -105,7 +105,7 @@ You can install each of these directly inside the editors themselves. For Visual
 ESLint may display a lot of warnings and errors about your code when you start using it, but don't let this startle you. In order to get started, follow these steps:
 -->
 
-ESLintを使い始めるとコードに対するエラーや警告がたくさん表示されると思います、驚いてはいけません。しっかりと利用するために以下のステップに従ってください。
+ESLintを使い始めるとコードに対するエラーや警告がたくさん表示されると思います、驚く必要はありません。しっかりと利用するために以下のステップに従ってください。
 
 <!--
 1. Create a file in your root directory named `.eslintrc.json` (where your main project file is located).
