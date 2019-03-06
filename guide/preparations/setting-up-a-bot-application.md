@@ -36,9 +36,9 @@ It's incredibly easy to create one. The steps you need to take are as follows:
 4. Click on the "Create an application" button.
 -->
 
-1. [Discord公式サイト](https://discordapp.com/) を開いて [ログイン](https://discordapp.com/login)。
-2. ページ上部の"デベロッパー向け"にカーソルを合わせ[開発者ポータル](https://discordapp.com/developers/docs/intro) をクリック。
-3. ヘッダーの[Applications](https://discordapp.com/developers/applications) をクリック。
+1. [Discord公式サイト](https://discordapp.com/)を開いて[ログイン](https://discordapp.com/login)。
+2. ページ上部の"デベロッパー向け"にカーソルを合わせ[開発者ポータル](https://discordapp.com/developers/docs/intro)をクリック。
+3. ヘッダーの[Applications](https://discordapp.com/developers/applications)をクリック。
 4. "Create an application"をクリック。
 
 
@@ -97,7 +97,6 @@ In this panel, you can give your bot a snazzy avatar, set its username, and make
 
 <!--
 ### What is a token, anyway?
-
 -->
 
 ### ところでトークンって何？
@@ -106,7 +105,7 @@ In this panel, you can give your bot a snazzy avatar, set its username, and make
 A token is essentially your bot's password; it's what your bot uses to login to Discord. With that being said, **it is vital that you do not ever share this token with anybody, purposely or accidentally**. If someone does manage to get a hold of your token, they can use your bot as if it were theirs—this means they can perform malicious acts with it.
 -->
 
-トークンはbotのパスワードのようなものです。botがDiscordにログインするときに使います。なので、 **故意だろうが偶然だろうが、それはとても重要だから他人と共有しないでください。** もし誰かが入手に成功したら、君のbotを我が物のように使い、悪用するでしょう。
+トークンはbotのパスワードのようなものです。botがDiscordにログインするときに使います。なので、**故意だろうが偶然だろうが、それはとても重要だから他人と共有しないでください。**もし誰かが入手に成功したら、君のbotを我が物のように使い、悪用するでしょう。
 
 <!--
 ### Token leak scenario
@@ -146,5 +145,5 @@ If you ever somehow leak your token (commit it to a repository, post it in a sup
 -->
 
 ::: danger
-もしトークンがバレたら（リポジトリにコミットしてしまったり、 サポートチャンネルに投稿してしまったり、など。）さっきトークンをコピーしたページでトークンを再生成しましょう、そうすると前のトークンは無効になります。そしてトークンを書いたところすべてを更新してください
+もしトークンがバレたら（リポジトリにコミットしてしまったり、サポートチャンネルに投稿してしまったり、など。）さっきトークンをコピーしたページでトークンを再生成しましょう、そうすると前のトークンは無効になります。そしてトークンを書いたところすべてを更新してください
 :::
