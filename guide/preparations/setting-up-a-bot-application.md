@@ -8,7 +8,6 @@ title: Botのセットアップ
 
 # Botのセットアップ
 
-
 <!--
 ## Creating your bot
 -->
