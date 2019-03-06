@@ -9,13 +9,11 @@ title: Botのセットアップ
 # Botのセットアップ
 
 
-
 <!--
 ## Creating your bot
 -->
 
 ## Botを作成する
-
 
 <!--
 Now that you've installed Node, discord.js, and hopefully a linter, you're almost ready to start coding! The next step you need to take is setting up an actual Discord bot application via Discord's website.
@@ -41,7 +39,6 @@ It's incredibly easy to create one. The steps you need to take are as follows:
 3. ヘッダーの[Applications](https://discordapp.com/developers/applications)をクリック。
 4. "Create an application"をクリック。
 
-
 <!--
 You should see a page like this:
 -->
@@ -49,7 +46,6 @@ You should see a page like this:
 こんな感じになったと思います。
 
 ![Successfully created application](~@/images/create-app.png)
-
 
 <!--
 You can optionally enter a name, description, and avatar for your application here. Once you've saved your changes, you can move on by selecting the "Bot" tab in the left pane.
