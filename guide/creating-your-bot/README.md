@@ -39,7 +39,7 @@ You can quickly create a new file by using the `Ctrl + N` shortcut on your keybo
 -->
 
 ::: tip
-キーボードの`Ctrl+N`を押すことでファイルを作成。`Ctrl+S`を押すことでファ入りを保存できます。
+キーボードの`Ctrl+N`を押すことでファイルを作成。`Ctrl+S`を押すことでファイルを保存できます。
 :::
 
 <!--
