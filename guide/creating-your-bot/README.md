@@ -24,7 +24,7 @@ We're finally getting to the exciting parts! Since your bot is in your server no
 Open up your preferred code editor (whether it be [Visual Studio Code](https://code.visualstudio.com/), [Atom](https://atom.io/), [Sublime Text](https://www.sublimetext.com/), or any other editor of your choice) and create a new file. If you're brand new and aren't sure what to use, go with Visual Studio Code.
 -->
 
-お好みのコードテキストを開いてください。（[Visual Studio Code](https://code.visualstudio.com/)、[Atom](https://atom.io/)、[Sublime Text](https://www.sublimetext.com/)など、またはあなたが選択した他のエディタでも）そして新しいファイルを作ってください。もし何を使えばいいかわからなくなってしまったらVisualStudioCodeを使ってください。
+お好みのコードテキストを開いてください。（[Visual Studio Code](https://code.visualstudio.com/)、[Atom](https://atom.io/)、[Sublime Text](https://www.sublimetext.com/)など、またはあなたが選択した他のエディタでも）そして新しいファイルを作ってください。もし何を使えばいいかわからなくなってしまったらVisual Studio Codeを使ってください。
 
 <!--
 It's suggested that you save the file as `index.js`, but you may name it whatever you wish, as long as it ends with `.js`.
@@ -39,7 +39,7 @@ You can quickly create a new file by using the `Ctrl + N` shortcut on your keybo
 -->
 
 ::: tip
-キーボードの`Ctrl+N`を押すことでファイルを作成。`Ctrl+S`を押すことでファイルを保存できます。
+キーボードの`Ctrl+N`を押すことでファイルを作成、`Ctrl+S`を押すことでファイルを保存できます。
 :::
 
 <!--
@@ -52,7 +52,7 @@ You can quickly create a new file by using the `Ctrl + N` shortcut on your keybo
 Once you've created a new file, do a quick check to see if you have everything setup properly. Copy & paste the following code into your file and save it. Don't worry if you don't understand it right away—it'll be explained a bit more in depth after this.
 -->
 
-新しいファイルを作成したら１度すべてを簡単に確認してください。そして、次のコードをコピーしてファイルに貼り付けて保存してください。今すぐに理解できなくても構いません。このことについては後でもう少し詳しく説明します。
+新しいファイルを作成したらすべて正しく設定されているか軽く目を通してください。そして、次のコードをコピーしてファイルに貼り付けて保存してください。今すぐに理解できなくても構いません。このことについては後でもう少し詳しく説明します。
 
 <!--
 ```js
