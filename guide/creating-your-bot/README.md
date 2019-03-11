@@ -54,6 +54,19 @@ Once you've created a new file, do a quick check to see if you have everything s
 
 新しいファイルを作成したら１度すべてを簡単に確認してください。そして、次のコードをコピーしてファイルに貼り付けて保存してください。今すぐに理解できなくても構いません。このことについては後でもう少し詳しく説明します。
 
+<!--
+```js
+const Discord = require('discord.js');
+const client = new Discord.Client();
+
+client.once('ready', () => {
+	console.log('準備完了！');
+});
+
+client.login('トークンをここに');
+```
+-->
+
 ```js
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -86,7 +99,6 @@ Don't feel like typing the file name each time? Open up your `package.json` file
 -->
 
 ### 起動させるコードの説明
-
 
 <!--
 Here's the same code with comments, so it's easier to understand what's going on.
