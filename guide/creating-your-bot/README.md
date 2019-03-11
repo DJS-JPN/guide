@@ -24,7 +24,7 @@ We're finally getting to the exciting parts! Since your bot is in your server no
 Open up your preferred code editor (whether it be [Visual Studio Code](https://code.visualstudio.com/), [Atom](https://atom.io/), [Sublime Text](https://www.sublimetext.com/), or any other editor of your choice) and create a new file. If you're brand new and aren't sure what to use, go with Visual Studio Code.
 -->
 
-お好みのコードテキストを開いてください。（[VisualStudioCode](https://code.visualstudio.com/)、[Atom](https://atom.io/)、[SublimeText](https://www.sublimetext.com/)など、またはあなたが選択した他のエディタでも）そして新しいファイルを作ってください。もし何を使えばいいかわからなくなってしまったらVisualStudioCodeを使ってください。
+お好みのコードテキストを開いてください。（[Visual Studio Code](https://code.visualstudio.com/)、[Atom](https://atom.io/)、[Sublime Text](https://www.sublimetext.com/)など、またはあなたが選択した他のエディタでも）そして新しいファイルを作ってください。もし何を使えばいいかわからなくなってしまったらVisualStudioCodeを使ってください。
 
 <!--
 It's suggested that you save the file as `index.js`, but you may name it whatever you wish, as long as it ends with `.js`.
