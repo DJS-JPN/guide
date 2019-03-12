@@ -39,7 +39,7 @@ You can quickly create a new file by using the `Ctrl + N` shortcut on your keybo
 -->
 
 ::: tip
-キーボードの`Ctrl+N`を押すことでファイルを作成、`Ctrl+S`を押すことでファイルを保存できます。
+キーボードの`Ctrl + N`を押すことでファイルを作成、`Ctrl + S`を押すことでファイルを保存できます。
 :::
 
 <!--
@@ -134,12 +134,12 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // クライアントの準備ができた際に実行されます。
-// このイベントは１度だけ発火、ログインします。
+// このイベントはした後に１度だけ発火します。
 client.once('ready', () => {
 	console.log('準備完了！');
 });
 
-// トークンを使ってDiscord
+// トークンを使ってDiscordにログイン
 client.login('トークンをここに');
 ```
 
@@ -158,7 +158,7 @@ Although it's not a lot, it's good to know what each bit of your code does. But,
 First, make sure to close the process in your console. You can do so by pressing `Ctrl + C` inside the console. Go back to your code editor and add the following piece of code above the `client.login()` line.
 -->
 
-最初に必ずプロセスを閉じてください。コンソールの中で `Ctrl+C` を押すと閉じることができます。コードエディターに戻って`client.login()`の行の上に下のコードを追加してください。
+最初に必ずプロセスを閉じてください。コンソールの中で `Ctrl + C` を押すと閉じることができます。コードエディターに戻って`client.login()`の行の上に下のコードを追加してください。
 
 ```js
 client.on('message', message => {
