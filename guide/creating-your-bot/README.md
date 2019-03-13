@@ -82,7 +82,7 @@ client.login('トークンをここに');
 Head back to your console window, type in `node your-file-name.js`, and press enter. If you see the `Ready!` message after a few seconds, you're good to go! If not, try going back a few steps and make sure you followed everything correctly.
 -->
 
-コンソールウィンドウに戻り、'node あなたのファイルの名前.js'と入力してエンターを押してください。もし実行して数秒後に"準備完了！"とメッセージをが表示されたら次に進んでもいいですよ！そうでない場合は少し戻って正しくすべてを行ったか確認してください。
+コンソールウィンドウに戻り、`node あなたのファイルの名前.js`と入力してエンターを押してください。もし実行して数秒後に「準備完了！」とメッセージが表示されたら次に進んでもいいですよ！そうでない場合は少し戻って正しくすべてを行ったか確認してください。
 
 <!--
 ::: tip
@@ -134,7 +134,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // クライアントの準備ができた際に実行されます。
-// このイベントはした後に１度だけ発火します。
+// このイベントはログインした後に１度だけ発火します。
 client.once('ready', () => {
 	console.log('準備完了！');
 });
