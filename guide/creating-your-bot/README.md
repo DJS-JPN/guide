@@ -82,7 +82,7 @@ client.login('トークンをここに');
 Head back to your console window, type in `node your-file-name.js`, and press enter. If you see the `Ready!` message after a few seconds, you're good to go! If not, try going back a few steps and make sure you followed everything correctly.
 -->
 
-コンソールウィンドウに戻り、`node あなたのファイルの名前.js`と入力してエンターを押してください。もし実行して数秒後に「準備完了！」とメッセージが表示されたら次に進んでもいいですよ！そうでない場合は少し戻って正しくすべてを行ったか確認してください。
+コンソールウィンドウに戻り、`node ファイル名.js`と入力してエンターを押してください。もし実行して数秒後に「準備完了！」とメッセージが表示されたら次に進んでもいいですよ！そうでない場合は少し戻って正しくすべてを行ったか確認してください。
 
 <!--
 ::: tip
@@ -205,7 +205,7 @@ if (message.content === '!ping') {
 
 ```js
 if (message.content === '!ping') {
-	// メッセージが送信されたチャンネルへ"Pong."を送り返す。
+	// メッセージが送信されたチャンネルへ「Pong.」を送り返す。
 	message.channel.send('Pong.');
 }
 ```
