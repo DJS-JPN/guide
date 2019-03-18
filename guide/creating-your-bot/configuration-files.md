@@ -11,14 +11,14 @@ This page is a follow-up and bases its code off of [the previous page](/creating
 -->
 
 ::: tip
-このページは[前のページ](/creating-your-bot/)のコードを補足しています。
+このページは[前のページ](/creating-your-bot/)のコードをもとにして、説明しています。
 :::
 
 <!--
 As you get deeper into development, you may need to interact with sensitive data or data that gets used in multiple locations, such as:
 -->
 
-開発を深めるに連れて以下の複数の場所で使用されるデータや機密データとやりとりをする必要があるかもしれません。
+開発を深めるに連れて以下の複数の場所で使用されるデータや機密データとやりとりする必要があるかもしれません。
 
 <!--
 * Database passwords
@@ -28,7 +28,7 @@ As you get deeper into development, you may need to interact with sensitive data
 -->
 
 * データベースのパスワード
-* APIのキー
+* APIキー
 * コマンドプレフィックス
 * BotのオーナーIDのリスト
 
@@ -87,7 +87,7 @@ Next, copy your token from the `client.login('your-token-goes-here')` line and p
 Now you can simply do `client.login(config.token)` to login! If you want to use a different prefix than `!`, you can change that as well.
 -->
 
-今は単にログインするために `client.login(config.token)` を使えます！もしあなたが `!` 以外の違う接頭辞を使いたいなら、それも変更することができます。
+これで単にログインするために `client.login(config.token)` を使えます！もしあなたが `!` 以外の違う接頭辞を使いたいなら、それも変更することができます。
 
 <!--
 ## Storing additional data
@@ -99,7 +99,7 @@ Now you can simply do `client.login(config.token)` to login! If you want to use 
 As previously mentioned, you'll probably want to store more than just your token and prefix at one point or another. If you want to store more data, just add another key/value pair to the list!
 -->
 
-前述のように、トークンとプレフィックス以外のものも、どこか別の場所に保存しておくことをおすすめします。もっとデータを保存したい場合は、リストに別のキーの値と値のペアを追加するだけです。
+前述のように、トークンとプレフィックス以外のものも、どこか別の場所に保存しておくことをおすすめします。もっとデータを保存したい場合は、リストに別のキーと値のペアを追加するだけです。
 
 <!--
 ```json
