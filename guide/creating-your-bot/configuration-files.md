@@ -81,7 +81,7 @@ const config = require('./config.json');
 Next, copy your token from the `client.login('your-token-goes-here')` line and paste into the `config.json` file. Make sure to keep it between the double quotes.
 -->
 
-次に、 `client.login('your-token-goes-here')` からトークンをコピーして、 `config.json` に追加してください。必ずダブルクォーテーションで囲んでください。
+次に、 `client.login('トークンはここにある')` からトークンをコピーして、 `config.json` に追加してください。必ずダブルクォーテーションで囲んでください。
 
 <!--
 Now you can simply do `client.login(config.token)` to login! If you want to use a different prefix than `!`, you can change that as well.
