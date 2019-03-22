@@ -1,3 +1,7 @@
+---
+title: 設定ファイル
+---
+
 <!--
 # Configuration files
 -->
