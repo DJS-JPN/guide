@@ -24,7 +24,7 @@ const config = {
 			logo: 'GuideLogo',
 			extraOptions: { before: 'BranchSelector' },
 		},
-		repo: 'DJS-JPN/guide',
+		repo: 'discordjs-japan/guide',
 		docsDir: 'guide',
 		sidebarDepth: 3,
 		editLinks: true,
