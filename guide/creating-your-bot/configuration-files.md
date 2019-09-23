@@ -40,7 +40,7 @@ As you get deeper into development, you may need to interact with sensitive data
 Having that kind of data hard-coded in each of your files can be a bit bothersome and is less than ideal, to say the least. This is where configuration files come in - they're great for storing static data that can be easily updated in a single place.
 -->
 
-上記のような種類のデータを各ファイルにハードコーディングするのは少し面倒であり、控えめに言っても理想的とは言えません。これは設定ファイルを使うところです。それらは静的なデータを保存するのに最適です。そして、それは簡単に一箇所で更新することができます。
+上記のような種類のデータを各ファイルにべた書きするのは少し面倒であり、控えめに言っても理想的とは言えません。これは設定ファイルを使うところです。それらは静的なデータを保存するのに最適です。そして、それは簡単に一箇所で更新することができます。
 
 <!--
 ## Implementing your config file

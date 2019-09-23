@@ -216,7 +216,7 @@ Once the installation is complete, you'll see something like this:
 And that's it! With all the necessities installed, you're almost ready to start coding your bot.
 -->
 
-以上です！必要なものがすべて揃ったら、ボットのコーディングを始める準備はほぼ整いました。
+以上です！必要なものがすべて揃ったら、ボットの開発を始める準備はほぼ整いました。
 
 ---
 
@@ -230,4 +230,4 @@ And that's it! With all the necessities installed, you're almost ready to start 
 While you are coding, you may find that you run into numerous syntax errors, or just code in an inconsistent style. It's highly urged that you install a linter to ease these troubles. While code editors generally are able to point out syntax errors, with a linter, you can coerce your coding to be in a specific style as you define in the configuration. While this is not required, it's strongly recommended. [Click here for the linter guide!](/preparations/setting-up-a-linter.md)
 -->
 
-コーディングしている間、多数の構文エラーに遭遇したり、単に矛盾したスタイルで書いていることに気付くかもしれません。これらの問題を解決するためにlinterをインストールすることを強くお勧めします。一般的に、コードエディタは構文エラーを指摘することができますが、リンターを使用すると、設定で定義したとおりにコーディングを特定のスタイルに強制することができます。これは必須ではありませんが、強くお勧めします。[リンターガイドはこちらをクリック！](/preparations/setting-up-a-linter.md)
+開発している間、多数の構文エラーに遭遇したり、単に矛盾したスタイルで書いていることに気付くかもしれません。これらの問題を解決するためにlinterをインストールすることを強くお勧めします。一般的に、コードエディタは構文エラーを指摘することができますが、リンターを使用すると、設定で定義したとおりにプログラムを特定のスタイルに強制することができます。これは必須ではありませんが、強くお勧めします。[リンターガイドはこちらをクリック！](/preparations/setting-up-a-linter.md)
