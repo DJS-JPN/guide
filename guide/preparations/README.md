@@ -30,7 +30,7 @@ discord.jsを使用するには、Node.jsをインストールする必要があ
 If you're developing on Windows, it's as simple as installing any other program. Go to [the Node.js website](https://nodejs.org/), download the latest version, open up the downloaded file, and follow the steps from the installer.
 -->
 
-Windowsで開発しているのなら、それは他のソフトをインストールするのと同じぐらい簡単です。[Node.jsのWebサイト](https://nodejs.org/)へ行き、最新版をダウンロードして、ダウンロードしたファイルを開いて、インストーラの手順に従ってください。
+Windowsで開発しているのなら、それは他のソフトをインストールするのと同じぐらい簡単です。[Node.jsのWebサイト](https://nodejs.org/)を開き、最新版をダウンロードして、そのダウンロードしたファイルを開いて、インストーラの手順に従ってください。
 
 <!--
 ### Installing on macOS
@@ -54,7 +54,7 @@ macOSで開発しているのなら、いくつかの選択肢があります。
 If you're developing on Linux, you may consult [this page](https://nodejs.org/en/download/package-manager/) to determine how you should install Node.<br />On that note, there's a possibility that you may already have Node \(e.g. if you're using a VPS\). You can check by running the `node -v` command. If it outputs something like `v8.0.0` or higher, then you're good to go! Otherwise, take a look at the page linked above for instructions on installing Node on your OS.
 -->
 
-Linuxで開発しているのなら、どのようにNodeをインストールすべきかを決めるために[このページ](https://nodejs.org/en/download/package-manager/)を調べることができます。<br />注意として既にNodeがインストールされている可能性があります（例えば、あなたがVPSを使っている場合など）。`node -v`コマンドを実行して確認できます。もしそれが`v8.0.0`以上のバージョンを出力するなら、問題ないです！それ以外の場合は、上にリンクされているページを見て、あなたのOSにNodeをインストールしてください。
+Linuxで開発しているのなら、どのようにNodeをインストールすべきかを決めるために[このページ](https://nodejs.org/en/download/package-manager/)を確認することができます。<br />注意として既にNodeがインストールされている可能性があります（あなたがVPSを使っている場合など）。`node -v`コマンドを実行して確認できます。もしそれが`v8.0.0`以上のバージョンを出力するなら、それで問題ないです！そうではない場合は、上にリンクされているページを見て、あなたのOSにNodeをインストールしてください。
 
 <!--
 ::: warning
@@ -63,7 +63,7 @@ If you _do_ have Node installed, but have an older version \(i.e. anything below
 -->
 
 ::: warning
-Nodeをインストールしたが、古いバージョン（つまり8.0.0以下のもの）の場合は、最新のバージョンにアップグレードしてください。
+すでにNodeがインストールされていても、古いバージョン（8.0.0以下）の場合は、最新のバージョンにアップグレードしてください。
 :::
 
 ---
@@ -78,13 +78,13 @@ Nodeをインストールしたが、古いバージョン（つまり8.0.0以�
 To install and use discord.js, you'll need to install it via npm \(Node's package manager\). npm comes with every Node installation, so you don't have to worry about installing that. However, before you install anything, you should set up a new project folder.
 -->
 
-discord.jsを使用するには、npmからインストールする必要があります（Nodeのパッケージマネージャ）。npmはすべてのNodeインストールに付属しているので、インストールすることを心配する必要はありません。ただし、何かをインストールする前には、新しいプロジェクトフォルダを設定する必要があります。
+discord.jsを使用するには、npmからインストールする必要があります（Nodeのパッケージマネージャ）。npmはすべてのNodeインストール方法に付属しているので、インストールすることを心配する必要はありません。ただし、何かをインストールする前には、新しいプロジェクトフォルダを作成する必要があります。
 
 <!--
 ### Setting up a project folder
 -->
 
-### プロジェクトフォルダの設定
+### プロジェクトフォルダの作成
 
 <!--
 Like any other project, you should have a dedicated folder for this, in order to keep it organized and manageable.
@@ -96,7 +96,7 @@ Like any other project, you should have a dedicated folder for this, in order to
 Navigate to a place on your machine that's easy to find and reopen in the future, for convenience purposes. Create a new folder like you normally would (for Linux, you can use `mkdir project-name` inside your terminal). If you already have a name you want to use for your bot, you can use that as the folder name. Otherwise, you may name it something like `discord-bot` for the time being \(or anything else you have in mind\).
 -->
 
-利便性のために、パソコン上の簡単に開くことができる場所に移動します。通常どおりに新しいフォルダを作成します（Linuxの場合は、ターミナル内で `mkdir プロジェクト名`を使用できます）。ボットに使用したい名前がすでにある場合は、フォルダ名としてそれを使用することができます。そうでなければ、当面の間は `discord-bot`のような名前を付けても構いません（あるいは他に何か考えているもの）。
+利便性のために、パソコン上の簡単に開くことができる場所に移動します。通常どおりに新しいフォルダを作成します（Linuxの場合は、ターミナル内で `mkdir プロジェクト名` を使用できます）。ボットに使用したい名前がすでにある場合は、フォルダ名としてそれを使用することができます。そうでなければ、当面の間は `discord-bot` などの名前を付けても構いません。
 
 <!--
 Once you're done making the folder, open it up (for Linux, you can use `cd project-name` inside your terminal).
@@ -128,7 +128,7 @@ Windowsを使用していて、コマンドプロンプトを開くことに慣�
 3. Choose the "Open command window here" option.
 -->
 
-1. ボットプロジェクトフォルダを開く
+1. ボットのプロジェクトフォルダを開く
 2. Shiftキーを押しながらフォルダの中を右クリックする
 3. 「コマンド ウィンドウをここで開く」オプションを選択する
 
@@ -154,13 +154,13 @@ With the command prompt open, run the `node -v` command to make sure you've succ
 The next command you'll be running is `npm init`. This command creates a `package.json` file for you, which is what will be used to keep track of the dependencies your bot uses, as well as other info. If you're a bit confused by that, you can simply ignore it for the time being.
 -->
 
-次に実行するコマンドは`npm init`です。このコマンドは`package.json`ファイルを作成します。これはあなたのボットが使用する依存関係や他の情報を追跡するために使用されるものです。あなたがそれによって少し混乱しているならば、あなたは単に当面それを無視することができます。
+次に実行するコマンドは`npm init`です。このコマンドは`package.json`ファイルを作成します。これはあなたのボットが使用する依存関係や他の情報を記録するために使用されるものです。あなたがそれによって少し混乱しているならば、当面それを無視することもできます。
 
 <!--
 The `npm init` command will ask you a sequence of questions - you should fill them out as you see fit. If you're not sure of something or just want to skip it as a whole, simply leave it blank and press enter.
 -->
 
-`npm init`コマンドは一連の質問をします（あなたは妥当だと思うものを記入するべきです）。よくわからない場合や、飛ばしたい場合は、空白のままEnterキーを押しても構いません。
+`npm init`コマンドは一連の質問をします。よくわからない場合や、飛ばしたい場合は、空白のままEnterキーを押しても構いません。
 
 <!--
 ::: tip
@@ -169,7 +169,7 @@ Want to get started quickly? Use `npm init -y` to have it fill out everything fo
 -->
 
 ::: tip
-すばやく始めたいですか？`npm init -y`を使って、すべてを記入してもらいましょう！
+すばやく始めたいときは、`npm init -y`を使用して、すべてを自動で記入してもらうことができます！
 :::
 
 <!--
@@ -209,7 +209,7 @@ Once the installation is complete, you'll see something like this:
 ::: warning
 インストールが完了すると、次のようになります。
 ![npm warnings](~@/images/BbcuyJ6.png)<br/>
-**これは完全に正常であり、それが動作したことを意味します。**discord.jsを使用するために表示されている項目をインストールする必要はありません。それらは100％オプションです。
+**これは完全に正常であり、正しく動作したことを意味します。** discord.jsを使用するために表示されている項目をインストールする必要はありません。それらは完全にオプションです。
 :::
 
 <!--
@@ -230,4 +230,4 @@ And that's it! With all the necessities installed, you're almost ready to start 
 While you are coding, you may find that you run into numerous syntax errors, or just code in an inconsistent style. It's highly urged that you install a linter to ease these troubles. While code editors generally are able to point out syntax errors, with a linter, you can coerce your coding to be in a specific style as you define in the configuration. While this is not required, it's strongly recommended. [Click here for the linter guide!](/preparations/setting-up-a-linter.md)
 -->
 
-開発している間、多数の構文エラーに遭遇したり、単に矛盾したスタイルで書いていることに気付くかもしれません。これらの問題を解決するためにlinterをインストールすることを強くお勧めします。一般的に、コードエディタは構文エラーを指摘することができますが、リンターを使用すると、設定で定義したとおりにプログラムを特定のスタイルに強制することができます。これは必須ではありませんが、強くお勧めします。[リンターガイドはこちらをクリック！](/preparations/setting-up-a-linter.md)
+開発している間、多数の構文エラーに遭遇したり、または単に一貫性のないスタイルで書いていることに気付くかもしれません。これらの問題を解決するためにlinterをインストールすることを強くお勧めします。一般的に、コードエディタは構文エラーを指摘することができますが、linterを使用すると、設定で定義したとおりにプログラムを特定のスタイルに強制することができます。これは必須ではありませんが、強くお勧めします。[linterのガイドはこちら](/preparations/setting-up-a-linter.md)
