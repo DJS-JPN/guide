@@ -12,7 +12,7 @@ title: はじめに
 If you're reading this, it probably means you want to learn how to make a bot with discord.js. Awesome! You've come to the right place.
 -->
 
-このページを読んでいるということは、おそらくdiscord.jsでボットを作成する方法を学びたいということなのでしょう。すばらしい！あなたは正しい場所に来ました。
+このページを読んでいるということは、おそらくdiscord.jsでボットを作成する方法を学びたいということでしょう。
 
 <!--
 This guide will teach you things such as:
@@ -46,7 +46,7 @@ Alright, making a bot is cool and all, but there are some prerequisites to it. T
 While you _can_ make a bot with very little JS and programming knowledge, trying to do so without understanding the language first will only hinder you. You may get stuck on many uncomplicated issues, struggle with solutions to incredibly easy problems, and all-in-all end up frustrated. Sounds pretty annoying if you ask me.
 -->
 
-さて、ボットを作ることはクールですが、それにはいくつかの前提条件があります。discord.jsを使ってボットを作成するには、JavaScript自体をよく理解している必要があります。
+さて、ボットを作ることはクールですが、それにはいくつかの前提条件があります。discord.jsを使ってボットを作成するには、JavaScript自体をよく理解していたほうが良いです。
 ごくわずかなJSとプログラミングの知識でボットを作ることは _できますが_ 、最初に言語を理解せずにそうしようとすることはあなたを妨げるだけです。あなたは、多くの複雑ではない問題に立ち往生し、信じられないほど簡単な問題に対する解決策に苦労し、そしてすべてが結局イライラすることになるかもしれません。あなたが私に尋ねるならばかなりいらいらするように聞こえます。
 
 <!--
@@ -73,4 +73,4 @@ JSを知らなくても、JSについて学びたいのであれば、ここか�
 Take your pick, learn some JS, and once you feel like you're confident enough to make a bot, come back and get started!
 -->
 
-いくつかのJSを学び、あなたがボットを作るのに十分自信があるように感じたら、戻ってきて始めてください！
+ある程度JSを学び、ボットを作る自信が十分あるように感じたら、戻ってきて始めてください！
