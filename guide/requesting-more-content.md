@@ -12,7 +12,7 @@ title: より多くのコンテンツをリクエストする
 Since this guide is made specifically for the discord.js community, we want to be sure to provide the most relevant and up-to-date content. We will, of course, make additions to the current pages and add new ones as we see fit, but fulfilling requests is how we know we're providing content you all want the most.
 -->
 
-このガイドは特にdiscord.jsコミュニティ向けに作成されているので、最も関連性があり最新のコンテンツを提供します。もちろん、現在のページを更新したり、新しいページを追加したりするつもりですが、要求を満たすことが最も望んでいるコンテンツを提供していることを示す方法です。
+このガイドは特にdiscord.jsコミュニティ向けに作成されているので、最も関連性があり最新のコンテンツを提供します。もちろん、現在のページを更新したり、新しいページを追加したりするつもりですが、あなたの要求を満たすことは、私たちがあなたが最も望むコンテンツを提供していることを知る方法です。
 
 <!--
 Requests may be as simple as "add an example to the [miscellaneous examples](/popular-topics/miscellaneous-examples.html) page", or as elaborate as "add a page regarding [sharding](/sharding/)". We'll do our best to fulfill all requests, as long as they're reasonable.
