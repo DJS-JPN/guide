@@ -42,7 +42,7 @@ Windowsで開発しているのなら、それは他のソフトをインスト�
 If you're developing on macOS, you have a few options. You can go to [the Node.js website](https://nodejs.org/), download the latest version, double click the package installer, and follow the instructions. Or you can use a package manager like [Homebrew](https://brew.sh/) with the command `brew install node`.
 -->
 
-macOSで開発しているのなら、いくつかの選択肢があります。[Node.jsのWebサイト](https://nodejs.org/)へ行き、最新版をダウンロードして、パッケージマネージャをダブルクリックし、支持に従うことができます。あるいは、 `brew install node`コマンドで[Homebrew](https://brew.sh/)のようなパッケージマネージャーを使うこともできます。
+macOSで開発しているのなら、いくつかの選択肢があります。[Node.jsのWebサイト](https://nodejs.org/)へ行き、最新版をダウンロードして、パッケージマネージャをダブルクリックし、支持に従うことができます。あるいは、 `brew install node`コマンドで[Homebrew](https://brew.sh/)などのパッケージマネージャーを使うこともできます。
 
 <!--
 ### Installing on Linux
@@ -148,7 +148,7 @@ It should then open up a window with a black background. It's a bit unattractive
 With the command prompt open, run the `node -v` command to make sure you've successfully installed Node.js. If you see something like `v8.0.0`, great! If not, go back and try installing again.
 -->
 
-コマンドプロンプトを開いた状態で、`node -v`コマンドを実行してNode.jsが正常にインストールされたことを確認してください。`v8.0.0`のような何かを見たら、素晴らしい！そうでない場合は、戻ってインストールをやり直してください。
+コマンドプロンプトを開いた状態で、`node -v`コマンドを実行してNode.jsが正常にインストールされたことを確認してください。`v8.0.0`のような表示を見たら、素晴らしい！そうでない場合は、戻ってインストールをやり直してください。
 
 <!--
 The next command you'll be running is `npm init`. This command creates a `package.json` file for you, which is what will be used to keep track of the dependencies your bot uses, as well as other info. If you're a bit confused by that, you can simply ignore it for the time being.

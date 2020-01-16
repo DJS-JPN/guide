@@ -91,7 +91,7 @@ Don't feel like typing the file name each time? Open up your `package.json` file
 -->
 
 ::: tip
-毎回のようにファイル名を入力したくないですよね？`package.json`ファイルを開き、`"main": "index.js"`のようなものを探し、`"index.js"`をあなたのファイル名に変更してください。保存したあとはコンソールで`node .`を実行することで簡略化できます。
+毎回のようにファイル名を入力したくないですよね？`package.json`ファイルを開き、`"main": "index.js"`のような記述を探し、`"index.js"`をあなたのファイル名に変更してください。保存したあとはコンソールで`node .`を実行することで簡略化できます。
 :::
 
 <!--
