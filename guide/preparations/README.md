@@ -196,7 +196,7 @@ Node.jsをインストールし、コンソールを開いてコマンドを実�
 To install discord.js, simply run the `npm install discord.js`. This can take a bit of time, but should be done fairly quickly.
 -->
 
-discord.jsをインストールするには、単に`npm install discord.js`と実行します。これには少し時間がかかりますが、すぐに終わるでしょう。
+discord.jsをインストールするには、`npm install discord.js`と実行します。これには少し時間がかかりますが、すぐに終わるでしょう。
 
 <!--
 ::: warning

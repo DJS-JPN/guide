@@ -91,7 +91,7 @@ Next, copy your token from the `client.login('your-token-goes-here')` line and p
 Now you can simply do `client.login(config.token)` to login! If you want to use a different prefix than `!`, you can change that as well.
 -->
 
-これで単にログインするために `client.login(config.token)` を使えます！もしあなたが `!` ではないプレフィックスを使いたいなら、それも変更することができます。
+これでログインするために `client.login(config.token)` を使えます！もしあなたが `!` ではないプレフィックスを使いたいなら、それも変更することができます。
 
 <!--
 ## Storing additional data
