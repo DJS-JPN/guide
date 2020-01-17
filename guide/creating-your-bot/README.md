@@ -75,7 +75,7 @@ client.once('ready', () => {
 	console.log('準備完了！');
 });
 
-client.login('トークンをここに置く');
+client.login('トークンをここに貼り付ける');
 ```
 
 <!--
@@ -139,7 +139,7 @@ client.once('ready', () => {
 });
 
 // トークンを使ってDiscordにログイン
-client.login('トークンをここに');
+client.login('トークンをここに貼り付ける');
 ```
 
 <!--

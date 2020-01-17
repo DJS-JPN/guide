@@ -66,7 +66,7 @@ Go to your code editor and make a new file. Add in the code below and save it as
 ```json
 {
 	"prefix": "!",
-	"token": "トークンをここに"
+	"token": "トークンをここに貼り付ける"
 }
 ```
 
