@@ -158,7 +158,7 @@ Although it's not a lot, it's good to know what each bit of your code does. But,
 First, make sure to close the process in your console. You can do so by pressing `Ctrl + C` inside the console. Go back to your code editor and add the following piece of code above the `client.login()` line.
 -->
 
-最初に必ず処理を止めましょう。コンソールの中で`Ctrl + C`を押すと止めることができます。そうしたらコードエディターに戻って`client.login()`の行の上に下のコードを追加してください。
+最初に必ず処理を止めましょう。コンソールの中で`Ctrl + C`を押すと止めることができます。そうしたらコードエディタに戻って`client.login()`の行の上に下のコードを追加してください。
 
 ```js
 client.on('message', message => {
