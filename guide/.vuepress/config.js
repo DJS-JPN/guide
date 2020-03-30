@@ -10,7 +10,7 @@ const config = {
 		['meta', { name: 'og:title', content: 'Discord.js ガイド' }],
 		['meta', { name: 'og:description', content: 'discord.jsのコミュニティによって作られたユーザーガイドを日本語に翻訳したサイト' }],
 		['meta', { name: 'og:type', content: 'website' }],
-		['meta', { name: 'og:url', content: 'https://guide.djs-jpn.tk/' }],
+		['meta', { name: 'og:url', content: 'https://guide.discordjs-japan.org/' }],
 		['meta', { name: 'og:locale', content: 'ja_JP' }],
 		['meta', { name: 'og:image', content: '/meta-image.png' }],
 	],
