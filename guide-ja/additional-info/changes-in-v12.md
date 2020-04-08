@@ -526,7 +526,7 @@ Broadcasts themselves now contain a `BroadcastDispatcher` that shares a similar 
 + broadcast.subscribers
 ```
 
-## Breaking Changes and Deletions
+## 破壊的変更と削除
 
 
 <!--
@@ -616,7 +616,7 @@ Any voice-related classes may change at any time, as they're still actively bein
 * WebSocketManager [(additions)](/additional-info/changes-in-v12.md#websocketmanager)
 * WebSocketShard [(additions)](/additional-info/changes-in-v12.md#websocketshard)
 
-### Dependencies
+### 依存関係
 
 #### Snekfetch
 

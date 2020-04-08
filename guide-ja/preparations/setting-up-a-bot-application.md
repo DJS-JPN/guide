@@ -49,7 +49,7 @@ You should see a page like this:
 
 このようなページが表示されたと思います。
 
-![Successfully created application](~@/images/create-app.png)
+![アプリケーションの作成に成功](~@/images/create-app.png)
 
 
 <!--
@@ -58,7 +58,7 @@ You can optionally enter a name, description, and avatar for your application he
 
 ここはBotにはそこまで影響はありませんが、自分が見やすくなるように名前、説明、アプリのアバターアイコンを決めておくといいかもしれません。
 
-![Create a bot UI](~@/images/create-bot.png)
+![ボットのUIを作成する](~@/images/create-bot.png)
 
 
 <!--
@@ -91,7 +91,7 @@ After creating a bot user, you'll see a section like this:
 
 Botユーザーを作り終わったら下の画像のようになります。
 
-![Bot application](~@/images/created-bot.png)
+![ボットアプリケーション](~@/images/created-bot.png)
 
 
 <!--
