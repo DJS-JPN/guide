@@ -1,6 +1,6 @@
-# Understanding async/await
+# 始めるには
 
-If you aren't very familiar with ECMAScript 2017, you may not know about async/await. It's a useful way to handle Promises in a hoisted manner. In addition, it looks cleaner, increases overall readability, and is slightly faster.
+ECMAScript 2017にあまり馴染みがない方は、async/awaitについて知らないかもしれません。 Promiseの扱い方としては、巻き上げて処理するのに便利ですね。 さらに、見た目がすっきりになり、全体的な可読性が向上し、やや高速です。
 
 ## How do Promises work?
 
