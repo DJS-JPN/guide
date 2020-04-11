@@ -2,20 +2,19 @@
 
 ECMAScript 2017にあまり馴染みがない方は、async/awaitについて知らないかもしれません。 Promiseの扱い方としては、巻き上げて処理するのに便利ですね。 さらに、見た目がすっきりになり、全体的な可読性が向上し、やや高速です。
 
-## How do Promises work?
+## Promiseはどのように機能しますか？
 
-Before we can get into async/await, you should know what Promises are and how they work, because async/await is just a way to handle Promises. If you know what Promises are and how to deal with them, then you can skip this part.
+async/await に入る前に、Promise とは何か、どのように動作するのかを知っておく必要があります。 Promiseとは何か、その対処法を知っていれば、この部分は読み飛ばしても大丈夫です。
 
-Promises are a way to handle asynchronous tasks in Javascript; they are the newer alternative to callbacks. A Promise has a lot of similarities to a progress bar; Promises represent an ongoing process that has not yet finished. A good example for that is a request to a server (e.g discord.js sends requests to Discord's API).
+PromiseはJavaScriptで非同期タスクを処理するための方法で、コールバックに代わる新しい方法です。 Promiseは、プログレスバーと多くの類似点があり、Promiseはまだ終わっていない進行中の処理を表しています。 その良い例がサーバーへのリクエストです。（例: discord.jsがDiscord APIにリクエストを送る）
 
-A Promise can have 3 states; pending, resolved, and rejected
+Promiseには、保留（pending）、解決（resolved）、拒否（rejected）の3つの状態があります。
 
-The **pending** state means that the Promise still is ongoing and neither resolved nor rejected. The **resolved** state means that the Promise is done and was executed without any errors. The **rejected** state means that the Promise encountered an error and could not be executed correctly.
+**pending**の状態は、Promiseがまだ進行中で、解決も拒否もされていない状態を意味します。 **resolved**の状態は、Promiseの処理が終わり、エラーなく実行されたことを意味します。 **rejected**の状態は、プロミスがエラーに遭遇し、正しく実行できなかったことを意味します。
 
-One important thing to know is that a Promise can only have one state at a time; it can never be pending and resolved, rejected and resolved, or pending and rejected. You may be asking "How would that look in code?". Here is a small example:
+一つ知っておくべき重要なことは、Promiseは一度に一つの状態しか持てないということであり、保留と解決、拒否と解決、保留と拒否はあり得ないということです。 「コードではどう見えるのか」という質問があるかもしれません。 ここでは小さな例を紹介します。:
 
-::: tip
-ES6 code is being used in this example. If you do not know what that is, you should read up on that [here](/additional-info/es6-syntax.md).
+この例ではES6のコードを使用しています。 これが何なのか分からない人は、[ここ](/additional-info/es6-syntax.md)を読んでみるといいでしょう。
 :::
 
 ```js
