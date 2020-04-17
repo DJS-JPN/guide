@@ -1,6 +1,6 @@
-# Making a Currency System
+# 通貨制度を作る
 
-A common feature of Discord bots is a currency system. It's possible to do everything in one object, but we can also abstract that in terms of *relations* between objects. This is where the power of a RDBMS (Relational Database Management System) truly shines. Sequelize calls these *associations*, so we'll be using that term from now on.
+Discordにおけるbotの共通機能は通貨制度です。 1つのオブジェクトで全てを行うことは可能ですが、オブジェクト間の*関係の観点*から抽象化することもできます。 This is where the power of a RDBMS (Relational Database Management System) truly shines. Sequelize calls these *associations*, so we'll be using that term from now on.
 
 ## File overview
 
