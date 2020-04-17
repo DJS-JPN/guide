@@ -552,9 +552,9 @@ While this list has been carefully crafted, it may be incomplete! If you notice 
 ::: danger このリストは慎重に作成されていますが、不完全な場合があります！データの欠落や不正確な部分に気付いた場合は、[プルリクエストを送信する](https://github.com/discordjs/guide/compare)ことをお勧めします！
 :::
 
-Stuff that has gone through and updated - anything under Additions at the end will still likely need descriptions:
+末尾の「追加」の下にあるものは、おそらくまだ説明が必要です。
 
-Any voice-related classes may change at any time, as they're still actively being worked on, and will be finalized at a later date.
+音声関連のクラスは現在も積極的に取り組んでおり、後日最終決定されるため、いつでも変更される可能性があります。
 
 * Activity [(additions)](/additional-info/changes-in-v12.md#activity)
 * ActivityFlags [(additions)](/additional-info/changes-in-v12.md#activityflags)
