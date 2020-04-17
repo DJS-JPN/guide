@@ -508,10 +508,6 @@ While this list has been carefully crafted, it may be incomplete! If you notice 
 このリストは慎重に作成されていますが、不完全な場合があります！データの欠落や不正確な部分に気付いた場合は、[プルリクエストを送信する](https://github.com/discordjs/guide/compare)ことをお勧めします！
 :::
 
-Stuff that has gone through and updated - anything under Additions at the end will still likely need descriptions:
-
-Any voice-related classes may change at any time, as they're still actively being worked on, and will be finalized at a later date.
-
 * Activity [(additions)](/additional-info/changes-in-v12.md#activity)
 * ActivityFlags [(additions)](/additional-info/changes-in-v12.md#activityflags)
 * APIMessage [(additions)](/additional-info/changes-in-v12.md#apimessage)
@@ -877,7 +873,7 @@ Just like the `TextChannel#send***` methods, all the `.send***()` methods have b
 
 #### ClientUser#settings
 
-`clentUser.settings` has been removed entirely, along with all other user account-only properties and methods.
+`clientUser.settings` has been removed entirely, along with all other user account-only properties and methods.
 
 #### ClientUser#unblock
 
@@ -1923,13 +1919,13 @@ All the `.send***()` methods have been removed in favor of one general `.send()`
 - channel.sendFile('./file.png');
 - channel.sendFiles(['./file-one.png', './file-two.png']);
 + channel.send({
-	files: [{
-		attachment: 'entire/path/to/file.jpg',
-		name: 'file.jpg',
-	}]
++ 	files: [{
++ 		attachment: 'entire/path/to/file.jpg',
++ 		name: 'file.jpg',
++ 	}]
 + channel.send({
-	files: ['https://cdn.discordapp.com/icons/222078108977594368/6e1019b3179d71046e463a75915e7244.png?size=2048']
-});
++ 	files: ['https://cdn.discordapp.com/icons/222078108977594368/6e1019b3179d71046e463a75915e7244.png?size=2048']
++ });
 ```
 
 ```diff
