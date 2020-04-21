@@ -28,7 +28,7 @@ client.on('message', message => {
 + client.login(token);
 ```
 
-From now on, if you change the prefix or token in your config.json file, it'll change in your bot file as well. You'll be using the prefix variable a lot soon.
+今後、config.jsonファイルでプレフィックスまたはトークンを変更すると、ボットファイルでも変更されます。 You'll be using the prefix variable a lot soon.
 
 ::: tip
 If you aren't familiar with some of this syntax, it may be because some of this is ES6 syntax. If it does confuse you, you should check out [this guide page](/additional-info/es6-syntax.md) before continuing.
