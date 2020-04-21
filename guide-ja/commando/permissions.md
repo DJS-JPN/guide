@@ -2,13 +2,13 @@
 forceTheme: blue
 ---
 
-# Handling permissions
+# 権限の処理について
 
-Sometimes you may need a user to have a certain permission to use a command, or maybe your bot needs a permission to make the command work. Well, Commando makes both of these very simple.
+場合によっては、コマンドを使用するための特定のアクセス許可をユーザーに与える必要がある場合や、コマンドを機能させるためにボットにアクセス許可が必要な場合があります。 Commando はこれら両方を非常に簡単にします。
 
-## User and client permissions
+## ユーザおよびアクセス権限
 
-First, go grab the command you want to use permissions with.
+まず、アクセス許可を使用するコマンドを取得します。
 
 ```js
 const { Command } = require('discord.js-commando');
@@ -29,7 +29,7 @@ module.exports = class MeowCommand extends Command {
 };
 ```
 
-You can then use the `userPermissions` and `clientPermissions` options to check for certain permissions. If you wanted to restrict the `meow` command, requiring the user to have the ability to manage messages, and the client full administrator access, you'd do the following:
+次に、`userPermissions` および `clientPermissions` オプションを使用して、特定の権限を確認できます。 `meow` コマンドを制限し、ユーザーにメッセージを管理する機能とクライアントの完全な管理者アクセスを要求する場合は、次のようにします。
 
 ```js
 super(client, {
@@ -42,7 +42,7 @@ super(client, {
 });
 ```
 
-All you need to do is set the properties to an array of permission flags. A list of those can be found <branch version="11.x" inline>[here](https://discord.js.org/#/docs/main/11.5.1/class/Permissions?scrollTo=s-FLAGS)</branch><branch version="12.x" inline>[here](https://discord.js.org/#/docs/main/master/class/Permissions?scrollTo=s-FLAGS)</branch>.
+プロパティを許可フラグの配列に設定するだけです。 それらのリストを見つけることができます <branch version="11.x" inline>[here](https://discord.js.org/#/docs/main/11.5.1/class/Permissions?scrollTo=s-FLAGS)</branch><branch version="12.x" inline>[here](https://discord.js.org/#/docs/main/master/class/Permissions?scrollTo=s-FLAGS)</branch>.
 
 ## Owner-only commands
 
