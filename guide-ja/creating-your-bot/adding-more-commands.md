@@ -1,12 +1,12 @@
-# Adding more commands
+# コマンドをもっと作成する
 
 ::: tip
-This page is a follow-up and bases its code off of [the previous page](/creating-your-bot/configuration-files.md).
+このページは[前のページ](/creating-your-bot/configuration-files.md)の続きです。
 :::
 
-A bot with nothing but a single command would be really boring, and you probably have a bunch of command ideas floating around in your head already, right? Let's begin, then.
+コマンドが1つだけのボットは、本当に退屈なものになるでしょう。おそらく、すでに頭にコマンドのアイデアがたくさん浮かんでいますね。 それでは始めましょう。
 
-Here's what your message event should currently look like:
+メッセージイベントは次のようになります。
 
 ```js
 client.on('message', message => {
@@ -16,7 +16,7 @@ client.on('message', message => {
 });
 ```
 
-Before doing anything else, make a property to store the prefix you've configured. Instead of `const config = ...`, you can use destructuring to extract the prefix variable from the config file, and the token as well while you're at it.
+まず最初に、設定ファイルにプレフィックスを保存するためのプロパティを作成します。 Instead of `const config = ...`, you can use destructuring to extract the prefix variable from the config file, and the token as well while you're at it.
 
 ```diff
 - const config = require('./config.json');
