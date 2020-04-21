@@ -44,9 +44,9 @@ super(client, {
 
 プロパティを許可フラグの配列に設定するだけです。 それらのリストを見つけることができます <branch version="11.x" inline>[here](https://discord.js.org/#/docs/main/11.5.1/class/Permissions?scrollTo=s-FLAGS)</branch><branch version="12.x" inline>[here](https://discord.js.org/#/docs/main/master/class/Permissions?scrollTo=s-FLAGS)</branch>.
 
-## Owner-only commands
+## 所有者専用コマンド
 
-Another thing you may want to do is set a command as owner-only. This will make a command only usable by the bot owner(s). Doing this is even simpler than the client/userPermissions, all you have to do is set the `ownerOnly` parameter to `true`.
+あなたがしたいかもしれないもう一つは、コマンドを所有者のみとして設定することです。 これにより、ボットの所有者(達) のみがコマンドを使用できるようになります。 利用できるようにすることは client / userPermissions よりもさらに簡単です。必要なのは、`ownerOnly` パラメータを `true` に設定することだけです。
 
 ```js
 super(client, {
