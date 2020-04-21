@@ -51,13 +51,13 @@ super(client, {
 });
 ```
 
-See? Simple.
+参照： シンプル
 
 - `key` は引数の名前です。 `run` メゾットで定義すると、これが使用されます。
 - ` prompt `は、引数が指定されていない場合に表示されるテキストです。 誰かが`?say` だけを利用すると、テキストを求めるプロンプトが表示されます。
 - `type` は引数が含まれるタイプです。 これには、 `string`, `integer`, `user`, `member` などといった、様々なものがあります。
 
-Adding more args is as simple as adding another object to the array, like so:
+さらに引数を追加するのは、次のように別のオブジェクトを配列に追加するのと同じくらい簡単です。
 
 ```js
 args: [
@@ -74,7 +74,7 @@ args: [
 ]
 ```
 
-You can also set arguments to default to a specific value:
+引数をデフォルトの特定の値に設定することもできます。
 
 ```js
 {
@@ -85,17 +85,17 @@ You can also set arguments to default to a specific value:
 },
 ```
 
-As you can see, they're very powerful things.
+ご覧のとおり、これらは非常に強力なものです。
 
-Head on over to your `run` method and set the `text` arg to a variable.
+`run`メソッドに進み、`text`引数を変数に設定します。
 
 ```js
 run(message, { text }) {
-    // empty for now
+    // 今は空白で可
 }
 ```
 
-Next, make the `run` method return the text back to the user.
+次に、`run`メソッドでテキストをユーザーに返します。
 
 ```js
 run(message, { text }) {
@@ -103,8 +103,8 @@ run(message, { text }) {
 }
 ```
 
-And there you have it, a say command using args!
+そこに、argsを使用するsayコマンドがあります。
 
-## Resulting code
+## 結果出来上がったコード
 
 <resulting-code />
