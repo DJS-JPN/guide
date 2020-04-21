@@ -2,9 +2,9 @@
 forceTheme: blue
 ---
 
-# Using arguments in commands
+# コマンドにおいての引数の利用について
 
-Sometimes when using commands you may want to get data from the user, and change the response accordingly. In this section, you'll create a command that pulls a string from the message and says it back to the user!
+コマンドを使用する際に、ユーザーからデータを取得し、それに応じて応答を変更したい時があると思います。 ここでは、メッセージから文字列を取得して、ユーザーに返すコマンドを作成します。
 
 ## String arguments
 
