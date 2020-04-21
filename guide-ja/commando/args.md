@@ -6,11 +6,11 @@ forceTheme: blue
 
 コマンドを使用する際に、ユーザーからデータを取得し、それに応じて応答を変更したい時があると思います。 ここでは、メッセージから文字列を取得して、ユーザーに返すコマンドを作成します。
 
-## String arguments
+## 文字列引数
 
-A `string` argument is simply the text after the command name and prefix. For example: `?say Hi there!` would cause the argument to be `Hi there!`. It's quite simple to create one.
+`string`引数は、コマンド名とプレフィックスの後の単なるテキストです。 例: `?say Hi there!` この場合、引数は`Hi there`の部分になります。 作成は非常に簡単です。
 
-First, go into your `first` folder and make a new file called `say.js`. Once you have it, set up your command class and everything just like the one in the meow command.
+まず最初に、`first`フォルダに移動し、新しく`say.js`というファイルを作成します。 それができたら、meowコマンドのコマンドクラスと同様に、コマンドクラスとすべてをセットアップします。
 
 ```js
 const { Command } = require('discord.js-commando');
@@ -27,12 +27,12 @@ module.exports = class SayCommand extends Command {
     }
 
     run(message) {
-        // empty for now
+        // 今は空白で可
     }
 };
 ```
 
-The `args` field is simply an array of objects, each containing data for that argument.
+`args`フィールドは、オブジェクトの配列であり、各オブジェクトにはその引数のデータが含まれています。
 
 ```js
 super(client, {
@@ -53,9 +53,9 @@ super(client, {
 
 See? Simple.
 
-- `key` is the name of the argument. When you define it in your `run` method, this is what you'll be using.
-- `prompt` is the text that displays if no argument is provided. If someone uses just `?say`, that prompt will come up asking for the text.
-- `type` is the type the argument is a part of. This can be many things, including `string`, `integer`, `user`, `member`, etc.
+- `key` は引数の名前です。 `run` メゾットで定義すると、これが使用されます。
+- ` prompt `は、引数が指定されていない場合に表示されるテキストです。 誰かが`?say` だけを利用すると、テキストを求めるプロンプトが表示されます。
+- `type` は引数が含まれるタイプです。 これには、 `string`, `integer`, `user`, `member` などといった、様々なものがあります。
 
 Adding more args is as simple as adding another object to the array, like so:
 
