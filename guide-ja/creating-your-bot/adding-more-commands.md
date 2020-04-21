@@ -16,7 +16,7 @@ client.on('message', message => {
 });
 ```
 
-まず最初に、設定ファイルにプレフィックスを保存するためのプロパティを作成します。 Instead of `const config = ...`, you can use destructuring to extract the prefix variable from the config file, and the token as well while you're at it.
+まず最初に、設定ファイルにプレフィックスを保存するためのプロパティを作成します。 `const config = ...`の代わりに、分割代入を使って、設定ファイルからプレフィックス変数を抽出することができます。
 
 ```diff
 - const config = require('./config.json');
