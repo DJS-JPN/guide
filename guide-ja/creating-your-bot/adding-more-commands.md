@@ -28,15 +28,15 @@ client.on('message', message => {
 + client.login(token);
 ```
 
-今後、config.jsonファイルでプレフィックスまたはトークンを変更すると、ボットファイルでも変更されます。 You'll be using the prefix variable a lot soon.
+今後、config.jsonファイルでプレフィックスまたはトークンを変更すると、ボットファイルでも変更されます。 なのでプレフィックス変数を使うことが多くなるでしょう。
 
 ::: tip
-If you aren't familiar with some of this syntax, it may be because some of this is ES6 syntax. If it does confuse you, you should check out [this guide page](/additional-info/es6-syntax.md) before continuing.
+この構文が見慣れないのなら、ES6の構文を一部使用しているからかもしれません。 混乱するようであれば、先に[このガイドページ](/additional-info/es6-syntax.md)を確認してください。
 :::
 
-## Simple command structure
+## 簡易的なコマンド構造
 
-You already have an if statement that checks messages for a ping/pong command. Adding other command checks is just as easy; just chain an `else if` to your existing condition.
+ping/pongコマンドのメッセージをチェックするif文はすでにあると思います。 すでにあるif文に`else if`を書き足すだけで、他のコマンドチェックを簡単に追加できます。
 
 ```js
 if (message.content === `${prefix}ping`) {
@@ -46,7 +46,7 @@ if (message.content === `${prefix}ping`) {
 }
 ```
 
-There are a few potential issues with this. For example, the ping command won't work if you send `!ping test`. It will only match `!ping` and nothing else. The same goes for the other command. If you want your commands to be more flexible, you can do the following:
+これにはいくつかの潜在的な問題があります。 例えば、`!ping test`を送るとpingコマンドは動作しません。 `!ping`のみにしか一致しません。 他のコマンドも同様です。 コマンドをより柔軟にしたい場合は、以下のようにします。
 
 ```js
 if (message.content.startsWith(`${prefix}ping`)) {
@@ -56,7 +56,7 @@ if (message.content.startsWith(`${prefix}ping`)) {
 }
 ```
 
-Now the ping command will trigger whenever the message _starts with_ `!ping`! Sometimes this is what you want, but other times, you may want to match only exactly `!ping` - it varies from case to case, so be mindful of what you need when creating commands.
+これでメッセージが`!ping`で_始まるとき_にpingコマンドが実行されます！ Sometimes this is what you want, but other times, you may want to match only exactly `!ping` - it varies from case to case, so be mindful of what you need when creating commands.
 
 ::: warning
 Be aware that this will also match `!pingpong`, `!pinguin`, and the like. This is not a huge problem for now, so don't worry; you'll see better ways to check for commands later.
