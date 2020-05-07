@@ -1,4 +1,4 @@
-# Storing data with Sequelize
+# Sequelizeを使ってデータを保管する
 
 Sequelize is an object-relational-mapper, which means you can write a query using objects and have it run on almost any other database system that Sequelize supports.
 

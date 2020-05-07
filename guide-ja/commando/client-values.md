@@ -2,9 +2,9 @@
 forceTheme: blue
 ---
 
-# Using client values in commands
+# コマンドでのクライアント値の使用
 
-This one is easy. If you want any value from the client object, normally, you'd do this:
+この作業は簡単です。 クライアントオブジェクトの値が必要な場合は、通常、次のようにします。
 
 <branch version="11.x">
 
@@ -21,7 +21,7 @@ client.guilds.cache.size;
 
 </branch>
 
-However, in Commando, you have to use `this` to get these values.
+ただし、Commandoでは、`this`を使用してこれらの値を取得する必要があります。
 
 <branch version="11.x">
 
@@ -38,4 +38,4 @@ this.client.guilds.cache.size;
 
 </branch>
 
-It's really that simple!
+本当にとても簡単です。
