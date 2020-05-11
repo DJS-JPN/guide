@@ -39,7 +39,7 @@ In this scenario, the `deleteMessages` function returns a Promise. The `.then()`
 
 ## How to implement async/await
 
-### Theory
+### マニュアル
 
 The following information is important to know before working with async/await. You can only use the `await` keyword inside a function that is declared as `async` (you put the `async` keyword before the `function` keyword or before the parameters when using a callback function).
 
