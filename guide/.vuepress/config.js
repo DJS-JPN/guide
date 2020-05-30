@@ -49,6 +49,7 @@ const config = {
 			},
 		},
 	},
+	globalUIComponents: ['EOLNotice'],
 };
 
 for (const group of Object.values(config.themeConfig.sidebar)) {

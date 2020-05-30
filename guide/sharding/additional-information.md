@@ -23,7 +23,7 @@ manager.on('message', (shard, message) => {
 
 As the property names imply, the `_eval` property is what the shard is attempting to evaluate, and the `_result` property is the output of said evaluation. However, these properties are only guaranteed if a _shard_ is sending a message. There will also be an `_error` property, should the evaluation have thrown an error.
 
-You can also send messages via `process.send('hello')`, which would not contain the same information. This is why the `.message` property's type is declared as `*` <branch version="11.x" inline>[in the discord.js documentation](https://discord.js.org/#/docs/main/11.5.1/class/Shard?scrollTo=e-message)</branch><branch version="12.x" inline>[in the discord.js documentation](https://discord.js.org/#/docs/main/master/class/Shard?scrollTo=e-message)</branch>.
+You can also send messages via `process.send('hello')`, which would not contain the same information. This is why the `.message` property's type is declared as `*` <branch version="11.x" inline>[in the discord.js documentation](https://discord.js.org/#/docs/main/v11/class/Shard?scrollTo=e-message)</branch><branch version="12.x" inline>[in the discord.js documentation](https://discord.js.org/#/docs/main/stable/class/Shard?scrollTo=e-message)</branch>.
 
 ## Specific shards
 
@@ -33,26 +33,35 @@ There might be times where you want to target a specific shard. An example would
 client.shard.broadcastEval('if (this.shard.id === 0) process.exit();');
 ```
 
-If you're using something like [PM2](http://pm2.keymetrics.io/) or [Forever](https://github.com/foreverjs/forever), this is an easy way to restart a specific shard. Remember, <branch version="11.x" inline>[Shard#BroadcastEval](https://discord.js.org/#/docs/main/11.5.1/class/ShardClientUtil?scrollTo=broadcastEval)</branch><branch version="12.x" inline>[Shard#BroadcastEval](https://discord.js.org/#/docs/main/master/class/ShardClientUtil?scrollTo=broadcastEval)</branch> sends a message to **all** shards, so you have to check if it's on the shard you want.
+If you're using something like [PM2](http://pm2.keymetrics.io/) or [Forever](https://github.com/foreverjs/forever), this is an easy way to restart a specific shard. Remember, <branch version="11.x" inline>[Shard#BroadcastEval](https://discord.js.org/#/docs/main/v11/class/ShardClientUtil?scrollTo=broadcastEval)</branch><branch version="12.x" inline>[Shard#BroadcastEval](https://discord.js.org/#/docs/main/stable/class/ShardClientUtil?scrollTo=broadcastEval)</branch> sends a message to **all** shards, so you have to check if it's on the shard you want.
 
-## `ShardingManager#shardArgs`
+## `ShardingManager#shardArgs` and `ShardingManager#execArgv`
 
 Consider the following example of creating a new `ShardingManager` instance:
 
 ```js
 const manager = new ShardingManager('./bot.js', {
-	shardArgs: ['--ansi', '--color', '--trace-warnings'],
+	execArgv: ['--trace-warnings'],
+	shardArgs: ['--ansi', '--color'],
 	token: 'your-token-goes-here',
 });
 ```
 
-The `shardArgs` property is what you would normally pass in if you executed your bot process without sharding, e.g.:
+The `execArgv` property is what you would normally pass to node without sharding, e.g.:
 
 ```
-node bot.js --ansi --color --trace-warnings
+node --trace-warnings bot.js
 ```
 
-Should you need them for whatever reason, they're available in `process.argv` property, which contains an array of command-line arguments used to execute the script.
+You can find a list of command line options for node [here](https://nodejs.org/api/cli.html).
+
+The `shardArgs` property is what you would normally pass to your bot without sharding, e.g.:
+
+```
+node bot.js --ansi --color
+```
+
+You can access the later as usual via `process.argv`, which contains an array of executable, your main file, and the command-line arguments used to execute the script.
 
 ## Eval arguments
 
