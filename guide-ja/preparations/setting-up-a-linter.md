@@ -1,12 +1,12 @@
 ---
-title: Linter(構文チェッカー)のセットアップ
+title: Linter(構文チェッカー)のセットアップ
 ---
 
 <!--
 # Setting up a linter
 -->
 
-# Linter(構文チェッカー)のセットアップ
+# Linter(構文チェッカー)のセットアップ
 
 
 <!--
@@ -20,7 +20,7 @@ As a developer, it's a good idea to make your development process as streamlined
 ## Installing a code editor
 -->
 
-## コードエディタのインストール
+## コードエディタのインストール
 
 
 <!--
@@ -37,8 +37,8 @@ First, you will need a proper code editor. Using Notepad and Notepad++ is discou
 -->
 
 * [Visual Studio Code](https://code.visualstudio.com/) 高速で高性能であるため非常に人気のある選択肢です。多種多様な言語をサポートし、独自のターミナルが付属していて、JavaScriptやTypeScriptのためのインテリセンスや自動補完も備わっています。おすすめの選択肢です。
-* [Atom](https://atom.io/) 簡単で扱いやすく、ユーザーフレンドリーです。多くの開発者が始めに使用します。
-* [Sublime Text](https://www.sublimetext.com/) もう一つの人気なエディタで、簡単にコードを書くことができます。
+* [Atom ](https://atom.io/)簡単で扱いやすく、ユーザーフレンドリーです。多くの開発者が始めに使用します。
+* [Sublime Text ](https://www.sublimetext.com/)もう一つの人気なエディタで、簡単にコードを書くことができます。
 
 
 <!--
@@ -52,14 +52,14 @@ First, you will need a proper code editor. Using Notepad and Notepad++ is discou
 One of the major advantages proper code editors have over Notepad and Notepad++ is their ability to use linters. Linters check syntax and help you produce consistent code that follows certain style rules that you can define yourself, if you choose to do so. They help form good habits if you stick to a single configuration. When you start using a linter, you might be bombarded with errors at first. This is normal and perfectly fine. It might be a pain to get through during the initial process, but it's most definitely worth it.
 -->
 
-適切なコードエディタがメモ帳やNotepad++より優れている大きな理由の一つはLinterを利用することができることです。Linterは構文をチェックし、あなたが利用することを選択した場合、自分で定義できる特定のスタイルに従う一貫したコードを作成するのを助けます。あなたが決めたスタイルを守れば、これは良い習慣を定着させるのを助けます。
+適切なコードエディタがメモ帳やNotepad++より優れている大きな理由の一つはLinterを利用することができることです。Linterは構文をチェックし、あなたが利用することを選択した場合、自分で定義できる特定のスタイルに従う一貫したコードを作成するのを助けます。あなたが決めたスタイルを守れば、これは良い習慣を定着させるのを助けます。
 
 
 <!--
 First, be sure to install the [ESLint package](https://www.npmjs.com/package/eslint) so that you have it available in your project.
 -->
 
-まず、[ESLint](https://www.npmjs.com/package/eslint)をインストールして、プロジェクトで利用できるようにします。
+まず、[ESLint](https://www.npmjs.com/package/eslint)をインストールして、プロジェクトで利用できるようにします。
 
 
 <!--
@@ -85,7 +85,7 @@ npm install --global eslint
 Afterwards, install the appropriate plugin(s) for your editor of choice.
 -->
 
-その後、エディタにあった拡張機能をインストールしてください。
+その後、エディタにあった拡張機能をインストールしてください。
 
 
 <!--
@@ -94,9 +94,9 @@ Afterwards, install the appropriate plugin(s) for your editor of choice.
 * [ESLint for Sublime Text](https://packagecontrol.io/packages/ESLint)
 -->
 
-* [Visual Studio Code : ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* [[ Visual Studio Code : ESLint ](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 * [Atom : Linter-ESLint](https://atom.io/packages/linter-eslint) ([Atom : Linter](https://atom.io/packages/linter)が必要)
-* [Sublime Text : ESLint](https://packagecontrol.io/packages/ESLint)
+* [[Sublime Text : ESLint](https://packagecontrol.io/packages/ESLint)](https://packagecontrol.io/packages/ESLint)
 
 
 <!--
@@ -106,7 +106,7 @@ You can install each of these directly inside the editors themselves. For Visual
 -->
 
 ::: tip
-あなたは、これらをエディタに直接インストールすることができます。Visual Studio Codeでは`Ctrl + Shift + X`。Atomでは`Ctrl + ,`。Sublimeでは `Ctrl + Shift + P`([Package Control](https://packagecontrol.io/installation)が必要)。その後、適切な拡張機能を見つけインストールしてください。
+あなたは、これらをエディタに直接インストールすることができます。Visual Studio Codeでは`Ctrl + Shift + X`。Atomでは`Ctrl + ,`。Sublimeでは` Ctrl + Shift + P`([Package Control](https://packagecontrol.io/installation)が必要)。その後、適切な拡張機能を見つけインストールしてください。
 :::
 
 
@@ -121,7 +121,7 @@ You can install each of these directly inside the editors themselves. For Visual
 ESLint may display a lot of warnings and errors about your code when you start using it, but don't let this startle you. In order to get started, follow these steps:
 -->
 
-ESLintを使い始めるとコードに対するエラーや警告がたくさん表示されると思いますが、驚く必要はありません。利用するために以下のステップに従ってください。
+ESLintを使い始めるとコードに対するエラーや警告がたくさん表示されると思いますが、驚く必要はありません。利用するために以下のステップに従ってください。
 
 
 <!--
@@ -129,8 +129,8 @@ ESLintを使い始めるとコードに対するエラーや警告がたくさ�
 2. Copy the code below into the file.
 -->
 
-1. ルートディレクトリに`.eslintrc.json`というファイルを作成する(ここには、このプロジェクトのメインファイルがあります)。
-2. 以下のコードをファイルに貼り付ける。
+1. ルートディレクトリに`.eslintrc.json`というファイルを作成する(ここには、このプロジェクトのメインファイルがあります)。
+2. 以下のコードをファイルに貼り付ける。
 
 ```json
 {
@@ -153,21 +153,21 @@ ESLintを使い始めるとコードに対するエラーや警告がたくさ�
 This is the base of what an ESLint file will look like. The `rules` object is where you'll define what rules you want to apply to ESLint. For example, if you want to make sure you never miss a semicolon, the `"semi": ["error", "always"]` rule is what you'll want to add inside that object.
 -->
 
-これは、ESLintファイルの基本です。`rules`オブジェクトはESLintのルールを定義する場所です。例えば、セミコロンを必ず付けるようにしたい場合、ルールに`"semi": ["error", "always"]`を追加します。
+これは、ESLintファイルの基本です。`rules`オブジェクトはESLintのルールを定義する場所です。例えば、セミコロンを必ず付けるようにしたい場合、ルールに`"semi": ["error", "always"]`を追加します。
 
 
 <!--
 You can find a list of all of ESLint's rules on their site, located [here](https://eslint.org/). There are indeed many rules and it may be overwhelming at first, but you'll only need to go through the list and define your file once.
 -->
 
-ESLintのすべてのルールは[ここ](https://eslint.org/)にあります。実際にたくさんのルールがありはじめは圧倒されると思いますが、リストをたどり一回設定してしまえばそれで済みます。
+ESLintのすべてのルールは[ここ](https://eslint.org/)にあります。実際にたくさんのルールがありはじめは圧倒されると思いますが、リストをたどり一回設定してしまえばそれで済みます。
 
 
 <!--
 Alternatively, if you don't want to go through everything one-by-one on your own, you can use the ESLint file we use for this guide.
 -->
 
-自分で設定したくなければ、このガイドで利用しているルールを利用することもできます。
+自分で設定したくなければ、このガイドで利用しているルールを利用することもできます。
 
 ```json
 {
@@ -224,7 +224,7 @@ Alternatively, if you don't want to go through everything one-by-one on your own
 The major points of this setup would be:
 -->
 
-この設定の主なポイントは以下のとおりです。
+この設定の主なポイントは以下のとおりです。
 
 
 <!--
@@ -238,18 +238,18 @@ The major points of this setup would be:
 * Limiting nested callbacks to 4. If you hit this error, it is a good idea to consider refactoring your code.
 -->
 
-* `console.log()`でデバッグできるようにします。
-* `var`を禁止し、`var`や`let`ではなく`const`を最優先で使うようにします。
-* コールバック内で同じ名前の変数を許可しません。
-* ダブルクオート(`"`)ではなくシングルクオート(`'`)を利用するようにします。
-* セミコロンを要求します。JavaScriptでは必須ではありませんがつけるほうが良いとされています。
-* プロパティへのアクセスを同じ行にする必要があります。
-* タブでインデントすることを要求します。
-* ネストしたコールバックを4つに制限します。このエラーが発生した場合は、コードのリファクタリングを検討することをお勧めします。
+* `console.log()`でデバッグできるようにします。
+* `var`を禁止し、`var`や`let`ではなく`const`を最優先で使うようにします。
+* コールバック内で同じ名前の変数を許可しません。
+* ダブルクオート(`"`)ではなくシングルクオート(`'`)を利用するようにします。
+* セミコロンを要求します。JavaScriptでは必須ではありませんがつけるほうが良いとされています。
+* プロパティへのアクセスを同じ行にする必要があります。
+* タブでインデントすることを要求します。
+* ネストしたコールバックを4つに制限します。このエラーが発生した場合は、コードのリファクタリングを検討することをお勧めします。
 
 
 <!--
 If your current code style is a bit different or you simply don't like a few of these rules, that's perfectly fine! Just head over to the [ESLint docs](https://eslint.org/docs/rules/), find the rule(s) you want to modify, and change them accordingly.
 -->
 
-現在のコードスタイルと少し違う場合や、これらの規則のいくつかが気に入らない場合は、それで問題ありません。[ESLint docs](https://eslint.org/docs/rules/)に行き、変更したいルールを見つけて、それに応じて変更してください。
+現在のコードスタイルと少し違う場合や、これらの規則のいくつかが気に入らない場合は、それで問題ありません。[ESLint docs](https://eslint.org/docs/rules/)に行き、変更したいルールを見つけて、それに応じて変更してください。
