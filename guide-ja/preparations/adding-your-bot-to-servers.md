@@ -9,7 +9,7 @@
 この招待リンクは次のような形になります。
 
 ```
-https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot
+https://discord.com/oauth2/authorize?client_id=123456789012345678&scope=bot
 ```
 
 このURLの構造は非常にシンプルになっています。
@@ -28,7 +28,7 @@ https://discordapp.com/oauth2/authorize?client_id=123456789012345678&scope=bot
 
 ## 独自の招待リンクを作成して使用する
 
-上記のように、招待リンクを生成するには、`client_id`パラメータをClient IDに置き換える必要があります。 アプリのIDを確認するには、もう一度"Applications"セクション内の[My Apps](https://discordapp.com/developers/applications/me)ページに戻り、ボットアプリケーションを選択します。
+上記のように、招待リンクを生成するには、`client_id`パラメータをClient IDに置き換える必要があります。 To find your app's ID, head back to the [My Apps](https://discord.com/developers/applications/me) page under the "Applications" section once again and click on your bot application.
 
 アプリのIDをリンクテンプレートに挿入し、ブラウザーでアクセスしてください。 そうすると次のようにボットのユーザー名とアバターが表示されるはずです。
 

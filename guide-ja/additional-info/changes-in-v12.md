@@ -15,6 +15,10 @@ After a long time in development, Discord.js v12 is nearing a stable release, me
 
 長期間の開発の末、Discord.js v12は正式にリリースされました。つまり、v11から更新してボットで新しい機能を使うときです！しかし追加された新機能と同時に、v11向けに書かれたコードを壊すライブラリへの多くの変更があります。このガイドは、コードを更新するための便利なリファレンスとして機能し、変更された最もよく使用されるメソッドや、パーシャル、内部シャーディングなどの新しいトピックをカバーします。最後にメソッドとプロパティの変更の包括的なリストも含まれます。
 
+:::tip
+This guide has two versions! Make sure to select `v12 (stable)` in the drop down selection in the header bar to get code snippets and explanations for the new version across the guide.
+:::
+
 
 <!--
 ## Before You Start
@@ -195,14 +199,14 @@ All the `.send***()` methods have been removed in favor of one general `.send()`
 - channel.sendFile('./file.png');
 - channel.sendFiles(['./file-one.png', './file-two.png']);
 + channel.send({
-    files: [{
-        attachment: 'entire/path/to/file.jpg',
-        name: 'file.jpg'
-    }]
-});
++   files: [{
++       attachment: 'entire/path/to/file.jpg',
++       name: 'file.jpg'
++   }]
++ });
 + channel.send({
-    files: ['https://cdn.discordapp.com/icons/222078108977594368/6e1019b3179d71046e463a75915e7244.png?size=2048']
-});
++   files: ['https://cdn.discordapp.com/icons/222078108977594368/6e1019b3179d71046e463a75915e7244.png?size=2048']
++ });
 ```
 
 
@@ -610,6 +614,7 @@ While this list has been carefully crafted, it may be incomplete! If you notice 
 * Webhook [(changes)](/additional-info/changes-in-v12.md#webhook) [(additions)](/additional-info/changes-in-v12.md#webhook-2)
 * WebhookClient [(changes)](/additional-info/changes-in-v12.md#webhookclient)
 * WebSocketManager [(additions)](/additional-info/changes-in-v12.md#websocketmanager)
+* WebsocketOptions [(additions)](/additional-info/changes-in-v12.md#websocketoptions)
 * WebSocketShard [(additions)](/additional-info/changes-in-v12.md#websocketshard)
 
 ### 依存関係
@@ -664,11 +669,11 @@ The `client.destroy()` method no longer returns a Promise.
 
 #### Client#disconnect
 
-The `client.disconnect` event has been removed in favor of the `client.shardDisconnected` event to make use of internal sharding.
+The `client.disconnect` event has been removed in favor of the `client.shardDisconnect` event to make use of internal sharding.
 
 ```diff
 - client.on('disconnect', event => {});
-+ client.on('shardDisconnected', (event, shardID) => {});
++ client.on('shardDisconnect', (event, shardID) => {});
 ```
 
 #### Client#emojis
@@ -698,7 +703,7 @@ The `speaking` parameter has been changed from a `boolean` value to a read-only 
 
 ```diff
 - client.pings;
-+ guild.shard.pings;
++ guild.shard.ping;
 ```
 
 #### Client#presences
@@ -725,11 +730,11 @@ The `client.reconnecting` event has been removed in favor of the `client.shardRe
 
 #### Client#resume
 
-The `client.resume` event has been removed in favor of the `client.shardResumed` event to make use of internal sharding.
+The `client.resume` event has been removed in favor of the `client.shardResume` event to make use of internal sharding.
 
 ```diff
 - client.on('resume', replayed => console.log(`Resumed connection and replayed ${replayed} events.`));
-+ client.on('shardResumed', (replayed, shardID) => console.log(`Shard ID ${shardID} resumed connection and replayed ${replayed} events.`));
++ client.on('shardResume', (replayed, shardID) => console.log(`Shard ID ${shardID} resumed connection and replayed ${replayed} events.`));
 ```
 
 #### Client#status
@@ -794,11 +799,15 @@ There have been several changes made to the `ClientOptions` object located in `c
 
 #### ClientOptions#shards
 
-`clientOptions.shards` has been removed and is functionally equivalent to `clientOptions.totalShardCount` on v12.
+`clientOptions.shards` has been removed and is functionally equivalent to `clientOptions.shardCount` on v12.
 
 #### ClientOptions#sync
 
 `clientOptions.sync` has been removed entirely, along with all other user account-only properties and methods.
+
+#### ClientOptions#disabledEvents
+
+`clientOptions.disabledEvents` has been removed in favor of using intents. Please refer to our more [detailed article about this topic](/popular-topics/intents)
 
 ### ClientUser
 
@@ -830,11 +839,11 @@ There have been several changes made to the `ClientOptions` object located in `c
 
 #### ClientUser#createGuild
 
-`clientUser.createGuild()` has been transformed in the shape of a Manager.  In addition, the second and third parameters in `clientUser.createGuild()` have been changed/removed, leaving it with a total of two parameters. The `region` and `icon` parameters from v11 have been merged into an object as the second parameter.
+`clientUser.createGuild()` has been removed and transformed in the shape of a Manager. In addition, the second and third parameters in `clientUser.createGuild()` have been changed/removed, leaving it with a total of two parameters. The `region` and `icon` parameters from v11 have been merged into an object as the second parameter.
 
 ```diff
 - clientUser.createGuild('New server', 'us-east', './path/to/file.png');
-+ clientUser.guilds.create('New server', { region: 'us-east', icon: './path/to/file.png' });
++ client.guilds.create('New server', { region: 'us-east', icon: './path/to/file.png' });
 ```
 
 #### ClientUser#displayAvatarURL
@@ -1275,6 +1284,10 @@ Not sure how to set up a database? Check out [this page](/sequelize/)!
 + guild.members.unban('123456789012345678', 'Ban appealed.');
 ```
 
+#### Guild#verificationLevel
+
+`guild.verificationLevel` now returns one of `"NONE"`, `"LOW"`, `"MEDIUM"`, `"HIGH"`, `"VERY_HIGH"` instead of the corresponding number.
+
 ### GuildChannel
 
 The properties of a channel relating to its position have been renamed.  `guildChannel.calculatedPosition` is now `guildChannel.position`.  `guildChannel.position` is now more clearly named `guildChannel.rawPosition` to denote that it's directly from the API without any sorting.
@@ -1312,13 +1325,46 @@ The second parameter in `channel.createInvite()` has been removed, leaving it wi
 
 `guildChannel.muted` has been removed entirely, along with all other user account-only properties.
 
+#### GuildChannel#overwritePermissions
+
+`guildChannel.overwritePermissions` has been changed to act as replacement for `guildChannel.replacePermissionOverwrites`.
+
+The old functionality is moved to `guildChannel.updateOverwrite` and `guildChannel.createOverwrite`
+
+```diff
+- message.channel.overwritePermissions(message.author, {
+-   SEND_MESSAGES: false
+- })
++ message.channel.createOverwrite(message.author, {
++   SEND_MESSAGES: false
++ })
+```
+
 #### GuildChannel#\*\*\*Permissions
 
 `guildChannel.memberPermissions` and `guildChannel.rolePermissions` are now private.
 
 #### GuildChannel#replacePermissionOverwrites
 
-`guildChannel.replacePermissionOverwrites` has been removed entirely.
+`guildChannel.replacePermissionOverwrites` has been renamed to `guildChannel.overwritePermissions`. Overwrites and reason are no longer provided Through an options object, but directly as method arguments.
+
+```diff
+- channel.replacePermissionOverwrites({
+- overwrites: [
+-   {
+-      id: message.author.id,
+-      denied: ['VIEW_CHANNEL'],
+-   },
+- ],
+-   reason: 'Needed to change permissions'
+- });
++ channel.overwritePermissions([
++   {
++      id: message.author.id,
++      deny: ['VIEW_CHANNEL'],
++   },
++ ], 'Needed to change permissions');
+```
 
 #### GuildChannel#setPosition
 
@@ -1923,6 +1969,15 @@ See [this section](/additional-info/changes-in-v12.md#messagecollector) for chan
 + channel.createMessageCollector(filterFunction, { max: 2, maxProcessed: 10, time: 15000 });
 ```
 
+#### TextChannel#createWebhook
+
+The second and third parameters in `textChannel.createWebhook()` have been changed/removed, leaving it with a total of two parameters. The `avatar` and `reason` parameters from v11 have been merged into an object as the second parameter.
+
+```diff
+- channel.createWebhook('Snek', 'https://i.imgur.com/mI8XcpG.jpg', 'Needed a cool new Webhook');
++ channel.createWebhook('Snek', { avatar: 'https://i.imgur.com/mI8XcpG.jpg', reason: 'Needed a cool new Webhook' });
+```
+
 #### TextChannel#memberPermissions
 
 This method is now private.
@@ -2094,7 +2149,7 @@ This method has been moved from the `VoiceBroadcast` class to the `BroadcastDisp
 
 #### VoiceBroadcast#play\*\*\*
 
-All `.play\*\*\*()` methods have been removed and transformed into a single `.play()` method.
+All `.play***()` methods have been removed and transformed into a single `.play()` method.
 
 #### VoiceBroadcast#prism
 
@@ -2182,6 +2237,16 @@ This event has been removed entirely, use the `receiver.debug` event instead.
 This property has been removed entirely.
 
 ### Webhook
+
+#### Webhook#avatarURL
+
+`webhook.avatarURL` is now a method, as opposed to a property. It also allows you to determine the file format and size to return. If the `dynamic` option is provided you will receive a `.gif` URL if the image is animated, otherwise it will fall back to the specified `format` or its default `.webp` if none is provided.
+
+```diff
+- webhook.avatarURL;
++ webhook.avatarURL();
++ webhook.avatarURL({ format: 'png', dynamic: true, size: 1024 });
+```
 
 #### Webhook#send\*\*\*
 
@@ -2360,13 +2425,23 @@ Two properties have been added, `dmChannel#lastPinAt` (read-only) and `dmChannel
 
 ### GuildChannel
 
+#### GuildChannel#createOverwrite
+
+Creates or update an existing overwrite for a user or role.  The second parameter is a `PermissionOverwriteOption` object; the third, optional parameter is `reason`, a string.
+
+```js
+channel.createOverwrite(message.author, {
+    SEND_MESSAGES: false,
+});
+```
+
 #### GuildChannel#permissionsLocked
 
 `guildChannel.permissionsLocked` is a boolean value representing if the `permissionOverwrites` of the channel match its parent's `permissionOverwrites`.
 
-#### GuildChannel#updateOverwrites
+#### GuildChannel#updateOverwrite
 
-Creates or update an existing overwrite for a user or role.  The first parameter is a `PermissionOverwriteOption` object; the second, optional parameter is `reason`, a string.
+Creates or update an existing overwrite for a user or role.  The second parameter is a `PermissionOverwriteOption` object; the third, optional parameter is `reason`, a string.
 
 ```js
 channel.updateOverwrite(message.author, {
@@ -2599,6 +2674,12 @@ This new property returns a `string` representing the URL of the webhook, and is
 ### WebSocketManager
 
 This new class represents the manager of the websocket connection for the client.
+
+### WebSocketOptions
+
+#### WebSocketOptions#intents
+
+This new parameter adds support for Intents, controlling which events you receive from Discord. Please refer to our more [detailed article about this topic](/popular-topics/intents)
 
 ### WebSocketShard
 
