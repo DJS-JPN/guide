@@ -350,7 +350,7 @@ v12 has changed how string concatenation works with stringifying objects.  The `
 
 `valueOf` any data structure will return its id, which affects how it behaves in strings, eg. using an object for a mention.  In v11, you used to be able to use `channel.send(userObject + ' has joined!')` and it would automatically stringify the object and it would become the mention (`@user has joined!`), but in v12, it will now send a message that says `123456789012345678 has joined` instead.  Using template literals (\`\`) will still return the mention, however.
 
-v12では、文字列連結がオブジェクトを文字列化する方法が変更されました。データ構造体の`valueOf`はそのidを返します。これは、メンションにオブジェクトを使用するときなどの、文字列内での振る舞いに影響します。v11では、`channel.send(userObject + ' has joined!')`を使用して、オブジェクトを自動的に文字列化しメンションにできましたが(`@user has joined!`)、v12では`123456789012345678 has joined`というメッセージを送信します。代わりにテンプレートリテラル(\`\`)を使用するとメンションが返されます。
+v12では、文字列連結がオブジェクトを文字列化する方法が変更されました。データ構造体の`valueOf`はそのidを返します。これは、メンションにオブジェクトを使用するときなどの、文字列内での振る舞いに影響します。v11では、`channel.send(userObject + ' has joined!')`を使用して、オブジェクトを自動的に文字列化しメンションにできましたが(`@user has joined!`)、v12では`123456789012345678 has joined`というメッセージを送信します。代わりにテンプレートリテラル(\`\`)を使用するとメンションが返されます。
 
 ```diff
 - channel.send(userObject + ' has joined!')
@@ -383,7 +383,7 @@ APIから一般公開されないため、すべてのユーザーアカウン�
 v12 has a new voice system that improves stability but also comes with some changes to playing audio:
 -->
 
-v12には安定性を向上させる新しい音声システムがありますが、オーディオの再生にいくつかの変更が加えられています。
+v12には安定性を向上させる新しい音声システムがありますが、オーディオの再生にいくつかの変更が加えられています。
 
 
 <!--
@@ -438,8 +438,8 @@ You can now also play Ogg Opus files or WebM Opus files directly without the nee
 また、v12でFFmpegを必要とせずに、Ogg OpusファイルまたはWebM Opusファイルを直接再生できるようになりました。
 
 ```js
-connection.play(fs.createReadStream('file.ogg'), { type: 'ogg/opus' });
-connection.play(fs.createReadStream('file.webm'), { type: 'webm/opus' });
+- connection.play(fs.createReadStream('file.ogg'), { type: 'ogg/opus' });
++ connection.play(fs.createReadStream('file.webm'), { type: 'webm/opus' });
 ```
 
 
@@ -447,7 +447,7 @@ connection.play(fs.createReadStream('file.webm'), { type: 'webm/opus' });
 It is also possible to define initial values for `plp`, `fec` and `bitrate` when playing a stream. Minus bitrate, these are new configurable options in v12 that can help when playing audio on unstable network connections.
 -->
 
-ストリームを再生するときに、`plp`、`fec`、`bitrate`の初期値を定義することもできます。マイナスビットレートは、不安定なネットワーク接続でオーディオを再生するときに役立つv12の新しい設定可能なオプションです。
+ストリームを再生するときに、`plp`、`fec`、`bitrate`の初期値を定義することもできます。マイナスビットレートは、不安定なネットワーク接続でオーディオを再生するときに役立つv12の新しい設定可能なオプションです。
 
 ```diff
 - connection.playStream(stream).setBitrate(96)
@@ -470,7 +470,7 @@ connection.play(stream, { volume: false });
 The internal voice system in v12 now uses streams where possible, and as such StreamDispatcher itself is now a WritableStream. It also comes with new changes:
 -->
 
-v12の内部音声システムは、可能な限りストリームを使用するようになり、StreamDispatcher自体がWritableStreamになりました。また、新しい変更も含まれています。
+v12の内部音声システムは、可能な限りストリームを使用するようになり、StreamDispatcher自体がWritableStreamになりました。また、新しい変更も含まれています。
 
 ```diff
 - dispatcher.end()
@@ -488,7 +488,7 @@ connection.play(stream, { highWaterMark: 512 });
 ```
 -->
 
-`highWaterMark`オプション（デフォルトは12）を使用して、より安定した再生のためにオーディオを再生する前にキューに入れるオーディオパケットの数を手動で制御できます。
+`highWaterMark`オプション(デフォルトは12)を使用して、より安定した再生のためにオーディオを再生する前にキューに入れるオーディオパケットの数を手動で制御できます。
 ```js
 connection.play(stream, { highWaterMark: 512 });
 ```
@@ -502,7 +502,7 @@ dispatcher.pause(true);
 ```
 -->
 
-オーディオストリームを頻繁に一時停止/再開する場合は、一時停止中に無音パケットの再生を有効にして、Discordクライアントでのノイズ(オーディオグリッチ)を防ぐことができます。
+オーディオストリームを頻繁に一時停止/再開する場合は、一時停止中に無音パケットの再生を有効にして、Discordクライアントでのノイズ(オーディオグリッチ)を防ぐことができます。
 ```js
 // trueを渡して”無音”を再生する
 dispatcher.pause(true);
@@ -513,14 +513,14 @@ dispatcher.pause(true);
 #### Broadcasts
 -->
 
-#### ブロードキャスト
+#### ブロードキャスト
 
 
 <!--
 Broadcasts themselves now contain a `BroadcastDispatcher` that shares a similar interface to the `StreamDispatcher` and can be used to control the playback of an audio stream.
 -->
 
-ブロードキャスト自体に、`StreamDispatcher`と同じのインターフェースを共有し、オーディオストリームの再生を制御するために使用できる`BroadcastDispatcher`が含まれるようになりました。
+ブロードキャスト自体に、`StreamDispatcher`と同じのインターフェースを共有し、オーディオストリームの再生を制御するために使用できる`BroadcastDispatcher`が含まれるようになりました。
 
 ```diff
 - client.createVoiceBroadcast()
@@ -553,7 +553,7 @@ While this list has been carefully crafted, it may be incomplete! If you notice 
 :::
 -->
 
-::: danger このリストは慎重に作成されていますが、不完全な場合があります！データの欠落や不正確な部分に気付いた場合は、[プルリクエストを送信する](https://github.com/discordjs/guide/compare)ことをお勧めします！
+::: danger このリストは慎重に作成されていますが、不完全な場合があります!データの欠落や不正確な部分に気付いた場合は、[プルリクエストを送信する](https://github.com/discordjs/guide/compare)ことをお勧めします!
 :::
 
 * Activity [(additions)](/additional-info/changes-in-v12.md#activity)
