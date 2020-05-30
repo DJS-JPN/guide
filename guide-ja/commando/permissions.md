@@ -42,7 +42,7 @@ super(client, {
 });
 ```
 
-プロパティを許可フラグの配列に設定するだけです。 それらのリストを見つけることができます <branch version="11.x" inline>[here](https://discord.js.org/#/docs/main/11.5.1/class/Permissions?scrollTo=s-FLAGS)</branch><branch version="12.x" inline>[here](https://discord.js.org/#/docs/main/master/class/Permissions?scrollTo=s-FLAGS)</branch>.
+プロパティを許可フラグの配列に設定するだけです。 それらのリストを見つけることができます <branch version="11.x" inline>[here](https://discord.js.org/#/docs/main/v11/class/Permissions?scrollTo=s-FLAGS)</branch><branch version="12.x" inline>[here](https://discord.js.org/#/docs/main/stable/class/Permissions?scrollTo=s-FLAGS)</branch>.
 
 ## 所有者専用コマンド
 
