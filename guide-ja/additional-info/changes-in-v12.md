@@ -16,7 +16,7 @@ After a long time in development, Discord.js v12 is nearing a stable release, me
 長期間の開発の末、Discord.js v12は正式にリリースされました。つまり、v11から更新してボットで新しい機能を使うときです!しかし追加された新機能と同時に、v11向けに書かれたコードを壊すライブラリへの多くの変更があります。このガイドは、コードを更新するための便利なリファレンスとして機能し、変更された最もよく使用されるメソッドや、パーシャル、内部シャーディングなどの新しいトピックをカバーします。最後にメソッドとプロパティの変更の包括的なリストも含まれます。
 
 :::tip
-This guide has two versions! Make sure to select `v12 (stable)` in the drop down selection in the header bar to get code snippets and explanations for the new version across the guide.
+このガイドには2つのバージョンがあります！ ガイド全体で新バージョンのコードスニペットと説明を得るために、ヘッダーのドロップダウンで`v12 (stable)`を選択することを確認してください。
 :::
 
 
