@@ -1,22 +1,22 @@
 ---
-title: v11からv12へのアップデート
+title: v11からv12へのアップデート
 ---
 
 <!--
 # Updating from v11 to v12
 -->
 
-# v11からv12へのアップデート
+# v11からv12へのアップデート
 
 
 <!--
 After a long time in development, Discord.js v12 is nearing a stable release, meaning it's time to update from v11 to get new features for your bots!  However, with those new features comes a lot of changes to the library that will break code written for v11.  This guide will serve as a handy reference for updating your code, covering the most commonly-used methods that have been changed, new topics such as partials and internal sharding, and will also include a comprehensive list of the method and property changes at the end.
 -->
 
-長期間の開発の末、Discord.js v12は正式にリリースされました。つまり、v11から更新してボットで新しい機能を使うときです！しかし追加された新機能と同時に、v11向けに書かれたコードを壊すライブラリへの多くの変更があります。このガイドは、コードを更新するための便利なリファレンスとして機能し、変更された最もよく使用されるメソッドや、パーシャル、内部シャーディングなどの新しいトピックをカバーします。最後にメソッドとプロパティの変更の包括的なリストも含まれます。
+長期間の開発の末、Discord.js v12は正式にリリースされました。つまり、v11から更新してボットで新しい機能を使うときです!しかし追加された新機能と同時に、v11向けに書かれたコードを壊すライブラリへの多くの変更があります。このガイドは、コードを更新するための便利なリファレンスとして機能し、変更された最もよく使用されるメソッドや、パーシャル、内部シャーディングなどの新しいトピックをカバーします。最後にメソッドとプロパティの変更の包括的なリストも含まれます。
 
 :::tip
-This guide has two versions! Make sure to select `v12 (stable)` in the drop down selection in the header bar to get code snippets and explanations for the new version across the guide.
+このガイドには2つのバージョンがあります！ ガイド全体で新バージョンのコードスニペットと説明を得るために、ヘッダーのドロップダウンで`v12 (stable)`を選択することを確認してください。
 :::
 
 
@@ -31,28 +31,28 @@ This guide has two versions! Make sure to select `v12 (stable)` in the drop down
 v12 requires Node 12.x or higher to  use, so make sure you're up-to-date.  To check your Node version, use `node -v` in your terminal or command prompt, and if it's not high enough, update it!  There are many resources online to help you with this step based on your host system.
 -->
 
-v12を使用するにはNode 12.x以降が必要です。最新の状態であることを確認してください。Nodeのバージョンを確認するには、ターミナルまたはコマンドプロンプトで`node -v`を使用します。v12以降ではない場合は更新してください。使用しているOSごとにこれを手助けする情報がネット上に多くあります。
+v12を使用するにはNode 12.x以降が必要です。最新の状態であることを確認してください。Nodeのバージョンを確認するには、ターミナルまたはコマンドプロンプトで`node -v`を使用します。v12以降ではない場合は更新してください。使用しているOSごとにこれを手助けする情報がネット上に多くあります。
 
 
 <!--
 Once you got Node up-to-date you can install v12 by running `npm install discord.js` in your terminal or command prompt for text-only use, or `npm install discord.js @discordjs/opus` for voice support.
 -->
 
-Nodeを最新にしたら、ターミナルまたはコマンドプロンプトで`npm install discord.js`を実行してテキストのみを使用するか、音声サポート用に`npm install discord.js @discordjs/opus`を実行してv12をインストールできます。
+Nodeを最新にしたら、ターミナルまたはコマンドプロンプトで`npm install discord.js`を実行してテキストのみを使用するか、音声サポート用に`npm install discord.js @discordjs/opus`を実行してv12をインストールできます。
 
 
 <!--
 You can check your discord.js version with `npm list discord.js`. Should it still show v11.x uninstall (`npm uninstall discord.js`) and re-install discord.js and make sure the entry in your package.json does not prevent a major version update. Please refer to the [npm documentation](https://docs.npmjs.com/files/package.json#dependencies) for this.
 -->
 
-インストールされたdiscord.jsのバージョンは`npm list discord.js`で確認できます。それでもv11.xが表示される場合はdiscord.jsを一度アンインストールし(`npm uninstall discord.js`)、再びインストールすることで、package.jsonの指定がメジャーバージョンの更新を妨げていないことを確認してください。詳しくは[npm documentation](https://docs.npmjs.com/files/package.json#dependencies)を参照してください。
+インストールされたdiscord.jsのバージョンは`npm list discord.js`で確認できます。それでもv11.xが表示される場合はdiscord.jsを一度アンインストールし(`npm uninstall discord.js`)、再びインストールすることで、package.jsonの指定がメジャーバージョンの更新を妨げていないことを確認してください。詳しくは[npm documentation](https://docs.npmjs.com/files/package.json#dependencies)を参照してください。
 
 
 <!--
 ## Commonly Used Methods That Changed
 -->
 
-## 変更されたよく使われるメソッド
+## 変更されたよく使われるメソッド
 
 
 <!--
@@ -61,8 +61,8 @@ You can check your discord.js version with `npm list discord.js`. Should it stil
 * The use of asterisks designates a wildcard. For example, `Channel#send***` means that this section will include changes for `Channel#sendMessage`, `Channel#sendFile`, `Channel#sendEmbed`, and so forth.
 -->
 
-* すべての節の見出しには、`Class#methodOrProperty`という規則に従って名前が付けられます。
-* 括弧の使用は、オプションを含むことを表します。例えば`Channel#fetch(Pinned)Message(s)`は、その節に`Channel#fetchPinnedMessages`、`Channel#fetchMessages`、および`Channel#fetchMessage`の変更が含まれることを意味します。
+* すべての節の見出しには、`Class#methodOrProperty`という規則に従って名前が付けられます。
+* 括弧の使用は、オプションを含むことを表します。例えば`Channel#fetch(Pinned)Message(s)`は、その節に`Channel#fetchPinnedMessages`、`Channel#fetchMessages`、および`Channel#fetchMessage`の変更が含まれることを意味します。
 * アスタリスクはワイルドカードを示します。例えば`Channel#send***`は、このセクションに`Channel#sendMessage`や`Channel#sendFile`、`Channel#sendEmbed`などの変更が含まれることを意味します。
 
 
@@ -70,14 +70,14 @@ You can check your discord.js version with `npm list discord.js`. Should it stil
 ### Managers/ Cache
 -->
 
-### マネージャー/ キャッシュ
+### マネージャー/ キャッシュ
 
 
 <!--
 v12 introduces the concept of managers, you will no longer be able to directly use collection methods such as `Collection#get` on data structures like `Client#users`. You will now have to directly ask for cache on a manager before trying to use collection methods. Any method that is called directly on a manager will call the API, such as `GuildMemberManager#fetch` and `MessageManager#delete`. 
 -->
 
-v12ではマネージャーという概念が導入されているため、`Client#users`などのデータ構造で`Collection#get`などのコレクションメソッドを直接使用することはできなくなります。コレクションのメソッドを使用する前に、マネージャーでキャッシュを直接要求する必要があります。`GuildMemberManager＃fetch`や`MessageManager#delete`など、マネージャーで直接呼び出されるメソッドはAPIを呼び出します。
+v12ではマネージャーという概念が導入されているため、`Client#users`などのデータ構造で`Collection#get`などのコレクションメソッドを直接使用することはできなくなります。コレクションのメソッドを使用する前に、マネージャーでキャッシュを直接要求する必要があります。`GuildMemberManager#fetch`や`MessageManager#delete`など、マネージャーで直接呼び出されるメソッドはAPIを呼び出します。
 
 ```diff
 - client.users.get('123456789012345678');
@@ -99,7 +99,7 @@ v12ではマネージャーという概念が導入されているため、`Clie
 `collection.exists()` was removed entirely, `collection.some()` should be used to check if an element exists in the collection that satisfies the provided value.
 -->
 
-`collection.exists()`は完全に削除されました。`collection.some()`を使用して、指定された値を満たす要素がコレクション内に存在するかどうかを確認する必要があります。
+`collection.exists()`は完全に削除されました。`collection.some()`を使用して、指定された値を満たす要素がコレクション内に存在するかどうかを確認する必要があります。
 
 ```diff
 - client.users.exists('username', 'Bob');
@@ -113,7 +113,7 @@ v12ではマネージャーという概念が導入されているため、`Clie
 `collection.filterArray()` was removed entirely, as it was just a helper method for `collection.filter().array()` and most of the time converting a collection to an array is an unnecessary step.
 -->
 
-`collection.filterArray()`は完全に削除されました。これは単なる`collection.filter().array()`のヘルパーメソッドであり、ほとんどの場合、コレクションを配列に変換することは不要な操作です。
+`collection.filterArray()`は完全に削除されました。これは単なる`collection.filter().array()`のヘルパーメソッドであり、ほとんどの場合、コレクションを配列に変換することは不要な操作です。
 
 #### Collection#find
 
@@ -122,7 +122,7 @@ v12ではマネージャーという概念が導入されているため、`Clie
 `collection.find('property', value)` has been removed entirely, and `collection.find()` only accepts a function in v12.
 -->
 
-`collection.find('property', value)`は完全に削除されました。v12の`collection.find()`では関数のみを受け入れます。
+`collection.find('property', value)`は完全に削除されました。v12の`collection.find()`では関数のみを受け入れます。
 
 ```diff
 - client.users.find('username', 'Bob');
@@ -136,7 +136,7 @@ v12ではマネージャーという概念が導入されているため、`Clie
 `collection.findAll()` was removed entirely as it just duplicated `collection.filterArray()`'s results.
 -->
 
-`collection.findAll()`は、`collection.filterArray()`の結果を複製するだけなので、完全に削除されました。
+`collection.findAll()`は、`collection.filterArray()`の結果を複製するだけなので、完全に削除されました。
 
 ### Fetch
 
@@ -145,7 +145,7 @@ v12ではマネージャーという概念が導入されているため、`Clie
 Some methods that retrieve uncached data have been changed, transformed in the shape of a Manager.
 -->
 
-キャッシュされていないデータを取得する一部のメソッドが変更され、マネージャーを使用する形式に変更されました。
+キャッシュされていないデータを取得する一部のメソッドが変更され、マネージャーを使用する形式に変更されました。
 
 ```diff
 - client.fetchUser('123456789012345678');
@@ -190,7 +190,7 @@ All the `.send***()` methods have been removed in favor of one general `.send()`
 `channel.send(embedVariable)` will only work if that variable is an instance of the `MessageEmbed` class; object literals won't give you the expected result unless your embed data is inside an `embed` key.
 -->
 
-`channel.send(embedVariable)`は、その変数が `MessageEmbed`クラスのインスタンスである場合にのみ機能します。埋め込みデータが`embed`キー内にない限り、オブジェクトリテラルは期待した結果になりません。
+`channel.send(embedVariable)`は、その変数が `MessageEmbed`クラスのインスタンスである場合にのみ機能します。埋め込みデータが`embed`キー内にない限り、オブジェクトリテラルは期待した結果になりません。
 
 ```diff
 - channel.sendCode('js', 'const version = 11;');
@@ -314,7 +314,7 @@ Some image-related properties like `user.avatarURL` are now a method in v12, so 
 ## Dynamic File type
 -->
 
-## 動的ファイルタイプ
+## 動的ファイルタイプ
 
 
 <!--
@@ -350,7 +350,7 @@ v12 has changed how string concatenation works with stringifying objects.  The `
 
 `valueOf` any data structure will return its id, which affects how it behaves in strings, eg. using an object for a mention.  In v11, you used to be able to use `channel.send(userObject + ' has joined!')` and it would automatically stringify the object and it would become the mention (`@user has joined!`), but in v12, it will now send a message that says `123456789012345678 has joined` instead.  Using template literals (\`\`) will still return the mention, however.
 
-v12では、文字列連結がオブジェクトを文字列化する方法が変更されました。データ構造体の`valueOf`はそのidを返します。これは、メンションにオブジェクトを使用するときなどの、文字列内での振る舞いに影響します。v11では、`channel.send(userObject + ' has joined!')`を使用して、オブジェクトを自動的に文字列化しメンションにできましたが(`@user has joined!`)、v12では`123456789012345678 has joined`というメッセージを送信します。代わりにテンプレートリテラル(\`\`)を使用するとメンションが返されます。
+v12では、文字列連結がオブジェクトを文字列化する方法が変更されました。データ構造体の`valueOf`はそのidを返します。これは、メンションにオブジェクトを使用するときなどの、文字列内での振る舞いに影響します。v11では、`channel.send(userObject + ' has joined!')`を使用して、オブジェクトを自動的に文字列化しメンションにできましたが(`@user has joined!`)、v12では`123456789012345678 has joined`というメッセージを送信します。代わりにテンプレートリテラル(\`\`)を使用するとメンションが返されます。
 
 ```diff
 - channel.send(userObject + ' has joined!')
@@ -383,7 +383,7 @@ APIから一般公開されないため、すべてのユーザーアカウン�
 v12 has a new voice system that improves stability but also comes with some changes to playing audio:
 -->
 
-v12には安定性を向上させる新しい音声システムがありますが、オーディオの再生にいくつかの変更が加えられています。
+v12には安定性を向上させる新しい音声システムがありますが、オーディオの再生にいくつかの変更が加えられています。
 
 
 <!--
@@ -438,8 +438,8 @@ You can now also play Ogg Opus files or WebM Opus files directly without the nee
 また、v12でFFmpegを必要とせずに、Ogg OpusファイルまたはWebM Opusファイルを直接再生できるようになりました。
 
 ```js
-connection.play(fs.createReadStream('file.ogg'), { type: 'ogg/opus' });
-connection.play(fs.createReadStream('file.webm'), { type: 'webm/opus' });
+- connection.play(fs.createReadStream('file.ogg'), { type: 'ogg/opus' });
++ connection.play(fs.createReadStream('file.webm'), { type: 'webm/opus' });
 ```
 
 
@@ -447,7 +447,7 @@ connection.play(fs.createReadStream('file.webm'), { type: 'webm/opus' });
 It is also possible to define initial values for `plp`, `fec` and `bitrate` when playing a stream. Minus bitrate, these are new configurable options in v12 that can help when playing audio on unstable network connections.
 -->
 
-ストリームを再生するときに、`plp`、`fec`、`bitrate`の初期値を定義することもできます。マイナスビットレートは、不安定なネットワーク接続でオーディオを再生するときに役立つv12の新しい設定可能なオプションです。
+ストリームを再生するときに、`plp`、`fec`、`bitrate`の初期値を定義することもできます。マイナスビットレートは、不安定なネットワーク接続でオーディオを再生するときに役立つv12の新しい設定可能なオプションです。
 
 ```diff
 - connection.playStream(stream).setBitrate(96)
@@ -470,7 +470,7 @@ connection.play(stream, { volume: false });
 The internal voice system in v12 now uses streams where possible, and as such StreamDispatcher itself is now a WritableStream. It also comes with new changes:
 -->
 
-v12の内部音声システムは、可能な限りストリームを使用するようになり、StreamDispatcher自体がWritableStreamになりました。また、新しい変更も含まれています。
+v12の内部音声システムは、可能な限りストリームを使用するようになり、StreamDispatcher自体がWritableStreamになりました。また、新しい変更も含まれています。
 
 ```diff
 - dispatcher.end()
@@ -488,7 +488,7 @@ connection.play(stream, { highWaterMark: 512 });
 ```
 -->
 
-`highWaterMark`オプション（デフォルトは12）を使用して、より安定した再生のためにオーディオを再生する前にキューに入れるオーディオパケットの数を手動で制御できます。
+`highWaterMark`オプション(デフォルトは12)を使用して、より安定した再生のためにオーディオを再生する前にキューに入れるオーディオパケットの数を手動で制御できます。
 ```js
 connection.play(stream, { highWaterMark: 512 });
 ```
@@ -502,7 +502,7 @@ dispatcher.pause(true);
 ```
 -->
 
-オーディオストリームを頻繁に一時停止/再開する場合は、一時停止中に無音パケットの再生を有効にして、Discordクライアントでのノイズ(オーディオグリッチ)を防ぐことができます。
+オーディオストリームを頻繁に一時停止/再開する場合は、一時停止中に無音パケットの再生を有効にして、Discordクライアントでのノイズ(オーディオグリッチ)を防ぐことができます。
 ```js
 // trueを渡して”無音”を再生する
 dispatcher.pause(true);
@@ -513,14 +513,14 @@ dispatcher.pause(true);
 #### Broadcasts
 -->
 
-#### ブロードキャスト
+#### ブロードキャスト
 
 
 <!--
 Broadcasts themselves now contain a `BroadcastDispatcher` that shares a similar interface to the `StreamDispatcher` and can be used to control the playback of an audio stream.
 -->
 
-ブロードキャスト自体に、`StreamDispatcher`と同じのインターフェースを共有し、オーディオストリームの再生を制御するために使用できる`BroadcastDispatcher`が含まれるようになりました。
+ブロードキャスト自体に、`StreamDispatcher`と同じのインターフェースを共有し、オーディオストリームの再生を制御するために使用できる`BroadcastDispatcher`が含まれるようになりました。
 
 ```diff
 - client.createVoiceBroadcast()
@@ -553,7 +553,7 @@ While this list has been carefully crafted, it may be incomplete! If you notice 
 :::
 -->
 
-::: danger このリストは慎重に作成されていますが、不完全な場合があります！データの欠落や不正確な部分に気付いた場合は、[プルリクエストを送信する](https://github.com/discordjs/guide/compare)ことをお勧めします！
+::: danger このリストは慎重に作成されていますが、不完全な場合があります!データの欠落や不正確な部分に気付いた場合は、[プルリクエストを送信する](https://github.com/discordjs/guide/compare)ことをお勧めします!
 :::
 
 * Activity [(additions)](/additional-info/changes-in-v12.md#activity)
