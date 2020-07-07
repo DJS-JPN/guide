@@ -21,7 +21,7 @@
 ライブラリのサポートするインテントの一覧は[the discord.js documentation](https://discord.js.org/#/docs/main/stable/class/Intents?scrollTo=s-FLAGS)にあります。 イベントがどのインテントに含まれるかは[discord API documentation](https://discordapp.com/developers/docs/topics/gateway#list-of-intents)に書いてあります。
 
 :::tip
-`GUILD_PRESENCES` はギルドメンバーのデータを始めに受け取るために必要です。 If you do not supply it your member caches will be empty and not updates, even if you do provide `GUILD_MEMBERS`! Before you disable intents think about what your bot does and how not receiving the listed events might prevent it from doing this. Version 12 of discord.js does not yet fully support any combination of intents without loosing seemingly unrelated data.
+`GUILD_PRESENCES` はギルドメンバーのデータを始めに受け取るために必要です。 もし指定されない場合は`GUILD_MEMBERS`を指定してもメンバーのキャッシュは空となり、更新されません。 あるインテントを無効にする（イベントの受信をやめる）前にボットが正常に動作しなくなることのないよう、ボットがどのように動いているのか考えなければなりません。 discord.js バージョン12では完全にはインテントをサポートしていません。一見無関係なデータが失われることがあります。
 :::
 
 ```js
@@ -29,11 +29,11 @@ const { Client } = require('discord.js');
 const client = new Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES'] } });
 ```
 
-## The Intents bit field wrapper
+## インテントのビットフィールドのラッパー
 
-Discord.js provides a utility structure [`Intents`](https://discord.js.org/#/docs/main/stable/class/Intents) which can be utilized to easily adapt the underlying bit field.
+discord.js は [`Intents`](https://discord.js.org/#/docs/main/stable/class/Intents)というユーティリティーを提供しており、ビットフィールドを容易に構築することができます。
 
-We also provide static fields for all, privileged and non-privileged intents. You can provide these as-is or pass them to the Intents constructor to further modify to your needs.
+また、特権を必要とするインテント、ならびに特権を必要としないインテントをすべて含んだフィールドを提供します。 You can provide these as-is or pass them to the Intents constructor to further modify to your needs.
 
 ```js
 const { Client, Intents } = require('discord.js');
