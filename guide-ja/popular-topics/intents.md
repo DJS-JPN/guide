@@ -70,12 +70,12 @@ Discordは、イベントを通じて送信されるデータの機密性から�
 
 今のところ、これらのインテントは、[Discord Developer Portal](https://discordapp.com/developers/applications)で切り替えを行うだけで有効にできます。 これは現在非推奨期間であり、2020年10月7日以降に特権インテントを使用するにはホワイトリストに登録されたボットが必要です。 ホワイトリストについては[this discord support article](https://support.discordapp.com/hc/en-us/articles/360040720412-Bot-Verification-and-Data-Whitelisting)をご覧ください。
 
-Should you receive the error `[DISALLOWED_INTENTS]: Privileged intent provided is not enabled or whitelisted` please review your settings for all privileged intents you use. The official documentation for privileged intents can be found on the [discord API documentation](https://discordapp.com/developers/docs/topics/gateway#privileged-intents).
+エラー`[DISALLOWED_INTENTS]: Privileged intent provided is not enabled or whitelisted`（与えられた特権インテントは有効になっていないか、ホワイトリストに登録されていません）が表示された場合は、使用しているすべての特権インテントの設定を確認してください。 特権インテントについては[discord API documentation](https://discordapp.com/developers/docs/topics/gateway#privileged-intents)をご覧ください。
 
-## More on bit fields
+## ビットフィールドの詳細
 
-Discord permissions are stored in a 53-bit integer and calculated using bitwise operations. If you want to dive deeper into what's happening behind the curtains, check the [Wikipedia](https://en.wikipedia.org/wiki/Bit_field) and [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) articles on the topic.
+Discordの権限は53ビット整数で保存され、ビット単位で計算されます。 その裏で何が起きているのかについて詳しく知りたい場合は、[Wikipedia](https://en.wikipedia.org/wiki/Bit_field)と[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)の記事をチェックしてください。
 
-In discord.js, permission bit fields are represented as either the decimal value of said bit field or its referenced flags. Every position in a permissions bit field represents one of these flags and its state (either referenced `1` or not referenced `0`).
+discord.jsでは、パーミッションビットフィールドは、ビットフィールドまたはフラグへの参照として表されます。 Every position in a permissions bit field represents one of these flags and its state (either referenced `1` or not referenced `0`).
 
 </branch>
