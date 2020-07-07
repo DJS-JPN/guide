@@ -37,5 +37,5 @@ Remember that you can always [fork the repo](https://github.com/discordjs/guide)
 -->
 
 ::: tip
-あなたが自分でガイドに何かを追加したい場合は、いつでも[リポジトリをfork](https://github.com/discordjs/guide) し、[PullRequestを作成](https://github.com/discordjs/guide/pulls)できることを忘れないでください！
+あなたが自分でガイドに何かを追加したい場合は、いつでも[リポジトリをfork](https://github.com/discordjs/guide) し、[PullRequest](https://github.com/discordjs/guide/pulls)を作成できることを忘れないでください！
 :::
