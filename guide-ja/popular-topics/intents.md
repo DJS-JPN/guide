@@ -33,14 +33,16 @@ const client = new Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES'] } });
 
 discord.js は [`Intents`](https://discord.js.org/#/docs/main/stable/class/Intents)というユーティリティーを提供しており、ビットフィールドを容易に構築することができます。
 
-また、特権を必要とするインテント、ならびに特権を必要としないインテントをすべて含んだフィールドを提供します。 You can provide these as-is or pass them to the Intents constructor to further modify to your needs.
+また、staticフィールドとして、インテントをすべて含んだもの（`Intents.ALL` ）、特権を必要とするインテントをすべて含んだもの（`Intents.PRIVILEGED` ）、特権を必要としないインテントをすべて含んだもの（`Intents.NON_PRIVILEGED` ）が定義されています。 これをそのまま用いたり、Intentsコントラスタに渡して変更して用いたりすることができます。
 
 ```js
 const { Client, Intents } = require('discord.js');
 const client = new Client({ ws: { intents: Intents.ALL } });
 ```
 
-The other static bits can be accessed likewise via `Intents.PRIVILEGED` and `Intents.NON_PRIVILEGED`.
+<!--
+The other static bits can be accessed likewise via <code>Intents.PRIVILEGED</code> and <code>Intents.NON_PRIVILEGED</code>.
+-->
 
 You can use the `.add()` and `.remove()` methods to add or remove flags to modify the bit field. Since discord.js uses a spread operator for the provided arguments you can provide single flags as well as an array or bit field. To use a set of intents as template you can pass them to the constructor. A few approaches are demonstrated below:
 
