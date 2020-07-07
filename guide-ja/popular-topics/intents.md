@@ -29,11 +29,11 @@ const { Client } = require('discord.js');
 const client = new Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES'] } });
 ```
 
-## インテントのビットフィールドのラッパー
+## インテントビットフィールドのラッパー
 
 discord.js は[`Intents`](https://discord.js.org/#/docs/main/stable/class/Intents)というユーティリティーを提供しており、ビットフィールドを容易に操作することができます。
 
-また、staticフィールドとして、インテントをすべて含んだもの（`Intents.ALL` ）、特権を必要とするインテントをすべて含んだもの（`Intents.PRIVILEGED` ）、特権を必要としないインテントをすべて含んだもの（`Intents.NON_PRIVILEGED` ）が定義されています。 これをそのまま用いたり、Intentsコントラスタに渡して変更して用いたりすることができます。
+また、staticフィールドとして、インテントをすべて含んだもの（`Intents.ALL` ）、特権インテントをすべて含んだもの（`Intents.PRIVILEGED` ）、特権を必要としないインテントをすべて含んだもの（`Intents.NON_PRIVILEGED` ）が定義されています。 これをそのまま用いたり、Intentsコントラスタに渡して変更して用いたりすることができます。
 
 ```js
 const { Client, Intents } = require('discord.js');
@@ -44,7 +44,7 @@ const client = new Client({ ws: { intents: Intents.ALL } });
 The other static bits can be accessed likewise via <code>Intents.PRIVILEGED</code> and <code>Intents.NON_PRIVILEGED</code>.
 -->
 
-`.add()` 、`.remove()` メソッドを用いてフラグを建てたり消したりし、ビットフィールドを変更することができます。 discord.jsは指定された引数にスプレッド演算子を使用するため、配列やビットフィールドだけでなくそのままのインテントの名前も引数に渡すことができます。 テンプレートとしてインテントのセットを使う場合はそれらをコントラスタに渡すこともできます。 いくつかのアプローチを以下に示します。
+`.add()` 、`.remove()` メソッドを用いてフラグを建てたり消したりし、ビットフィールドを変更することができます。 discord.jsは指定された引数にスプレッド演算子を使用するため、配列やビットフィールドだけでなくフラグ単体も引数に渡すことができます。 テンプレートとしてインテントのセットを使う場合はそれらをコントラスタに渡すこともできます。 いくつかのアプローチを以下に示します。
 
 ```js
 const { Client, Intents } = require('discord.js');
@@ -62,20 +62,20 @@ const otherIntents2 = new Intents(32509);
 otherIntents2.remove(1, 512);
 ```
 
-構築されたフラグを表示したい場合は`.toArray()`、`.serialize()` 、`.missing()` メソッドを利用できます。 それぞれ、ビットフィールドで表されるフラグの配列、ビットフィールドをもとに、すべてのフラグ値をキーとしインテントが有効かどうかを真偽値として持つオブジェクト、 ビットフィールドが持っていないフラグを返します。（確認のために特定のインテントのビットフィールドを渡すことで動作します）
+構築されたフラグを表示したい場合は`.toArray()`、`.serialize()` 、`.missing()` メソッドを利用できます。 それぞれ、ビットフィールドで表されるフラグの配列、ビットフィールドをもとに、すべてのフラグ値をキーとしインテントが有効かどうかを真偽値として持つオブジェクト、 ビットフィールドが持っていないフラグを返します。（そのため、特定のインテントのビットフィールドを渡す必要があります）
 
 ## 特権インテント
 
 Discordは、イベントを通じて送信されるデータの機密性から、いくつかのインテントを「特権」と定義しています。 この記事を書いている時点では、特権インテントは `GUILD_PRESENCES` と `GUILD_MEMBERS` の2つです。
 
-今のところ、これらのインテントは、[Discord Developer Portal](https://discordapp.com/developers/applications)で切り替えを行うだけで有効にできます。 これは現在非推奨期間であり、2020年10月7日以降に特権インテントを使用するにはホワイトリストに登録されたボットが必要です。 ホワイトリストについては[this discord support article](https://support.discordapp.com/hc/en-us/articles/360040720412-Bot-Verification-and-Data-Whitelisting)をご覧ください。
+今のところ、これらのインテントは、[Discord Developer Portal](https://discordapp.com/developers/applications)で切り替えを行うだけで有効にできます。 これは現在、非推奨期間であり、2020年10月7日以降に特権インテントを使用するにはホワイトリストに登録されたボットが必要です。 ホワイトリストについてはこちらの[discordの記事](https://support.discordapp.com/hc/en-us/articles/360040720412-Bot-Verification-and-Data-Whitelisting)をご覧ください。
 
-エラー`[DISALLOWED_INTENTS]: Privileged intent provided is not enabled or whitelisted`（与えられた特権インテントは有効になっていないか、ホワイトリストに登録されていません）が表示された場合は、使用しているすべての特権インテントの設定を確認してください。 特権インテントについては[discord API documentation](https://discordapp.com/developers/docs/topics/gateway#privileged-intents)をご覧ください。
+`[DISALLOWED_INTENTS]: Privileged intent provided is not enabled or whitelisted`（与えられた特権インテントは有効になっていないか、ホワイトリストに登録されていません）といったエラーが表示された場合は、使用しているすべての特権インテントの設定を確認してください。 特権インテントの公式ドキュメントは[discord API documentation](https://discordapp.com/developers/docs/topics/gateway#privileged-intents)となります。
 
 ## ビットフィールドの詳細
 
 Discordの権限は53ビット整数で保存され、ビット単位で計算されます。 その裏で何が起きているのかについて詳しく知りたい場合は、[Wikipedia](https://en.wikipedia.org/wiki/Bit_field)と[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)の記事をチェックしてください。
 
-discord.jsでは、パーミッションビットフィールドは、ビットフィールドまたはフラグへの参照として表されます。 Every position in a permissions bit field represents one of these flags and its state (either referenced `1` or not referenced `0`).
+discord.jsでは、パーミッションビットフィールドは、ビットフィールドまたはフラグへの参照の有無として表されます。 パーミッションビットフィールド内のすべてのビットは、これらのフラグの状態を表します (`1`ならばtrue、`0`ならばfalse)。
 
 </branch>
