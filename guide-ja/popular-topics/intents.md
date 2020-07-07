@@ -33,7 +33,7 @@ const client = new Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES'] } });
 
 discord.js は[`Intents`](https://discord.js.org/#/docs/main/stable/class/Intents)というユーティリティーを提供しており、ビットフィールドを容易に操作することができます。
 
-また、staticフィールドとして、インテントをすべて含んだもの（`Intents.ALL` ）、特権インテントをすべて含んだもの（`Intents.PRIVILEGED` ）、特権を必要としないインテントをすべて含んだもの（`Intents.NON_PRIVILEGED` ）が定義されています。 これをそのまま用いたり、Intentsコントラスタに渡して変更して用いたりすることができます。
+また、staticフィールドとして、インテントをすべて含んだもの（`Intents.ALL`）、特権インテントをすべて含んだもの（`Intents.PRIVILEGED`）、特権を必要としないインテントをすべて含んだもの（`Intents.NON_PRIVILEGED`）が定義されています。 これをそのまま用いたり、Intentsコントラスタに渡して変更して用いたりすることができます。
 
 ```js
 const { Client, Intents } = require('discord.js');
