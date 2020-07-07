@@ -18,10 +18,10 @@
 
 ボットクライアントのインスタンスを作成する際、クライアントオプションでボットの受け取るインテントを選択できます。
 
-ライブラリのサポートするインテントの一覧は[the discord.js documentation](https://discord.js.org/#/docs/main/stable/class/Intents?scrollTo=s-FLAGS)にあります。 The events included in the respective intents on the [discord API documentation](https://discordapp.com/developers/docs/topics/gateway#list-of-intents).
+ライブラリのサポートするインテントの一覧は[the discord.js documentation](https://discord.js.org/#/docs/main/stable/class/Intents?scrollTo=s-FLAGS)にあります。 イベントがどのインテントに含まれるかは[discord API documentation](https://discordapp.com/developers/docs/topics/gateway#list-of-intents)に書いてあります。
 
 :::tip
-`GUILD_PRESENCES` is required in order to receive the initial GuildMember data. If you do not supply it your member caches will be empty and not updates, even if you do provide `GUILD_MEMBERS`! Before you disable intents think about what your bot does and how not receiving the listed events might prevent it from doing this. Version 12 of discord.js does not yet fully support any combination of intents without loosing seemingly unrelated data.
+`GUILD_PRESENCES` はギルドメンバーのデータを始めに受け取るために必要です。 If you do not supply it your member caches will be empty and not updates, even if you do provide `GUILD_MEMBERS`! Before you disable intents think about what your bot does and how not receiving the listed events might prevent it from doing this. Version 12 of discord.js does not yet fully support any combination of intents without loosing seemingly unrelated data.
 :::
 
 ```js
