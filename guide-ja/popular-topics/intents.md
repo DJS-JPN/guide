@@ -44,7 +44,7 @@ const client = new Client({ ws: { intents: Intents.ALL } });
 The other static bits can be accessed likewise via <code>Intents.PRIVILEGED</code> and <code>Intents.NON_PRIVILEGED</code>.
 -->
 
-You can use the `.add()` and `.remove()` methods to add or remove flags to modify the bit field. Since discord.js uses a spread operator for the provided arguments you can provide single flags as well as an array or bit field. To use a set of intents as template you can pass them to the constructor. A few approaches are demonstrated below:
+`.add()` 、`.remove()` メソッドを用いてフラグを建てたり消したりし、ビットフィールドを変更することができます。 discord.jsは指定された引数にスプレッド演算子を使用するため、配列やビットフィールドだけでなくそのままのインテントの名前も引数に渡すことができます。 テンプレートとしてインテントのセットを使う場合はそれらをコントラスタに渡すこともできます。 いくつかのアプローチを以下に示します。
 
 ```js
 const { Client, Intents } = require('discord.js');
@@ -53,7 +53,7 @@ myIntents.add('GUILD_PRESENCES', 'GUILD_MEMBERS');
 
 const client = new Client({ ws: { intents: myIntents } });
 
-// more examples of manipulating the bit field
+// ビットフィールドを操作する追加の例
 
 const otherIntents = new Intents(Intents.NON_PRIVILEGED);
 otherIntents.remove(['GUILDS', 'GUILD_MESSAGES']);
@@ -62,7 +62,7 @@ const otherIntents2 = new Intents(32509);
 otherIntents2.remove(1, 512);
 ```
 
-If you want to view the built flags you can utilize the `.toArray()`, `.serialize()` and `.missing()`  methods. The first returns an array of flags represented in this bit field, the second an object mapping all possible flag values to a boolean, based on it they are represented in this bit field. The third can be used to view the flags not represented in this bit field (you use it by passing a bit field of specific intents to check against).
+構築されたフラグを表示したい場合は`.toArray()`、`.serialize()` 、`.missing()` メソッドを利用できます。 それぞれ、ビットフィールドで表されるフラグの配列、ビットフィールドをもとに、すべてのフラグ値をキーとしインテントが有効かどうかを真偽値として持つオブジェクト、 The third can be used to view the flags not represented in this bit field (you use it by passing a bit field of specific intents to check against).
 
 ## Privileged Intents
 
