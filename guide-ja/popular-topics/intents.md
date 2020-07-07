@@ -1,24 +1,24 @@
-# Gateway Intents
+# ゲートウェイインテント
 
 :::warning
-For now sending intents is optional, but it will become mandatory as of October 7, 2020!
+現在、インテントの送信はオプションですが2020年10月7日以降、必須となります。
 :::
 
-Gateway Intents were introduced to the library in v12 and allow you to pick which events your bot will receive. Intents are groups of pre-defined events that the discord.js client will conditionally subscribe to. For example, omitting the `DIRECT_MESSAGE_TYPING` intent would prevent the discord.js client from receiving any typing events from direct messages. Intents also enable you to remove unwanted data from polluting your bots cache, however we can not yet explicitly list which unwanted side effects omitting a certain event may have on the internal workings of the library.
+ゲートウェイインテントはdiscord.js バージョン12から導入され、これによって、どのイベントをボットが受け取るか選択できるようになります。 インテントとはdiscord.js クライアントが受け取るそれぞれのイベントをグループに分けたもののことです。 例えば、`DIRECT_MESSAGE_TYPING` インテントを省略するとdiscord.js クライアントはダイレクトメッセージでのタイピングイベントを受け取ることができなくなります。 また、ボットのキャッシュを不要なデータによる圧迫から守ることができます。しかしまだ、イベントを受け取らないことによるライブラリ内部での副作用についてリストにすることができていません。
 
 <branch version="11.x">
 
-Intents are not available in version 11, please update to version 12 of the library if you want to use gateway intents in your bot.
+バージョン11ではインテントを利用することはできません。ボットでゲートウェイインテントを利用する場合はバージョン12を利用してください。
 
 </branch>
 
 <branch version="12.x">
 
-## Enabling Intents
+## インテントの有効化
 
-You can choose which intents you'd like to receive as client options when instantiating your bot client.
+ボットクライアントのインスタンスを作成する際、クライアントオプションでボットの受け取るインテントを選択できます。
 
-A list of all available gateway intents the library supports can be found at [the discord.js documentation](https://discord.js.org/#/docs/main/stable/class/Intents?scrollTo=s-FLAGS). The events included in the respective intents on the [discord API documentation](https://discordapp.com/developers/docs/topics/gateway#list-of-intents).
+ライブラリのサポートするインテントの一覧は[the discord.js documentation](https://discord.js.org/#/docs/main/stable/class/Intents?scrollTo=s-FLAGS)にあります。 The events included in the respective intents on the [discord API documentation](https://discordapp.com/developers/docs/topics/gateway#list-of-intents).
 
 :::tip
 `GUILD_PRESENCES` is required in order to receive the initial GuildMember data. If you do not supply it your member caches will be empty and not updates, even if you do provide `GUILD_MEMBERS`! Before you disable intents think about what your bot does and how not receiving the listed events might prevent it from doing this. Version 12 of discord.js does not yet fully support any combination of intents without loosing seemingly unrelated data.
