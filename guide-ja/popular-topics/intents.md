@@ -31,7 +31,7 @@ const client = new Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES'] } });
 
 ## インテントのビットフィールドのラッパー
 
-discord.js は [`Intents`](https://discord.js.org/#/docs/main/stable/class/Intents)というユーティリティーを提供しており、ビットフィールドを容易に構築することができます。
+discord.js は[`Intents`](https://discord.js.org/#/docs/main/stable/class/Intents)というユーティリティーを提供しており、ビットフィールドを容易に操作することができます。
 
 また、staticフィールドとして、インテントをすべて含んだもの（`Intents.ALL` ）、特権を必要とするインテントをすべて含んだもの（`Intents.PRIVILEGED` ）、特権を必要としないインテントをすべて含んだもの（`Intents.NON_PRIVILEGED` ）が定義されています。 これをそのまま用いたり、Intentsコントラスタに渡して変更して用いたりすることができます。
 
@@ -62,13 +62,13 @@ const otherIntents2 = new Intents(32509);
 otherIntents2.remove(1, 512);
 ```
 
-構築されたフラグを表示したい場合は`.toArray()`、`.serialize()` 、`.missing()` メソッドを利用できます。 それぞれ、ビットフィールドで表されるフラグの配列、ビットフィールドをもとに、すべてのフラグ値をキーとしインテントが有効かどうかを真偽値として持つオブジェクト、 The third can be used to view the flags not represented in this bit field (you use it by passing a bit field of specific intents to check against).
+構築されたフラグを表示したい場合は`.toArray()`、`.serialize()` 、`.missing()` メソッドを利用できます。 それぞれ、ビットフィールドで表されるフラグの配列、ビットフィールドをもとに、すべてのフラグ値をキーとしインテントが有効かどうかを真偽値として持つオブジェクト、 ビットフィールドが持っていないフラグを返します。（確認のために特定のインテントのビットフィールドを渡すことで動作します）
 
-## Privileged Intents
+## 特権インテント
 
-Discord defines some intents as "privileged" due to the sensitive nature of the data sent through the affected events. At the time of writing this article privileged intents are `GUILD_PRESENCES` and `GUILD_MEMBERS`
+Discordは、イベントを通じて送信されるデータの機密性から、いくつかのインテントを「特権」と定義しています。 この記事を書いている時点では、特権インテントは `GUILD_PRESENCES` と `GUILD_MEMBERS` の2つです。
 
-For now you can simply enable these intents in the [Discord Developer Portal](https://discordapp.com/developers/applications) through a toggle. Please note that this is currently in a deprecation period and you will require a whitelisted bot in order to use privileged intents as of October 7, 2020. You can find more information on whitelisting in [this discord support article](https://support.discordapp.com/hc/en-us/articles/360040720412-Bot-Verification-and-Data-Whitelisting)
+今のところ、これらのインテントは、[Discord Developer Portal](https://discordapp.com/developers/applications)で切り替えを行うだけで有効にできます。 これは現在非推奨期間であり、2020年10月7日以降に特権インテントを使用するにはホワイトリストに登録されたボットが必要です。 ホワイトリストについては[this discord support article](https://support.discordapp.com/hc/en-us/articles/360040720412-Bot-Verification-and-Data-Whitelisting)をご覧ください。
 
 Should you receive the error `[DISALLOWED_INTENTS]: Privileged intent provided is not enabled or whitelisted` please review your settings for all privileged intents you use. The official documentation for privileged intents can be found on the [discord API documentation](https://discordapp.com/developers/docs/topics/gateway#privileged-intents).
 
