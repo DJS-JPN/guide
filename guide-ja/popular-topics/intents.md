@@ -1,27 +1,27 @@
-# Gateway Intents
+# ゲートウェイインテント
 
 :::warning
-For now sending intents is optional, but it will become mandatory as of October 7, 2020!
+現在、インテントの送信はオプションですが2020年10月7日以降、必須となります。
 :::
 
-Gateway Intents were introduced to the library in v12 and allow you to pick which events your bot will receive. Intents are groups of pre-defined events that the discord.js client will conditionally subscribe to. For example, omitting the `DIRECT_MESSAGE_TYPING` intent would prevent the discord.js client from receiving any typing events from direct messages. Intents also enable you to remove unwanted data from polluting your bots cache, however we can not yet explicitly list which unwanted side effects omitting a certain event may have on the internal workings of the library.
+ゲートウェイインテントはdiscord.js バージョン12から導入され、これによって、どのイベントをボットが受け取るか選択できるようになります。 インテントとはdiscord.js クライアントが受け取るそれぞれのイベントをグループに分けたもののことです。 例えば、`DIRECT_MESSAGE_TYPING` インテントを省略するとdiscord.js クライアントはダイレクトメッセージでのタイピングイベントを受け取ることができなくなります。 また、ボットのキャッシュを不要なデータによる圧迫から守ることができます。しかしまだ、イベントを受け取らないことによるライブラリ内部での副作用についてリストにすることができていません。
 
 <branch version="11.x">
 
-Intents are not available in version 11, please update to version 12 of the library if you want to use gateway intents in your bot.
+バージョン11ではインテントを利用することはできません。ボットでゲートウェイインテントを利用する場合はバージョン12を利用してください。
 
 </branch>
 
 <branch version="12.x">
 
-## Enabling Intents
+## インテントの有効化
 
-You can choose which intents you'd like to receive as client options when instantiating your bot client.
+ボットクライアントのインスタンスを作成する際、クライアントオプションでボットの受け取るインテントを選択できます。
 
-A list of all available gateway intents the library supports can be found at [the discord.js documentation](https://discord.js.org/#/docs/main/stable/class/Intents?scrollTo=s-FLAGS). The events included in the respective intents on the [discord API documentation](https://discordapp.com/developers/docs/topics/gateway#list-of-intents).
+ライブラリのサポートするインテントの一覧は[the discord.js documentation](https://discord.js.org/#/docs/main/stable/class/Intents?scrollTo=s-FLAGS)にあります。 イベントがどのインテントに含まれるかは[discord API documentation](https://discordapp.com/developers/docs/topics/gateway#list-of-intents)に書いてあります。
 
 :::tip
-`GUILD_PRESENCES` is required in order to receive the initial GuildMember data. If you do not supply it your member caches will be empty and not updates, even if you do provide `GUILD_MEMBERS`! Before you disable intents think about what your bot does and how not receiving the listed events might prevent it from doing this. Version 12 of discord.js does not yet fully support any combination of intents without loosing seemingly unrelated data.
+`GUILD_PRESENCES` はギルドメンバーのデータを始めに受け取るために必要です。 もし指定されない場合は`GUILD_MEMBERS`を指定してもメンバーのキャッシュは空となり、更新されません。 あるインテントを無効にする（イベントの受信をやめる）前にボットが正常に動作しなくなることのないよう、ボットがどのように動いているのか考えなければなりません。 discord.js バージョン12では完全にはインテントをサポートしていません。一見無関係なデータが失われることがあります。
 :::
 
 ```js
@@ -29,20 +29,22 @@ const { Client } = require('discord.js');
 const client = new Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES'] } });
 ```
 
-## The Intents bit field wrapper
+## インテントビットフィールドのラッパー
 
-Discord.js provides a utility structure [`Intents`](https://discord.js.org/#/docs/main/stable/class/Intents) which can be utilized to easily adapt the underlying bit field.
+discord.js は[`Intents`](https://discord.js.org/#/docs/main/stable/class/Intents)というユーティリティーを提供しており、ビットフィールドを容易に操作することができます。
 
-We also provide static fields for all, privileged and non-privileged intents. You can provide these as-is or pass them to the Intents constructor to further modify to your needs.
+また、staticフィールドとして、インテントをすべて含んだもの（`Intents.ALL`）、特権インテントをすべて含んだもの（`Intents.PRIVILEGED`）、特権を必要としないインテントをすべて含んだもの（`Intents.NON_PRIVILEGED`）が定義されています。 これをそのまま用いたり、Intentsコントラスタに渡して変更して用いたりすることができます。
 
 ```js
 const { Client, Intents } = require('discord.js');
 const client = new Client({ ws: { intents: Intents.ALL } });
 ```
 
-The other static bits can be accessed likewise via `Intents.PRIVILEGED` and `Intents.NON_PRIVILEGED`.
+<!--
+The other static bits can be accessed likewise via <code>Intents.PRIVILEGED</code> and <code>Intents.NON_PRIVILEGED</code>.
+-->
 
-You can use the `.add()` and `.remove()` methods to add or remove flags to modify the bit field. Since discord.js uses a spread operator for the provided arguments you can provide single flags as well as an array or bit field. To use a set of intents as template you can pass them to the constructor. A few approaches are demonstrated below:
+`.add()` 、`.remove()` メソッドを用いてフラグを建てたり消したりし、ビットフィールドを変更することができます。 discord.jsは指定された引数にスプレッド演算子を使用するため、配列やビットフィールドだけでなくフラグ単体も引数に渡すことができます。 テンプレートとしてインテントのセットを使う場合はそれらをコントラスタに渡すこともできます。 いくつかのアプローチを以下に示します。
 
 ```js
 const { Client, Intents } = require('discord.js');
@@ -51,7 +53,7 @@ myIntents.add('GUILD_PRESENCES', 'GUILD_MEMBERS');
 
 const client = new Client({ ws: { intents: myIntents } });
 
-// more examples of manipulating the bit field
+// ビットフィールドを操作する追加の例
 
 const otherIntents = new Intents(Intents.NON_PRIVILEGED);
 otherIntents.remove(['GUILDS', 'GUILD_MESSAGES']);
@@ -60,20 +62,20 @@ const otherIntents2 = new Intents(32509);
 otherIntents2.remove(1, 512);
 ```
 
-If you want to view the built flags you can utilize the `.toArray()`, `.serialize()` and `.missing()`  methods. The first returns an array of flags represented in this bit field, the second an object mapping all possible flag values to a boolean, based on it they are represented in this bit field. The third can be used to view the flags not represented in this bit field (you use it by passing a bit field of specific intents to check against).
+構築されたフラグを表示したい場合は`.toArray()`、`.serialize()` 、`.missing()` メソッドを利用できます。 それぞれ、ビットフィールドで表されるフラグの配列、ビットフィールドをもとに、すべてのフラグ値をキーとしインテントが有効かどうかを真偽値として持つオブジェクト、 ビットフィールドが持っていないフラグを返します。（そのため、特定のインテントのビットフィールドを渡す必要があります）
 
-## Privileged Intents
+## 特権インテント
 
-Discord defines some intents as "privileged" due to the sensitive nature of the data sent through the affected events. At the time of writing this article privileged intents are `GUILD_PRESENCES` and `GUILD_MEMBERS`
+Discordは、イベントを通じて送信されるデータの機密性から、いくつかのインテントを「特権」と定義しています。 この記事を書いている時点では、特権インテントは `GUILD_PRESENCES` と `GUILD_MEMBERS` の2つです。
 
-For now you can simply enable these intents in the [Discord Developer Portal](https://discordapp.com/developers/applications) through a toggle. Please note that this is currently in a deprecation period and you will require a whitelisted bot in order to use privileged intents as of October 7, 2020. You can find more information on whitelisting in [this discord support article](https://support.discordapp.com/hc/en-us/articles/360040720412-Bot-Verification-and-Data-Whitelisting)
+今のところ、これらのインテントは、[Discord Developer Portal](https://discordapp.com/developers/applications)で切り替えを行うだけで有効にできます。 これは現在、非推奨期間であり、2020年10月7日以降に特権インテントを使用するにはホワイトリストに登録されたボットが必要です。 ホワイトリストについてはこちらの[discordの記事](https://support.discordapp.com/hc/en-us/articles/360040720412-Bot-Verification-and-Data-Whitelisting)をご覧ください。
 
-Should you receive the error `[DISALLOWED_INTENTS]: Privileged intent provided is not enabled or whitelisted` please review your settings for all privileged intents you use. The official documentation for privileged intents can be found on the [discord API documentation](https://discordapp.com/developers/docs/topics/gateway#privileged-intents).
+`[DISALLOWED_INTENTS]: Privileged intent provided is not enabled or whitelisted`（与えられた特権インテントは有効になっていないか、ホワイトリストに登録されていません）といったエラーが表示された場合は、使用しているすべての特権インテントの設定を確認してください。 特権インテントの公式ドキュメントは[discord API documentation](https://discordapp.com/developers/docs/topics/gateway#privileged-intents)となります。
 
-## More on bit fields
+## ビットフィールドの詳細
 
-Discord permissions are stored in a 53-bit integer and calculated using bitwise operations. If you want to dive deeper into what's happening behind the curtains, check the [Wikipedia](https://en.wikipedia.org/wiki/Bit_field) and [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) articles on the topic.
+Discordの権限は53ビット整数で保存され、ビット単位で計算されます。 その裏で何が起きているのかについて詳しく知りたい場合は、[Wikipedia](https://en.wikipedia.org/wiki/Bit_field)と[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)の記事をチェックしてください。
 
-In discord.js, permission bit fields are represented as either the decimal value of said bit field or its referenced flags. Every position in a permissions bit field represents one of these flags and its state (either referenced `1` or not referenced `0`).
+discord.jsでは、パーミッションビットフィールドは、ビットフィールドまたはフラグへの参照の有無として表されます。 パーミッションビットフィールド内のすべてのビットは、これらのフラグの状態を表します (`1`ならばtrue、`0`ならばfalse)。
 
 </branch>
