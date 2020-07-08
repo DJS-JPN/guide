@@ -360,7 +360,7 @@ const exampleEmbed = new Discord.RichEmbed()
     .setTitle('Some title')
     .setDescription('Description after the edit');
 
-message.edit(embed);
+message.edit(exampleEmbed);
 ```
 
 </branch>
@@ -371,7 +371,7 @@ const exampleEmbed = new Discord.MessageEmbed()
     .setTitle('Some title')
     .setDescription('Description after the edit');
 
-message.edit(embed);
+message.edit(exampleEmbed);
 ```
 
 </branch>
