@@ -65,12 +65,12 @@ module.exports = class MeowCommand extends Command {
 
 ご覧のとおり、 `run` メソッドは、コマンドが使用されたときにボットに実行させたいコードです。 Commandoは単なる拡張機能なので、これは通常のDiscord.jsでできることなら何でもかまいません。
 
-`message.channel.send` の代わりに `message.say` を使用したことに気づいたかもしれません。 This is Commando's magic. Instead of `send`, use `say`. For embeds, use `embed`. For code, use `code`. The only exception to this is files, which are still sent the same as normal.
+`message.channel.send` の代わりに `message.say` を使用したことに気づいたかもしれません。 これはコマンドの魔法です。 `send`の代わりに、`say`を使います。 埋め込みには、`embed`を使用します。 コードには、`code`を使用します。 例外はファイルだけで、通常と同じように送信されます。
 
-The reason for this is that Commando allows editing messages into commands, and using these methods allows Commando to save the messages for that use. It also checks if it can send a message to the current channel, so you get two things in one!
+その理由は、Commandoではメッセージをコマンドに編集することができ、これらのメソッドを使用することで、Commandoはその用途のためにメッセージを保存することができるからです。 また、現在のチャンネルにメッセージを送信できるかどうかもチェックします。
 
-Now fire up the bot as normal and use your command! It should automatically be `?meow` to use it.
+通常通りにボットを起動して、コマンドを使用してください！ 自動的に`?meow`である必要があります。
 
-## Resulting code
+## 結果のコード
 
 <resulting-code />
