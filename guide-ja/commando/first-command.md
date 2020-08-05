@@ -2,21 +2,21 @@
 forceTheme: blue
 ---
 
-# Your first command
+# 最初のコマンド
 
-Now that you've set up a command group and registered your command folder, you're ready to make your first command file! First, you're going to need to create a new file for the command. Hop over to your `commands` folder, and then your `first` folder, and make a new file called `meow.js`. This is going to be a simple command that only replies with a message when used. We'll go into arguments and all that later.
+これで、コマンドグループを設定してコマンドフォルダを登録したので、最初のコマンドファイルを作成する準備ができました! まず、コマンドの新しいファイルを作成する必要があります。 `commands` フォルダーに移動し、 `最初の` フォルダーに移動し、 `meow.js` という新しいファイルを作成します。 これは単純なコマンドで、使われたときにのみメッセージを返します。 引数などについては後で説明します。
 
-Once you have your file, it's time to get started!
+ファイルを作成したら、始める時間です!
 
-## Creating your command class
+## コマンドクラスの作成
 
-Before you do anything, at the start of your file, you're going to need to require Commando again. Specifically its Command class.
+何かをする前に、ファイルの先頭で、再度Commandoを要求する必要があります。 具体的には、Command クラスです。
 
 ```js
-const { Command } = require('discord.js-commando');
+const { Command } = require('discord.js-command');
 ```
 
-Commands are classes exported with `module.exports`. Create the class and set `module.exports` to it. You will also set a bunch of options here, which will be explained below.
+コマンドは `module.exports` でエクスポートされるクラスです。 クラスを作成し、 `module.exports` をそれに設定します。 ここでは、以下で説明する一連のオプションも設定します。
 
 ```js
 module.exports = class MeowCommand extends Command {
@@ -32,19 +32,19 @@ module.exports = class MeowCommand extends Command {
 };
 ```
 
-Don't let this scare you, it's actually very simple.
+これを怖がらせてはいけない、それは実際、非常に簡単です。
 
-- `name` is the name of the command.
-- `aliases` are other ways the command can be called. You can have as many as you want!
-- `group` is the command group the command is a part of.
+- `name` はコマンドの名前です。
+- `aliases` はコマンドを呼び出すことができる他の方法です。 あなたは好きなだけ持つことができます!
+- ` group `は、コマンドが属するコマンドグループです。
 - `memberName` is the name of the command within the group (this can be different from the name).
-- `description` is the help text displayed when the help command is used.
+- `description` はヘルプコマンドを使用すると表示されるヘルプテキストです。
 
-There are many more properties you can use, but those will be explained in their own sections.
+使用できるプロパティはさらに多くありますが、それらはそれぞれのセクションで説明されます。
 
-## Creating your run method
+## Runメソッドの作成
 
-The next thing you're going to need is a `run` method. This should go right below the constructor for the command. Inside, you'll return a message:
+次に必要となるのは、 `run` メソッドです。 これは、コマンドのコンストラクタのすぐ下に行く必要があります。 内部では、メッセージを返します：
 
 ```js
 module.exports = class MeowCommand extends Command {
@@ -63,14 +63,14 @@ module.exports = class MeowCommand extends Command {
 };
 ```
 
-As you can see, the `run` method is simply the code you want the bot to run when the command is used. This can be anything you can do in normal Discord.js, as Commando is simply an extension.
+ご覧のとおり、 `run` メソッドは、コマンドが使用されたときにボットに実行させたいコードです。 Commandoは単なる拡張機能なので、これは通常のDiscord.jsでできることなら何でもかまいません。
 
-You may have also noticed that I used `message.say` instead of `message.channel.send`. This is Commando's magic. Instead of `send`, use `say`. For embeds, use `embed`. For code, use `code`. The only exception to this is files, which are still sent the same as normal.
+`message.channel.send` の代わりに `message.say` を使用したことに気づいたかもしれません。 これはコマンドの魔法です。 `send`の代わりに、`say`を使います。 埋め込みには、`embed`を使用します。 コードには、`code`を使用します。 例外はファイルだけで、通常と同じように送信されます。
 
-The reason for this is that Commando allows editing messages into commands, and using these methods allows Commando to save the messages for that use. It also checks if it can send a message to the current channel, so you get two things in one!
+その理由は、Commandoではメッセージをコマンドに編集することができ、これらのメソッドを使用することで、Commandoはその用途のためにメッセージを保存することができるからです。 また、現在のチャンネルにメッセージを送信できるかどうかもチェックします。
 
-Now fire up the bot as normal and use your command! It should automatically be `?meow` to use it.
+通常通りにボットを起動して、コマンドを使用してください！ 自動的に`?meow`である必要があります。
 
-## Resulting code
+## 結果のコード
 
 <resulting-code />
