@@ -17,16 +17,16 @@ You need at least Node.js version <branch version="11.x" inline>8.0.0</branch><b
 
 必ずしも名前が `index.js` である必要はありませんが、このファイルはあなたのボットのメインファイルであり、新しいコマンドの登録からクライアントへのログインまでをすべて処理します。
 
-最初にしなければならないのは、Commando を require（訳注：必要なモジュールとしてロードする）ことです。 実は、Commandoを使用する場合は、Discord.js を require する必要は**ありません**。 Commando handles all discord.js-related functions within itself, and the Commando client extends discord.js', so you'll rarely ever have to touch core discord.js!
+最初にしなければならないのは、Commando を require（訳注：必要なモジュールとしてロードする）ことです。 実は、Commandoを使用する場合は、Discord.js を require する必要は**ありません**。 Commando は discord.jsに関するすべての関数を内部で処理し、Commando のクライアントは discord.js のクライアントを拡張しているので、コアの discord.js に触れる必要はほとんどありません!
 
-You'll also be requiring `path`. Don't worry, you don't have to install `path`; it comes bundled with Node.
+`path` も必要になります。 でも心配しないでください、`path`をインストールする必要はありません。Node にバンドルされています。
 
 ```js
-const { CommandoClient } = require('discord.js-commando');
+const { CommandoClient } = require('discord.js-command');
 const path = require('path');
 ```
 
-The next step is to create a new CommandoClient. There's also a few options you will need to set.
+次のステップは、新しいCommandoClientを作成することです。 設定する必要のあるオプションもいくつかあります。
 
 ```js
 const client = new CommandoClient({
@@ -36,7 +36,7 @@ const client = new CommandoClient({
 });
 ```
 
-In the `commandPrefix` parameter, you should insert the prefix you intend to use for your bot. As of writing, you can only have one, so choose wisely! However, note that mentioning your bot will **always** be allowed alongside the prefix you set here. In other words, this prefix and mentions are how your users will call your bot. **No, there is no way to disable mentions being a prefix!**
+`commandPrefix` パラメータには、ボットに使用するプレフィックスを追記してください。 現時点であなたが設定できるプレフィックスは1つだけなので、よく考えて設定してください。 However, note that mentioning your bot will **always** be allowed alongside the prefix you set here. In other words, this prefix and mentions are how your users will call your bot. **No, there is no way to disable mentions being a prefix!**
 
 After that is the `owner` parameter, which should contain the ID for the owner of the bot. It can be either a string of one ID, or an array of many.
 
