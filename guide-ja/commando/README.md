@@ -15,9 +15,9 @@ You need at least Node.js version <branch version="11.x" inline>8.0.0</branch><b
 
 ## index.js ファイルの作成
 
-While it doesn't have to be called `index.js`, this file is the main file for your bot, which handles everything from registering new commands to logging in your client.
+必ずしも名前が `index.js` である必要はありませんが、このファイルはあなたのボットのメインファイルであり、新しいコマンドの登録からクライアントへのログインまでをすべて処理します。
 
-The first thing you have to do is require Commando. Contrary to what you may think, you do **not** need to require Discord.js to use Commando. Commando handles all discord.js-related functions within itself, and the Commando client extends discord.js', so you'll rarely ever have to touch core discord.js!
+最初にしなければならないのは、Commando を require（訳注：必要なモジュールとしてロードする）ことです。 実は、Commandoを使用する場合は、Discord.js を require する必要は**ありません**。 Commando handles all discord.js-related functions within itself, and the Commando client extends discord.js', so you'll rarely ever have to touch core discord.js!
 
 You'll also be requiring `path`. Don't worry, you don't have to install `path`; it comes bundled with Node.
 
