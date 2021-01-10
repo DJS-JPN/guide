@@ -36,7 +36,7 @@ const client = new CommandoClient({
 });
 ```
 
-`commandPrefix` パラメータには、ボットに使用するプレフィックスを追記してください。 現時点であなたが設定できるプレフィックスは1つだけなので、よく考えて設定してください。 However, note that mentioning your bot will **always** be allowed alongside the prefix you set here. In other words, this prefix and mentions are how your users will call your bot. **No, there is no way to disable mentions being a prefix!**
+`commandPrefix` パラメータには、ボットに使用するプレフィックスを追記してください。 現時点であなたが設定できるプレフィックスは1つだけなので、よく考えて設定してください。 ただし、ここで設定したプレフィックスとは別に、ボットへのメンションも**常に** プレフィックスの一つとして認められることに注意してください。 言い換えるならば、ここで設定したプレフィックスとボットへのメンションが、あなたのボットを呼び出す方法です。 **いいえ、メンションがプレフィックスとして利用できるのを無効化する方法はありません!**
 
 After that is the `owner` parameter, which should contain the ID for the owner of the bot. It can be either a string of one ID, or an array of many.
 
