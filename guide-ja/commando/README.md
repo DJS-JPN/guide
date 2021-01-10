@@ -2,12 +2,12 @@
 forceTheme: blue
 ---
 
-# Getting started with Commando
+# Command 入門
 
-When you got your first bot up and running with Discord.js, you should've installed Discord.js using npm, Node.js' Package Manager. The same applies to Commando, which must be separately installed. You can do this in one of two ways:
+最初のボットをDiscord.jsで動作させるには、Node.jsのパッケージマネージャであるnpmを使用してDiscord.jsをインストールする必要があります。 これは Commando についても同様で、別途インストールする必要があります。 以下のいずれかの方法で、Commandoをインストールすることができます：
 
-If using Discord.js v11: `npm install discord.js-commando`  
-If using Discord.js v12: `npm install discordjs/Commando`
+Discord.js v11を使用する場合: `npm install discord.js-commando`  
+Discord.js v12を使用する場合: `npm install discordjs/Commando`
 
 ::: warning
 You need at least Node.js version <branch version="11.x" inline>8.0.0</branch><branch version="12.x" inline>12.0</branch> to use Commando. Master branch will also require you to install [Git](https://git-scm.com/downloads).
@@ -40,7 +40,8 @@ In the `commandPrefix` parameter, you should insert the prefix you intend to use
 
 After that is the `owner` parameter, which should contain the ID for the owner of the bot. It can be either a string of one ID, or an array of many.
 
-::: danger The users you set here have complete control over the bot. They can use eval and other owner-only commands, ignore command throttling, and bypass all user permissions! Be sure to only give this to people you trust!
+::: danger
+The users you set here have complete control over the bot. They can use eval and other owner-only commands, ignore command throttling, and bypass all user permissions! Be sure to only give this to people you trust!
 :::
 
 The final option, `invite`, is the **full** invite URL to your bot's support server. While not a required option, it's a good idea to have a support server on hand to handle questions and concerns your users may have about your bot if it is public. If not, it's safe to leave this option out.
@@ -98,7 +99,8 @@ Last but certainly not least, log the bot in.
 client.login('your-token-goes-here');
 ```
 
-::: danger You should use environment variables or a `config.json` for your token instead of passing it directly!
+::: danger
+You should use environment variables or a `config.json` for your token instead of passing it directly!
 :::
 
 And there you have it! You've set up your `index.js` file! In the end your file structure should look like this, along with whatever `.gitignore` or `config.json` you may have:
