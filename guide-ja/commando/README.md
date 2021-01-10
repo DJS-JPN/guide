@@ -13,7 +13,7 @@ Discord.js v12を使用する場合: `npm install discordjs/Commando`
 You need at least Node.js version <branch version="11.x" inline>8.0.0</branch><branch version="12.x" inline>12.0</branch> to use Commando. Master branch will also require you to install [Git](https://git-scm.com/downloads).
 :::
 
-## Creating your index.js file
+## index.js ファイルの作成
 
 While it doesn't have to be called `index.js`, this file is the main file for your bot, which handles everything from registering new commands to logging in your client.
 
