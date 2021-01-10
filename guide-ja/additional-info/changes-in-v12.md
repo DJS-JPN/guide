@@ -553,7 +553,8 @@ While this list has been carefully crafted, it may be incomplete! If you notice 
 :::
 -->
 
-::: danger このリストは慎重に作成されていますが、不完全な場合があります!データの欠落や不正確な部分に気付いた場合は、[プルリクエストを送信する](https://github.com/discordjs/guide/compare)ことをお勧めします!
+::: danger
+このリストは慎重に作成されていますが、不完全な場合があります!データの欠落や不正確な部分に気付いた場合は、[プルリクエストを送信する](https://github.com/discordjs/guide/compare)ことをお勧めします!
 :::
 
 * Activity [(additions)](/additional-info/changes-in-v12.md#activity)
