@@ -2,31 +2,31 @@
 forceTheme: blue
 ---
 
-# Getting started with Commando
+# Command 入門
 
-When you got your first bot up and running with Discord.js, you should've installed Discord.js using npm, Node.js' Package Manager. The same applies to Commando, which must be separately installed. You can do this in one of two ways:
+最初のボットをDiscord.jsで動作させるには、Node.jsのパッケージマネージャであるnpmを使用してDiscord.jsをインストールする必要があります。 これは Commando についても同様で、別途インストールする必要があります。 以下のいずれかの方法で、Commandoをインストールすることができます：
 
-If using Discord.js v11: `npm install discord.js-commando`  
-If using Discord.js v12: `npm install discordjs/Commando`
+Discord.js v11を使用する場合: `npm install discord.js-commando`  
+Discord.js v12を使用する場合: `npm install discordjs/Commando`
 
 ::: warning
 You need at least Node.js version <branch version="11.x" inline>8.0.0</branch><branch version="12.x" inline>12.0</branch> to use Commando. Master branch will also require you to install [Git](https://git-scm.com/downloads).
 :::
 
-## Creating your index.js file
+## index.js ファイルの作成
 
-While it doesn't have to be called `index.js`, this file is the main file for your bot, which handles everything from registering new commands to logging in your client.
+必ずしも名前が `index.js` である必要はありませんが、このファイルはあなたのボットのメインファイルであり、新しいコマンドの登録からクライアントへのログインまでをすべて処理します。
 
-The first thing you have to do is require Commando. Contrary to what you may think, you do **not** need to require Discord.js to use Commando. Commando handles all discord.js-related functions within itself, and the Commando client extends discord.js', so you'll rarely ever have to touch core discord.js!
+最初にしなければならないのは、Commando を require（訳注：必要なモジュールとしてロードする）ことです。 実は、Commandoを使用する場合は、Discord.js を require する必要は**ありません**。 Commando は discord.jsに関するすべての関数を内部で処理し、Commando のクライアントは discord.js のクライアントを拡張しているので、コアの discord.js に触れる必要はほとんどありません!
 
-You'll also be requiring `path`. Don't worry, you don't have to install `path`; it comes bundled with Node.
+`path` も必要になります。 でも心配しないでください、`path`をインストールする必要はありません。Node にバンドルされています。
 
 ```js
-const { CommandoClient } = require('discord.js-commando');
+const { CommandoClient } = require('discord.js-command');
 const path = require('path');
 ```
 
-The next step is to create a new CommandoClient. There's also a few options you will need to set.
+次のステップは、新しいCommandoClientを作成することです。 設定する必要のあるオプションもいくつかあります。
 
 ```js
 const client = new CommandoClient({
@@ -36,11 +36,12 @@ const client = new CommandoClient({
 });
 ```
 
-In the `commandPrefix` parameter, you should insert the prefix you intend to use for your bot. As of writing, you can only have one, so choose wisely! However, note that mentioning your bot will **always** be allowed alongside the prefix you set here. In other words, this prefix and mentions are how your users will call your bot. **No, there is no way to disable mentions being a prefix!**
+`commandPrefix` パラメータには、ボットに使用するプレフィックスを追記してください。 現時点であなたが設定できるプレフィックスは1つだけなので、よく考えて設定してください。 ただし、ここで設定したプレフィックスとは別に、ボットへのメンションも**常に** プレフィックスの一つとして認められることに注意してください。 言い換えるならば、ここで設定したプレフィックスとボットへのメンションが、あなたのボットを呼び出す方法です。 **いいえ、メンションがプレフィックスとして利用できるのを無効化する方法はありません!**
 
 After that is the `owner` parameter, which should contain the ID for the owner of the bot. It can be either a string of one ID, or an array of many.
 
-::: danger The users you set here have complete control over the bot. They can use eval and other owner-only commands, ignore command throttling, and bypass all user permissions! Be sure to only give this to people you trust!
+::: danger
+The users you set here have complete control over the bot. They can use eval and other owner-only commands, ignore command throttling, and bypass all user permissions! Be sure to only give this to people you trust!
 :::
 
 The final option, `invite`, is the **full** invite URL to your bot's support server. While not a required option, it's a good idea to have a support server on hand to handle questions and concerns your users may have about your bot if it is public. If not, it's safe to leave this option out.
@@ -98,7 +99,8 @@ Last but certainly not least, log the bot in.
 client.login('your-token-goes-here');
 ```
 
-::: danger You should use environment variables or a `config.json` for your token instead of passing it directly!
+::: danger
+You should use environment variables or a `config.json` for your token instead of passing it directly!
 :::
 
 And there you have it! You've set up your `index.js` file! In the end your file structure should look like this, along with whatever `.gitignore` or `config.json` you may have:
