@@ -37,11 +37,11 @@ deleteMessages(5).then(value => {
 
 In this scenario, the `deleteMessages` function returns a Promise. The `.then()` method will trigger if the Promise was resolved, and the `.catch()` method if the Promise was rejected. But with our function, we resolve the Promise after 2 seconds with the String "Deleted 10 messages.", so the `.catch()` method will never be executed. You can also pass the `.catch()` function as the second parameter of `.then()`.
 
-## How to implement async/await
+## async/await を実装してみよう。
 
-### マニュアル
+### 理論
 
-The following information is important to know before working with async/await. You can only use the `await` keyword inside a function that is declared as `async` (you put the `async` keyword before the `function` keyword or before the parameters when using a callback function).
+以下のことは async/await を使う前に知っておくことが重要です。 `async` が宣言されている関数内でのみ `await` を使用することが出来ます。callback functionを使用する場合は `async` を `function` の前、またはパラメータの前に置いて使用します。
 
 A simple example would be:
 
