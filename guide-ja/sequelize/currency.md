@@ -27,19 +27,19 @@ To implement this, we'll begin by making a `models` folder and create a `Users.j
 
 ```js
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('users', {
-        user_id: {
-            type: DataTypes.STRING,
-            primaryKey: true,
-        },
-        balance: {
-            type: DataTypes.INTEGER,
-            defaultValue: 0,
-            allowNull: false,
-        },
-    }, {
-        timestamps: false,
-    });
+	return sequelize.define('users', {
+		user_id: {
+			type: DataTypes.STRING,
+			primaryKey: true,
+		},
+		balance: {
+			type: DataTypes.INTEGER,
+			defaultValue: 0,
+			allowNull: false,
+		},
+	}, {
+		timestamps: false,
+	});
 };
 ```
 
@@ -53,18 +53,18 @@ Next, still in the same `models` folder, create a `CurrencyShop.js` file that co
 
 ```js
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('currency_shop', {
-        name: {
-            type: DataTypes.STRING,
-            unique: true,
-        },
-        cost: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-    }, {
-        timestamps: false,
-    });
+	return sequelize.define('currency_shop', {
+		name: {
+			type: DataTypes.STRING,
+			unique: true,
+		},
+		cost: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+		},
+	}, {
+		timestamps: false,
+	});
 };
 ```
 
@@ -74,17 +74,17 @@ The next file will be `UserItems.js`, our junction table.
 
 ```js
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define('user_item', {
-        user_id: DataTypes.STRING,
-        item_id: DataTypes.STRING,
-        amount: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            'default': 0,
-        },
-    }, {
-        timestamps: false,
-    });
+	return sequelize.define('user_item', {
+		user_id: DataTypes.STRING,
+		item_id: DataTypes.STRING,
+		amount: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			'default': 0,
+		},
+	}, {
+		timestamps: false,
+	});
 };
 ```
 
@@ -104,10 +104,10 @@ Make sure you use version 5 or later of Sequelize! Version 4 as used in this gui
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('database', 'username', 'password', {
-    host: 'localhost',
-    dialect: 'sqlite',
-    logging: false,
-    storage: 'database.sqlite',
+	host: 'localhost',
+	dialect: 'sqlite',
+	logging: false,
+	storage: 'database.sqlite',
 });
 
 const CurrencyShop = sequelize.import('models/CurrencyShop');
@@ -117,14 +117,14 @@ sequelize.import('models/UserItems');
 const force = process.argv.includes('--force') || process.argv.includes('-f');
 
 sequelize.sync({ force }).then(async () => {
-    const shop = [
-        CurrencyShop.upsert({ name: 'Tea', cost: 1 }),
-        CurrencyShop.upsert({ name: 'Coffee', cost: 2 }),
-        CurrencyShop.upsert({ name: 'Cake', cost: 5 }),
-    ];
-    await Promise.all(shop);
-    console.log('Database synced');
-    sequelize.close();
+	const shop = [
+		CurrencyShop.upsert({ name: 'Tea', cost: 1 }),
+		CurrencyShop.upsert({ name: 'Coffee', cost: 2 }),
+		CurrencyShop.upsert({ name: 'Cake', cost: 5 }),
+	];
+	await Promise.all(shop);
+	console.log('Database synced');
+	sequelize.close();
 }).catch(console.error);
 ```
 
@@ -144,10 +144,10 @@ Next we'll add our associations to the models. Create a file named `dbObjects.js
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('database', 'username', 'password', {
-    host: 'localhost',
-    dialect: 'sqlite',
-    logging: false,
-    storage: 'database.sqlite',
+	host: 'localhost',
+	dialect: 'sqlite',
+	logging: false,
+	storage: 'database.sqlite',
 });
 
 const Users = sequelize.import('models/Users');
@@ -157,23 +157,23 @@ const UserItems = sequelize.import('models/UserItems');
 UserItems.belongsTo(CurrencyShop, { foreignKey: 'item_id', as: 'item' });
 
 Users.prototype.addItem = async function(item) {
-    const userItem = await UserItems.findOne({
-        where: { user_id: this.user_id, item_id: item.id },
-    });
+	const userItem = await UserItems.findOne({
+		where: { user_id: this.user_id, item_id: item.id },
+	});
 
-    if (userItem) {
-        userItem.amount += 1;
-        return userItem.save();
-    }
+	if (userItem) {
+		userItem.amount += 1;
+		return userItem.save();
+	}
 
-    return UserItems.create({ user_id: this.user_id, item_id: item.id, amount: 1 });
+	return UserItems.create({ user_id: this.user_id, item_id: item.id, amount: 1 });
 };
 
 Users.prototype.getItems = function() {
-    return UserItems.findAll({
-        where: { user_id: this.user_id },
-        include: ['item'],
-    });
+	return UserItems.findAll({
+		where: { user_id: this.user_id },
+		include: ['item'],
+	});
 };
 
 module.exports = { Users, CurrencyShop, UserItems };
@@ -203,32 +203,32 @@ const PREFIX = '!';
 // [alpha]
 
 client.once('ready', async () => {
-    // [beta]
-    console.log(`Logged in as ${client.user.tag}!`);
+	// [beta]
+	console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('message', async message => {
-    if (message.author.bot) return;
-    currency.add(message.author.id, 1);
+	if (message.author.bot) return;
+	currency.add(message.author.id, 1);
 
-    if (!message.content.startsWith(PREFIX)) return;
-    const input = message.content.slice(PREFIX.length).trim();
-    if (!input.length) return;
-    const [, command, commandArgs] = input.match(/(\w+)\s*([\s\S]*)/);
+	if (!message.content.startsWith(PREFIX)) return;
+	const input = message.content.slice(PREFIX.length).trim();
+	if (!input.length) return;
+	const [, command, commandArgs] = input.match(/(\w+)\s*([\s\S]*)/);
 
-    if (command === 'balance') {
-        // [gamma]
-    } else if (command === 'inventory') {
-        // [delta]
-    } else if (command === 'transfer') {
-        // [epsilon]
-    } else if (command === 'buy') {
-        // [zeta]
-    } else if (command === 'shop') {
-        // [theta]
-    } else if (command === 'leaderboard') {
-        // [lambda]
-    }
+	if (command === 'balance') {
+		// [gamma]
+	} else if (command === 'inventory') {
+		// [delta]
+	} else if (command === 'transfer') {
+		// [epsilon]
+	} else if (command === 'buy') {
+		// [zeta]
+	} else if (command === 'shop') {
+		// [theta]
+	} else if (command === 'leaderboard') {
+		// [lambda]
+	}
 });
 
 client.login('your-token-goes-here');
@@ -240,23 +240,23 @@ Nothing special about this skeleton. We import the Users and CurrencyShop models
 
 ```js
 Reflect.defineProperty(currency, 'add', {
-    value: async function add(id, amount) {
-        const user = currency.get(id);
-        if (user) {
-            user.balance += Number(amount);
-            return user.save();
-        }
-        const newUser = await Users.create({ user_id: id, balance: amount });
-        currency.set(id, newUser);
-        return newUser;
-    },
+	value: async function add(id, amount) {
+		const user = currency.get(id);
+		if (user) {
+			user.balance += Number(amount);
+			return user.save();
+		}
+		const newUser = await Users.create({ user_id: id, balance: amount });
+		currency.set(id, newUser);
+		return newUser;
+	},
 });
 
 Reflect.defineProperty(currency, 'getBalance', {
-    value: function getBalance(id) {
-        const user = currency.get(id);
-        return user ? user.balance : 0;
-    },
+	value: function getBalance(id) {
+		const user = currency.get(id);
+		return user ? user.balance : 0;
+	},
 });
 ```
 
@@ -346,12 +346,12 @@ Nothing special here, just a regular `.findAll()` to get all the items in the sh
 
 ```js
 return message.channel.send(
-    currency.sort((a, b) => b.balance - a.balance)
-        .filter(user => client.users.has(user.user_id))
-        .first(10)
-        .map((user, position) => `(${position + 1}) ${(client.users.get(user.user_id).tag)}: ${user.balance}💰`)
-        .join('\n'),
-    { code: true }
+	currency.sort((a, b) => b.balance - a.balance)
+		.filter(user => client.users.has(user.user_id))
+		.first(10)
+		.map((user, position) => `(${position + 1}) ${(client.users.get(user.user_id).tag)}: ${user.balance}💰`)
+		.join('\n'),
+	{ code: true },
 );
 ```
 
@@ -360,12 +360,12 @@ return message.channel.send(
 
 ```js
 return message.channel.send(
-    currency.sort((a, b) => b.balance - a.balance)
-        .filter(user => client.users.cache.has(user.user_id))
-        .first(10)
-        .map((user, position) => `(${position + 1}) ${(client.users.cache.get(user.user_id).tag)}: ${user.balance}💰`)
-        .join('\n'),
-    { code: true }
+	currency.sort((a, b) => b.balance - a.balance)
+		.filter(user => client.users.cache.has(user.user_id))
+		.first(10)
+		.map((user, position) => `(${position + 1}) ${(client.users.cache.get(user.user_id).tag)}: ${user.balance}💰`)
+		.join('\n'),
+	{ code: true },
 );
 ```
 

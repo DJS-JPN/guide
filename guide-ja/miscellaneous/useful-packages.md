@@ -25,17 +25,17 @@ Using the "moment-duration-format" extension we could tell the user how many day
 
 ```js
 if (date.isValid()) {
-    const now = moment();
-    const duration = date - now;
-    const formatted = moment.duration(duration, 'ms').format();
+	const now = moment();
+	const duration = date - now;
+	const formatted = moment.duration(duration, 'ms').format();
 
-    if (duration > 0) {
-        message.channel.send(`The date you gave me is ${formatted} into the future.`);
-    } else {
-        message.channel.send(`The date you gave me is ${formatted} into the past.`);
-    }
+	if (duration > 0) {
+		message.channel.send(`The date you gave me is ${formatted} into the future.`);
+	} else {
+		message.channel.send(`The date you gave me is ${formatted} into the past.`);
+	}
 } else {
-    message.channel.send('You didn\'t give me a valid date.');
+	message.channel.send('You didn\'t give me a valid date.');
 }
 ```
 
@@ -78,13 +78,13 @@ common-tags got you covered:
 const packageName = 'common-tags';
 
 if (someCondition) {
-    const poem = stripIndents`
+	const poem = stripIndents`
         I like ${packageName}.
         It makes my strings so pretty,
         you should use it too.
     `;
 
-    console.log(poem);
+	console.log(poem);
 }
 ```
 
@@ -146,11 +146,11 @@ Now, there really are *a lot* of options, so it is recommended you take a look a
 ```js
 const client = new Discord.Client();
 const logger = winston.createLogger({
-    transports: [
-        new winston.transports.Console(),
-        new winston.transports.File({ filename: 'log' }),
-    ],
-    format: winston.format.printf(log => `[${log.level.toUpperCase()}] - ${log.message}`),
+	transports: [
+		new winston.transports.Console(),
+		new winston.transports.File({ filename: 'log' }),
+	],
+	format: winston.format.printf(log => `[${log.level.toUpperCase()}] - ${log.message}`),
 });
 
 client.on('ready', () => logger.log('info', 'The bot is online!'));

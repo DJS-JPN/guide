@@ -10,9 +10,9 @@
 
 ```js
 client.on('message', message => {
-    if (message.content === '!ping') {
-        message.channel.send('Pong.');
-    }
+	if (message.content === '!ping') {
+		message.channel.send('Pong.');
+	}
 });
 ```
 
@@ -40,9 +40,9 @@ ping/pongコマンドのメッセージをチェックするif文はすでにあ
 
 ```js
 if (message.content === `${prefix}ping`) {
-    message.channel.send('Pong.');
+	message.channel.send('Pong.');
 } else if (message.content === `${prefix}beep`) {
-    message.channel.send('Boop.');
+	message.channel.send('Boop.');
 }
 ```
 
@@ -50,9 +50,9 @@ if (message.content === `${prefix}ping`) {
 
 ```js
 if (message.content.startsWith(`${prefix}ping`)) {
-    message.channel.send('Pong.');
+	message.channel.send('Pong.');
 } else if (message.content.startsWith(`${prefix}beep`)) {
-    message.channel.send('Boop.');
+	message.channel.send('Boop.');
 }
 ```
 

@@ -80,7 +80,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.once('ready', () => {
-    console.log('準備完了！');
+	console.log('準備完了！');
 });
 
 client.login('トークンをここに貼り付ける');
@@ -148,7 +148,7 @@ const client = new Discord.Client();
 // クライアントの準備ができた際に実行されます
 // このイベントはログインした後に１度だけ実行します
 client.once('ready', () => {
-    console.log('準備完了！');
+	console.log('準備完了！');
 });
 
 // トークンを使ってDiscordにログイン
@@ -178,7 +178,7 @@ First, make sure to close the process in your console. You can do so by pressing
 
 ```js
 client.on('message', message => {
-    console.log(message.content);
+	console.log(message.content);
 });
 ```
 
@@ -226,8 +226,8 @@ if (message.content === '!ping') {
 
 ```js
 if (message.content === '!ping') {
-    // メッセージが送信されたチャンネルへ「Pong.」を送り返す。
-    message.channel.send('Pong.');
+	// メッセージが送信されたチャンネルへ「Pong.」を送り返す。
+	message.channel.send('Pong.');
 }
 ```
 

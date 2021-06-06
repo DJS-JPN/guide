@@ -13,6 +13,7 @@ const PREFIX = '!';
  */
 
 Reflect.defineProperty(currency, 'add', {
+	/* eslint-disable-next-line func-name-matching */
 	value: async function add(id, amount) {
 		const user = currency.get(id);
 		if (user) {
@@ -26,6 +27,7 @@ Reflect.defineProperty(currency, 'add', {
 });
 
 Reflect.defineProperty(currency, 'getBalance', {
+	/* eslint-disable-next-line func-name-matching */
 	value: function getBalance(id) {
 		const user = currency.get(id);
 		return user ? user.balance : 0;
@@ -92,7 +94,7 @@ client.on('message', async message => {
 				.first(10)
 				.map((user, position) => `(${position + 1}) ${(client.users.cache.get(user.user_id).tag)}: ${user.balance}💰`)
 				.join('\n'),
-			{ code: true }
+			{ code: true },
 		);
 	}
 });

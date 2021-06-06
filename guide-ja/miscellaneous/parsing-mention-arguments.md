@@ -37,7 +37,7 @@ If you send
 
 then the `message.content` for that message will look something like this
 ```js
-'I think we should add <@86890631690977280> to the <@&134362454976102401> role.'
+'I think we should add <@86890631690977280> to the <@&134362454976102401> role.';
 ```
 
 ## Implementation
@@ -50,12 +50,12 @@ Say you already have a simple command handler like this:
 
 ```js
 client.on('message', message => {
-    if (!message.content.startsWith(config.prefix)) return;
+	if (!message.content.startsWith(config.prefix)) return;
 
-    const withoutPrefix = message.content.slice(config.prefix.length);
-    const split = withoutPrefix.split(/ +/);
-    const command = split[0];
-    const args = split.slice(1);
+	const withoutPrefix = message.content.slice(config.prefix.length);
+	const split = withoutPrefix.split(/ +/);
+	const command = split[0];
+	const args = split.slice(1);
 });
 ```
 
@@ -65,9 +65,9 @@ Now you can easily test the waters by upgrading the avatar command from [last ti
 
 ```js
 if (command === 'avatar') {
-    const user = message.author;
+	const user = message.author;
 
-    return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL}`);
+	return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL}`);
 }
 ```
 
@@ -76,9 +76,9 @@ if (command === 'avatar') {
 
 ```js
 if (command === 'avatar') {
-    const user = message.author;
+	const user = message.author;
 
-    return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL({ dynamic: true })}`);
+	return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL({ dynamic: true })}`);
 }
 ```
 
@@ -91,17 +91,17 @@ Putting it into a function will make it easily reusable. We will use the name `g
 
 ```js
 function getUserFromMention(mention) {
-    if (!mention) return;
+	if (!mention) return;
 
-    if (mention.startsWith('<@') && mention.endsWith('>')) {
-        mention = mention.slice(2, -1);
+	if (mention.startsWith('<@') && mention.endsWith('>')) {
+		mention = mention.slice(2, -1);
 
-        if (mention.startsWith('!')) {
-            mention = mention.slice(1);
-        }
+		if (mention.startsWith('!')) {
+			mention = mention.slice(1);
+		}
 
-        return client.users.get(mention);
-    }
+		return client.users.get(mention);
+	}
 }
 ```
 
@@ -110,17 +110,17 @@ function getUserFromMention(mention) {
 
 ```js
 function getUserFromMention(mention) {
-    if (!mention) return;
+	if (!mention) return;
 
-    if (mention.startsWith('<@') && mention.endsWith('>')) {
-        mention = mention.slice(2, -1);
+	if (mention.startsWith('<@') && mention.endsWith('>')) {
+		mention = mention.slice(2, -1);
 
-        if (mention.startsWith('!')) {
-            mention = mention.slice(1);
-        }
+		if (mention.startsWith('!')) {
+			mention = mention.slice(1);
+		}
 
-        return client.users.cache.get(mention);
-    }
+		return client.users.cache.get(mention);
+	}
 }
 ```
 
@@ -141,16 +141,16 @@ Now you have a nifty function you can use whenever you need to convert a raw men
 
 ```js
 if (command === 'avatar') {
-    if (args[0]) {
-        const user = getUserFromMention(args[0]);
-        if (!user) {
-            return message.reply('Please use a proper mention if you want to see someone else\'s avatar.');
-        }
+	if (args[0]) {
+		const user = getUserFromMention(args[0]);
+		if (!user) {
+			return message.reply('Please use a proper mention if you want to see someone else\'s avatar.');
+		}
 
-        return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL}`);
-    }
+		return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL}`);
+	}
 
-    return message.channel.send(`${message.author.username}, your avatar: ${message.author.displayAvatarURL}`);
+	return message.channel.send(`${message.author.username}, your avatar: ${message.author.displayAvatarURL}`);
 }
 ```
 
@@ -159,16 +159,16 @@ if (command === 'avatar') {
 
 ```js
 if (command === 'avatar') {
-    if (args[0]) {
-        const user = getUserFromMention(args[0]);
-        if (!user) {
-            return message.reply('Please use a proper mention if you want to see someone else\'s avatar.');
-        }
+	if (args[0]) {
+		const user = getUserFromMention(args[0]);
+		if (!user) {
+			return message.reply('Please use a proper mention if you want to see someone else\'s avatar.');
+		}
 
-        return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL({ dynamic: true })}`);
-    }
+		return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL({ dynamic: true })}`);
+	}
 
-    return message.channel.send(`${message.author.username}, your avatar: ${message.author.displayAvatarURL({ dynamic: true })}`);
+	return message.channel.send(`${message.author.username}, your avatar: ${message.author.displayAvatarURL({ dynamic: true })}`);
 }
 ```
 
@@ -222,17 +222,17 @@ Updating your `getUserFromMention` function to use RegEx gives you this:
 
 ```js
 function getUserFromMention(mention) {
-    // The id is the first and only match found by the RegEx.
-    const matches = mention.match(/^<@!?(\d+)>$/);
+	// The id is the first and only match found by the RegEx.
+	const matches = mention.match(/^<@!?(\d+)>$/);
 
-    // If supplied variable was not a mention, matches will be null instead of an array.
-    if (!matches) return;
+	// If supplied variable was not a mention, matches will be null instead of an array.
+	if (!matches) return;
 
-    // However the first element in the matches array will be the entire mention, not just the ID,
-    // so use index 1.
-    const id = matches[1];
+	// However the first element in the matches array will be the entire mention, not just the ID,
+	// so use index 1.
+	const id = matches[1];
 
-    return client.users.get(id);
+	return client.users.get(id);
 }
 ```
 
@@ -241,17 +241,17 @@ function getUserFromMention(mention) {
 
 ```js
 function getUserFromMention(mention) {
-    // The id is the first and only match found by the RegEx.
-    const matches = mention.match(/^<@!?(\d+)>$/);
+	// The id is the first and only match found by the RegEx.
+	const matches = mention.match(/^<@!?(\d+)>$/);
 
-    // If supplied variable was not a mention, matches will be null instead of an array.
-    if (!matches) return;
+	// If supplied variable was not a mention, matches will be null instead of an array.
+	if (!matches) return;
 
-    // However the first element in the matches array will be the entire mention, not just the ID,
-    // so use index 1.
-    const id = matches[1];
+	// However the first element in the matches array will be the entire mention, not just the ID,
+	// so use index 1.
+	const id = matches[1];
 
-    return client.users.cache.get(id);
+	return client.users.cache.get(id);
 }
 ```
 </branch>

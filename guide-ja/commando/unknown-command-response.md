@@ -10,9 +10,9 @@ Head over to your `index.js` file and find your `client` variable. You're going 
 
 ```js
 const client = new CommandoClient({
-    commandPrefix: '?',
-    owner: '278305350804045834',
-    invite: 'https://discord.gg/bRCvFy9',
+	commandPrefix: '?',
+	owner: '278305350804045834',
+	invite: 'https://discord.gg/bRCvFy9',
 });
 ```
 
@@ -20,10 +20,10 @@ All you have to do to remove the unknown command response is set `unknownCommand
 
 ```js
 const client = new CommandoClient({
-    commandPrefix: '?',
-    owner: '278305350804045834',
-    invite: 'https://discord.gg/bRCvFy9',
-    unknownCommandResponse: false,
+	commandPrefix: '?',
+	owner: '278305350804045834',
+	invite: 'https://discord.gg/bRCvFy9',
+	unknownCommandResponse: false,
 });
 ```
 

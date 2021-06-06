@@ -231,13 +231,13 @@ discord.jsをインストールするには、`npm install discord.js`と実行�
 <!--
 ::: warning
 Once the installation is complete, you'll see something like this:
-![npm warnings](~@/images/BbcuyJ6.png)<br/>
+![npm warnings](./images/npm-warnings.png)<br/>
 **This is perfectly normal and means that it worked.** You don't need to install any of the items listed in order to use discord.js; they are 100% optional.
 :::
 -->
 
 ::: warning
-インストールが完了すると、次のようになります。 ![npm warnings](~@/images/BbcuyJ6.png)<br/> **これは完全に正常であり、正しく動作したことを意味します。** discord.jsを使用するために表示されている項目をインストールする必要はありません。それらは完全にオプションです。
+インストールが完了すると、次のようになります。 ![npm warnings](./images/npm-warnings.png)<br/> **これは完全に正常であり、正しく動作したことを意味します。** discord.jsを使用するために表示されている項目をインストールする必要はありません。それらは完全にオプションです。
 :::
 
 

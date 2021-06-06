@@ -12,18 +12,18 @@ First, grab a command file you want to use throttling with.
 const { Command } = require('discord.js-commando');
 
 module.exports = class MeowCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: 'meow',
-            group: 'first',
-            memberName: 'meow',
-            description: 'Replies with a meow, kitty cat.',
-        });
-    }
+	constructor(client) {
+		super(client, {
+			name: 'meow',
+			group: 'first',
+			memberName: 'meow',
+			description: 'Replies with a meow, kitty cat.',
+		});
+	}
 
-    run(message) {
-        return message.say('Meow!');
-    }
+	run(message) {
+		return message.say('Meow!');
+	}
 };
 ```
 
@@ -36,14 +36,14 @@ Make it have 2 usages allowed in a 10 second period.
 
 ```js
 super(client, {
-    name: 'meow',
-    group: 'first',
-    memberName: 'meow',
-    description: 'Replies with a meow, kitty cat.',
-    throttling: {
-        usages: 2,
-        duration: 10,
-    },
+	name: 'meow',
+	group: 'first',
+	memberName: 'meow',
+	description: 'Replies with a meow, kitty cat.',
+	throttling: {
+		usages: 2,
+		duration: 10,
+	},
 });
 ```
 

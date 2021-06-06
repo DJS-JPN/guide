@@ -14,8 +14,8 @@ This voice guide is written for Discord.js v12, which features an improved audio
 ## Quick example
 ```js
 async function play(voiceChannel) {
-    const connection = await voiceChannel.join();
-    connection.play('audio.mp3');
+	const connection = await voiceChannel.join();
+	connection.play('audio.mp3');
 }
 ```
 
