@@ -2,7 +2,7 @@
 
 If you've been following the guide's previous pages, you should have a bot application set up. しかし、まだサーバーにボットはいません。 これはどうすればいいのでしょうか？
 
-Before you're able to see your bot in your own (or other) servers, you'll need to add it by creating and using a unique invite link using your bot application's client ID.
+自分の (または他の) サーバーでボットを表示するには、ボット アプリケーションのクライアント ID を使用して一意の招待リンクを作成して使用することにより、ボットを追加する必要があります。
 
 ## ボットの招待リンク
 
