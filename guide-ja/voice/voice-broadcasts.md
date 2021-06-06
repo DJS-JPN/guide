@@ -2,7 +2,7 @@
 
 <branch version="11.x">
 
-The discord.js voice system allows your bot to join voice channels and play audio. This guide will teach you how to make simple music bots and give you tips to optimize performance!
+Discord.js 音声システムにより、ボットは音声チャネルに参加して音声を再生できます。 このガイドでは、シンプルな音楽ボットの作成方法と、パフォーマンスを最適化するためのヒントを説明します。
 
 This voice guide targets discord.js v12, which features an improved audio system. Much of the example code in the voice guide is unsuitable for v11 and below–to access this content, please update discord.js to v12!
 
@@ -76,7 +76,7 @@ There are some specific things to be aware of with broadcasts. This section will
 - `subscribe` and `unsubscribe` events emit here when VoiceConnections are subscribed and unsubscribed.
     ```js
     broadcast.on('subscribe', dispatcher => {
-    	console.log(`Broadcast playing in ${dispatcher.player.voiceConnection.channel.name}`);
+        console.log(`Broadcast playing in ${dispatcher.player.voiceConnection.channel.name}`);
     });
 
     // Emits the subscribe event on the broadcast
