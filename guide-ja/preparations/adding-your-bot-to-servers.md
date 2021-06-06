@@ -1,22 +1,22 @@
 # ボットをサーバーに追加する
 
-ここまで熱心に読んできたのなら、ボットのセットアップを終えているでしょう。 しかし、まだサーバーにボットはいません。 これはどうすればいいのでしょうか？
+If you've been following the guide's previous pages, you should have a bot application set up. しかし、まだサーバーにボットはいません。 これはどうすればいいのでしょうか？
 
-ボットをサーバーに追加するには、ボットアプリケーションのClient IDを使用して作成できる特別な招待リンクを使用してボットを追加する必要があります。
+Before you're able to see your bot in your own (or other) servers, you'll need to add it by creating and using a unique invite link using your bot application's client ID.
 
 ## ボットの招待リンク
 
 この招待リンクは次のような形になります。
 
 ```
-https://discord.com/oauth2/authorize?client_id=123456789012345678&scope=bot
+https://discord.com/oauth2/authorize?client_id=123456789012345678&scope=bot+applications.commands
 ```
 
 このURLの構造は非常にシンプルになっています。
 
 * 最初の部分は、Discordサーバーへに対して追加するOAuth2アプリケーション（ボットアプリケーションなど）を承認するためのDiscordの標準形式です。
-* 次の`client_id=...`から始まる部分は認可_したい_アプリケーションを指定します。 有効な招待リンクを作るには、この部分を実際のボットのClient IDに置き換える必要があります。
-* 最後の`scope=bot`から始まる部分は、アプリケーションをボットとして追加しようとしていることを示します。
+* 次の`client_id=...`から始まる部分は認可_したい_アプリケーションを指定します。 You'll need to replace this part with your client's ID to create a valid invite link.
+* Lastly, the third part, which says `scope=bot+applications.commands`, specifies that you want to add this application as a Discord bot, with the ability to create Slash Commands.
 
 ::: tip
 `permissions`パラメータでは、追加したサーバーでボットが持つ権限を指定できます。 [この](https://discordapi.com/permissions.html)サイトを使うことで簡単に招待リンクを作れます。
@@ -26,18 +26,18 @@ https://discord.com/oauth2/authorize?client_id=123456789012345678&scope=bot
 もし"Bot requires a code grant"といったエラーが出た場合、ボットのアプリケーション設定を開き、"Require OAuth2 Code Grant"オプションをオフにしてください。 あなたがこれの必要性をよく分かっていない場合はオンにする必要はありません。
 :::
 
-## 独自の招待リンクを作成して使用する
+## Creating and using your invite link
 
-上記のように、招待リンクを生成するには、`client_id`パラメータをClient IDに置き換える必要があります。 To find your app's ID, head back to the [My Apps](https://discord.com/developers/applications/me) page under the "Applications" section once again and click on your bot application.
+As mentioned above, you'll need to replace the `client_id` parameter with your client's ID to generate your invite link. アプリのIDを確認するには、もう一度"Applications"セクション内の[My Apps](https://discord.com/developers/applications/me)ページに戻り、ボットアプリケーションを選択します。
 
-アプリのIDをリンクテンプレートに挿入し、ブラウザーでアクセスしてください。 そうすると次のようにボットのユーザー名とアバターが表示されるはずです。
+Insert your app's ID into the link template, and then access it in your browser. そうすると次のようにボットのユーザー名とアバターが表示されるはずです。
 
-![ボット認証画面](~@/images/A8l70bj.png)
+![Bot Authorization page](./images/bot-auth-page.png)
 
-追加したいサーバーを選択し、"Authorize"をクリックします。 ボットを追加するには、そのサーバーで「サーバーの管理」権限が必要になることに注意してください。 追加が完了すると次の確認メッセージが表示されます。
+追加したいサーバーを選択し、"Authorize"をクリックします。 Do note that you'll need the "Manage Server" permission on a server to add your bot there. 追加が完了すると次の確認メッセージが表示されます。
 
-![認証したボット](~@/images/BAUsjyg.png)
+![認証したボット](./images/bot-authorized.png)
 
 おめでとうございます ！ これでDiscordサーバーにボットが正常に追加されました。 サーバーのメンバーリストに次のように表示されます。
 
-![サーバーのユーザーリストにあるボット](~@/images/6qTlDW0.png)
+![Bot in server's member list](./images/bot-in-memberlist.png)
