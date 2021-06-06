@@ -61,13 +61,14 @@ for (const group of Object.values(config.themeConfig.sidebar)) {
 	}
 }
 
-if (process.env.NODE_ENV === 'production') {
-	config.themeConfig.algolia = {
-		apiKey: 'c8d9361fb8403f7c5111887e0edf4b5e',
-		indexName: 'discordjs',
-	};
+// guide.discordjs-japan.org では使用しないので、コメントアウト
+// if (process.env.NODE_ENV === 'production') {
+// 	config.themeConfig.algolia = {
+// 		apiKey: 'c8d9361fb8403f7c5111887e0edf4b5e',
+// 		indexName: 'discordjs',
+// 	};
 
-	config.plugins.push(['@vuepress/google-analytics', { ga: 'UA-108513187-1' }]);
-}
+// 	config.plugins.push(['@vuepress/google-analytics', { ga: 'UA-108513187-1' }]);
+// }
 
 module.exports = config;
