@@ -1,28 +1,39 @@
 # Updating from v11 to v12
 
-After a long time in development, Discord.js v12 has been formally released, meaning it's time to update from v11 to get new features for your bots!  However, with those new features comes a lot of changes to the library that will break code written for v11.  This guide will serve as a handy reference for updating your code, covering the most commonly-used methods that have been changed, new topics such as partials and internal sharding, and will also include a comprehensive list of the method and property changes at the end.
+discord.js v12 has been formally released after a long time in development, meaning it's time to update from v11 to get new features for your bots!  However, with those new features come many changes to the library that will break code written for v11.  This guide will serve as a handy reference for updating your code, covering the most commonly-used methods that have changed, new topics such as partials and internal sharding. It also includes a comprehensive list of the method and property changes at the end.
 
-:::tip
-This guide has two versions! Make sure to select `v12 (stable)` in the drop down selection in the header bar to get code snippets and explanations for the new version across the guide.
+::: tip
+This guide has two versions! Make sure to select `v12 (stable)` in the header bar's drop-down selection to get code snippets and explanations for the new version across the guide.
 :::
 
 ## Before You Start
 
-v12 requires Node 12.x or higher to  use, so make sure you're up-to-date.  To check your Node version, use `node -v` in your terminal or command prompt, and if it's not high enough, update it!  There are many resources online to help you with this step based on your host system.
+v12 requires Node 12.x or higher, so make sure you're up-to-date.  To check your Node version, use `node -v` in your terminal or command prompt, and if it's not high enough, update it!  There are many resources online to help you with this step based on your host system.
 
-Once you got Node up-to-date you can install v12 by running `npm install discord.js` in your terminal or command prompt for text-only use, or `npm install discord.js @discordjs/opus` for voice support.
+Once you got Node up-to-date, you can install v12 by running `npm install discord.js` in your terminal or command prompt for text-only use or `npm install discord.js @discordjs/opus` for voice support.
 
-You can check your discord.js version with `npm list discord.js`. Should it still show v11.x uninstall (`npm uninstall discord.js`) and re-install discord.js and make sure the entry in your package.json does not prevent a major version update. Please refer to the [npm documentation](https://docs.npmjs.com/files/package.json#dependencies) for this.
+You can check your discord.js version with `npm list discord.js`. Should it still show v11.x, uninstall (`npm uninstall discord.js`) and re-install discord.js and make sure the entry in your `package.json` does not prevent a major version update. Please refer to the [npm documentation](https://docs.npmjs.com/files/package.json#dependencies) for this.
 
 ## Commonly Used Methods That Changed
 
 * All section headers are named in the following convention: `Class#methodOrProperty`.
-* The use of parenthesis designates optional inclusion. For example, `Channel#fetch(Pinned)Message(s)` means that this section will include changes for `Channel#fetchPinnedMessages`, `Channel#fetchMessages`, and `Channel#fetchMessage`.
-* The use of asterisks designates a wildcard. For example, `Channel#send***` means that this section will include changes for `Channel#sendMessage`, `Channel#sendFile`, `Channel#sendEmbed`, and so forth.
+* The use of parenthesis designates optional inclusion. For example, `TextChannel#fetch(Pinned)Message(s)` means that this section will include changes for `TextChannel#fetchPinnedMessages`, `TextChannel#fetchMessages`, and `TextChannel#fetchMessage`.
+* The use of asterisks designates a wildcard. For example, `TextChannel#send***` means that this section will include changes for `TextChannel#sendMessage`, `TextChannel#sendFile`, `TextChannel#sendEmbed`, and so forth.
+
+::: danger
+
+`clientOptions.disableEveryone` was removed and replaced with `clientOptions.disableMentions`!
+
+```diff
+- const client = new Discord.Client({ disableEveryone: true });
++ const client = new Discord.Client({ disableMentions: 'everyone' });
+```
+
+:::
 
 ### Managers/ Cache
 
-v12 introduces the concept of managers, you will no longer be able to directly use collection methods such as `Collection#get` on data structures like `Client#users`. You will now have to directly ask for cache on a manager before trying to use collection methods. Any method that is called directly on a manager will call the API, such as `GuildMemberManager#fetch` and `MessageManager#delete`. 
+v12 introduces the concept of managers; you will no longer be able to directly use collection methods such as `Collection#get` on data structures like `Client#users`. You will now have to directly ask for cache on a manager before trying to use collection methods. Any method called directly on a manager will call the API, such as `GuildMemberManager#fetch` and `MessageManager#delete`. 
 
 ```diff
 - client.users.get('123456789012345678');
@@ -48,11 +59,11 @@ v12 introduces the concept of managers, you will no longer be able to directly u
 
 #### Collection#filterArray
 
-`collection.filterArray()` was removed entirely, as it was just a helper method for `collection.filter().array()` and most of the time converting a collection to an array is an unnecessary step.
+`collection.filterArray()` was removed entirely, as it was just a helper method for `collection.filter().array()` and most of the time, converting a collection to an array is an unnecessary step.
 
 #### Collection#find
 
-`collection.find('property', value)` has been removed entirely, and `collection.find()` only accepts a function in v12.
+`collection.find('property', value)` was removed entirely, and `collection.find()` only accepts a function in v12.
 
 ```diff
 - client.users.find('username', 'Bob');
@@ -65,7 +76,7 @@ v12 introduces the concept of managers, you will no longer be able to directly u
 
 ### Fetch
 
-Some methods that retrieve uncached data have been changed, transformed in the shape of a Manager.
+Some methods that retrieve uncached data have changed, transformed in the shape of a Manager.
 
 ```diff
 - client.fetchUser('123456789012345678');
@@ -121,7 +132,7 @@ All the `.send***()` methods have been removed in favor of one general `.send()`
 
 ### Roles
 
-The `GuildMember.roles` Collection has been changed to a Manager in v12, so a lot of the associated methods for interacting with a member's roles have changed as well.  They're no longer on the GuildMember object itself, but instead now on the `GuildMemberRoleManager`. The Manager holds API methods and cache for the roles, in the form of `GuildMemberRoleManager#cache` which is a plain Collection.
+The `GuildMember.roles` Collection has changed to a Manager, meaning the associated methods for interacting with a member's roles have too. They're no longer on the GuildMember object itself, but instead now on the `GuildMemberRoleManager`. The Manager holds API methods and cache for the roles in `GuildMemberRoleManager#cache`, a plain Collection.
 
 ```diff
 - guildMember.addRole('123456789012345678');
@@ -141,7 +152,7 @@ The `GuildMember.roles` Collection has been changed to a Manager in v12, so a lo
 + guildMember.roles.cache.get('123456789012345678');
 ```
 
-In addition, the GuildMember properties related to roles have also been moved to the `GuildMemberRoleManager`.
+Also, the GuildMember properties related to roles have moved to the `GuildMemberRoleManager`.
 
 ```diff
 - guildMember.colorRole;
@@ -156,7 +167,7 @@ In addition, the GuildMember properties related to roles have also been moved to
 
 ### Ban and Unban
 
-The method to ban members and users have been moved to the `GuildMemberManager`.
+The method to ban members and users has moved to the `GuildMemberManager`.
 
 ```diff
 - guild.ban('123456789012345678');
@@ -168,7 +179,7 @@ The method to ban members and users have been moved to the `GuildMemberManager`.
 
 ### Image URLs
 
-Some image-related properties like `user.avatarURL` are now a method in v12, so that you can apply some options to them, eg. to affect their display size. 
+Some image-related properties like `user.avatarURL` are now methods in v12 so that you can apply some options to them, e.g., to affect their display size. 
 
 ```diff
 - user.avatarURL;
@@ -184,9 +195,9 @@ Some image-related properties like `user.avatarURL` are now a method in v12, so 
 + guild.splashURL();
 ```
 
-## Dynamic File type
+### Dynamic File type
 
-Version 12 now allows you to dynamically set the file type for images. If the `dynamic` option is provided you will receive a `.gif` URL if the image is animated, otherwise it will fall back to the specified `format` or its default `.webp` if none is provided.
+Version 12 now allows you to set the file type for images dynamically. If you provide the `dynamic` option, you will receive a `.gif` URL if the image is animated; otherwise, it will fall back to the specified `format` or its default `.webp`.
 
 ```js
 user.avatarURL({ format: 'png', dynamic: true, size: 1024 });
@@ -194,11 +205,11 @@ user.avatarURL({ format: 'png', dynamic: true, size: 1024 });
 
 ### RichEmbed Constructor
 
-The RichEmbed constructor has been removed and now the `MessageEmbed` constructor is used. It is largely the same to use, the only differences being the removal of `richEmbed.attachFile` (`messageEmbed.attachFiles` accepts a single file as a parameter as well) and `richEmbed.addBlankField` and the addition of `messageEmbed.addFields`.
+The RichEmbed constructor was removed, and now the `MessageEmbed` constructor is used. It is mostly the same to use. The only differences are removing `richEmbed.attachFile` (`messageEmbed.attachFiles` accepts a single file as a parameter as well) and `richEmbed.addBlankField` and the addition of `messageEmbed.addFields`.
 
 ### String Concatenation
 
-v12 has changed how string concatenation works with stringifying objects.  The `valueOf` any data structure will return its id, which affects how it behaves in strings, eg. using an object for a mention.  In v11, you used to be able to use `channel.send(userObject + ' has joined!')` and it would automatically stringify the object and it would become the mention (`@user has joined!`), but in v12, it will now send a message that says `123456789012345678 has joined` instead.  Using template literals (\`\`) will still return the mention, however.
+v12 has changed how discord.js objects behave when being cast to a string. If added to a string, structures will display their id whenever possible (due to the internal method `valueOf` changing according to its specification). When calling `toString` explicitly, the structure is cast via the `String` constructor or supplied as a value in template expressions (which internally calls `toString`). The mention format `<@id>` is displayed, which Discord resolves to a proper mention if the structure is in the viewing client's cache (in v11, both `toString` and `valueOf` showed the same behavior as `toString` does now).
 
 ```diff
 - channel.send(userObject + ' has joined!')
@@ -241,20 +252,20 @@ connection.play(fs.createReadStream('file.ogg'), { type: 'ogg/opus' });
 connection.play(fs.createReadStream('file.webm'), { type: 'webm/opus' });
 ```
 
-It is also possible to define initial values for `plp`, `fec` and `bitrate` when playing a stream. Minus bitrate, these are new configurable options in v12 that can help when playing audio on unstable network connections.
+It is also possible to define initial values for `plp`, `fec`, and `bitrate` when playing a stream. Minus bitrate, these are new configurable options in v12 that can help when playing audio on unstable network connections.
 
 ```diff
 - connection.playStream(stream).setBitrate(96)
 + connection.play(stream, { bitrate: 96 })
 ```
 
-If you don't want to alter the volume of a stream while you're playing it, you can disable volume to improve performance. This cannot be reverted during playback.
+If you don't want to alter a stream's volume while you're playing it, you can disable volume to improve performance. You cannot revert this option during playback.
 
 ```js
 connection.play(stream, { volume: false });
 ```
 
-The internal voice system in v12 now uses streams where possible, and as such StreamDispatcher itself is now a WritableStream. It also comes with new changes:
+The internal voice system in v12 now uses streams where possible, and as such, StreamDispatcher itself is now a WritableStream. It also comes with new changes:
 
 ```diff
 - dispatcher.end()
@@ -264,7 +275,7 @@ The internal voice system in v12 now uses streams where possible, and as such St
 + dispatcher.on('finish', handler)
 ```
 
-You can manually control how many audio packets should be queued before playing audio for more consistent playback using the `highWaterMark` option (defaults to 12)
+You can manually control how many audio packets should queue before playing audio for more consistent playback using the `highWaterMark` option (defaults to 12)
 ```js
 connection.play(stream, { highWaterMark: 512 });
 ```
@@ -291,9 +302,9 @@ Broadcasts themselves now contain a `BroadcastDispatcher` that shares a similar 
 
 ## Breaking Changes and Deletions
 
-The section headers for breaking changes will be named after the v11 classes/methods/properties and will be in alphabetical order, so that you can easily find what you're looking for. The section headers for additions will be named after the v12 classes/methods/properties, to reflect their current syntax appropriately.
+The section headers for breaking changes will be named after the v11 classes/methods/properties and will be in alphabetical order so that you can easily find what you need. We have named the section headers for additions after the v12 classes/methods/properties to appropriately reflect their current syntax.
 
-"Difference" code blocks will be used to display the old methods vs the newer ones—the red being what's been removed and the green being its replacement. Some bits may have more than one version of being handled. Regular JavaScript syntax code blocks will be used to display the additions. 
+"Difference" code blocks will be used to display the old methods vs. the newer ones—the red being removals and the green being its replacement. Some bits may have more than one version of being handled. Additions will use regular JavaScript syntax code blocks. 
 
 ::: danger
 While this list was carefully crafted, it may be incomplete! If you notice pieces of missing or inaccurate data, we encourage you to [submit a pull request](https://github.com/discordjs/guide/compare)!
