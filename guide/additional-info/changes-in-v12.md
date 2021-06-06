@@ -1,39 +1,62 @@
+---
+title: v11からv12へのアップデート
+---
+
+<!--
 # Updating from v11 to v12
+-->
 
-discord.js v12 has been formally released after a long time in development, meaning it's time to update from v11 to get new features for your bots!  However, with those new features come many changes to the library that will break code written for v11.  This guide will serve as a handy reference for updating your code, covering the most commonly-used methods that have changed, new topics such as partials and internal sharding. It also includes a comprehensive list of the method and property changes at the end.
+<!--
+After a long time in development, Discord.js v12 is nearing a stable release, meaning it's time to update from v11 to get new features for your bots!  However, with those new features comes a lot of changes to the library that will break code written for v11.  This guide will serve as a handy reference for updating your code, covering the most commonly-used methods that have been changed, new topics such as partials and internal sharding, and will also include a comprehensive list of the method and property changes at the end.
+-->
 
-::: tip
-This guide has two versions! Make sure to select `v12 (stable)` in the header bar's drop-down selection to get code snippets and explanations for the new version across the guide.
-:::
+長期間の開発の末、Discord.js v12は安定したリリースに近づいています。つまり、v11から更新してボットで新しい機能を使うときです！しかし追加された新機能と同時に、v11向けに書かれたコードを壊すライブラリへの多くの変更があります。このガイドは、コードを更新するための便利なリファレンスとして機能し、変更された最もよく使用されるメソッドや、パーシャル、内部シャーディングなどの新しいトピックをカバーします。最後にメソッドとプロパティの変更の包括的なリストも含まれます。
 
+<!--
 ## Before You Start
+-->
 
-v12 requires Node 12.x or higher, so make sure you're up-to-date.  To check your Node version, use `node -v` in your terminal or command prompt, and if it's not high enough, update it!  There are many resources online to help you with this step based on your host system.
+## 始める前に
 
-Once you got Node up-to-date, you can install v12 by running `npm install discord.js` in your terminal or command prompt for text-only use or `npm install discord.js @discordjs/opus` for voice support.
+<!--
+v12 requires Node 12.x or higher to  use, so make sure you're up-to-date.  To check your Node version, use `node -v` in your terminal or command prompt, and if it's not high enough, update it!  There are many resources online to help you get up-to-date.
+-->
 
-You can check your discord.js version with `npm list discord.js`. Should it still show v11.x, uninstall (`npm uninstall discord.js`) and re-install discord.js and make sure the entry in your `package.json` does not prevent a major version update. Please refer to the [npm documentation](https://docs.npmjs.com/files/package.json#dependencies) for this.
+v12を使用するにはNode 12.x以降が必要です。最新の状態であることを確認してください。Nodeのバージョンを確認するには、ターミナルまたはコマンドプロンプトで`node -v`を使用します。v12以降ではない場合は更新してください。最新情報を得るための情報がネット上に多くあります。
 
+<!--
+For now, you do need Git installed and added to your PATH environment, so ensure that's done as well - again, guides are available online for a wide variety of operating systems.  Once you have Node up-to-date and Git installed, you can install v12 by running `npm install discord.js` in your terminal or command prompt for text-only use, or `npm install discord.js @discordjs/opus` for voice support.
+-->
+
+まず、GitをインストールしてPATH環境に追加する必要があるので、それも確実に行ってください。ここでも、さまざまなOSのガイドがオンラインで入手できます。Nodeを最新にしてGitをインストールしたら、ターミナルまたはコマンドプロンプトで`npm install discord.js`を実行してテキストのみを使用するか、音声サポート用に`npm install discord.js @discordjs/opus`を実行してv12をインストールできます。
+
+<!--
 ## Commonly Used Methods That Changed
+-->
 
+## 変更されたよく使われるメソッド
+
+<!--
 * All section headers are named in the following convention: `Class#methodOrProperty`.
-* The use of parenthesis designates optional inclusion. For example, `TextChannel#fetch(Pinned)Message(s)` means that this section will include changes for `TextChannel#fetchPinnedMessages`, `TextChannel#fetchMessages`, and `TextChannel#fetchMessage`.
-* The use of asterisks designates a wildcard. For example, `TextChannel#send***` means that this section will include changes for `TextChannel#sendMessage`, `TextChannel#sendFile`, `TextChannel#sendEmbed`, and so forth.
+* The use of parenthesis designates optional inclusion. For example, `Channel#fetch(Pinned)Message(s)` means that this section will include changes for `Channel#fetchPinnedMessages`, `Channel#fetchMessages`, and `Channel#fetchMessage`.
+* The use of asterisks designates a wildcard. For example, `Channel#send***` means that this section will include changes for `Channel#sendMessage`, `Channel#sendFile`, `Channel#sendEmbed`, and so forth.
+-->
 
-::: danger
+* すべての節の見出しには、`Class#methodOrProperty`という規則に従って名前が付けられます。
+* 括弧の使用は、オプションを含むことを表します。例えば`Channel#fetch(Pinned)Message(s)`は、その節に`Channel#fetchPinnedMessages`、`Channel#fetchMessages`、および`Channel#fetchMessage`の変更が含まれることを意味します。
+* アスタリスクの使用はワイルドカードを示します。例えば`Channel#send***`は、このセクションに`Channel#sendMessage`や`Channel#sendFile`、`Channel#sendEmbed`などの変更が含まれることを意味します。
 
-`clientOptions.disableEveryone` was removed and replaced with `clientOptions.disableMentions`!
-
-```diff
-- const client = new Discord.Client({ disableEveryone: true });
-+ const client = new Discord.Client({ disableMentions: 'everyone' });
-```
-
-:::
-
+<!--
 ### Managers/ Cache
+-->
 
-v12 introduces the concept of managers; you will no longer be able to directly use collection methods such as `Collection#get` on data structures like `Client#users`. You will now have to directly ask for cache on a manager before trying to use collection methods. Any method called directly on a manager will call the API, such as `GuildMemberManager#fetch` and `MessageManager#delete`. 
+### マネージャー/ キャッシュ
+
+<!--
+v12 introduces the concept of managers, you will no longer be able to directly use collection methods such as `Collection#get` on data structures like `Client#users`. You will now have to directly ask for cache on a manager before trying to use collection methods. Any method that is called directly on a manager will call the API, such as `GuildMemberManager#fetch` and `MessageManager#delete`. 
+-->
+
+v12ではマネージャーという概念が導入されているため、`Client#users`などのデータ構造で`Collection#get`などのコレクションメソッドを直接使用することはできなくなります。コレクションのメソッドを使用する前に、マネージャーでキャッシュを直接要求する必要があります。`GuildMemberManager＃fetch`や`MessageManager#delete`など、マネージャーで直接呼び出されるメソッドはAPIを呼び出します。
 
 ```diff
 - client.users.get('123456789012345678');
@@ -50,7 +73,11 @@ v12 introduces the concept of managers; you will no longer be able to directly u
 
 #### Collection#exists
 
+<!--
 `collection.exists()` was removed entirely, `collection.some()` should be used to check if an element exists in the collection that satisfies the provided value.
+-->
+
+`collection.exists()`は完全に削除されました。`collection.some()`を使用して、指定された値を満たす要素がコレクション内に存在するかどうかを確認する必要があります。
 
 ```diff
 - client.users.exists('username', 'Bob');
@@ -59,11 +86,19 @@ v12 introduces the concept of managers; you will no longer be able to directly u
 
 #### Collection#filterArray
 
-`collection.filterArray()` was removed entirely, as it was just a helper method for `collection.filter().array()` and most of the time, converting a collection to an array is an unnecessary step.
+<!--
+`collection.filterArray()` was removed entirely, as it was just a helper method for `collection.filter().array()` and most of the time converting a collection to an array is an unnecessary step.
+-->
+
+`collection.filterArray()`は完全に削除されました。これは単なる`collection.filter().array()`のヘルパーメソッドであり、ほとんどの場合、コレクションを配列に変換することは不要な操作です。
 
 #### Collection#find
 
-`collection.find('property', value)` was removed entirely, and `collection.find()` only accepts a function in v12.
+<!--
+`collection.find('property', value)` has been removed entirely, and `collection.find()` only accepts a function in v12.
+-->
+
+`collection.find('property', value)`は完全に削除されました。v12の`collection.find()`では関数のみを受け入れます。
 
 ```diff
 - client.users.find('username', 'Bob');
@@ -72,11 +107,19 @@ v12 introduces the concept of managers; you will no longer be able to directly u
 
 #### Collection#findAll
 
+<!--
 `collection.findAll()` was removed entirely as it just duplicated `collection.filterArray()`'s results.
+-->
+
+`collection.findAll()`は、`collection.filterArray()`の結果を複製するだけなので、完全に削除されました。
 
 ### Fetch
 
-Some methods that retrieve uncached data have changed, transformed in the shape of a Manager.
+<!--
+Some methods that retrieve uncached data have been changed, transformed in the shape of a Manager.
+-->
+
+キャッシュされていないデータを取得する一部のメソッドが変更され、マネージャーを使用する形式に変更されました。
 
 ```diff
 - client.fetchUser('123456789012345678');
@@ -100,7 +143,11 @@ Some methods that retrieve uncached data have changed, transformed in the shape 
 
 ### Send
 
+<!--
 All the `.send***()` methods have been removed in favor of one general `.send()` method.
+-->
+
+すべての`.send***()`メソッドは削除され、1つの一般的な`.send()`メソッドが採用されました。
 
 ```diff
 - channel.sendMessage('Hey!');
@@ -111,7 +158,11 @@ All the `.send***()` methods have been removed in favor of one general `.send()`
 + channel.send({ embed: embedVariable });
 ```
 
+<!--
 `channel.send(embedVariable)` will only work if that variable is an instance of the `MessageEmbed` class; object literals won't give you the expected result unless your embed data is inside an `embed` key.
+-->
+
+`channel.send(embedVariable)`は、その変数が `MessageEmbed`クラスのインスタンスである場合にのみ機能します。埋め込みデータが`embed`キー内にない限り、オブジェクトリテラルは期待した結果になりません。
 
 ```diff
 - channel.sendCode('js', 'const version = 11;');
@@ -130,9 +181,17 @@ All the `.send***()` methods have been removed in favor of one general `.send()`
 + });
 ```
 
+<!--
 ### Roles
+-->
 
-The `GuildMember.roles` Collection has changed to a Manager, meaning the associated methods for interacting with a member's roles have too. They're no longer on the GuildMember object itself, but instead now on the `GuildMemberRoleManager`. The Manager holds API methods and cache for the roles in `GuildMemberRoleManager#cache`, a plain Collection.
+### 役職
+
+<!--
+The `GuildMember.roles` Collection has been changed to a Manager in v12, so a lot of the associated methods for interacting with a member's roles have changed as well.  They're no longer on the GuildMember object itself, but instead now on the `GuildMemberRoleManager`. The Manager holds API methods and cache for the roles, in the form of `GuildMemberRoleManager#cache` which is a plain Collection.
+-->
+
+`GuildMember.roles`コレクションはv12でマネージャーに変更されたため、メンバーの役職とやり取りするための多くの関連メソッドも変更されました。それらはもはやGuildMemberオブジェクトではなく、`GuildMemberRoleManager`です。マネージャーは役職のAPIメソッドとキャッシュを、プレーンなコレクションである`GuildMemberRoleManager#cache`の形式で保持します。
 
 ```diff
 - guildMember.addRole('123456789012345678');
@@ -152,7 +211,11 @@ The `GuildMember.roles` Collection has changed to a Manager, meaning the associa
 + guildMember.roles.cache.get('123456789012345678');
 ```
 
-Also, the GuildMember properties related to roles have moved to the `GuildMemberRoleManager`.
+<!--
+In addition, the GuildMember properties related to roles have also been moved to the `GuildMemberRoleManager`.
+-->
+
+さらに、役職に関連するGuildMemberプロパティも`GuildMemberRoleManager`に移動されました。
 
 ```diff
 - guildMember.colorRole;
@@ -165,9 +228,17 @@ Also, the GuildMember properties related to roles have moved to the `GuildMember
 + guildMember.roles.hoist;
 ```
 
+<!--
 ### Ban and Unban
+-->
 
-The method to ban members and users has moved to the `GuildMemberManager`.
+### BANとBAN解除
+
+<!--
+The method to ban members and users have been moved to the `GuildMemberManager`.
+-->
+
+メンバーとユーザーをBANするメソッドは、`GuildMemberManager`に移動しました。
 
 ```diff
 - guild.ban('123456789012345678');
@@ -177,9 +248,17 @@ The method to ban members and users has moved to the `GuildMemberManager`.
 + guild.members.unban('123456789012345678');
 ```
 
+<!--
 ### Image URLs
+-->
 
-Some image-related properties like `user.avatarURL` are now methods in v12 so that you can apply some options to them, e.g., to affect their display size. 
+### 画像URL
+
+<!--
+Some image-related properties like `user.avatarURL` are now a method in v12, so that you can apply some options to them, eg. to affect their display size. 
+-->
+
+`user.avatarURL`のような画像関連のプロパティはv12でメソッドになったため、それらに表示サイズを変えるなどのオプションを適用できます。
 
 ```diff
 - user.avatarURL;
@@ -195,35 +274,74 @@ Some image-related properties like `user.avatarURL` are now methods in v12 so th
 + guild.splashURL();
 ```
 
-### Dynamic File type
+<!--
+## Dynamic File type
+-->
 
-Version 12 now allows you to set the file type for images dynamically. If you provide the `dynamic` option, you will receive a `.gif` URL if the image is animated; otherwise, it will fall back to the specified `format` or its default `.webp`.
+## 動的ファイルタイプ
+
+<!--
+Version 12 now allows you to dynamically set the file type for images. If the `dynamic` option is provided you will receive a `.gif` URL if the image is animated, otherwise it will fall back to the specified `format` or its default `.webp` if none is provided.
+-->
+
+バージョン12では、画像のファイルタイプを動的に設定できるようになりました。`dynamic`オプションが提供されている場合、画像がアニメーション化されているときは`.gif`のURLを受け取ります。それ以外の場合は、指定された`format`またはデフォルトの`.webp`にフォールバックします。
 
 ```js
 user.avatarURL({ format: 'png', dynamic: true, size: 1024 });
 ```
 
+<!--
 ### RichEmbed Constructor
+-->
 
-The RichEmbed constructor was removed, and now the `MessageEmbed` constructor is used. It is mostly the same to use. The only differences are removing `richEmbed.attachFile` (`messageEmbed.attachFiles` accepts a single file as a parameter as well) and `richEmbed.addBlankField` and the addition of `messageEmbed.addFields`.
+### RichEmbedコンストラクター
+
+<!--
+The RichEmbed constructor has been removed and now the `MessageEmbed` constructor is used. It is largely the same to use, the only differences being the removal of `RichEmbed.attachFile()` - `MessageEmbed.attachFiles()` accepts a single file as a parameter as well, and removing `RichEmbed.addField()` and `RichEmbed.addBlankField()` methods in favor of `MessageEmbed.addFields()` which can add multiple fields in one call.
+-->
+
+RichEmbedコンストラクターが削除され、`MessageEmbed`コンストラクターが使用されるようになりました。使用方法はほとんど同じですが、違いは`RichEmbed.attachFile()`の代わりにパラメーターとして単一のファイルも受け入れる`MessageEmbed.attachFiles()`、`RichEmbed.addField()`と`RichEmbed.addBlankField()`メソッドの代わりに
+1回の呼び出しで複数のフィールドを追加できる`MessageEmbed.addFields()`が追加されました。
 
 ### String Concatenation
 
-v12 has changed how discord.js objects behave when being cast to a string. If added to a string, structures will display their id whenever possible (due to the internal method `valueOf` changing according to its specification). When calling `toString` explicitly, the structure is cast via the `String` constructor or supplied as a value in template expressions (which internally calls `toString`). The mention format `<@id>` is displayed, which Discord resolves to a proper mention if the structure is in the viewing client's cache (in v11, both `toString` and `valueOf` showed the same behavior as `toString` does now).
+<!--
+v12 has changed how string concatenation works with stringifying objects.  The `valueOf` any data structure will return its id, which affects how it behaves in strings, eg. using an object for a mention.  In v11, you used to be able to use `channel.send(userObject + ' has joined!')` and it would automatically stringify the object and it would become the mention (`@user has joined!`), but in v12, it will now send a message that says `123456789012345678 has joined` instead.  Using template literals (\`\`) will still return the mention, however.
+-->
+v12 has changed how string concatenation works with stringifying objects.  The `valueOf` any data structure will return its id, which affects how it behaves in strings, eg. using an object for a mention.  In v11, you used to be able to use `channel.send(userObject + ' has joined!')` and it would automatically stringify the object and it would become the mention (`@user has joined!`), but in v12, it will now send a message that says `123456789012345678 has joined` instead.  Using template literals (\`\`) will still return the mention, however.
+
+v12では、文字列連結がオブジェクトを文字列化する方法が変更されました。データ構造体の`valueOf`はそのidを返します。これは、メンションにオブジェクトを使用するときなどの、文字列内での振る舞いに影響します。v11では、`channel.send(userObject + ' has joined!')`を使用して、オブジェクトを自動的に文字列化しメンションにできましたが(`@user has joined!`)、v12では`123456789012345678 has joined`というメッセージを送信します。代わりにテンプレートリテラル(\`\`)を使用するとメンションが返されます。
 
 ```diff
 - channel.send(userObject + ' has joined!')
 + channel.send(`${userObject} has joined!`)
 ```
 
+<!--
 ### User Account-Only Methods
+-->
 
+### ユーザーアカウント限定のメソッド
+
+<!--
 All user account-only methods have been removed, as they are no longer publicly accessible from the API.
+-->
 
+APIから一般公開されないため、すべてのユーザーアカウント限定のメソッドは削除されました。
+
+<!--
 ### Voice
+-->
 
+### 音声
+
+<!--
 v12 has a new voice system that improves stability but also comes with some changes to playing audio:
+-->
 
+v12には安定性を向上させる新しい音声システムがありますが、オーディオの再生にいくつかの変更が加えられています。
+
+<!--
 ```diff
 # Applies to VoiceConnection and VoiceBroadcast
 - connection.playFile('file.mp3')
@@ -244,28 +362,66 @@ v12 has a new voice system that improves stability but also comes with some chan
 - connection.playConvertedStream(stream)
 + connection.play(stream, { type: 'converted' })
 ```
+-->
 
+```diff
+# VoiceConnectionおよびVoiceBroadcastに適用
+- connection.playFile('file.mp3')
++ connection.play('file.mp3')
+
+- connection.playStream(stream)
++ connection.play(stream)
+
+- connection.playArbitraryInput(input)
++ connection.play(input)
+
+- connection.playBroadcast(broadcast)
++ connection.play(broadcast)
+
+- connection.playOpusStream(stream)
++ connection.play(stream, { type: 'opus' })
+
+- connection.playConvertedStream(stream)
++ connection.play(stream, { type: 'converted' })
+```
+
+<!--
 You can now also play Ogg Opus files or WebM Opus files directly without the need for FFmpeg in v12:
+-->
+
+また、v12でFFmpegを必要とせずに、Ogg OpusファイルまたはWebM Opusファイルを直接再生できるようになりました。
 
 ```js
 connection.play(fs.createReadStream('file.ogg'), { type: 'ogg/opus' });
 connection.play(fs.createReadStream('file.webm'), { type: 'webm/opus' });
 ```
 
-It is also possible to define initial values for `plp`, `fec`, and `bitrate` when playing a stream. Minus bitrate, these are new configurable options in v12 that can help when playing audio on unstable network connections.
+<!--
+It is also possible to define initial values for `plp`, `fec` and `bitrate` when playing a stream. Minus bitrate, these are new configurable options in v12 that can help when playing audio on unstable network connections.
+-->
+
+ストリームを再生するときに、`plp`、`fec`、`bitrate`の初期値を定義することもできます。マイナスビットレートは、不安定なネットワーク接続でオーディオを再生するときに役立つv12の新しい設定可能なオプションです。
 
 ```diff
 - connection.playStream(stream).setBitrate(96)
 + connection.play(stream, { bitrate: 96 })
 ```
 
-If you don't want to alter a stream's volume while you're playing it, you can disable volume to improve performance. You cannot revert this option during playback.
+<!--
+If you don't want to alter the volume of a stream while you're playing it, you can disable volume to improve performance. This cannot be reverted during playback.
+-->
+
+再生中にストリームの音量を変更する必要がない場合は、ボリュームを無効にしてパフォーマンスを改善できます。これは、再生中に元に戻すことはできません。
 
 ```js
 connection.play(stream, { volume: false });
 ```
 
-The internal voice system in v12 now uses streams where possible, and as such, StreamDispatcher itself is now a WritableStream. It also comes with new changes:
+<!--
+The internal voice system in v12 now uses streams where possible, and as such StreamDispatcher itself is now a WritableStream. It also comes with new changes:
+-->
+
+v12の内部音声システムは、可能な限りストリームを使用するようになり、StreamDispatcher自体がWritableStreamになりました。また、新しい変更も含まれています。
 
 ```diff
 - dispatcher.end()
@@ -275,20 +431,43 @@ The internal voice system in v12 now uses streams where possible, and as such, S
 + dispatcher.on('finish', handler)
 ```
 
-You can manually control how many audio packets should queue before playing audio for more consistent playback using the `highWaterMark` option (defaults to 12)
+<!--
+You can manually control how many audio packets should be queued before playing audio for more consistent playback using the `highWaterMark` option (defaults to 12)
+```js
+connection.play(stream, { highWaterMark: 512 });
+```
+-->
+
+`highWaterMark`オプション（デフォルトは12）を使用して、より安定した再生のためにオーディオを再生する前にキューに入れるオーディオパケットの数を手動で制御できます。
 ```js
 connection.play(stream, { highWaterMark: 512 });
 ```
 
+<!--
 If you're frequently pausing/resuming an audio stream, you can enable playing silence packets while paused to prevent audio glitches on the Discord client
 ```js
 // Passing true plays silence
 dispatcher.pause(true);
 ```
+-->
 
+オーディオストリームを頻繁に一時停止/再開する場合は、一時停止中に無音パケットの再生を有効にして、Discordクライアントでのノイズ(オーディオグリッチ)を防ぐことができます。
+```js
+// trueを渡して”無音”を再生する
+dispatcher.pause(true);
+```
+
+<!--
 #### Broadcasts
+-->
 
+#### ブロードキャスト
+
+<!--
 Broadcasts themselves now contain a `BroadcastDispatcher` that shares a similar interface to the `StreamDispatcher` and can be used to control the playback of an audio stream.
+-->
+
+ブロードキャスト自体に、`StreamDispatcher`と同じのインターフェースを共有し、オーディオストリームの再生を制御するために使用できる`BroadcastDispatcher`が含まれるようになりました。
 
 ```diff
 - client.createVoiceBroadcast()
@@ -298,16 +477,38 @@ Broadcasts themselves now contain a `BroadcastDispatcher` that shares a similar 
 + broadcast.subscribers
 ```
 
+<!--
 ---
+::: danger
+This stuff should keep getting shoved to the bottom, with the commonly-used methods that are changed, as well as topic overviews added before it.
+:::
+-->
 
-## Breaking Changes and Deletions
+---
+::: danger
+このようなものは、一般的に使用されるメソッドの変更や、追加されたトピックの概要の下にあるべきです。
+:::
 
-The section headers for breaking changes will be named after the v11 classes/methods/properties and will be in alphabetical order so that you can easily find what you need. We have named the section headers for additions after the v12 classes/methods/properties to appropriately reflect their current syntax.
+<!--
+The section headers for breaking changes will be named after the v11 classes/methods/properties and will be in alphabetical order, so that you can easily find what you're looking for. The section headers for additions will be named after the v12 classes/methods/properties, to reflect their current syntax appropriately.
+-->
 
-"Difference" code blocks will be used to display the old methods vs. the newer ones—the red being removals and the green being its replacement. Some bits may have more than one version of being handled. Additions will use regular JavaScript syntax code blocks. 
+破壊的な変更の節の見出しは、v11のクラス/メソッド/プロパティにちなんで名前が付けられ、アルファベット順になっているため、探しているものを簡単に見つけることができます。追加の節ヘッダーには、現在の構文を適切に反映するために、v12クラス/メソッド/プロパティにちなんで名前が付けられます。
 
+<!--
+"Difference" codeblocks will be used to display the old methods vs the newer ones—the red being what's been removed and the green being its replacement. Some bits may have more than one version of being handled. Regular JavaScript syntax codeblocks will be used to display the additions. 
+-->
+
+「差分」コードブロックは、古いメソッドと新しいメソッドを表示するために使用されます。赤は削除されたもので、緑はその代替です。一部には、処理されるバージョンが複数ある場合があります。反対に追加は、通常のJavaScript構文コードブロックが使用されます。
+
+<!--
 ::: danger
 While this list was carefully crafted, it may be incomplete! If you notice pieces of missing or inaccurate data, we encourage you to [submit a pull request](https://github.com/discordjs/guide/compare)!
+:::
+-->
+
+::: danger
+このリストは慎重に作成されていますが、不完全な場合があります！データの欠落や不正確な部分に気付いた場合は、[プルリクエストを送信する](https://github.com/Danktuary/Making-Bots-with-Discord.js)ことをお勧めします！
 :::
 
 * Activity [(additions)](/additional-info/changes-in-v12.md#activity)
