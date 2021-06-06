@@ -15,7 +15,7 @@ const config = {
 		['meta', { name: 'og:type', content: 'website' }],
 		['meta', { name: 'og:url', content: 'https://guide.discordjs-japan.org/' }],
 		['meta', { name: 'og:locale', content: 'ja_JP' }],
-		['meta', { property: 'og:image', content: '/meta-image.png' }],
+		['meta', { name: 'og:image', content: '/meta-image.png' }],
 	],
 	plugins: [],
 	ga: 'UA-133246433-1',
