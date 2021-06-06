@@ -1,12 +1,12 @@
 ---
-forceTheme: blue
+pageTheme: blue
 ---
 
 # コマンドをギルド専用に設定する
 
-時には、サーバーでしか使えないコマンドを要求する必要があるかもしれません。 サーバー情報が表示されるかもしれないし、サーバーの絵文字が表示されるかもしれないし、何をしていてもギルド専用に設定するのはとても簡単です。
+時には、サーバーでしか使えないコマンドを要求する必要があるかもしれません。 Maybe it displays server information or gets a server emoji. No matter what it does, setting it as guild-only is straightforward!
 
-まず、ギルド専用にしたいコマンドを取得します。
+First, get the command you want to make guild-only.
 
 ```js
 const { Command } = require('discord.js-commando');
@@ -29,14 +29,15 @@ module.exports = class MeowCommand extends Command {
 
 `description`の後に、`guildOnly`の設定を追加し、`true`に設定します。
 
-```js
-super(client, {
-    name: 'meow',
-    group: 'first',
-    memberName: 'meow',
-    description: 'Replies with a meow, kitty cat.',
-    guildOnly: true,
-});
+```js {5}
+module.exports = class MeowCommand extends Command {
+    constructor(client) {
+        super(client, {
+            // ...
+            guildOnly: true,
+        });
+    }
+};
 ```
 
-これで完了です。 DMで使用した場合、ボットがコマンドを許可しないようになり、エラーが出なくなりました!
+これで完了です。 When used in a DM, the bot will not permit the command's use, and you will no longer receive errors!
