@@ -1,5 +1,5 @@
 ---
-forceTheme: 青
+pageTheme: 青
 ---
 
 # 最初のコマンド
@@ -16,7 +16,7 @@ forceTheme: 青
 const { Command } = require('discord.js-command');
 ```
 
-コマンドは `module.exports` でエクスポートされるクラスです。 クラスを作成し、 `module.exports` をそれに設定します。 ここでは、以下で説明する一連のオプションも設定します。
+コマンドは `module.exports` でエクスポートされるクラスです。 クラスを作成し、 `module.exports` をそれに設定します。 You will also configure various options here, which we will explain below.
 
 ```js
 module.exports = class MeowCommand extends Command {
@@ -32,30 +32,25 @@ module.exports = class MeowCommand extends Command {
 };
 ```
 
-これを怖がらせてはいけない、それは実際、非常に簡単です。
+Don't let this scare you; it's straightforward.
 
 - `name` はコマンドの名前です。
-- `aliases` はコマンドを呼び出すことができる他の方法です。 あなたは好きなだけ持つことができます!
-- ` group `は、コマンドが属するコマンドグループです。
+- `aliases` are other ways users can call the command. あなたは好きなだけ持つことができます!
+- `group` is the command group of the command.
 - `memberName` はグループ内でのコマンド名です。(名前とは異なる場合があります。)
-- `description` はヘルプコマンドを使用すると表示されるヘルプテキストです。
+- `description` is the help text displayed when someones use the help command.
 
-使用できるプロパティはさらに多くありますが、それらはそれぞれのセクションで説明されます。
+There are many more properties you can use, but their sections will explain those.
 
 ## Runメソッドの作成
 
 次に必要となるのは、 `run` メソッドです。 これは、コマンドのコンストラクタのすぐ下に行く必要があります。 内部では、メッセージを返します：
 
-```js
+```js {6-8}
 module.exports = class MeowCommand extends Command {
-	constructor(client) {
-		super(client, {
-			name: 'meow',
-			group: 'first',
-			memberName: 'meow',
-			description: 'Replies with a meow, kitty cat.',
-		});
-	}
+    constructor(client) {
+        // ...
+    }
 
 	run(message) {
 		return message.say('Meow!');
@@ -63,13 +58,13 @@ module.exports = class MeowCommand extends Command {
 };
 ```
 
-ご覧のとおり、 `run` メソッドは、コマンドが使用されたときにボットに実行させたいコードです。 Commandoは単なる拡張機能なので、これは通常のDiscord.jsでできることなら何でもかまいません。
+As you can see, the `run` method is simply the code you want the bot to run when someone uses the command. This code can be anything you can do in core discord.js, as Commando is simply an extension.
 
-`message.channel.send` の代わりに `message.say` を使用したことに気づいたかもしれません。 これはコマンドの魔法です。 `send`の代わりに、`say`を使います。 埋め込みには、`embed`を使用します。 コードには、`code`を使用します。 例外はファイルだけで、通常と同じように送信されます。
+You may have also noticed that `message.say` is used instead of `message.channel.send`. This syntax is Commando's magic. Instead of `send`, use `say`; embeds, use `embed`; code, use `code`. The only exception to this is attachments, which are still sent the same as usual.
 
-その理由は、Commandoではメッセージをコマンドに編集することができ、これらのメソッドを使用することで、Commandoはその用途のためにメッセージを保存することができるからです。 また、現在のチャンネルにメッセージを送信できるかどうかもチェックします。
+The reason for this is that Commando allows editing messages into commands, and using these methods will enable Commando to save the messages for that use. また、現在のチャンネルにメッセージを送信できるかどうかもチェックします。
 
-通常通りにボットを起動して、コマンドを使用してください！ 自動的に`?meow`である必要があります。
+Now fire up the bot as usual and use your command! 自動的に`?meow`である必要があります。
 
 ## 結果のコード
 

@@ -1,50 +1,64 @@
 # ゲートウェイインテント
 
-:::warning
-現在、インテントの送信はオプションですが2020年10月7日以降、必須となります。
-:::
-
-ゲートウェイインテントはdiscord.js バージョン12から導入され、これによって、どのイベントをボットが受け取るか選択できるようになります。 インテントとはdiscord.js クライアントが受け取るそれぞれのイベントをグループに分けたもののことです。 例えば、`DIRECT_MESSAGE_TYPING` インテントを省略するとdiscord.js クライアントはダイレクトメッセージでのタイピングイベントを受け取ることができなくなります。 また、ボットのキャッシュを不要なデータによる圧迫から守ることができます。しかしまだ、イベントを受け取らないことによるライブラリ内部での副作用についてリストにすることができていません。
-
 <branch version="11.x">
 
-バージョン11ではインテントを利用することはできません。ボットでゲートウェイインテントを利用する場合はバージョン12を利用してください。
+Intents are not available in version 11; please update to version 12 of the library if you want to use gateway intents in your bot.
 
 </branch>
-
 <branch version="12.x">
 
-## インテントの有効化
-
-ボットクライアントのインスタンスを作成する際、クライアントオプションでボットの受け取るインテントを選択できます。
-
-ライブラリのサポートするインテントの一覧は[the discord.js documentation](https://discord.js.org/#/docs/main/stable/class/Intents?scrollTo=s-FLAGS)にあります。 イベントがどのインテントに含まれるかは[discord API documentation](https://discordapp.com/developers/docs/topics/gateway#list-of-intents)に書いてあります。
-
-:::tip
-`GUILD_PRESENCES` はギルドメンバーのデータを始めに受け取るために必要です。 もし指定されない場合は`GUILD_MEMBERS`を指定してもメンバーのキャッシュは空となり、更新されません。 あるインテントを無効にする（イベントの受信をやめる）前にボットが正常に動作しなくなることのないよう、ボットがどのように動いているのか考えなければなりません。 discord.js バージョン12では完全にはインテントをサポートしていません。一見無関係なデータが失われることがあります。
+::: warning
+Version 13 of Discord.js will require you to choose intents (as it uses a new version of Discord's API), it's worthwhile reading this section even if you don't currently want to update, so you know what to do later.
 :::
+
+Gateway Intents were introduced by Discord so bot developers can choose which events their bot receives based on which data it needs to function. Intents are named groups of pre-defined WebSocket events, which the Discord.js client will receive. If you omit `DIRECT_MESSAGE_TYPING`, for example, you will no longer receive typing events from direct messages. If you provide no intents, version 12 will receive all events for allowed intents, and version 13 will throw an error.
+
+## Privileged Intents
+
+Discord defines some intents as "privileged" due to the data's sensitive nature. At the time of writing this article, privileged intents are `GUILD_PRESENCES` and `GUILD_MEMBERS`. If your bot is not verified and in less than 100 guilds, you can enable privileged gateway intents in the [Discord Developer Portal](https://discord.com/developers/applications) under "Privileged Gateway Intents" in the "Bot" section. If your bot is already verified or is about to [require verification](https://support.discord.com/hc/en-us/articles/360040720412), you need to request privileged intents. You can do this in your verification application or by reaching out to Discord's [support team](https://dis.gd/contact), including why you require access to each privileged intent.
+
+Before storming off and doing so, you should stop and carefully think about if you need these events. Discord made them opt-in so users across the platform can enjoy a higher level of [privacy](https://en.wikipedia.org/wiki/Privacy_by_design). Presences can expose quite a bit of personal information through games and online times, for example. You might find it sufficient for your bot to have a little less information about all guild members at all times, considering you still get the command author as GuildMember from the command execution message and can fetch targets separately.
+
+### Problems in version 12
+
+`GUILD_MEMBERS`
+- The client events `"guildMemberAdd"`, `"guildMemberRemove"`, `"guildMemberUpdate"` do not emit
+- <docs-link branch="stable" path="class/Guild?scrollTo=memberCount">`Guild#memberCount`</docs-link> returns the member count as of ready
+- Fetching members times out
+
+`GUILD_PRESENCES`
+- Member caches are empty *(or only have very few entries)*
+- User cache is empty *(or has only very few entries)*
+- All members appear to be offline
+
+### Error: Disallowed Intents
+
+Should you receive an error prefixed with `[DISALLOWED_INTENTS]`, please review your developer dashboard settings for all privileged intents you use. This topic's official documentation is on the [Discord API documentation](https://discord.com/developers/docs/topics/gateway#privileged-intents).
+
+## Enabling Intents
+
+To specify which events you want your bot to receive, first think about which events your bot needs to operate. Then select the required intents and add them to your client constructor, as shown below.
+
+All gateway intents, and the events belonging to each, are listed on the [Discord API documentation](https://discord.com/developers/docs/topics/gateway#list-of-intents). If you need your bot to receive messages (`MESSAGE_CREATE` - `"message"` in discord.js), you need the `GUILD_MESSAGES` intent. If you want your bot to post welcome messages for new members (`GUILD_MEMBER_ADD` - `"guildMemberAdd"` in discord.js), you need the `GUILD_MEMBERS` intent, and so on.
 
 ```js
 const { Client } = require('discord.js');
 const client = new Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES'] } });
 ```
 
-## インテントビットフィールドのラッパー
+::: warning
+Note that discord.js relies heavily on caching to provide its functionality. Some methods that seem unrelated might stop working if certain events do not arrive.
 
-discord.js は[`Intents`](https://discord.js.org/#/docs/main/stable/class/Intents)というユーティリティーを提供しており、ビットフィールドを容易に操作することができます。
+Please make sure to provide the list of gateway intents and partials you use in your Client constructor when asking for support on our [Discord server](https://discord.gg/bRCvFy9) or [GitHub repository](https://github.com/discordjs/discord.js).
+:::
 
-また、staticフィールドとして、インテントをすべて含んだもの（`Intents.ALL`）、特権インテントをすべて含んだもの（`Intents.PRIVILEGED`）、特権を必要としないインテントをすべて含んだもの（`Intents.NON_PRIVILEGED`）が定義されています。 これをそのまま用いたり、Intentsコントラスタに渡して変更して用いたりすることができます。
+## The Intents Bitfield
 
-```js
-const { Client, Intents } = require('discord.js');
-const client = new Client({ ws: { intents: Intents.ALL } });
-```
+Discord.js provides a utility structure <docs-link path="class/Intents">`Intents`</docs-link> which you can use to modify bitfields easily. The class also features static attributes for all (`Intents.ALL`), privileged (`Intents.PRIVILEGED`), and non-privileged (`Intents.NON_PRIVILEGED`) intents.
 
-<!--
-The other static bits can be accessed likewise via <code>Intents.PRIVILEGED</code> and <code>Intents.NON_PRIVILEGED</code>.
--->
+These primarily serve as templates. While using them directly is possible, we strongly discourage you from using them that way. Instead, think about which events your bot strictly needs access to based on the functionality you want it to provide.
 
-`.add()` 、`.remove()` メソッドを用いてフラグを建てたり消したりし、ビットフィールドを変更することができます。 discord.jsは指定された引数にスプレッド演算子を使用するため、配列やビットフィールドだけでなくフラグ単体も引数に渡すことができます。 テンプレートとしてインテントのセットを使う場合はそれらをコントラスタに渡すこともできます。 いくつかのアプローチを以下に示します。
+You can use the `.add()` and `.remove()` methods to add or remove flags (Intent string literals representing a certain bit) and modify the bitfield. You can provide single flags as well as an array or bitfield. To use a set of intents as a template you can pass it to the constructor. A few approaches are demonstrated below (note that the empty constructor `new Intents()` creates an empty Intents instance, representing no intents or the bitfield `0`):
 
 ```js
 const { Client, Intents } = require('discord.js');
@@ -53,29 +67,21 @@ myIntents.add('GUILD_PRESENCES', 'GUILD_MEMBERS');
 
 const client = new Client({ ws: { intents: myIntents } });
 
-// ビットフィールドを操作する追加の例
+// more examples about manipulating the bitfield
 
 const otherIntents = new Intents(Intents.NON_PRIVILEGED);
-otherIntents.remove(['GUILDS', 'GUILD_MESSAGES']);
+otherIntents.remove(['DIRECT_MESSAGES', 'GUILD_MESSAGES']);
 
 const otherIntents2 = new Intents(32509);
-otherIntents2.remove(1, 512);
+otherIntents2.remove(4096, 512);
 ```
 
-構築されたフラグを利用したい場合は`.toArray()`、`.serialize()` 、`.missing()` メソッドを利用できます。 それぞれ、ビットフィールドで表されるフラグの配列、ビットフィールドをもとに、すべてのフラグ値をキーとしインテントが有効かどうかを真偽値として持つオブジェクト、 ビットフィールドが持っていないフラグを返します。（そのため、特定のインテントのビットフィールドを渡す必要があります）
+If you want to view the built flags you can utilize the `.toArray()`, `.serialize()` and `.missing()` methods. The first returns an array of flags represented in this bitfield, the second an object mapping all possible flag values to a boolean, based on their representation in this bitfield. The third method can view the flags not represented (you use it by passing a bitfield of specific intents to check for).
 
-## 特権インテント
+## More on Bitfields
 
-Discordは、イベントを通じて送信されるデータの機密性から、いくつかのインテントを「特権」と定義しています。 この記事を書いている時点では、特権インテントは `GUILD_PRESENCES` と `GUILD_MEMBERS` の2つです。
+Discord Intents and Permissions are stored in a 53-bit integer and calculated using bitwise operations. If you want to dive deeper into what's happening behind the curtains, check the [Wikipedia](https://en.wikipedia.org/wiki/Bit_field) and [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) articles on the topic.
 
-今のところ、これらのインテントは、[Discord Developer Portal](https://discordapp.com/developers/applications)で切り替えを行うだけで有効にできます。 これは現在、非推奨期間であり、2020年10月7日以降に特権インテントを使用するにはホワイトリストに登録されたボットが必要です。 ホワイトリストについてはこちらの[discordの記事](https://support.discordapp.com/hc/en-us/articles/360040720412-Bot-Verification-and-Data-Whitelisting)をご覧ください。
-
-`[DISALLOWED_INTENTS]: Privileged intent provided is not enabled or whitelisted`（与えられた特権インテントは有効になっていないか、ホワイトリストに登録されていません）といったエラーが表示された場合は、使用しているすべての特権インテントの設定を確認してください。 特権インテントの公式ドキュメントは[discord API documentation](https://discordapp.com/developers/docs/topics/gateway#privileged-intents)となります。
-
-## ビットフィールドの詳細
-
-Discordの権限は53ビット整数で保存され、ビット単位で計算されます。 その裏で何が起きているのかについて詳しく知りたい場合は、[Wikipedia](https://en.wikipedia.org/wiki/Bit_field)と[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)の記事をチェックしてください。
-
-discord.jsでは、パーミッションビットフィールドは、ビットフィールドまたはフラグへの参照の有無として表されます。 パーミッションビットフィールド内のすべてのビットは、これらのフラグの状態を表します (`1`ならばtrue、`0`ならばfalse)。
+In discord.js, Permissions and Intents bitfields are represented as either the decimal value of said bit field or its referenced flags. Every position in a permissions bitfield represents one of these flags and its state (either referenced `1` or not referenced `0`).
 
 </branch>
