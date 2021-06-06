@@ -30,9 +30,9 @@ const path = require('path');
 
 ```js
 const client = new CommandoClient({
-    commandPrefix: '?',
-    owner: '278305350804045834',
-    invite: 'https://discord.gg/bRCvFy9',
+	commandPrefix: '?',
+	owner: '278305350804045834',
+	invite: 'https://discord.gg/bRCvFy9',
 });
 ```
 
@@ -50,14 +50,14 @@ Next you're going to register the command groups, args types, and default comman
 
 ```js
 client.registry
-    .registerDefaultTypes()
-    .registerGroups([
-        ['first', 'Your First Command Group'],
-        ['second', 'Your Second Command Group'],
-    ])
-    .registerDefaultGroups()
-    .registerDefaultCommands()
-    .registerCommandsIn(path.join(__dirname, 'commands'));
+	.registerDefaultTypes()
+	.registerGroups([
+		['first', 'Your First Command Group'],
+		['second', 'Your Second Command Group'],
+	])
+	.registerDefaultGroups()
+	.registerDefaultCommands()
+	.registerCommandsIn(path.join(__dirname, 'commands'));
 ```
 
 Doing this you've also created your first command group! Make another folder called `first` in your `commands` folder so that you can put the commands for that group in there. The group will be displayed in the help command as `Your First Command Group`. You can use any name you want for either of these options, but do note that the key (`first`) **must be lowercase**!
@@ -84,8 +84,8 @@ Next, you're going to need to create a ready event and an error event, as usual.
 
 ```js
 client.once('ready', () => {
-    console.log(`Logged in as ${client.user.tag}! (${client.user.id})`);
-    client.user.setActivity('with Commando');
+	console.log(`Logged in as ${client.user.tag}! (${client.user.id})`);
+	client.user.setActivity('with Commando');
 });
 
 client.on('error', console.error);

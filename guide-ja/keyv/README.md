@@ -45,17 +45,17 @@ Keyv exposes a familiar [Map](https://developer.mozilla.org/en-US/docs/Web/JavaS
 
 ```js
 (async () => {
-    // true
-    await keyv.set('foo', 'bar');
+	// true
+	await keyv.set('foo', 'bar');
 
-    // bar
-    await keyv.get('foo');
+	// bar
+	await keyv.get('foo');
 
-    // undefined
-    await keyv.clear();
+	// undefined
+	await keyv.clear();
 
-    // undefined
-    await keyv.get('foo');
+	// undefined
+	await keyv.get('foo');
 })();
 ```
 
@@ -84,32 +84,32 @@ This guide uses a very basic command handler with some added complexity to allow
 
 ```js
 client.on('message', async message => {
-    if (message.author.bot) return;
+	if (message.author.bot) return;
 
-    let args;
-    // handle messages in a guild
-    if (message.guild) {
-        let prefix;
+	let args;
+	// handle messages in a guild
+	if (message.guild) {
+		let prefix;
 
-        if (message.content.startsWith(globalPrefix)) {
-            prefix = globalPrefix;
-        } else {
-            // check the guild-level prefix
-            const guildPrefix = await prefixes.get(message.guild.id);
-            if (message.content.startsWith(guildPrefix)) prefix = guildPrefix;
-        }
+		if (message.content.startsWith(globalPrefix)) {
+			prefix = globalPrefix;
+		} else {
+			// check the guild-level prefix
+			const guildPrefix = await prefixes.get(message.guild.id);
+			if (message.content.startsWith(guildPrefix)) prefix = guildPrefix;
+		}
 
-        // if we found a prefix, setup args; otherwise, this isn't a command
-        if (!prefix) return;
-        args = message.content.slice(prefix.length).split(/\s+/);
-    } else {
-        // handle DMs
-        const slice = message.content.startsWith(globalPrefix) ? globalPrefix.length : 0;
-        args = message.content.slice(slice).split(/\s+/);
-    }
+		// if we found a prefix, setup args; otherwise, this isn't a command
+		if (!prefix) return;
+		args = message.content.slice(prefix.length).split(/\s+/);
+	} else {
+		// handle DMs
+		const slice = message.content.startsWith(globalPrefix) ? globalPrefix.length : 0;
+		args = message.content.slice(slice).split(/\s+/);
+	}
 
-    // get the first space-delimited argument after the prefix as the command
-    const command = args.shift().toLowerCase();
+	// get the first space-delimited argument after the prefix as the command
+	const command = args.shift().toLowerCase();
 });
 ```
 

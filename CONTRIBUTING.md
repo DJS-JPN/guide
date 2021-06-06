@@ -69,7 +69,7 @@ When explaining parts of a guide, it's recommended to use "you" instead of "we" 
 
 #### "We" instead of "I"
 
-When refering to yourself, use "we" (as in "the writers of this guide") instead of "I". For example:
+When referring to yourself, use "we" (as in "the writers of this guide") instead of "I". For example:
 
 ```diff
 - If you don't already have this package installed, I would highly recommend doing so.
@@ -81,13 +81,25 @@ When refering to yourself, use "we" (as in "the writers of this guide") instead 
 + In this section, we'll be covering how to do that really cool thing everyone's asking about.
 ```
 
+### Inclusive language
+
+Try to avoid gendered and otherwise non-inclusive language. Examples are:
+
+- Whitelist -> Allowlist
+- Blacklist -> Denylist
+- Master/Slave -> Leader/follower, primary/replica, primary/secondary, primary/standby
+- Gendered pronouns (e.g. he/him/his) -> They, them, their
+- Gendered terms (e.g. guys) -> Folks, people
+- Sanity check -> Quick check, confidence check, coherence check
+- Dummy value -> Placeholder, sample value
+
 ### Paragraph structure
 
 Tied in with the section above, try to keep things as neatly formatted as possible. If a paragraph gets long, split it up into multiple paragraphs so that it adds some spacing and is easier on the eyes.
 
 #### Tips, warnings, and danger messages
 
-If you have a tip to share with the reader, you can format them in a specific way so that it looks appealing and noticable. The same goes for warning and "danger" messages.
+If you have a tip to share with the reader, you can format them in a specific way so that it looks appealing and noticeable. The same goes for warning and "danger" messages.
 
 ```md
 In this section, we'll be doing some stuff!
@@ -157,7 +169,7 @@ After accessing the `.icon` property off of the `data` object, you can send that
 
 ---
 
-If you want to change your bot's username username, you can use the `ClientUser#setUsername` method.
+If you want to change your bot's username, you can use the `ClientUser#setUsername` method.
 ```
 
 References to class names should be capitalized, but remain outside of backticks. For example:
@@ -169,6 +181,46 @@ Since `guild.members` returns a Collection, you can iterate over it with `.forEa
 
 Since the `.delete()` method returns a Promise, you need to `await` it when inside a `try`/`catch` block.
 ```
+
+#### Codeblock line highlighting
+
+When you want to highlight a piece of code to display either an addition or a difference, use the `js {1-5,6-10}` syntax. For example (ignoring the `\`s):
+
+```md
+
+Here's our base code:
+
+```js {2,6}
+client.once('ready', () => {
+	console.log('Ready.');
+});
+
+client.on('message', message => {
+	console.log(message.content);
+});
+\```
+
+To add this feature, use this code:
+
+```js {2,6-8}
+client.once('ready', () => {
+	console.log(`${client.user.tag} ready.`);
+});
+
+client.on('message', message => {
+	if (message.content === '!ping') {
+		message.channel.send('Pong.');
+	}
+});
+\```
+
+```
+
+![Codeblock line highlighting output](https://i.imgur.com/913nf9V.png)
+
+This is VuePress' [codeblock line highlighting](https://vuepress.vuejs.org/guide/markdown.html#line-highlighting-in-code-blocks) feature. It's encouraged to use and preferred over diff codeblocks.
+
+Do note the space between `js` and `{}`. This is necessary to not interfere with `eslint-plugin-markdown`, which would ignore the codeblock.
 
 ### Images and links
 
@@ -183,12 +235,12 @@ If you want to include an image in a page, the image you add should be saved to 
 
 + Here's what the final result would look like:
 +
-+ ![Final result](~@/images/78fcCsF.png)
++ ![Final result](./images/78fcCsF.png)
 +
 + If you want to read more about this, you can check out the page on [that other cool stuff](/some-really-cool-stuff).
 ```
 
-Do note the `~@/images/*` syntax used. The `~@/` part is a shortcut to the base `/guide` directory, which holds all the .md files and the `/images` folder. When it comes to images, this syntax should always be used.
+Do note the `./images/*` syntax used. The `./` part refers to the file's corresponding image directory, which holds all the images used for that directory. When it comes to images, this syntax should always be used.
 
 ### Code samples
 
@@ -215,30 +267,33 @@ If you're writing a page that teaches the reader how to build something step-by-
 <resulting-code path="baz/getting-started" />
 ```
 
-### Faking Discord messages
+### Displaying Discord messages
 
-We have some useful custom helper components that you can use to "fake" Discord message. The reason for this is to make it easy for you to create, easy for anyone in the future to edit, and avoid having to take screenshots and using too many images on a page at once. Here's a preview of the components:
+We use [vue-discord-message](https://vue-discord-message.netlify.app/) to display "fake" Discord messages on pages. The reason for this is to make it easy for you to create, easy for anyone in the future to edit, and avoid having to take screenshots and using too many images on a page at once. Here's a preview of the components:
 
-![Discord message faker preview](https://i.imgur.com/KAN3YYe.png)
+![Discord message faker preview](https://i.imgur.com/5eY8WFO.png)
 
 The syntax to make this display is quite simple as well:
 
 ```html
 <div is="discord-messages">
-	<discord-message author="User" avatar="djs">
+	<discord-message profile="user">
 		!ping
 	</discord-message>
-	<discord-message author="Tutorial Bot" avatar="blue" :bot="true">
-		Pong! Took 250ms
+	<discord-message profile="bot">
+		<mention :highlight="true" profile="user" />, pong! Took 250ms
+	</discord-message>
+	<discord-message author="Another User" avatar="green">
+		Pung!
 	</discord-message>
 </div>
 ```
 
-The `author` and `avatar` attributes must be strings, and the `bot` attribute must be a boolean. Do note the colon in `:bot="true"`. These components are made with [Vue](https://vuejs.org/), but if you aren't familiar with Vue, don't worry about it. Just understand that this allows us to pass in the actual boolean `true` and not the string `'true'`. All `<discord-message>` tags must be children of a single `<div is="discord-messages">` tag for it to display properly.
+These components are made with [Vue](https://vuejs.org/), but if you aren't familiar with Vue, don't worry about it. Just understand that you'll usually only need the `profile="user"`/`profile="bot"` attribute for the `<discord-message>` component. All `<discord-message>` components must be children of a single `<div is="discord-messages">` component for it to display properly.
 
 Do note the `<div is="discord-messages">` syntax instead of `<discord-messages>`. This is due to how VuePress renders markdown and HTML inside markdown files. It doesn't recognize `<discord-messages>` as an HTML element, therefore rendering anything indented inside it as a regular codeblock.
 
-You can read more about how to use these components by checking out [the package's GitHub repo](https://github.com/Danktuary/vue-discord-message).
+These components feature messages, mentions, and full embed support. You can read more about how to use them by checking out the [examples for vue-discord-message](https://vue-discord-message.netlify.app/examples.html).
 
 ### Branch-specific content
 
@@ -305,3 +360,7 @@ Collection docs, master branch (no `branch` prop set), `class/Collection?scrollT
 ```
 
 If the `section` prop is set to `main` (or omitted) and the `branch` prop is omitted, the `branch` prop will default to the version the user has set via the site's branch selector dropdown and update accordingly. If `section` is set to anything else and `branch` is omitted, the `branch` prop will default to `'master'`.
+
+### VScode snippets
+
+To make your life with these custom elements a little bit easier we created some [project scoped VSC snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_project-snippet-scope). If you are using [Visual Studio Code](https://code.visualstudio.com/) as your editor of choice you can access these by typing the key word and pressing `CTRL` + `Space` on your keyboard in the entire guide project. Please note, that the elements can become quite complex and we can not write examples for every small use case. Check the explanations above whenever you are unsure.

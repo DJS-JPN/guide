@@ -12,18 +12,18 @@ forceTheme: blue
 const { Command } = require('discord.js-commando');
 
 module.exports = class MeowCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: 'meow',
-            group: 'first',
-            memberName: 'meow',
-            description: 'Replies with a meow, kitty cat.',
-        });
-    }
+	constructor(client) {
+		super(client, {
+			name: 'meow',
+			group: 'first',
+			memberName: 'meow',
+			description: 'Replies with a meow, kitty cat.',
+		});
+	}
 
-    run(message) {
-        return message.say('Meow!');
-    }
+	run(message) {
+		return message.say('Meow!');
+	}
 };
 ```
 
@@ -31,11 +31,11 @@ module.exports = class MeowCommand extends Command {
 
 ```js
 super(client, {
-    name: 'meow',
-    group: 'first',
-    memberName: 'meow',
-    description: 'Replies with a meow, kitty cat.',
-    guildOnly: true,
+	name: 'meow',
+	group: 'first',
+	memberName: 'meow',
+	description: 'Replies with a meow, kitty cat.',
+	guildOnly: true,
 });
 ```
 

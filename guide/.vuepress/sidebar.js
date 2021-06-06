@@ -67,13 +67,19 @@ module.exports = {
 			title: 'Command Handler',
 			children: [
 				'/command-handling/',
-				'/command-handling/dynamic-commands',
 				'/command-handling/adding-features',
+			],
+		},
+		{
+			title: 'Event Handler',
+			children: [
+				'/event-handling/',
 			],
 		},
 		{
 			title: 'Popular Topics',
 			children: [
+				'/popular-topics/faq',
 				'/popular-topics/embeds',
 				'/popular-topics/errors',
 				'/popular-topics/permissions',
@@ -83,8 +89,6 @@ module.exports = {
 				'/popular-topics/partials',
 				'/popular-topics/intents',
 				'/popular-topics/canvas',
-				'/popular-topics/common-questions',
-				'/popular-topics/miscellaneous-examples',
 				'/popular-topics/webhooks',
 				'/popular-topics/audit-logs',
 			],

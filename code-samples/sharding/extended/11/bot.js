@@ -2,27 +2,20 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '!';
 
-function findEmoji(id) {
-	const temp = this.emojis.get(id);
-	if (!temp) return null;
-
-	const emoji = Object.assign({}, temp);
-	if (emoji.guild) emoji.guild = emoji.guild.id;
-	emoji.require_colons = emoji.requiresColons;
-
-	return emoji;
+function findEmoji(nameOrID) {
+	return this.emojis.get(nameOrID) || this.emojis.find(e => e.name.toLowerCase() === nameOrID.toLowerCase());
 }
 
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-	const args = message.content.slice(prefix.length).split(/ +/);
+	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 
 	if (command === 'stats') {
 		return client.shard.broadcastEval('this.guilds.size')
 			.then(results => {
-				return message.channel.send(`Server count: ${results.reduce((prev, val) => prev + val, 0)}`);
+				return message.channel.send(`Server count: ${results.reduce((acc, val) => acc + val, 0)}`);
 			})
 			.catch(console.error);
 	}
@@ -50,21 +43,15 @@ client.on('message', message => {
 	}
 
 	if (command === 'emoji') {
-		if (!args.length) return message.reply('please specify an emoji id to search for.');
+		if (!args.length) return message.reply('please specify an emoji ID or name to search for.');
 
 		return client.shard.broadcastEval(`(${findEmoji}).call(this, '${args[0]}')`)
 			.then(emojiArray => {
 				const foundEmoji = emojiArray.find(emoji => emoji);
 				if (!foundEmoji) return message.reply('I could not find such an emoji.');
-
-				return client.rest.makeRequest('get', Discord.Constants.Endpoints.Guild(foundEmoji.guild).toString(), true)
-					.then(raw => {
-						const guild = new Discord.Guild(client, raw);
-						const emoji = new Discord.Emoji(guild, foundEmoji);
-						return message.reply(`I have found an emoji ${emoji.toString()}!`);
-					});
+				return message.reply(`I have found the ${foundEmoji.id ? `<${foundEmoji.animated ? 'a' : ''}:${foundEmoji.name}:${foundEmoji.id}>` : foundEmoji.name} emoji!`);
 			});
 	}
 });
 
-client.login('token');
+client.login('your-token-goes-here');

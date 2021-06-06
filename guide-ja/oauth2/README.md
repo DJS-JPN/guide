@@ -14,22 +14,22 @@ const fs = require('fs');
 const port = 53134;
 
 http.createServer((req, res) => {
-    let responseCode = 404;
-    let content = '404 Error';
+	let responseCode = 404;
+	let content = '404 Error';
 
-    if (req.url === '/') {
-        responseCode = 200;
-        content = fs.readFileSync('./index.html');
-    }
+	if (req.url === '/') {
+		responseCode = 200;
+		content = fs.readFileSync('./index.html');
+	}
 
-    res.writeHead(responseCode, {
-        'content-type': 'text/html;charset=utf-8',
-    });
+	res.writeHead(responseCode, {
+		'content-type': 'text/html;charset=utf-8',
+	});
 
-    res.write(content);
-    res.end();
+	res.write(content);
+	res.end();
 })
-    .listen(port);
+	.listen(port);
 ```
 
 Right now, you have designated that the contents of an `index.html` file will be served to the user when they visit the root domain, so create an `index.html` file in the same directory with the following contents.
@@ -127,14 +127,14 @@ OAuth2's protocols provide a `state` parameter which is supported by Discord. Th
 
 ```js
 function generateRandomString() {
-    const rand = Math.floor(Math.random() * 10);
-    let randStr = '';
+	const rand = Math.floor(Math.random() * 10);
+	let randStr = '';
 
-    for (let i = 0; i < 20 + rand; i++) {
-        randStr += String.fromCharCode(33 + Math.floor(Math.random() * 94));
-    }
+	for (let i = 0; i < 20 + rand; i++) {
+		randStr += String.fromCharCode(33 + Math.floor(Math.random() * 94));
+	}
 
-    return randStr;
+	return randStr;
 }
 
 // ...
@@ -152,11 +152,11 @@ When you visit a url with a `state` parameter appended to it and then click `Aut
 const fragment = new URLSearchParams(window.location.hash.slice(1));
 
 if (fragment.has('access_token')) {
-    const urlState = fragment.get('state');
-    const stateParameter = localStorage.getItem('stateParameter');
-    if (stateParameter !== atob(decodeURIComponent(urlState))) {
-        return console.log('You may have been clickjacked!');
-    }
+	const urlState = fragment.get('state');
+	const stateParameter = localStorage.getItem('stateParameter');
+	if (stateParameter !== atob(decodeURIComponent(urlState))) {
+		return console.log('You may have been clickjacked!');
+	}
 }
 ```
 
@@ -180,13 +180,13 @@ const url = require('url');
 const urlObj = url.parse(req.url, true);
 
 if (urlObj.query.code) {
-    const accessCode = urlObj.query.code;
-    console.log(`The access code is: ${accessCode}`);
+	const accessCode = urlObj.query.code;
+	console.log(`The access code is: ${accessCode}`);
 }
 
 if (urlObj.pathname === '/') {
-    responseCode = 200;
-    content = fs.readFileSync('./index.html');
+	responseCode = 200;
+	content = fs.readFileSync('./index.html');
 }
 ```
 
@@ -210,11 +210,11 @@ data.append('scope', 'the scopes');
 data.append('code', accessCode);
 
 fetch('https://discordapp.com/api/oauth2/token', {
-    method: 'POST',
-    body: data,
+	method: 'POST',
+	body: data,
 })
-    .then(res => res.json())
-    .then(console.log);
+	.then(res => res.json())
+	.then(console.log);
 ```
 
 ::: warning
@@ -235,16 +235,16 @@ Now that you have an access token and a refresh token, try fetching the user's i
 
 ```js
 fetch('https://discordapp.com/api/oauth2/token', {
-    method: 'POST',
-    body: data,
+	method: 'POST',
+	body: data,
 })
-    .then(res => res.json())
-    .then(info => fetch('https://discordapp.com/api/users/@me', {
-        headers: {
-            authorization: `${info.token_type} ${info.access_token}`,
-        },
-    }))
-    .then(console.log);
+	.then(res => res.json())
+	.then(info => fetch('https://discordapp.com/api/users/@me', {
+		headers: {
+			authorization: `${info.token_type} ${info.access_token}`,
+		},
+	}))
+	.then(console.log);
 ```
 
 ::: tip
