@@ -1,5 +1,5 @@
 ---
-forceTheme: blue
+pageTheme: blue
 ---
 
 # コマンドでのクライアント値の使用
@@ -38,4 +38,4 @@ this.client.guilds.cache.size;
 
 </branch>
 
-本当にとても簡単です。
+It's that simple!
