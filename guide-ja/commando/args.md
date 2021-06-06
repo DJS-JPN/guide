@@ -16,19 +16,19 @@ forceTheme: blue
 const { Command } = require('discord.js-commando');
 
 module.exports = class SayCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: 'say',
-            aliases: ['parrot', 'copy'],
-            group: 'first',
-            memberName: 'say',
-            description: 'Replies with the text you provide.',
-        });
-    }
+	constructor(client) {
+		super(client, {
+			name: 'say',
+			aliases: ['parrot', 'copy'],
+			group: 'first',
+			memberName: 'say',
+			description: 'Replies with the text you provide.',
+		});
+	}
 
-    run(message) {
-        // 今は空白で可
-    }
+	run(message) {
+		// 今は空白で可
+	}
 };
 ```
 
@@ -36,18 +36,18 @@ module.exports = class SayCommand extends Command {
 
 ```js
 super(client, {
-    name: 'say',
-    aliases: ['parrot', 'copy'],
-    group: 'first',
-    memberName: 'say',
-    description: 'Replies with the text you provide.',
-    args: [
-        {
-            key: 'text',
-            prompt: 'What text would you like the bot to say?',
-            type: 'string',
-        },
-    ],
+	name: 'say',
+	aliases: ['parrot', 'copy'],
+	group: 'first',
+	memberName: 'say',
+	description: 'Replies with the text you provide.',
+	args: [
+		{
+			key: 'text',
+			prompt: 'What text would you like the bot to say?',
+			type: 'string',
+		},
+	],
 });
 ```
 
@@ -60,18 +60,18 @@ super(client, {
 さらに引数を追加するのは、次のように別のオブジェクトを配列に追加するのと同じくらい簡単です。
 
 ```js
-args: [
-    {
-        key: 'text',
-        prompt: 'What text would you like the bot to say?',
-        type: 'string',
-    },
-    {
-        key: 'otherThing',
-        prompt: 'What is this other useless thing?',
-        type: 'string',
-    },
-]
+[
+	{
+		key: 'text',
+		prompt: 'What text would you like the bot to say?',
+		type: 'string',
+	},
+	{
+		key: 'otherThing',
+		prompt: 'What is this other useless thing?',
+		type: 'string',
+	},
+];
 ```
 
 引数をデフォルトの特定の値に設定することもできます。

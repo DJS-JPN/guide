@@ -19,7 +19,7 @@ In order for shards to communicate, they must send messages to one another, as t
 
 ```js
 manager.on('message', (shard, message) => {
-    console.log(`Shard[${shard.id}] : ${message._eval} : ${message._result}`);
+	console.log(`Shard[${shard.id}] : ${message._eval} : ${message._result}`);
 });
 ```
 
@@ -32,7 +32,7 @@ In version 12 shards can have multiple ids. If you use the default sharding mana
 
 ```js
 manager.on('message', (shard, message) => {
-    console.log(`Shard[${shard.ids.join(',')}] : ${message._eval} : ${message._result}`);
+	console.log(`Shard[${shard.ids.join(',')}] : ${message._eval} : ${message._result}`);
 });
 ```
 
@@ -69,9 +69,9 @@ Consider the following example of creating a new `ShardingManager` instance:
 
 ```js
 const manager = new ShardingManager('./bot.js', {
-    execArgv: ['--trace-warnings'],
-    shardArgs: ['--ansi', '--color'],
-    token: 'your-token-goes-here',
+	execArgv: ['--trace-warnings'],
+	shardArgs: ['--ansi', '--color'],
+	token: 'your-token-goes-here',
 });
 ```
 

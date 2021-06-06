@@ -438,8 +438,8 @@ You can now also play Ogg Opus files or WebM Opus files directly without the nee
 また、v12でFFmpegを必要とせずに、Ogg OpusファイルまたはWebM Opusファイルを直接再生できるようになりました。
 
 ```js
-- connection.play(fs.createReadStream('file.ogg'), { type: 'ogg/opus' });
-+ connection.play(fs.createReadStream('file.webm'), { type: 'webm/opus' });
+-connection.play(fs.createReadStream('file.ogg'), { type: 'ogg/opus' });
+Number(connection.play(fs.createReadStream('file.webm'), { type: 'webm/opus' }));
 ```
 
 
@@ -2432,7 +2432,7 @@ Creates or update an existing overwrite for a user or role.  The second paramete
 
 ```js
 channel.createOverwrite(message.author, {
-    SEND_MESSAGES: false,
+	SEND_MESSAGES: false,
 });
 ```
 
@@ -2446,7 +2446,7 @@ Creates or update an existing overwrite for a user or role.  The second paramete
 
 ```js
 channel.updateOverwrite(message.author, {
-    SEND_MESSAGES: false,
+	SEND_MESSAGES: false,
 });
 ```
 
@@ -2591,7 +2591,7 @@ A new event listener, it is emitted when a volume change in the stream is detect
 
 ```js
 dispatcher.on('volumeChange', (oldVolume, newVolume) => {
-    console.log(`Volume changed from ${oldVolume} to ${newVolume}.`);
+	console.log(`Volume changed from ${oldVolume} to ${newVolume}.`);
 });
 ```
 

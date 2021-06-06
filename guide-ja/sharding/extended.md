@@ -12,20 +12,20 @@ Let's start off with a basic usage with shards. At some point in bot development
 
 ```js
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
+	const args = message.content.slice(prefix.length).split(/ +/);
+	const command = args.shift().toLowerCase();
 
-    if (command === 'send') {
-        if (!args.length) return message.reply('please specify a destination channel id.');
+	if (command === 'send') {
+		if (!args.length) return message.reply('please specify a destination channel id.');
 
-        const channel = client.channels.get(args[0]);
-        if (!channel) return message.reply('I could not find such a channel.');
+		const channel = client.channels.get(args[0]);
+		if (!channel) return message.reply('I could not find such a channel.');
 
-        channel.send('Hello!');
-        return message.reply(`I have sent a message to channel \`${args[0]}\`!`);
-    }
+		channel.send('Hello!');
+		return message.reply(`I have sent a message to channel \`${args[0]}\`!`);
+	}
 });
 ```
 
@@ -34,20 +34,20 @@ client.on('message', message => {
 
 ```js
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
+	const args = message.content.slice(prefix.length).split(/ +/);
+	const command = args.shift().toLowerCase();
 
-    if (command === 'send') {
-        if (!args.length) return message.reply('please specify a destination channel id.');
+	if (command === 'send') {
+		if (!args.length) return message.reply('please specify a destination channel id.');
 
-        const channel = client.channels.cache.get(args[0]);
-        if (!channel) return message.reply('I could not find such a channel.');
+		const channel = client.channels.cache.get(args[0]);
+		if (!channel) return message.reply('I could not find such a channel.');
 
-        channel.send('Hello!');
-        return message.reply(`I have sent a message to channel \`${args[0]}\`!`);
-    }
+		channel.send('Hello!');
+		return message.reply(`I have sent a message to channel \`${args[0]}\`!`);
+	}
 });
 ```
 
@@ -175,17 +175,17 @@ If you remember, there was a brief mention of passing functions through `.broadc
 
 ```js
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
+	const args = message.content.slice(prefix.length).split(/ +/);
+	const command = args.shift().toLowerCase();
 
-    if (command === 'emoji') {
-        if (!args.length) return message.reply('please specify an emoji id to search for.');
-        const emoji = client.emojis.get(args[0]);
+	if (command === 'emoji') {
+		if (!args.length) return message.reply('please specify an emoji id to search for.');
+		const emoji = client.emojis.get(args[0]);
 
-        return message.reply(`I have found an emoji ${emoji}!`);
-    }
+		return message.reply(`I have found an emoji ${emoji}!`);
+	}
 });
 ```
 
@@ -194,17 +194,17 @@ client.on('message', message => {
 
 ```js
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
+	const args = message.content.slice(prefix.length).split(/ +/);
+	const command = args.shift().toLowerCase();
 
-    if (command === 'emoji') {
-        if (!args.length) return message.reply('please specify an emoji id to search for.');
-        const emoji = client.emojis.cache.get(args[0]);
+	if (command === 'emoji') {
+		if (!args.length) return message.reply('please specify an emoji id to search for.');
+		const emoji = client.emojis.cache.get(args[0]);
 
-        return message.reply(`I have found an emoji ${emoji}!`);
-    }
+		return message.reply(`I have found an emoji ${emoji}!`);
+	}
 });
 ```
 
@@ -218,9 +218,9 @@ Let's start off with an extremely basic function, which will try to grab an emoj
 
 ```js
 function findEmoji(id) {
-    const emoji = this.emojis.get(id);
-    if (!emoji) return null;
-    return emoji;
+	const emoji = this.emojis.get(id);
+	if (!emoji) return null;
+	return emoji;
 }
 ```
 
@@ -229,9 +229,9 @@ function findEmoji(id) {
 
 ```js
 function findEmoji(id) {
-    const emoji = this.emojis.cache.get(id);
-    if (!emoji) return null;
-    return emoji;
+	const emoji = this.emojis.cache.get(id);
+	if (!emoji) return null;
+	return emoji;
 }
 ```
 
@@ -241,17 +241,17 @@ Next, you need to properly call the function in your command. If you recall from
 
 ```js
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
+	const args = message.content.slice(prefix.length).split(/ +/);
+	const command = args.shift().toLowerCase();
 
-    if (command === 'emoji') {
-        if (!args.length) return message.reply('please specify an emoji id to search for.');
+	if (command === 'emoji') {
+		if (!args.length) return message.reply('please specify an emoji id to search for.');
 
-        return client.shard.broadcastEval(`(${findEmoji}).call(this, '${args[0]}')`)
-            .then(console.log);
-    }
+		return client.shard.broadcastEval(`(${findEmoji}).call(this, '${args[0]}')`)
+			.then(console.log);
+	}
 });
 ```
 
@@ -262,20 +262,24 @@ If you are unsure as to what `.call()` does, you may read up on it [here](https:
 Now, run this code, and you will surely get a result that looks like the following:
 
 ```js
-[ { guild:
-     { members: {},
-       // ...
-       id: '222078108977594368',
-       name: 'Discord.js Official',
-       icon: '6e4b4d1a0c7187f9fd5d4976c50ac96e',
-       // ...
-       emojis: {} },
-    id: '383735055509356544',
-    name: 'duckSmug',
-    requiresColons: true,
-    managed: false,
-    animated: false,
-    _roles: [] } ]
+[{
+	guild:
+     {
+     	members: {},
+     	// ...
+     	id: '222078108977594368',
+     	name: 'Discord.js Official',
+     	icon: '6e4b4d1a0c7187f9fd5d4976c50ac96e',
+     	// ...
+     	emojis: {},
+     },
+	id: '383735055509356544',
+	name: 'duckSmug',
+	requiresColons: true,
+	managed: false,
+	animated: false,
+	_roles: [],
+}];
 ```
 
 While this result isnt *necessarily* bad or incorrect, it's simply a raw object that got `JSON.parse()`'d and `JSON.stringify()`'d over, so all of the circular references are gone. More importantly, The object is no longer a true <branch version="11.x" inline>`Emoji`</branch><branch version="12.x" inline>`GuildEmoji`</branch> object as provided by discord.js. This means none of the convenience methods usually provided to you are available. If this is not a concern to you, then you can effectively skip the rest of this section. However, this is a tutorial, so it should be covered regardless! Let's remedy this issue, shall we?
