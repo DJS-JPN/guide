@@ -1,41 +1,102 @@
+---
+title: Linter(構文チェッカー)のセットアップ
+---
+
+<!--
 # Setting up a linter
+-->
+
+# Linter(構文チェッカー)のセットアップ
 
 As a developer, it's a good idea to make your development process as streamlined as possible. Installing and utilizing the right tools is an essential part of any project you're working on. Although it's not required, installing a linter will help you immensely.
 
+<!--
 ## Installing a code editor
+-->
 
-First, you will need a proper code editor. Using Notepad and Notepad++ is discouraged, as they're inefficient for projects like these. If you are using either, it's advised to switch to save everyone lots of headaches and unnecessary syntax error questions.
+## コードエディタのインストール
 
-* [Visual Studio Code](https://code.visualstudio.com/) is a prevalent choice; it is known for being fast and powerful. It supports various languages, has a terminal, built-in IntelliSense support, and autocomplete for both JavaScript and TypeScript. This is the recommended choice.
-* [Atom](https://atom.io/) is user-friendly, concise, and easy to navigate. This is what many developers use to get started.
-* [Sublime Text](https://www.sublimetext.com/) is another popular editor that's easy to use and write code with.
+<!--
+First, you will need a proper code editor. Using Notepad and Notepad++ is discouraged, as they're inefficient for projects like these. If you are using either, it is highly recommended to switch in order to save everyone lots of headaches and unnecessary syntax error questions.
+-->
 
-## Installing a linter
+はじめに、適切なコードエディタを用意しましょう。メモ帳やNotepad++は、このようなプロジェクトには向いていないのでおすすめしません。これらのエディタを利用すると多くの頭痛や構文エラーが発生します、良いエディタに切り替えることでみんなが救われるでしょう。
+
+<!--
+* [Visual Studio Code](https://code.visualstudio.com/) is a very popular choice known for being fast and powerful. It supports a broad range of languages and comes with its own terminal, as well as built-in intellisense and autocomplete for both JavaScript and TypeScript. This is the recommended choice.
+* [Atom](https://atom.io/) is user-friendly, being concise and easy to navigate. This is what many developers use to get started.
+* [Sublime Text](https://www.sublimetext.com/) is another powerful editor known for looking sleek and performing speedily and efficiently.
+-->
+
+* [Visual Studio Code](https://code.visualstudio.com/) 高速で高性能であるため非常に人気な選択肢です。これは広範囲の言語をサポートし独自のターミナルが付属しています、JavaScriptやTypeScriptのためのインテリセンスや自動補充も備わっています。これは、おすすめの選択です。
+* [Atom](https://atom.io/) 簡単で扱いやすく、ユーザーにフレンドリーです。多くの開発者が始めに使用します。
+* [Sublime Text](https://www.sublimetext.com/) 洗練された外観でスピーディーかつ効率的に実行できることで知られてるもう一つの強力なエディタです。
+
+## Linterのインストール
 
 One of the significant advantages proper code editors have over Notepad and Notepad++ is their ability to use linters. Linters check syntax and help you produce consistent code that follows specific style rules that you can define yourself if you choose to do so. They help form good habits if you stick to a single configuration. When you start using a linter, you might see many errors–this is normal and perfectly fine. It might be a pain to get through during the initial process, but it's most definitely worth it.
 
+<!--
 First, be sure to install the [ESLint package](https://www.npmjs.com/package/eslint) so that you have it available in your project.
+-->
 
+まず、[ESLint](https://www.npmjs.com/package/eslint)をインストールして、プロジェクトで利用できるようにします。
+
+<!--
 ```bash
 npm install eslint --save-dev
+```
+-->
+
+```bash
+# ローカルインストール
+npm install eslint
+
+# グローバルインストール
+npm install --global eslint
 ```
 
 Afterward, install the appropriate plugin(s) for your editor of choice.
 
+<!--
 * [ESLint for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 * [Linter-ESLint for Atom](https://atom.io/packages/linter-eslint) (requires [Linter for Atom](https://atom.io/packages/linter))
 * [ESLint for Sublime Text](https://packagecontrol.io/packages/ESLint)
+-->
 
+* [Visual Studio Code : ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* [Atom : Linter-ESLint](https://atom.io/packages/linter-eslint) ([Atom : Linter](https://atom.io/packages/linter)が必要)
+* [Sublime Text : ESLint](https://packagecontrol.io/packages/ESLint)
+
+<!--
 ::: tip
 You can install each of these directly inside the editors themselves. For Visual Studio Code, press `Ctrl + Shift + X`. For Atom, press `Ctrl + ,` and click on "Install". For Sublime, press `Ctrl + Shift + P` and search for "Install Package" (available via [Package Control](https://packagecontrol.io/installation)). After that, you may then search for the appropriate plugin and install it.
 :::
+-->
 
+::: tip
+あなたは、これらをエディタに直接インストールすることができます。Visual Studio Codeでは`Ctrl + Shift + X`。Atomでは`Ctrl + ,`。Sublimeでは `Ctrl + Shift + P`([Package Control](https://packagecontrol.io/installation)が必要)。その後、適切な拡張機能を見つけインストールしてください。
+:::
+
+<!--
 ## Setting up ESLint rules
+-->
 
-ESLint may display many warnings and errors about your code when you start using it but don't let this startle you. To get started, follow these steps:
+## ESLintのルール設定
 
-1. Create a file in your root directory named `.eslintrc.json` (where your main project file is).
+<!--
+ESLint may display a lot of warnings and errors about your code when you start using it, but don't let this startle you. In order to get started, follow these steps:
+-->
+
+ESLintを使い始めるとコードに対するエラーや警告がたくさん表示されると思いますが、驚く必要はありません。しっかりと利用するために以下のステップに従ってください。
+
+<!--
+1. Create a file in your root directory named `.eslintrc.json` (where your main project file is located).
 2. Copy the code below into the file.
+-->
+
+1. ルートディレクトリに`.eslintrc.json`というファイルを作成する(ここには、このプロジェクトのメインファイルがあります)。
+2. 以下のコードをファイルに貼り付ける。
 
 ```json
 {
@@ -109,8 +170,13 @@ Alternatively, if you don't want to go through everything one by one on your own
 }
 ```
 
+<!--
 The major points of this setup would be:
+-->
 
+この設定の主なポイントは以下のとおりです。
+
+<!--
 * Allowing you to debug with `console.log()`;
 * Prefer using `const` over `let` or `var`, as well as disallow `var`;
 * Disapproving of variables with the same name in callbacks;
@@ -119,5 +185,19 @@ The major points of this setup would be:
 * Requiring accessing properties to be on the same line;
 * Requiring indenting to be done with tabs;
 * Limiting nested callbacks to 4. If you hit this error, it is a good idea to consider refactoring your code.
+-->
 
-If your current code style is a bit different, or you don't like a few of these rules, that's perfectly fine! Just head over to the [ESLint docs](https://eslint.org/docs/rules/), find the rule(s) you want to modify, and change them accordingly.
+* `console.log()`でデバッグできるようにします。
+* `var`を禁止し、`var`や`let`ではなく`const`を最優先で使うようにします。
+* コールバック内で同じ名前の変数を許可しません。
+* ダブルクオート(`"`)ではなくシングルクオート(`'`)を利用するようにします。
+* セミコロンが必要です。JavaScriptでは必須ではありませんがつけるほうが良いとされています。
+* プロパティへのアクセスを同じ行にする必要があります。
+* タブでインデントすることを要求します。
+* ネストしたコールバックを4つに制限します。このエラーが発生した場合は、コードのリファクタリングを検討することをお勧めします。
+
+<!--
+If your current code style is a bit different or you simply don't like a few of these rules, that's perfectly fine! Just head over to the [ESLint docs](https://eslint.org/docs/rules/), find the rule(s) you want to modify, and change them accordingly.
+-->
+
+現在のコードスタイルと少し違う場合や、これらの規則のいくつかが気に入らない場合は、それで問題ありません。[ESLint docs](https://eslint.org/docs/rules/)に行き、変更したいルールを見つけて、それに応じて変更してください。
