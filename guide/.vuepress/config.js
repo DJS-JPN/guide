@@ -1,29 +1,30 @@
 const sidebar = require('./sidebar.js');
 
 const config = {
-	title: 'Discord.js Guide',
-	description: 'A guide made by the community of discord.js for its users.',
+	title: 'Discord.js ガイド',
+	description: 'discord.jsのコミュニティによって作られたユーザーガイドを日本語に翻訳したサイト',
 	head: [
 		['meta', { charset: 'utf-8' }],
 		['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
 		['link', { rel: 'icon', href: '/favicon.png' }],
 		['meta', { name: 'theme-color', content: '#42b983' }],
 		['meta', { name: 'twitter:card', content: 'summary' }],
-		['meta', { property: 'og:title', content: 'Discord.js Guide' }],
-		['meta', { property: 'og:description', content: 'A guide made by the community of discord.js for its users.' }],
-		['meta', { property: 'og:type', content: 'website' }],
-		['meta', { property: 'og:url', content: 'https://discordjs.guide/' }],
-		['meta', { property: 'og:locale', content: 'en_US' }],
+		['meta', { name: 'og:title', content: 'Discord.js ガイド' }],
+		['meta', { name: 'og:description', content: 'discord.jsのコミュニティによって作られたユーザーガイドを日本語に翻訳したサイト' }],
+		['meta', { name: 'og:type', content: 'website' }],
+		['meta', { name: 'og:url', content: 'https://guide.djs-jpn.tk/' }],
+		['meta', { name: 'og:locale', content: 'ja_JP' }],
 		['meta', { property: 'og:image', content: '/meta-image.png' }],
 	],
 	plugins: [],
+	ga: 'UA-133246433-1',
 	theme: 'yuu',
 	themeConfig: {
 		yuu: {
 			logo: 'GuideLogo',
 			extraOptions: { before: 'BranchSelector' },
 		},
-		repo: 'discordjs/guide',
+		repo: 'DJS-JPN/guide',
 		docsDir: 'guide',
 		sidebarDepth: 3,
 		editLinks: true,
