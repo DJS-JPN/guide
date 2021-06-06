@@ -28,8 +28,8 @@ First, you will need a proper code editor. Using Notepad and Notepad++ is discou
 * [Sublime Text](https://www.sublimetext.com/) is another powerful editor known for looking sleek and performing speedily and efficiently.
 -->
 
-* [Visual Studio Code](https://code.visualstudio.com/) 高速で高性能であるため非常に人気な選択肢です。これは広範囲の言語をサポートし独自のターミナルが付属しています、JavaScriptやTypeScriptのためのインテリセンスや自動補充も備わっています。これは、おすすめの選択です。
-* [Atom](https://atom.io/) 簡単で扱いやすく、ユーザーにフレンドリーです。多くの開発者が始めに使用します。
+* [Visual Studio Code](https://code.visualstudio.com/) 高速で高性能であるため非常に人気な選択肢です。これは広範囲の言語をサポートし独自のターミナルが付属しています、JavaScriptやTypeScriptのためのインテリセンスや自動補完も備わっています。これは、おすすめの選択です。
+* [Atom](https://atom.io/) 簡単で扱いやすく、ユーザーフレンドリーです。多くの開発者が始めに使用します。
 * [Sublime Text](https://www.sublimetext.com/) 洗練された外観でスピーディーかつ効率的に実行できることで知られてるもう一つの強力なエディタです。
 
 ## Linterのインストール
@@ -82,13 +82,13 @@ You can install each of these directly inside the editors themselves. For Visual
 ## Setting up ESLint rules
 -->
 
-## ESLintのルール設定
+## ESLintルールの設定
 
 <!--
 ESLint may display a lot of warnings and errors about your code when you start using it, but don't let this startle you. In order to get started, follow these steps:
 -->
 
-ESLintを使い始めるとコードに対するエラーや警告がたくさん表示されると思いますが、驚く必要はありません。しっかりと利用するために以下のステップに従ってください。
+ESLintを使い始めるとコードに対するエラーや警告がたくさん表示されると思いますが、驚く必要はありません。利用するために以下のステップに従ってください。
 
 <!--
 1. Create a file in your root directory named `.eslintrc.json` (where your main project file is located).
@@ -191,7 +191,7 @@ The major points of this setup would be:
 * `var`を禁止し、`var`や`let`ではなく`const`を最優先で使うようにします。
 * コールバック内で同じ名前の変数を許可しません。
 * ダブルクオート(`"`)ではなくシングルクオート(`'`)を利用するようにします。
-* セミコロンが必要です。JavaScriptでは必須ではありませんがつけるほうが良いとされています。
+* セミコロンを要求します。JavaScriptでは必須ではありませんがつけるほうが良いとされています。
 * プロパティへのアクセスを同じ行にする必要があります。
 * タブでインデントすることを要求します。
 * ネストしたコールバックを4つに制限します。このエラーが発生した場合は、コードのリファクタリングを検討することをお勧めします。

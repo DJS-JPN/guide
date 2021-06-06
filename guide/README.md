@@ -9,6 +9,8 @@ title: はじめに
 # はじめに
 
 If you're reading this, it probably means you want to learn how to make a bot with discord.js. Awesome! You've come to the right place.
+
+<!--
 This guide will teach you things such as:
 
 * How to get a bot up and running from scratch;
@@ -38,7 +40,19 @@ Sounds good? Great! Let's get started, then.
 
 While you _can_ make a bot with very little JavaScript and programming knowledge, trying to do so without understanding the language first will only hinder you. You may get stuck on many uncomplicated issues, struggle with solutions to incredibly easy problems, and all-in-all end up frustrated. Sounds pretty annoying.
 
-If you don't know JavaScript but would like to learn about it, here are a few links to help get you started:
+<!--
+If you don't know JS but would like to learn about it, here are a few links to help get you started:
+-->
+
+JSを知らなくても、JSについて学びたいのであれば、ここから始めるためのリンクをいくつか紹介します。
+
+<!--
+* [CodeCademy's interactive JavaScript course](https://www.codecademy.com/learn/learn-javascript)
+* [Eloquent JavaScript, a free online book](http://eloquentjavascript.net/)
+* [Nodeschool, for both JavaScript and Node.js lessons](https://nodeschool.io/)
+* [MDN's JavaScript guide and full documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Google, your best friend](https://google.com)
+-->
 
 * [CodeCademyのインタラクティブなJavaScriptコース](https://www.codecademy.com/learn/learn-javascript)
 * [Eloquent JavaScript、無料のオンライン書籍](http://eloquentjavascript.net/)

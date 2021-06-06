@@ -22,7 +22,7 @@ This page is a follow-up and bases its code on [the previous page](/creating-you
 As you get deeper into development, you may need to interact with sensitive data or data that gets used in multiple locations, such as:
 -->
 
-開発を深めるに連れて以下の複数の場所で使用されるデータや機密データとやりとりする必要があるかもしれません。
+開発を進めるに連れて、以下の設定や機密データを複数の場所で使用する必要が出てくるかもしれません。
 
 <!--
 * Database passwords
@@ -62,7 +62,7 @@ Go to your code editor and make a new file. Add in the code below and save it as
 ```json
 {
 	"prefix": "!",
-	"token": "トークンをここに"
+	"token": "トークンをここに貼り付ける"
 }
 ```
 
@@ -87,7 +87,7 @@ Next, copy your token from the `client.login('your-token-goes-here')` line and p
 Now you can simply do `client.login(config.token)` to login! If you want to use a different prefix than `!`, you can change that as well.
 -->
 
-これで単にログインするために `client.login(config.token)` を使えます！もしあなたが `!` 以外の違う接頭辞を使いたいなら、それも変更することができます。
+これでログインするために `client.login(config.token)` を使えます！もしあなたが `!` ではないプレフィックスを使いたいなら、それも変更することができます。
 
 <!--
 ## Storing additional data

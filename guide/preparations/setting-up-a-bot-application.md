@@ -24,7 +24,7 @@ It's effortless to create one. The steps you need to take are as follows:
 You should see a page like this:
 -->
 
-こんな感じになったと思います。
+このようなページが表示されたと思います。
 
 ![Successfully created application](./images/create-app.png)
 
@@ -95,7 +95,7 @@ Let's imagine that you have a bot on over 1,000 servers, and it took you many, m
 * Access and damage the underlying infrastructure (your server)
 -->
 
-さあ想像してみましょう。多くの時間を掛けて開発し、今では1000以上のサーバーで使われているBotのトークンが誰かにバレてしまいました。そしてその人はこんなことをするでしょう。
+さあ想像してみましょう。多くの時間を掛けて開発し、今では1000以上のサーバーで使われているBotのトークンが誰かに流出してしまいました。そしてその人はこんなことをするでしょう。
 
 * すべてのサーバーでスパム。
 * できるだけ多くのユーザーのDMにスパム。
