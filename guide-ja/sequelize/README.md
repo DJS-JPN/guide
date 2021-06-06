@@ -1,4 +1,4 @@
-# Sequelizeを使ってデータを保管する
+# Sequelizeを使ってデータを保存する
 
 Sequelize is an object-relational-mapper, which means you can write a query using objects and have it run on almost any other database system that Sequelize supports.
 
@@ -38,29 +38,29 @@ const PREFIX = '!';
 // [beta]
 
 client.once('ready', () => {
-	// [gamma]
+    // [gamma]
 });
 
 client.on('message', async message => {
-	if (message.content.startsWith(PREFIX)) {
-		const input = message.content.slice(PREFIX.length).trim().split(' ');
-		const command = input.shift();
-		const commandArgs = input.join(' ');
+    if (message.content.startsWith(PREFIX)) {
+        const input = message.content.slice(PREFIX.length).trim().split(' ');
+        const command = input.shift();
+        const commandArgs = input.join(' ');
 
-		if (command === 'addtag') {
-			// [delta]
-		} else if (command === 'tag') {
-			// [epsilon]
-		} else if (command === 'edittag') {
-			// [zeta]
-		} else if (command === 'taginfo') {
-			// [theta]
-		} else if (command === 'showtags') {
-			// [lambda]
-		} else if (command === 'removetag') {
-			// [mu]
-		}
-	}
+        if (command === 'addtag') {
+            // [delta]
+        } else if (command === 'tag') {
+            // [epsilon]
+        } else if (command === 'edittag') {
+            // [zeta]
+        } else if (command === 'taginfo') {
+            // [theta]
+        } else if (command === 'showtags') {
+            // [lambda]
+        } else if (command === 'removetag') {
+            // [mu]
+        }
+    }
 });
 
 client.login('your-token-goes-here');
@@ -72,11 +72,11 @@ The first step is to define the connection information. It should look something
 
 ```js
 const sequelize = new Sequelize('database', 'user', 'password', {
-	host: 'localhost',
-	dialect: 'sqlite',
-	logging: false,
-	// SQLite only
-	storage: 'database.sqlite',
+    host: 'localhost',
+    dialect: 'sqlite',
+    logging: false,
+    // SQLite only
+    storage: 'database.sqlite',
 });
 ```
 
@@ -106,17 +106,17 @@ To do that in Sequelize, you define a model based on this structure, as shown be
  * );
  */
 const Tags = sequelize.define('tags', {
-	name: {
-		type: Sequelize.STRING,
-		unique: true,
-	},
-	description: Sequelize.TEXT,
-	username: Sequelize.STRING,
-	usage_count: {
-		type: Sequelize.INTEGER,
-		defaultValue: 0,
-		allowNull: false,
-	},
+    name: {
+        type: Sequelize.STRING,
+        unique: true,
+    },
+    description: Sequelize.TEXT,
+    username: Sequelize.STRING,
+    usage_count: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+    },
 });
 ```
 
