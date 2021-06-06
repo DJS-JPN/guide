@@ -1,3 +1,4 @@
+const path = require('path');
 const sidebar = require('./sidebar.js');
 
 const config = {
@@ -48,7 +49,7 @@ const config = {
 	configureWebpack: {
 		resolve: {
 			alias: {
-				'@': '../',
+				'@': path.resolve(__dirname, '../'),
 			},
 		},
 	},
