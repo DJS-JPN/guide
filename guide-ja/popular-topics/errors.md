@@ -32,7 +32,7 @@ Usually, these errors will crash your process; however, you can add an event lis
 
 ```js
 client.on('error', error => {
-    console.error('The websocket connection encountered an error:', error);
+	console.error('The websocket connection encountered an error:', error);
 });
 ```
 
@@ -46,7 +46,7 @@ In version 12, WebSocket errors are handled internally, meaning your process sho
 
 ```js
 client.on('shardError', error => {
-    console.error('A websocket connection encountered an error:', error);
+	console.error('A websocket connection encountered an error:', error);
 });
 ```
 

@@ -14,19 +14,19 @@ Pull the argument from your say command and add a blank `validate` function to t
 
 ```js {10}
 module.exports = class SayCommand extends Command {
-    constructor(client) {
-        super(client, {
-            // ...
-            args: [
-                {
-                    key: 'text',
-                    prompt: 'What text would you like the bot to say?',
-                    type: 'string',
-                    validate: text => {},
-                },
-            ],
-        });
-    }
+	constructor(client) {
+		super(client, {
+			// ...
+			args: [
+				{
+					key: 'text',
+					prompt: 'What text would you like the bot to say?',
+					type: 'string',
+					validate: text => {},
+				},
+			],
+		});
+	}
 };
 ```
 
@@ -34,19 +34,19 @@ Inside your `validate` function, check to see if the length is below 201 charact
 
 ```js {10}
 module.exports = class SayCommand extends Command {
-    constructor(client) {
-        super(client, {
-            // ...
-            args: [
-                {
-                    key: 'text',
-                    prompt: 'What text would you like the bot to say?',
-                    type: 'string',
-                    validate: text => text.length < 201,
-                },
-            ],
-        });
-    }
+	constructor(client) {
+		super(client, {
+			// ...
+			args: [
+				{
+					key: 'text',
+					prompt: 'What text would you like the bot to say?',
+					type: 'string',
+					validate: text => text.length < 201,
+				},
+			],
+		});
+	}
 };
 ```
 
@@ -58,19 +58,19 @@ Another property you can use to validate arguments is the `oneOf` option. This o
 
 ```js {7-10}
 module.exports = class SayCommand extends Command {
-    constructor(client) {
-        super(client, {
-            // ...
-            args: [
-                {
-                    key: 'option',
-                    prompt: 'Yes or No?',
-                    type: 'string',
-                    oneOf: ['yes', 'no'],
-                },
-            ],
-        });
-    }
+	constructor(client) {
+		super(client, {
+			// ...
+			args: [
+				{
+					key: 'option',
+					prompt: 'Yes or No?',
+					type: 'string',
+					oneOf: ['yes', 'no'],
+				},
+			],
+		});
+	}
 };
 ```
 

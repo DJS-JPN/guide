@@ -54,15 +54,15 @@ Along with `.partial` to check if the structure you call it on is partial or not
 
 ```js {2-8,10}
 if (message.partial) {
-    message.fetch()
-        .then(fullMessage => {
-            console.log(fullMessage.content);
-        })
-        .catch(error => {
-            console.log('Something went wrong when fetching the message: ', error);
-        });
+	message.fetch()
+		.then(fullMessage => {
+			console.log(fullMessage.content);
+		})
+		.catch(error => {
+			console.log('Something went wrong when fetching the message: ', error);
+		});
 } else {
-    console.log(message.content);
+	console.log(message.content);
 }
 ```
 

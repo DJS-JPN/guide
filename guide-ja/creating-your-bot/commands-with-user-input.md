@@ -14,11 +14,11 @@ Go to your message event handler and add the following block of code at the top 
 
 ```js {2,4-5}
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).trim().split(' ');
-    const command = args.shift().toLowerCase();
-    // ...
+	const args = message.content.slice(prefix.length).trim().split(' ');
+	const command = args.shift().toLowerCase();
+	// ...
 });
 ```
 
@@ -30,18 +30,18 @@ Hopefully, that's a bit clearer. Let's create a quick command to check out the r
 
 ```js {7-13}
 client.on('message', message => {
-    // ...
-    // Using the new `command` variable, this makes it easier to manage!
-    // You can switch your other commands to this format as well
-    if (command === 'ping') {
-        message.channel.send('Pong.');
-    } else if (command === 'args-info') {
-        if (!args.length) {
-            return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
-        }
+	// ...
+	// Using the new `command` variable, this makes it easier to manage!
+	// You can switch your other commands to this format as well
+	if (command === 'ping') {
+		message.channel.send('Pong.');
+	} else if (command === 'args-info') {
+		if (!args.length) {
+			return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+		}
 
-        message.channel.send(`Command name: ${command}\nArguments: ${args}`);
-    }
+		message.channel.send(`Command name: ${command}\nArguments: ${args}`);
+	}
 });
 ```
 
@@ -64,18 +64,18 @@ Now that you have an array of arguments, you can interact with it accordingly! T
 
 ```js {5-13}
 client.on('message', message => {
-    // ...
-    if (command === 'ping') {
-        message.channel.send('Pong.');
-    } else if (command === 'args-info') {
-        if (!args.length) {
-            return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
-        } else if (args[0] === 'foo') {
-            return message.channel.send('bar');
-        }
+	// ...
+	if (command === 'ping') {
+		message.channel.send('Pong.');
+	} else if (command === 'args-info') {
+		if (!args.length) {
+			return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+		} else if (args[0] === 'foo') {
+			return message.channel.send('bar');
+		}
 
-        message.channel.send(`First argument: ${args[0]}`);
-    }
+		message.channel.send(`First argument: ${args[0]}`);
+	}
 });
 ```
 
@@ -141,16 +141,16 @@ Using the example of a kick command, you most likely want it to allow the user t
 
 ```js {5-11}
 client.on('message', message => {
-    // ...
-    if (command === 'ping') {
-        message.channel.send('Pong.');
-    } else if (command === 'kick') {
-        // Grab the "first" mentioned user from the message
-        // This will return a `User` object, just like `message.author`
-        const taggedUser = message.mentions.users.first();
+	// ...
+	if (command === 'ping') {
+		message.channel.send('Pong.');
+	} else if (command === 'kick') {
+		// Grab the "first" mentioned user from the message
+		// This will return a `User` object, just like `message.author`
+		const taggedUser = message.mentions.users.first();
 
-        message.channel.send(`You wanted to kick: ${taggedUser.username}`);
-    }
+		message.channel.send(`You wanted to kick: ${taggedUser.username}`);
+	}
 });
 ```
 
@@ -215,7 +215,7 @@ Let's say you have an `!avatar` command, where it'll display the avatar of all t
 
 ```js {1-3}
 if (!message.mentions.users.size) {
-    return message.channel.send(`Your avatar: <${message.author.displayAvatarURL}>`);
+	return message.channel.send(`Your avatar: <${message.author.displayAvatarURL}>`);
 }
 
 const taggedUser = message.mentions.users.first();
@@ -226,7 +226,7 @@ const taggedUser = message.mentions.users.first();
 
 ```js {1-3}
 if (!message.mentions.users.size) {
-    return message.channel.send(`Your avatar: <${message.author.displayAvatarURL({ format: 'png', dynamic: true })}>`);
+	return message.channel.send(`Your avatar: <${message.author.displayAvatarURL({ format: 'png', dynamic: true })}>`);
 }
 
 const taggedUser = message.mentions.users.first();
@@ -256,11 +256,11 @@ The next part is where it takes a turn–displaying the avatars of all the menti
 
 ```js {5-7,11}
 if (!message.mentions.users.size) {
-    return message.channel.send(`Your avatar: <${message.author.displayAvatarURL}>`);
+	return message.channel.send(`Your avatar: <${message.author.displayAvatarURL}>`);
 }
 
 const avatarList = message.mentions.users.map(user => {
-    return `${user.username}'s avatar: <${user.displayAvatarURL}>`;
+	return `${user.username}'s avatar: <${user.displayAvatarURL}>`;
 });
 
 // Send the entire array of strings as a message
@@ -273,11 +273,11 @@ message.channel.send(avatarList);
 
 ```js {5-7,11}
 if (!message.mentions.users.size) {
-    return message.channel.send(`Your avatar: <${message.author.displayAvatarURL({ format: 'png', dynamic: true })}>`);
+	return message.channel.send(`Your avatar: <${message.author.displayAvatarURL({ format: 'png', dynamic: true })}>`);
 }
 
 const avatarList = message.mentions.users.map(user => {
-    return `${user.username}'s avatar: <${user.displayAvatarURL({ format: 'png', dynamic: true })}>`;
+	return `${user.username}'s avatar: <${user.displayAvatarURL({ format: 'png', dynamic: true })}>`;
 });
 
 // Send the entire array of strings as a message
@@ -323,16 +323,16 @@ The first step would be to check if the input they gave is an actual number.
 
 ```js {5-11}
 client.on('message', message => {
-    // ...
-    if (command === 'ping') {
-        message.channel.send('Pong.');
-    } else if (command === 'prune') {
-        const amount = parseInt(args[0]);
+	// ...
+	if (command === 'ping') {
+		message.channel.send('Pong.');
+	} else if (command === 'prune') {
+		const amount = parseInt(args[0]);
 
-        if (isNaN(amount)) {
-            return message.reply('that doesn\'t seem to be a valid number.');
-        }
-    }
+		if (isNaN(amount)) {
+			return message.reply('that doesn\'t seem to be a valid number.');
+		}
+	}
 });
 ```
 
@@ -394,9 +394,9 @@ The other caveat with this is that the `!prune {number}` message you sent will a
 const amount = parseInt(args[0]) + 1;
 
 if (isNaN(amount)) {
-    return message.reply('that doesn\'t seem to be a valid number.');
+	return message.reply('that doesn\'t seem to be a valid number.');
 } else if (amount < 2 || amount > 100) {
-    return message.reply('you need to input a number between 2 and 100.');
+	return message.reply('you need to input a number between 2 and 100.');
 }
 ```
 

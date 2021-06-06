@@ -10,10 +10,10 @@ Head over to your `index.js` file and find your `client.registry` variable. All 
 
 ```js {3-5}
 client.registry
-    // ...
-    .registerDefaultCommands({
-        unknownCommand: false,
-    });
+// ...
+	.registerDefaultCommands({
+		unknownCommand: false,
+	});
 ```
 
 That's all there is to it!

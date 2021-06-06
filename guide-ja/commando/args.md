@@ -26,9 +26,9 @@ module.exports = class SayCommand extends Command {
 		});
 	}
 
-    run(message) {
-        // ...
-    }
+	run(message) {
+		// ...
+	}
 };
 ```
 
@@ -36,18 +36,18 @@ module.exports = class SayCommand extends Command {
 
 ```js {5-11}
 module.exports = class SayCommand extends Command {
-    constructor(client) {
-        super(client, {
-            // ...
-            args: [
-                {
-                    key: 'text',
-                    prompt: 'What text would you like the bot to say?',
-                    type: 'string',
-                },
-            ],
-        });
-    }
+	constructor(client) {
+		super(client, {
+			// ...
+			args: [
+				{
+					key: 'text',
+					prompt: 'What text would you like the bot to say?',
+					type: 'string',
+				},
+			],
+		});
+	}
 };
 ```
 
@@ -61,23 +61,23 @@ module.exports = class SayCommand extends Command {
 
 ```js {11-15}
 module.exports = class SayCommand extends Command {
-    constructor(client) {
-        super(client, {
-            // ...
-            args: [
-                {
-                    key: 'text',
-                    prompt: 'What text would you like the bot to say?',
-                    type: 'string',
-                },
-                {
-                    key: 'otherThing',
-                    prompt: 'What is this other useless thing?',
-                    type: 'string',
-                },
-            ],
-        });
-    }
+	constructor(client) {
+		super(client, {
+			// ...
+			args: [
+				{
+					key: 'text',
+					prompt: 'What text would you like the bot to say?',
+					type: 'string',
+				},
+				{
+					key: 'otherThing',
+					prompt: 'What is this other useless thing?',
+					type: 'string',
+				},
+			],
+		});
+	}
 };
 ```
 
@@ -85,20 +85,20 @@ module.exports = class SayCommand extends Command {
 
 ```js {11}
 module.exports = class SayCommand extends Command {
-    constructor(client) {
-        super(client, {
-            // ...
-            args: [
-                // ...
-                {
-                    key: 'otherThing',
-                    prompt: 'What is this other useless thing?',
-                    type: 'string',
-                    'default': 'dog',
-                },
-            ],
-        });
-    }
+	constructor(client) {
+		super(client, {
+			// ...
+			args: [
+				// ...
+				{
+					key: 'otherThing',
+					prompt: 'What is this other useless thing?',
+					type: 'string',
+					'default': 'dog',
+				},
+			],
+		});
+	}
 };
 ```
 
@@ -108,13 +108,13 @@ Head on over to your `run` method and set the `text` arg to a variable and retur
 
 ```js {6-8}
 module.exports = class SayCommand extends Command {
-    constructor(client) {
-        // ...
-    }
+	constructor(client) {
+		// ...
+	}
 
-    run(message, { text }) {
-        return message.reply(text);
-    }
+	run(message, { text }) {
+		return message.reply(text);
+	}
 };
 ```
 

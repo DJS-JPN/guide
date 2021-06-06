@@ -48,9 +48,9 @@ There are many more properties you can use, but their sections will explain thos
 
 ```js {6-8}
 module.exports = class MeowCommand extends Command {
-    constructor(client) {
-        // ...
-    }
+	constructor(client) {
+		// ...
+	}
 
 	run(message) {
 		return message.say('Meow!');

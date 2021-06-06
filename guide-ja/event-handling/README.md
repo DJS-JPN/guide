@@ -11,11 +11,11 @@ const { token } = require('./config.json');
 const client = new Discord.Client();
 
 client.once('ready', () => {
-    console.log('Ready!');
+	console.log('Ready!');
 });
 
 client.on('message', message => {
-    console.log(`${message.author.tag} in #${message.channel.name} sent: ${message.content}`);
+	console.log(`${message.author.tag} in #${message.channel.name} sent: ${message.content}`);
 });
 
 client.login(token);
@@ -33,20 +33,20 @@ Create an `events` folder in the same directory. You can now take your existing 
 
 ```js
 module.exports = {
-    name: 'ready',
-    once: true,
-    execute() {
-        console.log('Ready!');
-    },
+	name: 'ready',
+	once: true,
+	execute() {
+		console.log('Ready!');
+	},
 };
 ```
 
 ```js
 module.exports = {
-    name: 'message',
-    execute(message) {
-        console.log(`${message.author.tag} in #${message.channel.name} sent: ${message.content}`);
-    },
+	name: 'message',
+	execute(message) {
+		console.log(`${message.author.tag} in #${message.channel.name} sent: ${message.content}`);
+	},
 };
 ```
 
@@ -66,12 +66,12 @@ This same method is used in our [command handler](/command-handling/) section. T
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
 for (const file of eventFiles) {
-    const event = require(`./events/${file}`);
-    if (event.once) {
-        client.once(event.name, (...args) => event.execute(...args));
-    } else {
-        client.on(event.name, (...args) => event.execute(...args));
-    }
+	const event = require(`./events/${file}`);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args));
+	} else {
+		client.on(event.name, (...args) => event.execute(...args));
+	}
 }
 ```
 
@@ -96,12 +96,12 @@ The `ready` event does not have arguments, meaning that `args` will be an empty 
 
 ```js {4,6}
 for (const file of eventFiles) {
-    const event = require(`./events/${file}`);
-    if (event.once) {
-        client.once(event.name, (...args) => event.execute(...args, client));
-    } else {
-        client.on(event.name, (...args) => event.execute(...args, client));
-    }
+	const event = require(`./events/${file}`);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args, client));
+	} else {
+		client.on(event.name, (...args) => event.execute(...args, client));
+	}
 }
 ```
 
@@ -109,11 +109,11 @@ This allows `client` to be available as the **last** argument to the `execute` f
 
 ```js {4-6}
 module.exports = {
-    name: 'ready',
-    once: true,
-    execute(client) {
-        console.log(`Ready! Logged in as ${client.user.tag}`);
-    },
+	name: 'ready',
+	once: true,
+	execute(client) {
+		console.log(`Ready! Logged in as ${client.user.tag}`);
+	},
 };
 ```
 
@@ -125,10 +125,10 @@ It is worth noting that the position of `client` argument matters. For example, 
 
 ```js {3}
 module.exports = {
-    name: 'messageUpdate',
-    execute(oldMessage, newMessage, client) {
-        // ...
-    },
+	name: 'messageUpdate',
+	execute(oldMessage, newMessage, client) {
+		// ...
+	},
 };
 ```
 

@@ -68,8 +68,8 @@ const prefix = '!';
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const command = args.shift().toLowerCase();
+	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	const command = args.shift().toLowerCase();
 
 	if (command === 'stats') {
 		return message.channel.send(`Server count: ${client.guilds.size}`);
@@ -91,8 +91,8 @@ const prefix = '!';
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const command = args.shift().toLowerCase();
+	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	const command = args.shift().toLowerCase();
 
 	if (command === 'stats') {
 		return message.channel.send(`Server count: ${client.guilds.cache.size}`);
@@ -139,10 +139,10 @@ In this case, this method iterates through the array and adds each current value
 
 ```js
 client.shard.fetchClientValues('guilds.size')
-    .then(results => {
-        console.log(`${results.reduce((acc, guildCount) => acc + guildCount, 0)} total guilds`);
-    })
-    .catch(console.error);
+	.then(results => {
+		console.log(`${results.reduce((acc, guildCount) => acc + guildCount, 0)} total guilds`);
+	})
+	.catch(console.error);
 ```
 
 </branch>
@@ -150,10 +150,10 @@ client.shard.fetchClientValues('guilds.size')
 
 ```js
 client.shard.fetchClientValues('guilds.cache.size')
-    .then(results => {
-        console.log(`${results.reduce((acc, guildCount) => acc + guildCount, 0)} total guilds`);
-    })
-    .catch(console.error);
+	.then(results => {
+		console.log(`${results.reduce((acc, guildCount) => acc + guildCount, 0)} total guilds`);
+	})
+	.catch(console.error);
 ```
 
 </branch>
@@ -164,14 +164,14 @@ While it's a bit unattractive to have more nesting in your commands, it is neces
 
 ```js {4-8}
 client.on('message', message => {
-    // ...
-    if (command === 'stats') {
-        return client.shard.fetchClientValues('guilds.size')
-            .then(results => {
-                return message.channel.send(`Server count: ${results.reduce((acc, guildCount) => acc + guildCount, 0)}`);
-            })
-            .catch(console.error);
-    }
+	// ...
+	if (command === 'stats') {
+		return client.shard.fetchClientValues('guilds.size')
+			.then(results => {
+				return message.channel.send(`Server count: ${results.reduce((acc, guildCount) => acc + guildCount, 0)}`);
+			})
+			.catch(console.error);
+	}
 });
 ```
 
@@ -180,14 +180,14 @@ client.on('message', message => {
 
 ```js {4-8}
 client.on('message', message => {
-    // ...
-    if (command === 'stats') {
-        return client.shard.fetchClientValues('guilds.cache.size')
-            .then(results => {
-                return message.channel.send(`Server count: ${results.reduce((acc, guildCount) => acc + guildCount, 0)}`);
-            })
-            .catch(console.error);
-    }
+	// ...
+	if (command === 'stats') {
+		return client.shard.fetchClientValues('guilds.cache.size')
+			.then(results => {
+				return message.channel.send(`Server count: ${results.reduce((acc, guildCount) => acc + guildCount, 0)}`);
+			})
+			.catch(console.error);
+	}
 });
 ```
 
@@ -218,10 +218,10 @@ This will run the code given to `broadcastEval` on each shard and return the res
 
 ```js
 client.shard.broadcastEval('this.guilds.reduce((acc, guild) => acc + guild.memberCount, 0)')
-    .then(results => {
-        return message.channel.send(`Total member count: ${results.reduce((acc, memberCount) => acc + memberCount, 0)}`);
-    })
-    .catch(console.error);
+	.then(results => {
+		return message.channel.send(`Total member count: ${results.reduce((acc, memberCount) => acc + memberCount, 0)}`);
+	})
+	.catch(console.error);
 ```
 
 </branch>
@@ -229,10 +229,10 @@ client.shard.broadcastEval('this.guilds.reduce((acc, guild) => acc + guild.membe
 
 ```js
 client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)')
-    .then(results => {
-        return message.channel.send(`Total member count: ${results.reduce((acc, memberCount) => acc + memberCount, 0)}`);
-    })
-    .catch(console.error);
+	.then(results => {
+		return message.channel.send(`Total member count: ${results.reduce((acc, memberCount) => acc + memberCount, 0)}`);
+	})
+	.catch(console.error);
 ```
 
 </branch>
@@ -245,17 +245,17 @@ You'd likely want to output both pieces of information in the stats command. You
 
 ```js
 const promises = [
-    client.shard.fetchClientValues('guilds.size'),
-    client.shard.broadcastEval('this.guilds.reduce((acc, guild) => acc + guild.memberCount, 0)'),
+	client.shard.fetchClientValues('guilds.size'),
+	client.shard.broadcastEval('this.guilds.reduce((acc, guild) => acc + guild.memberCount, 0)'),
 ];
 
 Promise.all(promises)
-    .then(results => {
-        const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
-        const totalMembers = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
-        return message.channel.send(`Server count: ${totalGuilds}\nMember count: ${totalMembers}`);
-    })
-    .catch(console.error);
+	.then(results => {
+		const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
+		const totalMembers = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
+		return message.channel.send(`Server count: ${totalGuilds}\nMember count: ${totalMembers}`);
+	})
+	.catch(console.error);
 ```
 
 </branch>
@@ -263,17 +263,17 @@ Promise.all(promises)
 
 ```js
 const promises = [
-    client.shard.fetchClientValues('guilds.cache.size'),
-    client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)'),
+	client.shard.fetchClientValues('guilds.cache.size'),
+	client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)'),
 ];
 
 Promise.all(promises)
-    .then(results => {
-        const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
-        const totalMembers = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
-        return message.channel.send(`Server count: ${totalGuilds}\nMember count: ${totalMembers}`);
-    })
-    .catch(console.error);
+	.then(results => {
+		const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
+		const totalMembers = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
+		return message.channel.send(`Server count: ${totalGuilds}\nMember count: ${totalMembers}`);
+	})
+	.catch(console.error);
 ```
 
 </branch>
@@ -284,21 +284,21 @@ Promise.all(promises)
 
 ```js {4-15}
 client.on('message', message => {
-    // ...
-    if (command === 'stats') {
-        const promises = [
-            client.shard.fetchClientValues('guilds.size'),
-            client.shard.broadcastEval('this.guilds.reduce((acc, guild) => acc + guild.memberCount, 0)'),
-        ];
+	// ...
+	if (command === 'stats') {
+		const promises = [
+			client.shard.fetchClientValues('guilds.size'),
+			client.shard.broadcastEval('this.guilds.reduce((acc, guild) => acc + guild.memberCount, 0)'),
+		];
 
-        return Promise.all(promises)
-            .then(results => {
-                const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
-                const totalMembers = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
-                return message.channel.send(`Server count: ${totalGuilds}\nMember count: ${totalMembers}`);
-            })
-            .catch(console.error);
-    }
+		return Promise.all(promises)
+			.then(results => {
+				const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
+				const totalMembers = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
+				return message.channel.send(`Server count: ${totalGuilds}\nMember count: ${totalMembers}`);
+			})
+			.catch(console.error);
+	}
 });
 ```
 
@@ -307,21 +307,21 @@ client.on('message', message => {
 
 ```js {4-15}
 client.on('message', message => {
-    // ...
-    if (command === 'stats') {
-        const promises = [
-            client.shard.fetchClientValues('guilds.cache.size'),
-            client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)'),
-        ];
+	// ...
+	if (command === 'stats') {
+		const promises = [
+			client.shard.fetchClientValues('guilds.cache.size'),
+			client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)'),
+		];
 
-        return Promise.all(promises)
-            .then(results => {
-                const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
-                const totalMembers = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
-                return message.channel.send(`Server count: ${totalGuilds}\nMember count: ${totalMembers}`);
-            })
-            .catch(console.error);
-    }
+		return Promise.all(promises)
+			.then(results => {
+				const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
+				const totalMembers = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
+				return message.channel.send(`Server count: ${totalGuilds}\nMember count: ${totalMembers}`);
+			})
+			.catch(console.error);
+	}
 });
 ```
 

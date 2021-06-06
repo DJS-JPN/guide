@@ -15,9 +15,9 @@ if (!client.commands.has(commandName)) return;
 const command = client.commands.get(commandName);
 
 try {
-    command.execute(message, args);
+	command.execute(message, args);
 } catch (error) {
-    // ...
+	// ...
 }
 ```
 
@@ -56,11 +56,11 @@ client.commands = new Discord.Collection();
 const commandFolders = fs.readdirSync('./commands');
 
 for (const folder of commandFolders) {
-    const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
-    for (const file of commandFiles) {
-        const command = require(`./commands/${folder}/${file}`);
-        client.commands.set(command.name, command);
-    }
+	const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
+	for (const file of commandFiles) {
+		const command = require(`./commands/${folder}/${file}`);
+		client.commands.set(command.name, command);
+	}
 }
 ```
 
@@ -92,16 +92,16 @@ Here are the changes you'll be making:
 
 ```js {4,6-8}
 module.exports = {
-    name: 'args-info',
-    description: 'Information about the arguments provided.',
-    args: true,
-    execute(message, args) {
-        if (args[0] === 'foo') {
-            return message.channel.send('bar');
-        }
+	name: 'args-info',
+	description: 'Information about the arguments provided.',
+	args: true,
+	execute(message, args) {
+		if (args[0] === 'foo') {
+			return message.channel.send('bar');
+		}
 
-        message.channel.send(`Arguments: ${args}\nArguments length: ${args.length}`);
-    },
+		message.channel.send(`Arguments: ${args}\nArguments length: ${args.length}`);
+	},
 };
 ```
 
@@ -111,7 +111,7 @@ And then in your main file:
 const command = client.commands.get(commandName);
 
 if (command.args && !args.length) {
-    return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+	return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
 }
 ```
 
@@ -127,12 +127,12 @@ In your `role.js` file:
 
 ```js {3-4}
 module.exports = {
-    name: 'role',
-    args: true,
-    usage: '<user> <role>',
-    execute(message, args) {
-        // ...
-    },
+	name: 'role',
+	args: true,
+	usage: '<user> <role>',
+	execute(message, args) {
+		// ...
+	},
 };
 ```
 
@@ -140,13 +140,13 @@ In your main file:
 
 ```js {2,4-6,8}
 if (command.args && !args.length) {
-    let reply = `You didn't provide any arguments, ${message.author}!`;
+	let reply = `You didn't provide any arguments, ${message.author}!`;
 
-    if (command.usage) {
-        reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
-    }
+	if (command.usage) {
+		reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+	}
 
-    return message.channel.send(reply);
+	return message.channel.send(reply);
 }
 ```
 
@@ -158,12 +158,12 @@ In the kick command you created in an earlier chapter, make the following change
 
 ```js {4}
 module.exports = {
-    name: 'kick',
-    description: 'Kick a user from the server.',
-    guildOnly: true,
-    execute(message, args) {
-        // ...
-    },
+	name: 'kick',
+	description: 'Kick a user from the server.',
+	guildOnly: true,
+	execute(message, args) {
+		// ...
+	},
 };
 ```
 
@@ -172,11 +172,11 @@ And in your main file, use an if statement to verify:
 
 ```js {1-3}
 if (command.guildOnly && message.channel.type === 'dm') {
-    return message.reply('I can\'t execute that command inside DMs!');
+	return message.reply('I can\'t execute that command inside DMs!');
 }
 
 if (command.args && !args.length) {
-    // ...
+	// ...
 }
 ```
 
@@ -199,11 +199,11 @@ First, add a cooldown key to one of your commands (we use the ping command here)
 
 ```js {3}
 module.exports = {
-    name: 'ping',
-    cooldown: 5,
-    execute(message) {
-        // ...
-    },
+	name: 'ping',
+	cooldown: 5,
+	execute(message) {
+		// ...
+	},
 };
 ```
 
@@ -234,9 +234,9 @@ if (timestamps.has(message.author.id)) {
 }
 
 try {
-    // ...
+	// ...
 } catch (error) {
-    // ...
+	// ...
 }
 ```
 
@@ -267,7 +267,7 @@ The previous author check serves as a precaution. It should normally not be nece
 
 ```js {5-6}
 if (timestamps.has(message.author.id)) {
-    // ...
+	// ...
 }
 
 timestamps.set(message.author.id, now);
@@ -286,11 +286,11 @@ Open your `avatar.js` file and add in the following line:
 
 ```js {3}
 module.exports = {
-    name: 'avatar',
-    aliases: ['icon', 'pfp'],
-    execute(message, args) {
-        // ...
-    },
+	name: 'avatar',
+	aliases: ['icon', 'pfp'],
+	execute(message, args) {
+		// ...
+	},
 };
 ```
 
@@ -298,14 +298,14 @@ The `aliases` property should always contain an array of strings. In your main f
 
 ```js {5-6,8}
 client.on('message', message => {
-    const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const commandName = args.shift().toLowerCase();
+	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	const commandName = args.shift().toLowerCase();
 
-    const command = client.commands.get(commandName)
+	const command = client.commands.get(commandName)
         || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-    if (!command) return;
-    // ...
+	if (!command) return;
+	// ...
 });
 ```
 
@@ -355,7 +355,7 @@ You're going to need your prefix variable a couple of times inside this command,
 const { prefix } = require('../../config.json');
 
 module.exports = {
-    // ...
+	// ...
 };
 ```
 
@@ -363,15 +363,15 @@ Inside the `execute()` function, set up some variables and an if/else statement 
 
 ```js {4-5,7-9}
 module.exports = {
-    // ...
-    execute(message, args) {
-        const data = [];
-        const { commands } = message.client;
+	// ...
+	execute(message, args) {
+		const data = [];
+		const { commands } = message.client;
 
-        if (!args.length) {
-            // ...
-        }
-    },
+		if (!args.length) {
+			// ...
+		}
+	},
 };
 ```
 
@@ -379,19 +379,19 @@ You can use `.push()` on the `data` variable to append the info you want and the
 
 ```js {2-4,6-14}
 if (!args.length) {
-    data.push('Here\'s a list of all my commands:');
-    data.push(commands.map(command => command.name).join(', '));
-    data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
+	data.push('Here\'s a list of all my commands:');
+	data.push(commands.map(command => command.name).join(', '));
+	data.push(`\nYou can send \`${prefix}help [command name]\` to get info on a specific command!`);
 
-    return message.author.send(data, { split: true })
-        .then(() => {
-            if (message.channel.type === 'dm') return;
-            message.reply('I\'ve sent you a DM with all my commands!');
-        })
-        .catch(error => {
-            console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
-            message.reply('it seems like I can\'t DM you! Do you have DMs disabled?');
-        });
+	return message.author.send(data, { split: true })
+		.then(() => {
+			if (message.channel.type === 'dm') return;
+			message.reply('I\'ve sent you a DM with all my commands!');
+		})
+		.catch(error => {
+			console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
+			message.reply('it seems like I can\'t DM you! Do you have DMs disabled?');
+		});
 }
 ```
 
@@ -411,7 +411,7 @@ Below the `if (!args.length)` statement is where you'll send the help message fo
 
 ```js {5-6,8-10,12,14-16,18,20}
 if (!args.length) {
-    // ...
+	// ...
 }
 
 const name = args[0].toLowerCase();
@@ -468,13 +468,13 @@ In this section, you will be adding permission requirements to the command handl
 
 ```js {5}
 module.exports = {
-    name: 'kick',
-    description: 'Kick a user from the server.',
-    guildOnly: true,
-    permissions: 'KICK_MEMBERS',
-    execute(message, args) {
-        // ...
-    },
+	name: 'kick',
+	description: 'Kick a user from the server.',
+	guildOnly: true,
+	permissions: 'KICK_MEMBERS',
+	execute(message, args) {
+		// ...
+	},
 };
 ```
 
@@ -482,14 +482,14 @@ You also need to check for those permissions before executing the command, which
 
 ```js {1-6}
 if (command.permissions) {
-    const authorPerms = message.channel.permissionsFor(message.author);
-    if (!authorPerms || !authorPerms.has(command.permissions)) {
-        return message.reply('You can not do this!');
-    }
+	const authorPerms = message.channel.permissionsFor(message.author);
+	if (!authorPerms || !authorPerms.has(command.permissions)) {
+		return message.reply('You can not do this!');
+	}
 }
 
 if (command.args && !args.length) {
-    // ...
+	// ...
 }
 ```
 
@@ -509,12 +509,12 @@ Create a new command file and paste in the usual format (using the [argument che
 const fs = require('fs');
 
 module.exports = {
-    name: 'reload',
-    description: 'Reloads a command',
-    args: true,
-    execute(message, args) {
-        // ...
-    },
+	name: 'reload',
+	description: 'Reloads a command',
+	args: true,
+	execute(message, args) {
+		// ...
+	},
 };
 ```
 
@@ -522,16 +522,16 @@ In this command, you will be using a command name or alias as the only argument.
 
 ```js {4-6,8-10}
 module.exports = {
-    // ...
-    execute(message, args) {
-        const commandName = args[0].toLowerCase();
-        const command = message.client.commands.get(commandName)
+	// ...
+	execute(message, args) {
+		const commandName = args[0].toLowerCase();
+		const command = message.client.commands.get(commandName)
             || message.client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-        if (!command) {
-            return message.channel.send(`There is no command with name or alias \`${commandName}\`, ${message.author}!`);
-        }
-    },
+		if (!command) {
+			return message.channel.send(`There is no command with name or alias \`${commandName}\`, ${message.author}!`);
+		}
+	},
 };
 ```
 
@@ -539,7 +539,7 @@ To build the correct file path, you will need the file name and the sub-folder t
 
 ```js {5-6}
 if (!command) {
-    // ...
+	// ...
 }
 
 const commandFolders = fs.readdirSync('./commands');
@@ -554,12 +554,12 @@ const folderName = commandFolders.find(folder => fs.readdirSync(`./commands/${fo
 delete require.cache[require.resolve(`../${folderName}/${command.name}.js`)];
 
 try {
-    const newCommand = require(`../${folderName}/${command.name}.js`);
-    message.client.commands.set(newCommand.name, newCommand);
-    message.channel.send(`Command \`${newCommand.name}\` was reloaded!`);
+	const newCommand = require(`../${folderName}/${command.name}.js`);
+	message.client.commands.set(newCommand.name, newCommand);
+	message.channel.send(`Command \`${newCommand.name}\` was reloaded!`);
 } catch (error) {
-    console.error(error);
-    message.channel.send(`There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``);
+	console.error(error);
+	message.channel.send(`There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``);
 }
 ```
 

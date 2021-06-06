@@ -66,22 +66,22 @@ Adding more command groups is as simple as adding another option to the array an
 
 ```js {6}
 client.registry
-    // ...
-    .registerGroups([
-        ['first', 'Your First Command Group'],
-        ['second', 'Your Second Command Group'],
-        ['third', 'Your Third Command Group'],
-    ]);
+// ...
+	.registerGroups([
+		['first', 'Your First Command Group'],
+		['second', 'Your Second Command Group'],
+		['third', 'Your Third Command Group'],
+	]);
 ```
 
 Should you want to disable a default command, such as if you wanted to make a custom help command and replace the default one, you could pass that as an option in `registerDefaultCommands`.
 
 ```js {3-5}
 client.registry
-    // ...
-    .registerDefaultCommands({
-        help: false,
-    });
+// ...
+	.registerDefaultCommands({
+		help: false,
+	});
 ```
 
 Next, you're going to need to create a ready event and an error event, as usual.

@@ -72,7 +72,7 @@ const username = 'Sanctuary';
 const password = 'pleasedonthackme';
 
 function letsPretendThisDoesSomething() {
-    return 'Yay for sample data.';
+	return 'Yay for sample data.';
 }
 ```
 
@@ -142,7 +142,7 @@ const filter = function(m) {
 	return m.content === 'I agree' && !m.author.bot;
 };
 
-var collector = message.createMessageCollector(filter, { time: 15000 });
+const collector = message.createMessageCollector(filter, { time: 15000 });
 ```
 
 ```js

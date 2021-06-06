@@ -54,10 +54,10 @@ Say you already have a simple command handler like this:
 
 ```js
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const command = args.shift().toLowerCase();
+	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	const command = args.shift().toLowerCase();
 });
 ```
 
@@ -67,12 +67,12 @@ Now you can quickly test the waters by upgrading the avatar command from [last t
 
 ```js {3-7}
 client.on('message', message => {
-    // ...
-    if (command === 'avatar') {
-        const user = message.author;
+	// ...
+	if (command === 'avatar') {
+		const user = message.author;
 
-        return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL}`);
-    }
+		return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL}`);
+	}
 });
 ```
 
@@ -81,12 +81,12 @@ client.on('message', message => {
 
 ```js {3-7}
 client.on('message', message => {
-    // ...
-    if (command === 'avatar') {
-        const user = message.author;
+	// ...
+	if (command === 'avatar') {
+		const user = message.author;
 
-        return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL({ dynamic: true })}`);
-    }
+		return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL({ dynamic: true })}`);
+	}
 });
 ```
 
@@ -149,19 +149,19 @@ Now you have a nifty function you can use to convert a raw mention into a proper
 
 ```js {4-11}
 client.on('message', message => {
-    // ...
-    if (command === 'avatar') {
-        if (args[0]) {
-            const user = getUserFromMention(args[0]);
-            if (!user) {
-                return message.reply('Please use a proper mention if you want to see someone elses avatar.');
-            }
+	// ...
+	if (command === 'avatar') {
+		if (args[0]) {
+			const user = getUserFromMention(args[0]);
+			if (!user) {
+				return message.reply('Please use a proper mention if you want to see someone elses avatar.');
+			}
 
-            return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL}`);
-        }
+			return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL}`);
+		}
 
-        return message.channel.send(`${message.author.username}, your avatar: ${message.author.displayAvatarURL}`);
-    }
+		return message.channel.send(`${message.author.username}, your avatar: ${message.author.displayAvatarURL}`);
+	}
 });
 ```
 
@@ -170,19 +170,19 @@ client.on('message', message => {
 
 ```js {4-11}
 client.on('message', message => {
-    // ...
-    if (command === 'avatar') {
-        if (args[0]) {
-            const user = getUserFromMention(args[0]);
-            if (!user) {
-                return message.reply('Please use a proper mention if you want to see someone elses avatar.');
-            }
+	// ...
+	if (command === 'avatar') {
+		if (args[0]) {
+			const user = getUserFromMention(args[0]);
+			if (!user) {
+				return message.reply('Please use a proper mention if you want to see someone elses avatar.');
+			}
 
-            return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL({ dynamic: true })}`);
-        }
+			return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL({ dynamic: true })}`);
+		}
 
-        return message.channel.send(`${message.author.username}, your avatar: ${message.author.displayAvatarURL({ dynamic: true })}`);
-    }
+		return message.channel.send(`${message.author.username}, your avatar: ${message.author.displayAvatarURL({ dynamic: true })}`);
+	}
 });
 ```
 
@@ -219,26 +219,26 @@ When writing a ban command where a mention might appear in the reason, manual pa
 
 ```js {1,3-21}
 client.on('message', async message => {
-    // ...
-    if (command === 'ban') {
-        if (args.length < 2) {
-            return message.reply('Please mention the user you want to ban and specify a ban reason.');
-        }
+	// ...
+	if (command === 'ban') {
+		if (args.length < 2) {
+			return message.reply('Please mention the user you want to ban and specify a ban reason.');
+		}
 
-        const user = getUserFromMention(args[0]);
-        if (!user) {
-            return message.reply('Please use a proper mention if you want to ban someone.');
-        }
+		const user = getUserFromMention(args[0]);
+		if (!user) {
+			return message.reply('Please use a proper mention if you want to ban someone.');
+		}
 
-        const reason = args.slice(1).join(' ');
-        try {
-            await message.guild.ban(user, { reason });
-        } catch (error) {
-            return message.channel.send(`Failed to ban **${user.tag}**: ${error}`);
-        }
+		const reason = args.slice(1).join(' ');
+		try {
+			await message.guild.ban(user, { reason });
+		} catch (error) {
+			return message.channel.send(`Failed to ban **${user.tag}**: ${error}`);
+		}
 
-        return message.channel.send(`Successfully banned **${user.tag}** from the server!`);
-    }
+		return message.channel.send(`Successfully banned **${user.tag}** from the server!`);
+	}
 });
 ```
 
@@ -247,26 +247,26 @@ client.on('message', async message => {
 
 ```js {1,3-21}
 client.on('message', async message => {
-    // ...
-    if (command === 'ban') {
-        if (args.length < 2) {
-            return message.reply('Please mention the user you want to ban and specify a ban reason.');
-        }
+	// ...
+	if (command === 'ban') {
+		if (args.length < 2) {
+			return message.reply('Please mention the user you want to ban and specify a ban reason.');
+		}
 
-        const user = getUserFromMention(args[0]);
-        if (!user) {
-            return message.reply('Please use a proper mention if you want to ban someone.');
-        }
+		const user = getUserFromMention(args[0]);
+		if (!user) {
+			return message.reply('Please use a proper mention if you want to ban someone.');
+		}
 
-        const reason = args.slice(1).join(' ');
-        try {
-            await message.guild.members.ban(user, { reason });
-        } catch (error) {
-            return message.channel.send(`Failed to ban **${user.tag}**: ${error}`);
-        }
+		const reason = args.slice(1).join(' ');
+		try {
+			await message.guild.members.ban(user, { reason });
+		} catch (error) {
+			return message.channel.send(`Failed to ban **${user.tag}**: ${error}`);
+		}
 
-        return message.channel.send(`Successfully banned **${user.tag}** from the server!`);
-    }
+		return message.channel.send(`Successfully banned **${user.tag}** from the server!`);
+	}
 });
 ```
 
@@ -316,9 +316,9 @@ function getUserFromMention(mention) {
 	// If supplied variable was not a mention, matches will be null instead of an array.
 	if (!matches) return;
 
-    // However, the first element in the matches array will be the entire mention, not just the ID,
-    // so use index 1.
-    const id = matches[1];
+	// However, the first element in the matches array will be the entire mention, not just the ID,
+	// so use index 1.
+	const id = matches[1];
 
 	return client.users.get(id);
 }
@@ -335,9 +335,9 @@ function getUserFromMention(mention) {
 	// If supplied variable was not a mention, matches will be null instead of an array.
 	if (!matches) return;
 
-    // However, the first element in the matches array will be the entire mention, not just the ID,
-    // so use index 1.
-    const id = matches[1];
+	// However, the first element in the matches array will be the entire mention, not just the ID,
+	// so use index 1.
+	const id = matches[1];
 
 	return client.users.cache.get(id);
 }

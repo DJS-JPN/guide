@@ -31,12 +31,12 @@ module.exports = class MeowCommand extends Command {
 
 ```js {5}
 module.exports = class MeowCommand extends Command {
-    constructor(client) {
-        super(client, {
-            // ...
-            guildOnly: true,
-        });
-    }
+	constructor(client) {
+		super(client, {
+			// ...
+			guildOnly: true,
+		});
+	}
 };
 ```
 

@@ -12,9 +12,9 @@ Let's start with the basic usage of shards. At some point in bot development, yo
 
 ```js {3-11}
 client.on('message', message => {
-    // ...
-    if (command === 'send') {
-        if (!args.length) return message.reply('please specify a destination channel id.');
+	// ...
+	if (command === 'send') {
+		if (!args.length) return message.reply('please specify a destination channel id.');
 
 		const channel = client.channels.get(args[0]);
 		if (!channel) return message.reply('I could not find such a channel.');
@@ -30,9 +30,9 @@ client.on('message', message => {
 
 ```js {3-11}
 client.on('message', message => {
-    // ...
-    if (command === 'send') {
-        if (!args.length) return message.reply('please specify a destination channel id.');
+	// ...
+	if (command === 'send') {
+		if (!args.length) return message.reply('please specify a destination channel id.');
 
 		const channel = client.channels.cache.get(args[0]);
 		if (!channel) return message.reply('I could not find such a channel.');
@@ -51,9 +51,9 @@ This will never work for a channel that lies on another shard. So, let's remedy 
 
 ```js {4-13}
 if (command === 'send') {
-    if (!args.length) return message.reply('please specify a destination channel id.');
+	if (!args.length) return message.reply('please specify a destination channel id.');
 
-    return client.shard.broadcastEval(`
+	return client.shard.broadcastEval(`
         const channel = this.channels.get('${args[0]}');
         if (channel) {
             channel.send('This is a message from shard ${this.shard.id}!');
@@ -62,7 +62,7 @@ if (command === 'send') {
             false;
         }
     `)
-        .then(console.log);
+		.then(console.log);
 }
 ```
 
@@ -75,9 +75,9 @@ In discord.js v12, <docs-link path="class/ShardClientUtil?scrollTo=ids">`client.
 
 ```js {4-13}
 if (command === 'send') {
-    if (!args.length) return message.reply('please specify a destination channel id.');
+	if (!args.length) return message.reply('please specify a destination channel id.');
 
-    return client.shard.broadcastEval(`
+	return client.shard.broadcastEval(`
         const channel = this.channels.cache.get('${args[0]}');
         if (channel) {
             channel.send('This is a message from shard ${this.shard.ids.join(',')}!');
@@ -86,7 +86,7 @@ if (command === 'send') {
             false;
         }
     `)
-        .then(console.log);
+		.then(console.log);
 }
 ```
 
@@ -98,13 +98,13 @@ If all is well, you should notice an output like `[false, true, false, false]`. 
 return client.shard.broadcastEval(`
     // ...
 `)
-    .then(sentArray => {
-        // Search for a non falsy value before providing feedback
-        if (!sentArray.includes(true)) {
-            return message.reply('I could not find such a channel.');
-        }
-        return message.reply(`I have sent a message to channel \`${args[0]}\`!`);
-    });
+	.then(sentArray => {
+		// Search for a non falsy value before providing feedback
+		if (!sentArray.includes(true)) {
+			return message.reply('I could not find such a channel.');
+		}
+		return message.reply(`I have sent a message to channel \`${args[0]}\`!`);
+	});
 ```
 
 And that's it for this section! You have successfully communicated across all of your shards.
@@ -117,10 +117,10 @@ If you remember, there was a brief mention of passing functions through `.broadc
 
 ```js {3-8}
 client.on('message', message => {
-    // ...
-    if (command === 'emoji') {
-        if (!args.length) return message.reply('please specify an emoji id to search for.');
-        const emoji = client.emojis.get(args[0]);
+	// ...
+	if (command === 'emoji') {
+		if (!args.length) return message.reply('please specify an emoji id to search for.');
+		const emoji = client.emojis.get(args[0]);
 
 		return message.reply(`I have found an emoji ${emoji}!`);
 	}
@@ -132,10 +132,10 @@ client.on('message', message => {
 
 ```js {3-8}
 client.on('message', message => {
-    // ...
-    if (command === 'emoji') {
-        if (!args.length) return message.reply('please specify an emoji id to search for.');
-        const emoji = client.emojis.cache.get(args[0]);
+	// ...
+	if (command === 'emoji') {
+		if (!args.length) return message.reply('please specify an emoji id to search for.');
+		const emoji = client.emojis.cache.get(args[0]);
 
 		return message.reply(`I have found an emoji ${emoji}!`);
 	}
@@ -152,7 +152,7 @@ Let's start with a basic function, which will try to grab an emoji from the curr
 
 ```js
 function findEmoji(nameOrID) {
-    return this.emojis.get(query) || this.emojis.find(e => e.name.toLowerCase() === nameOrID.toLowerCase());
+	return this.emojis.get(query) || this.emojis.find(e => e.name.toLowerCase() === nameOrID.toLowerCase());
 }
 ```
 
@@ -161,7 +161,7 @@ function findEmoji(nameOrID) {
 
 ```js
 function findEmoji(nameOrID) {
-    return this.emojis.cache.get(nameOrID) || this.emojis.cache.find(e => e.name.toLowerCase() === nameOrID.toLowerCase());
+	return this.emojis.cache.get(nameOrID) || this.emojis.cache.find(e => e.name.toLowerCase() === nameOrID.toLowerCase());
 }
 ```
 
@@ -171,9 +171,9 @@ Next, you need to call the function in your command properly. If you recall from
 
 ```js {4-7}
 client.on('message', message => {
-    // ...
-    if (command === 'emoji') {
-        if (!args.length) return message.reply('please specify an emoji id to search for.');
+	// ...
+	if (command === 'emoji') {
+		if (!args.length) return message.reply('please specify an emoji id to search for.');
 
 		return client.shard.broadcastEval(`(${findEmoji}).call(this, '${args[0]}')`)
 			.then(console.log);
@@ -189,24 +189,24 @@ Now, run this code, and you will surely get a result that looks like the followi
 
 ```js
 [
-    { 
-        guild: { 
-            members: {},
-            // ...
-            id: '222078108977594368',
-            name: 'discord.js Official',
-            icon: '6e4b4d1a0c7187f9fd5d4976c50ac96e',
-            // ...
-            emojis: {} 
-        },
-        id: '383735055509356544',
-        name: 'duckSmug',
-        requiresColons: true,
-        managed: false,
-        animated: false,
-        _roles: []
-    }
-]
+	{
+		guild: {
+			members: {},
+			// ...
+			id: '222078108977594368',
+			name: 'discord.js Official',
+			icon: '6e4b4d1a0c7187f9fd5d4976c50ac96e',
+			// ...
+			emojis: {},
+		},
+		id: '383735055509356544',
+		name: 'duckSmug',
+		requiresColons: true,
+		managed: false,
+		animated: false,
+		_roles: [],
+	},
+];
 ```
 
 While this result isn't *necessarily* bad or incorrect, it's simply a raw object that got `JSON.parse()`'d and `JSON.stringify()`'d over, so all of the circular references are gone. More importantly, The object is no longer a true <branch version="11.x" inline>`Emoji`</branch><branch version="12.x" inline>`GuildEmoji`</branch> object as provided by discord.js. *This means none of the convenience methods usually provided to you are available.* If this is a problem for you, you will want to handle the item *inside* the `broadcastEval`. Conveniently, the `findEmoji` function will be ran inside it, so you should execute your relevant methods there, before the object leaves the context.
@@ -215,11 +215,11 @@ While this result isn't *necessarily* bad or incorrect, it's simply a raw object
 
 ```js {2-3,5-6}
 function findEmoji(nameOrID) {
-    const emoji = this.emojis.get(nameOrID) || this.emojis.find(e => e.name.toLowerCase() === nameOrID.toLowerCase());
-    if (!emoji) return null;
-    // If you wanted to delete the emoji with discord.js, this is where you would do it. Otherwise, don't include this code.
-    emoji.delete();
-    return emoji;
+	const emoji = this.emojis.get(nameOrID) || this.emojis.find(e => e.name.toLowerCase() === nameOrID.toLowerCase());
+	if (!emoji) return null;
+	// If you wanted to delete the emoji with discord.js, this is where you would do it. Otherwise, don't include this code.
+	emoji.delete();
+	return emoji;
 }
 ```
 
@@ -229,11 +229,11 @@ function findEmoji(nameOrID) {
 
 ```js {2-3,5-6}
 function findEmoji(nameOrID) {
-    const emoji = this.emojis.cache.get(nameOrID) || this.emojis.cache.find(e => e.name.toLowerCase() === nameOrID.toLowerCase());
-    if (!emoji) return null;
-    // If you wanted to delete the emoji with discord.js, this is where you would do it. Otherwise, don't include this code.
-    emoji.delete();
-    return emoji;
+	const emoji = this.emojis.cache.get(nameOrID) || this.emojis.cache.find(e => e.name.toLowerCase() === nameOrID.toLowerCase());
+	if (!emoji) return null;
+	// If you wanted to delete the emoji with discord.js, this is where you would do it. Otherwise, don't include this code.
+	emoji.delete();
+	return emoji;
 }
 ```
 
@@ -245,12 +245,12 @@ With all that said and done, usually you'll want to display the result, so here 
 
 ```js {2-7}
 return client.shard.broadcastEval(`(${findEmoji}).call(this, '${args[0]}')`)
-    .then(emojiArray => {
-        // Locate a non falsy result, which will be the emoji in question
-        const foundEmoji = emojiArray.find(emoji => emoji);
-        if (!foundEmoji) return message.reply('I could not find such an emoji.');
-        return message.reply(`I have found the ${foundEmoji.id ? `<${foundEmoji.animated ? 'a' : ''}:${foundEmoji.name}:${foundEmoji.id}>` : foundEmoji.name} emoji!`);
-    });
+	.then(emojiArray => {
+		// Locate a non falsy result, which will be the emoji in question
+		const foundEmoji = emojiArray.find(emoji => emoji);
+		if (!foundEmoji) return message.reply('I could not find such an emoji.');
+		return message.reply(`I have found the ${foundEmoji.id ? `<${foundEmoji.animated ? 'a' : ''}:${foundEmoji.name}:${foundEmoji.id}>` : foundEmoji.name} emoji!`);
+	});
 ```
 
 </branch>
@@ -258,12 +258,12 @@ return client.shard.broadcastEval(`(${findEmoji}).call(this, '${args[0]}')`)
 
 ```js {2-7}
 return client.shard.broadcastEval(`(${findEmoji}).call(this, '${args[0]}')`)
-    .then(emojiArray => {
-        // Locate a non falsy result, which will be the emoji in question
-        const foundEmoji = emojiArray.find(emoji => emoji);
-        if (!foundEmoji) return message.reply('I could not find such an emoji.');
-        return message.reply(`I have found the ${foundEmoji.animated ? `<${foundEmoji.identifier}>` : `<:${foundEmoji.identifier}> emoji!`}!`);
-    });
+	.then(emojiArray => {
+		// Locate a non falsy result, which will be the emoji in question
+		const foundEmoji = emojiArray.find(emoji => emoji);
+		if (!foundEmoji) return message.reply('I could not find such an emoji.');
+		return message.reply(`I have found the ${foundEmoji.animated ? `<${foundEmoji.identifier}>` : `<:${foundEmoji.identifier}> emoji!`}!`);
+	});
 ```
 
 </branch>

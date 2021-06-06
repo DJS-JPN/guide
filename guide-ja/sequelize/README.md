@@ -42,10 +42,10 @@ client.once('ready', () => {
 });
 
 client.on('message', async message => {
-    if (message.content.startsWith(PREFIX)) {
-        const input = message.content.slice(PREFIX.length).trim().split(' ');
-        const command = input.shift();
-        const commandArgs = input.join(' ');
+	if (message.content.startsWith(PREFIX)) {
+		const input = message.content.slice(PREFIX.length).trim().split(' ');
+		const command = input.shift();
+		const commandArgs = input.join(' ');
 
 		if (command === 'addtag') {
 			// [delta]

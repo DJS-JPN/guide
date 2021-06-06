@@ -99,14 +99,14 @@ client.on('message', async message => {
 			if (message.content.startsWith(guildPrefix)) prefix = guildPrefix;
 		}
 
-        // if we found a prefix, setup args; otherwise, this isn't a command
-        if (!prefix) return;
-        args = message.content.slice(prefix.length).trim().split(/\s+/);
-    } else {
-        // handle DMs
-        const slice = message.content.startsWith(globalPrefix) ? globalPrefix.length : 0;
-        args = message.content.slice(slice).split(/\s+/);
-    }
+		// if we found a prefix, setup args; otherwise, this isn't a command
+		if (!prefix) return;
+		args = message.content.slice(prefix.length).trim().split(/\s+/);
+	} else {
+		// handle DMs
+		const slice = message.content.startsWith(globalPrefix) ? globalPrefix.length : 0;
+		args = message.content.slice(slice).split(/\s+/);
+	}
 
 	// get the first space-delimited argument after the prefix as the command
 	const command = args.shift().toLowerCase();
@@ -119,16 +119,16 @@ Now that you have a command handler, you can make a command to allow people to u
 
 ```js {3-11}
 client.on('message', async message => {
-    // ...
-    if (command === 'prefix') {
-        // if there's at least one argument, set the prefix
-        if (args.length) {
-            await prefixes.set(message.guild.id, args[0]);
-            return message.channel.send(`Successfully set prefix to \`${args[0]}\``);
-        }
+	// ...
+	if (command === 'prefix') {
+		// if there's at least one argument, set the prefix
+		if (args.length) {
+			await prefixes.set(message.guild.id, args[0]);
+			return message.channel.send(`Successfully set prefix to \`${args[0]}\``);
+		}
 
-        return message.channel.send(`Prefix is \`${await prefixes.get(message.guild.id) || globalPrefix}\``);
-    }
+		return message.channel.send(`Prefix is \`${await prefixes.get(message.guild.id) || globalPrefix}\``);
+	}
 });
 ```
 

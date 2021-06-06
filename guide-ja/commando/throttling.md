@@ -36,15 +36,15 @@ Make it have two usages allowed in ten seconds.
 
 ```js {5-8}
 module.exports = class MeowCommand extends Command {
-    constructor(client) {
-        super(client, {
-            // ...
-            throttling: {
-                usages: 2,
-                duration: 10,
-            },
-        });
-    }
+	constructor(client) {
+		super(client, {
+			// ...
+			throttling: {
+				usages: 2,
+				duration: 10,
+			},
+		});
+	}
 };
 ```
 

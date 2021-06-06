@@ -47,7 +47,7 @@ The following information is essential to know before working with async/await. 
 
 ```js
 async function declaredAsAsync() {
-    // ...
+	// ...
 }
 ```
 
@@ -55,7 +55,7 @@ async function declaredAsAsync() {
 
 ```js 
 const declaredAsAsync = async () => {
-    // ...
+	// ...
 };
 ```
 
@@ -63,7 +63,7 @@ const declaredAsAsync = async () => {
 
 ```js
 client.on('event', async (first, last) => {
-    // ...
+	// ...
 });
 ```
 
@@ -84,9 +84,9 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content === `${prefix}react`) {
-        // ...
-    }
+	if (message.content === `${prefix}react`) {
+		// ...
+	}
 });
 
 client.login('your-token-goes-here');

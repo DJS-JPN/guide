@@ -36,11 +36,11 @@ ping/pongコマンドのメッセージをチェックするif文はすでにあ
 
 ```js {2-6}
 client.on('message', message => {
-    if (message.content === `${prefix}ping`) {
-        message.channel.send('Pong.');
-    } else if (message.content === `${prefix}beep`) {
-        message.channel.send('Boop.');
-    }
+	if (message.content === `${prefix}ping`) {
+		message.channel.send('Pong.');
+	} else if (message.content === `${prefix}beep`) {
+		message.channel.send('Boop.');
+	}
 });
 ```
 
@@ -48,11 +48,11 @@ client.on('message', message => {
 
 ```js {2-6}
 client.on('message', message => {
-    if (message.content.startsWith(`${prefix}ping`)) {
-        message.channel.send('Pong.');
-    } else if (message.content.startsWith(`${prefix}beep`)) {
-        message.channel.send('Boop.');
-    }
+	if (message.content.startsWith(`${prefix}ping`)) {
+		message.channel.send('Pong.');
+	} else if (message.content.startsWith(`${prefix}beep`)) {
+		message.channel.send('Boop.');
+	}
 });
 ```
 
@@ -76,13 +76,13 @@ Servers are referred to as "guilds" in the Discord API and discord.js library. W
 
 ```js {6-8}
 client.on('message', message => {
-    if (message.content === `${prefix}ping`) {
-        message.channel.send('Pong.');
-    } else if (message.content === `${prefix}beep`) {
-        message.channel.send('Boop.');
-    } else if (message.content === `${prefix}server`) {
-        message.channel.send(`This server's name is: ${message.guild.name}`);
-    }
+	if (message.content === `${prefix}ping`) {
+		message.channel.send('Pong.');
+	} else if (message.content === `${prefix}beep`) {
+		message.channel.send('Boop.');
+	} else if (message.content === `${prefix}server`) {
+		message.channel.send(`This server's name is: ${message.guild.name}`);
+	}
 });
 ```
 
@@ -101,13 +101,13 @@ If you want to expand upon that command and add some more info, here's an exampl
 
 ```js {6-8}
 client.on('message', message => {
-    if (message.content === `${prefix}ping`) {
-        message.channel.send('Pong.');
-    } else if (message.content === `${prefix}beep`) {
-        message.channel.send('Boop.');
-    } else if (message.content === `${prefix}server`) {
-        message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
-    }
+	if (message.content === `${prefix}ping`) {
+		message.channel.send('Pong.');
+	} else if (message.content === `${prefix}beep`) {
+		message.channel.send('Boop.');
+	} else if (message.content === `${prefix}server`) {
+		message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
+	}
 });
 ```
 
@@ -135,15 +135,15 @@ Set up another if statement and use the command name `user-info`.
 
 ```js {8-10}
 client.on('message', message => {
-    if (message.content === `${prefix}ping`) {
-        message.channel.send('Pong.');
-    } else if (message.content === `${prefix}beep`) {
-        message.channel.send('Boop.');
-    } else if (message.content === `${prefix}server`) {
-        message.channel.send(`This server's name is: ${message.guild.name}`);
-    } else if (message.content === `${prefix}user-info`) {
-        message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);
-    }
+	if (message.content === `${prefix}ping`) {
+		message.channel.send('Pong.');
+	} else if (message.content === `${prefix}beep`) {
+		message.channel.send('Boop.');
+	} else if (message.content === `${prefix}server`) {
+		message.channel.send(`This server's name is: ${message.guild.name}`);
+	} else if (message.content === `${prefix}user-info`) {
+		message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);
+	}
 });
 ```
 

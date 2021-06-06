@@ -34,8 +34,8 @@ client.once('ready', () => {
 client.on('message', async message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const command = args.shift().toLowerCase();
+	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	const command = args.shift().toLowerCase();
 
 	// ...
 });
@@ -58,8 +58,8 @@ client.once('ready', () => {
 client.on('message', async message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const command = args.shift().toLowerCase();
+	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	const command = args.shift().toLowerCase();
 
 	// ...
 });
@@ -96,11 +96,11 @@ It may seem like this does nothing, but what it's doing is launching a request t
 
 ```js {3-6}
 client.on('message', async message => {
-    // ...
-    if (command === 'cat') {
-        const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
-        message.channel.send(file);
-    }
+	// ...
+	if (command === 'cat') {
+		const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
+		message.channel.send(file);
+	}
 });
 ```
 
@@ -126,17 +126,17 @@ First, you're going to need to fetch data from the API. To do this, you'd do:
 const querystring = require('querystring');
 // ...
 client.on('message', async message => {
-    // ...
-    if (command === 'urban') {
-        if (!args.length) {
-            return message.channel.send('You need to supply a search term!');
-        }
+	// ...
+	if (command === 'urban') {
+		if (!args.length) {
+			return message.channel.send('You need to supply a search term!');
+		}
 
-        const query = querystring.stringify({ term: args.join(' ') });
+		const query = querystring.stringify({ term: args.join(' ') });
 
-        const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`)
-            .then(response => response.json());
-    }
+		const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`)
+			.then(response => response.json());
+	}
 });
 ```
 
@@ -152,12 +152,12 @@ As explained above, you'll want to check if the API returned any answers for you
 
 ```js {3-5,7}
 if (command === 'urban') {
-    // ...
-    if (!list.length) {
-        return message.channel.send(`No results found for **${args.join(' ')}**.`);
-    }
+	// ...
+	if (!list.length) {
+		return message.channel.send(`No results found for **${args.join(' ')}**.`);
+	}
 
-    message.channel.send(list[0].definition);
+	message.channel.send(list[0].definition);
 }
 ```
 
@@ -213,14 +213,14 @@ message.channel.send(embed);
 const [answer] = list;
 
 const embed = new MessageEmbed()
-    .setColor('#EFFF00')
-    .setTitle(answer.word)
-    .setURL(answer.permalink)
-    .addFields(
-        { name: 'Definition', value: trim(answer.definition, 1024) },
-        { name: 'Example', value: trim(answer.example, 1024) },
-        { name: 'Rating', value: `${answer.thumbs_up} thumbs up. ${answer.thumbs_down} thumbs down.` },
-    );
+	.setColor('#EFFF00')
+	.setTitle(answer.word)
+	.setURL(answer.permalink)
+	.addFields(
+		{ name: 'Definition', value: trim(answer.definition, 1024) },
+		{ name: 'Example', value: trim(answer.example, 1024) },
+		{ name: 'Rating', value: `${answer.thumbs_up} thumbs up. ${answer.thumbs_down} thumbs down.` },
+	);
 
 message.channel.send(embed);
 ```

@@ -27,7 +27,7 @@ const { port } = require('./config.json');
 const app = express();
 
 app.get('/', (request, response) => {
-    return response.sendFile('index.html', { root: '.' });
+	return response.sendFile('index.html', { root: '.' });
 });
 
 app.listen(port, () => console.log(`App listening at http://localhost:${port}`));
@@ -134,25 +134,25 @@ OAuth2's protocols provide a `state` parameter, which Discord supports. This par
 
 ```js {1-10,15-18}
 function generateRandomString() {
-    let randomString = '';
-    const randomNumber = Math.floor(Math.random() * 10);
+	let randomString = '';
+	const randomNumber = Math.floor(Math.random() * 10);
 
-    for (let i = 0; i < 20 + randomNumber; i++) {
-        randomString += String.fromCharCode(33 + Math.floor(Math.random() * 94));
-    }
+	for (let i = 0; i < 20 + randomNumber; i++) {
+		randomString += String.fromCharCode(33 + Math.floor(Math.random() * 94));
+	}
 
-    return randomString;
+	return randomString;
 }
 
 window.load = () => {
-    // ...
-    if (!accessToken) {
-        const randomString = generateRandomString();
-        localStorage.setItem('oauth-state', randomString);
+	// ...
+	if (!accessToken) {
+		const randomString = generateRandomString();
+		localStorage.setItem('oauth-state', randomString);
 
-        document.getElementById('login').href += `&state=${btoa(randomString)}`;
-        return document.getElementById('login').style.display = 'block';
-    }
+		document.getElementById('login').href += `&state=${btoa(randomString)}`;
+		return document.getElementById('login').style.display = 'block';
+	}
 };
 ```
 
@@ -163,11 +163,11 @@ const fragment = new URLSearchParams(window.location.hash.slice(1));
 const [accessToken, tokenType, state] = [fragment.get('access_token'), fragment.get('token_type'), fragment.get('state')];
 
 if (!accessToken) {
-    // ...
+	// ...
 }
 
 if (localStorage.getItem('oauth-state') !== atob(decodeURIComponent(state))) {
-    return console.log('You may have been clickjacked!');
+	return console.log('You may have been clickjacked!');
 }
 ```
 
@@ -183,8 +183,8 @@ Unlike the [implicit grant flow](/oauth2/#implicit-grant-flow), you need an OAut
 
 ```js {2}
 app.get('/', (request, response) => {
-    console.log(`The access code is: ${request.query.code}`);
-    return response.sendFile('index.html', { root: '.' });
+	console.log(`The access code is: ${request.query.code}`);
+	return response.sendFile('index.html', { root: '.' });
 });
 ```
 
@@ -200,35 +200,35 @@ const { clientID, clientSecret, port } = require('./config.json');
 const app = express();
 
 app.get('/', async ({ query }, response) => {
-    const { code } = query;
+	const { code } = query;
 
-    if (code) {
-        try {
-            const oauthResult = await fetch('https://discord.com/api/oauth2/token', {
-                method: 'POST',
-                body: new URLSearchParams({
-                    client_id: clientID,
-                    client_secret: clientSecret,
-                    code,
-                    grant_type: 'authorization_code',
-                    redirect_uri: `http://localhost:${port}`,
-                    scope: 'identify',
-                }),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-            });
+	if (code) {
+		try {
+			const oauthResult = await fetch('https://discord.com/api/oauth2/token', {
+				method: 'POST',
+				body: new URLSearchParams({
+					client_id: clientID,
+					client_secret: clientSecret,
+					code,
+					grant_type: 'authorization_code',
+					redirect_uri: `http://localhost:${port}`,
+					scope: 'identify',
+				}),
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded',
+				},
+			});
 
-            const oauthData = await oauthResult.json();
-            console.log(oauthData);
-        } catch (error) {
-            // NOTE: An unauthorized token will not throw an error;
-            // it will return a 401 Unauthorized response in the try block above
-            console.error(error);
-        }
-    }
+			const oauthData = await oauthResult.json();
+			console.log(oauthData);
+		} catch (error) {
+			// NOTE: An unauthorized token will not throw an error;
+			// it will return a 401 Unauthorized response in the try block above
+			console.error(error);
+		}
+	}
 
-    return response.sendFile('index.html', { root: '.' });
+	return response.sendFile('index.html', { root: '.' });
 });
 ```
 

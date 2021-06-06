@@ -33,13 +33,13 @@ module.exports = class MeowCommand extends Command {
 
 ```js {5-6}
 module.exports = class MeowCommand extends Command {
-    constructor(client) {
-        super(client, {
-            // ...
-            clientPermissions: ['ADMINISTRATOR'],
-            userPermissions: ['MANAGE_MESSAGES'],
-        });
-    }
+	constructor(client) {
+		super(client, {
+			// ...
+			clientPermissions: ['ADMINISTRATOR'],
+			userPermissions: ['MANAGE_MESSAGES'],
+		});
+	}
 };
 ```
 
@@ -51,11 +51,11 @@ module.exports = class MeowCommand extends Command {
 
 ```js {5}
 module.exports = class MeowCommand extends Command {
-    constructor(client) {
-        super(client, {
-            // ...
-            ownerOnly: true,
-        });
-    }
+	constructor(client) {
+		super(client, {
+			// ...
+			ownerOnly: true,
+		});
+	}
 };
 ```

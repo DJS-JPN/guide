@@ -81,10 +81,10 @@ channel.createWebhook('Some-username', 'https://i.imgur.com/wSTFkRM.png')
 
 ```js
 channel.createWebhook('Some-username', {
-    avatar: 'https://i.imgur.com/wSTFkRM.png',
+	avatar: 'https://i.imgur.com/wSTFkRM.png',
 })
-    .then(webhook => console.log(`Created webhook ${webhook}`))
-    .catch(console.error);
+	.then(webhook => console.log(`Created webhook ${webhook}`))
+	.catch(console.error);
 ```
 
 </branch>
@@ -95,12 +95,12 @@ You can edit Webhooks and WebhookClients to change their name, avatar, and chann
 
 ```js
 webhook.edit({
-    name: 'Some-username',
-    avatar: 'https://i.imgur.com/wSTFkRM.png',
-    channel: '222197033908436994',
+	name: 'Some-username',
+	avatar: 'https://i.imgur.com/wSTFkRM.png',
+	channel: '222197033908436994',
 })
-    .then(webhook => console.log(`Edited webhook ${webhook}`))
-    .catch(console.error);
+	.then(webhook => console.log(`Edited webhook ${webhook}`))
+	.catch(console.error);
 ```
 
 ## Using webhooks
