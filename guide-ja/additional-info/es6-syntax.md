@@ -58,7 +58,7 @@ else if (message.content.startsWith(`${prefix}user-info`)) {
 }
 ```
 
-読みやすいそして書くのも簡単！ The best of both worlds.
+読みやすいそして書くのも簡単！ 両方のいいところを兼ね備えてるね。
 
 ### Template literals vs string concatenation
 
