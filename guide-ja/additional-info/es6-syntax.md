@@ -62,7 +62,7 @@ else if (message.content.startsWith(`${prefix}user-info`)) {
 
 ### テンプレートリテラル vs 文字列の連結
 
-If you've used other programming languages, you might be familiar with the term "string interpolation". Template literals would be JavaScript's implementation of string interpolation. If you're familiar with the heredoc syntax, it's very much like that; it allows for string interpolation, as well as multiline strings.
+他のプログラミング言語を使ったことがある方は、「文字列補間」という言葉を知っているかもしれません。 テンプレートリテラルは、JavaScriptの文字列補間の実装になります。 If you're familiar with the heredoc syntax, it's very much like that; it allows for string interpolation, as well as multiline strings.
 
 The example below won't go too much into detail about it, but if you're interested in reading more, you can [read about them on MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals).
 
@@ -113,7 +113,7 @@ console.log(`
 
 You can see how it makes things easier and more readable. In some cases, it can even make your code shorter! This one is something you'll want to take advantage of as much as possible.
 
-## Arrow functions
+## アロー関数
 
 Arrow functions are shorthand for regular functions, with the addition that they use a lexical `this` context inside of their own. If you don't know what the `this` keyword is referring to, don't worry about it; you'll learn more about it as you advance.
 
@@ -247,7 +247,7 @@ const [, username, id] = message.content.match(someRegex);
 
 In this snippet, we use a comma without providing a name for the item in the array we don't need. You can also give it a placeholder name if you prefer, of course; it's entirely preference at that point.
 
-## var, let, and const
+## var, let そして const
 
 Since there are many, many articles out there that can explain this part more in-depth, we'll only be giving you a TL;DR and an article link if you choose to read more about it.
 
