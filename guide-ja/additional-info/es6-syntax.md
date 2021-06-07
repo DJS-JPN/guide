@@ -1,8 +1,8 @@
-# ES6 syntax examples
+# ES6 構文の例
 
-If you've used JavaScript for only a (relatively) small amount of time or don't have much experience with it, you might not be aware of what ES6 is and what beneficial features it includes. Since this is a guide primarily for Discord bots, we'll be using some discord.js code as an example of what you might have versus what you could do to benefit from ES6.
+JavaScriptの使用経験が（比較的）少ない方や、あまり経験がない方は、ES6 がどのようなもので、どのような便利な機能が含まれているのかをご存知ないかもしれません。 このガイドは主にDiscordボットのためのものなので、ES6 の恩恵を受けるために使用できるものと、実行できる例としてdiscord.jsを使用したコードを使います。
 
-Here's the startup code we'll be using:
+今回使用するコードは以下の通りです。
 
 ```js
 const Discord = require('discord.js');
@@ -10,61 +10,61 @@ const client = new Discord.Client();
 const config = require('./config.json');
 
 client.once('ready', () => {
-	console.log('Ready!');
+    console.log('Ready!');
 });
 
 const { prefix } = config;
 
 client.on('message', message => {
-	if (message.content === `${prefix}ping`) {
-		message.channel.send('Pong.');
-	} else if (message.content === `${prefix}beep`) {
-		message.channel.send('Boop.');
-	} else if (message.content === `${prefix}server`) {
-		message.channel.send(`Guild name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
-	} else if (message.content === `${prefix}user-info`) {
-		message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);
-	}
+    if (message.content === prefix + 'ping') {
+        message.channel.send('Pong.');
+    } else if (message.content === prefix + 'beep') {
+        message.channel.send('Boop.');
+    } else if (message.content === prefix + 'server') {
+        message.channel.send('ギルド名: ' + message.guild.name + '\nメンバーの総数: ' + message.guild.memberCount);
+    } else if (message.content === prefix + 'user-info') {
+        message.channel.send('あなたのユーザー名: ' + message.author.username + '\nあなたのID: ' + message.author.id);
+    }
 });
 
 client.login(config.token);
 ```
 
-If you haven't noticed, this piece of code is already using a bit of ES6 here! The `const` keyword and arrow function declaration (`() => ...`) is ES6 syntax, and we recommend using it whenever possible.
+お気づきかもしれませんが、このコードはすでに ES6 を少し使用しています。 `const` と アロー関数宣言 (`() => ...`) は ES6 の構文であり、可能な限り使用することをオススメします。
 
-As for the code above, there are a few places where things can be done better. Let's look at them.
+上記のコードは改善できる箇所がいくつかあります。 それを見ていきましょう。
 
-## Template literals
+## テンプレート リテラル
 
-If you check the code above, it's currently doing things like `prefix + 'name'` and `'Your username: ' + message.author.username`, which is perfectly valid. It is a bit hard to read, though, and it's not too fun to constantly type out. Fortunately, there's a better alternative.
+上記のコードを確認してみると `prefix + 'name'` や `'Your username: ' + message.author.username` のようなことを行っていますが、これは正しいです。 ただ少し読みづらいし、これを打ち込むのはあんまり楽しくないでしょう。 ですが、幸いなことに良い代替手段があります。
 
 ```js
-// ES5 version, as we currently have it
+// 現在のES5バージョン
 else if (message.content === prefix + 'server') {
-    message.channel.send('Guild name: ' + message.guild.name + '\nTotal members: ' + message.guild.memberCount);
+    message.channel.send('ギルド名: ' + message.guild.name + '\nメンバーの総数: ' + message.guild.memberCount);
 }
 else if (message.content === prefix + 'user-info') {
-    message.channel.send('Your username: ' + message.author.username + '\nYour ID: ' + message.author.id);
+    message.channel.send('あなたのユーザー名: ' + message.author.username + '\nあなたのID: ' + message.author.id);
 }
 ```
 
 ```js
 // ES6 version, using template literals
 else if (message.content.startsWith(`${prefix}server`)) {
-    message.channel.send(`Guild name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
+    message.channel.send(`ギルド名: ${message.guild.name}\nメンバーの総数: ${message.guild.memberCount}`);
 }
 else if (message.content.startsWith(`${prefix}user-info`)) {
-    message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);
+    message.channel.send(`あなたのユーザー名: ${message.author.username}\nあなたのID: ${message.author.id}`);
 }
 ```
 
-Easier to read and write! The best of both worlds.
+読みやすいそして書くのも簡単！ 両方のいいところを兼ね備えてるね。
 
-### Template literals vs string concatenation
+### テンプレートリテラル vs 文字列の連結
 
-If you've used other programming languages, you might be familiar with the term "string interpolation". Template literals would be JavaScript's implementation of string interpolation. If you're familiar with the heredoc syntax, it's very much like that; it allows for string interpolation, as well as multiline strings.
+他のプログラミング言語を使ったことがある方は、「文字列補間」という言葉を知っているかもしれません。 テンプレートリテラルは、JavaScriptの文字列補間の実装になります。 heredoc の構文をご存知の方は、それによく似ています。文字列の補間や、複数行の文字列も可能です。
 
-The example below won't go too much into detail about it, but if you're interested in reading more, you can [read about them on MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals).
+下の例ではあまり詳しく説明しませんが、興味のある方は[MDNを読んでみてください。](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals)
 
 ```js
 // variables/function used throughout the examples
@@ -72,28 +72,28 @@ const username = 'Sanctuary';
 const password = 'pleasedonthackme';
 
 function letsPretendThisDoesSomething() {
-	return 'Yay for sample data.';
+    return 'Yay for sample data.';
 }
 ```
 
 ```js
-// regular string concatenation
-console.log(`Your username is: **${username}**.`);
-console.log(`Your password is: **${password}**.`);
+// 通常の文字列連結
+console.log('Your username is: **' + username + '**.');
+console.log('Your password is: **' + password + '**.');
 
-console.log(`1 + 1 = ${1 + 1}`);
+console.log('1 + 1 = ' + (1 + 1));
 
-console.log(`And here's a function call: ${letsPretendThisDoesSomething()}`);
+console.log('And here\'s a function call: ' + letsPretendThisDoesSomething());
 
 console.log(
-	'Putting strings on new lines\n'
+    'Putting strings on new lines\n'
     + 'can be a bit painful\n'
     + 'with string concatenation. :(',
 );
 ```
 
 ```js
-// template literals
+// テンプレートリテラル
 console.log(`Your password is: **${password}**.`);
 console.log(`Your username is: **${username}**.`);
 
@@ -107,13 +107,13 @@ console.log(`
     with template literals! :)
 `);
 
-// NOTE: template literals will also render the indentation inside them
-// there are ways around that, which we'll discuss in another section.
+// NOTE: テンプレートリテラルは、中のインデントもレンダリングします。
+// それを回避する方法がありますので、別のセクションでご紹介します。
 ```
 
-You can see how it makes things easier and more readable. In some cases, it can even make your code shorter! This one is something you'll want to take advantage of as much as possible.
+いかに簡単で読みやすいものになっているかがわかりますね。 場合によっては、コードが短くなることもあります。 これは、できるだけ活用したいものです。
 
-## Arrow functions
+## アロー関数
 
 Arrow functions are shorthand for regular functions, with the addition that they use a lexical `this` context inside of their own. If you don't know what the `this` keyword is referring to, don't worry about it; you'll learn more about it as you advance.
 
@@ -121,28 +121,28 @@ Here are some examples of ways you can benefit from arrow functions over regular
 
 ```js
 // regular functions, full ES5
-client.once('ready', () => {
-	console.log('Ready!');
+client.once('ready', function() {
+    console.log('Ready!');
 });
 
-client.on('typingStart', (channel, user) => {
-	console.log(`${user} started typing in ${channel}`);
+client.on('typingStart', function(channel, user) {
+    console.log(user + ' started typing in ' + channel);
 });
 
-client.on('message', message => {
-	console.log(`${message.author} sent: ${message.content}`);
+client.on('message', function(message) {
+    console.log(message.author + ' sent: ' + message.content);
 });
 
-const doubleAge = function(age) {
-	return `Your age doubled is: ${age * 2}`;
+var doubleAge = function(age) {
+    return 'Your age doubled is: ' + (age * 2);
 };
 
 // inside a message collector command
-const filter = function(m) {
-	return m.content === 'I agree' && !m.author.bot;
+var filter = function(m) {
+    return m.content === 'I agree' && !m.author.bot;
 };
 
-const collector = message.createMessageCollector(filter, { time: 15000 });
+var collector = message.createMessageCollector(filter, { time: 15000 });
 ```
 
 ```js
@@ -169,11 +169,11 @@ There are a few important things you should note here:
 
 We won't be covering the lexical `this` scope with arrow functions in here, but you can Google around if you're still curious. Again, if you aren't sure what `this` is or when you need it, reading about lexical `this` first may only confuse you.
 
-## Destructuring
+## 分割代入
 
 Destructuring is an easy way to extract items from an object or array. If you've never seen the syntax for it before, it can be a bit confusing, but it's straightforward to understand once explained!
 
-### Object destructuring
+### オブジェクトの分割代入
 
 Here's a common example where object destructuring would come in handy:
 
@@ -199,14 +199,14 @@ Additionally, you could do this for your commands.
 
 ```js
 client.on('message', message => {
-	const { content } = message;
+    const { content } = message;
 
-	if (content === `${prefix}ping`) {
-		// ping command here...
-	} else if (content === `${prefix}beep`) {
-		// beep command here...
-	}
-	// other commands here...
+    if (content === `${prefix}ping`) {
+        // ping command here...
+    } else if (content === `${prefix}beep`) {
+        // beep command here...
+    }
+    // other commands here...
 });
 ```
 
@@ -222,7 +222,7 @@ console.log(defaultValue);
 // 'Some default value here'
 ```
 
-### Array destructuring
+### 配列の分割代入
 
 Array destructuring syntax is very similar to object destructuring, except that you use brackets instead of curly braces. In addition, since you're using it on an array, you destructure the items in the same order the array is. Without array destructuring, this is how you'd extract items from an array:
 
@@ -247,7 +247,7 @@ const [, username, id] = message.content.match(someRegex);
 
 In this snippet, we use a comma without providing a name for the item in the array we don't need. You can also give it a placeholder name if you prefer, of course; it's entirely preference at that point.
 
-## var, let, and const
+## var, let そして const
 
 Since there are many, many articles out there that can explain this part more in-depth, we'll only be giving you a TL;DR and an article link if you choose to read more about it.
 
