@@ -60,7 +60,7 @@ else if (message.content.startsWith(`${prefix}user-info`)) {
 
 読みやすいそして書くのも簡単！ 両方のいいところを兼ね備えてるね。
 
-### Template literals vs string concatenation
+### テンプレートリテラル vs 文字列の連結
 
 If you've used other programming languages, you might be familiar with the term "string interpolation". Template literals would be JavaScript's implementation of string interpolation. If you're familiar with the heredoc syntax, it's very much like that; it allows for string interpolation, as well as multiline strings.
 
