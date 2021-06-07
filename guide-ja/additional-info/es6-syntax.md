@@ -1,8 +1,8 @@
 # ES6 構文の例
 
-If you've used JavaScript for only a (relatively) small amount of time or don't have much experience with it, you might not be aware of what ES6 is and what beneficial features it includes. Since this is a guide primarily for Discord bots, we'll be using some discord.js code as an example of what you might have versus what you could do to benefit from ES6.
+JavaScriptの使用経験が（比較的）少ない方や、あまり経験がない方は、ES6がどのようなもので、どのような便利な機能が含まれているのかをご存知ないかもしれません。 このガイドは主にDiscordボットのためのものなので、ES6の恩恵を受けるために使用できるものと、実行できる例としてdiscord.jsを使用したコードを使います。
 
-Here's the startup code we'll be using:
+今回使用するコードは以下の通りです。
 
 ```js
 const Discord = require('discord.js');
@@ -30,7 +30,7 @@ client.on('message', message => {
 client.login(config.token);
 ```
 
-If you haven't noticed, this piece of code is already using a bit of ES6 here! The `const` keyword and arrow function declaration (`() => ...`) is ES6 syntax, and we recommend using it whenever possible.
+お気づきかもしれませんが、このコードはすでに ES6 を少し使用しています。 The `const` keyword and arrow function declaration (`() => ...`) is ES6 syntax, and we recommend using it whenever possible.
 
 As for the code above, there are a few places where things can be done better. Let's look at them.
 
