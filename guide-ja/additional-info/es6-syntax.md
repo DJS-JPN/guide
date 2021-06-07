@@ -21,7 +21,7 @@ client.on('message', message => {
     } else if (message.content === prefix + 'beep') {
         message.channel.send('Boop.');
     } else if (message.content === prefix + 'server') {
-        message.channel.send('ギルドの名前: ' + message.guild.name + '\nメンバーの総数: ' + message.guild.memberCount);
+        message.channel.send('ギルド名: ' + message.guild.name + '\nメンバーの総数: ' + message.guild.memberCount);
     } else if (message.content === prefix + 'user-info') {
         message.channel.send('あなたのユーザー名: ' + message.author.username + '\nあなたのID: ' + message.author.id);
     }
@@ -39,26 +39,26 @@ client.login(config.token);
 上記のコードを確認してみると `prefix + 'name'` や `'Your username: ' + message.author.username` のようなことを行っていますが、これは正しいです。 ただ少し読みづらいし、これを打ち込むのはあんまり楽しくないでしょう。 ですが、幸いなことに良い代替手段があります。
 
 ```js
-// ES5 version, as we currently have it
+// 現在のES5バージョン
 else if (message.content === prefix + 'server') {
-    message.channel.send('Guild name: ' + message.guild.name + '\nTotal members: ' + message.guild.memberCount);
+    message.channel.send('ギルド名: ' + message.guild.name + '\nメンバーの総数: ' + message.guild.memberCount);
 }
 else if (message.content === prefix + 'user-info') {
-    message.channel.send('Your username: ' + message.author.username + '\nYour ID: ' + message.author.id);
+    message.channel.send('あなたのユーザー名: ' + message.author.username + '\nあなたのID: ' + message.author.id);
 }
 ```
 
 ```js
 // ES6 version, using template literals
 else if (message.content.startsWith(`${prefix}server`)) {
-    message.channel.send(`Guild name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
+    message.channel.send(`ギルド名: ${message.guild.name}\nメンバーの総数: ${message.guild.memberCount}`);
 }
 else if (message.content.startsWith(`${prefix}user-info`)) {
-    message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);
+    message.channel.send(`あなたのユーザー名: ${message.author.username}\nあなたのID: ${message.author.id}`);
 }
 ```
 
-Easier to read and write! The best of both worlds.
+読みやすいそして書くのも簡単！ The best of both worlds.
 
 ### Template literals vs string concatenation
 
