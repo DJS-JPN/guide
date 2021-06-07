@@ -1,6 +1,6 @@
 # ES6 構文の例
 
-JavaScriptの使用経験が（比較的）少ない方や、あまり経験がない方は、ES6がどのようなもので、どのような便利な機能が含まれているのかをご存知ないかもしれません。 このガイドは主にDiscordボットのためのものなので、ES6の恩恵を受けるために使用できるものと、実行できる例としてdiscord.jsを使用したコードを使います。
+JavaScriptの使用経験が（比較的）少ない方や、あまり経験がない方は、ES6 がどのようなもので、どのような便利な機能が含まれているのかをご存知ないかもしれません。 このガイドは主にDiscordボットのためのものなので、ES6 の恩恵を受けるために使用できるものと、実行できる例としてdiscord.jsを使用したコードを使います。
 
 今回使用するコードは以下の通りです。
 
@@ -21,22 +21,22 @@ client.on('message', message => {
     } else if (message.content === prefix + 'beep') {
         message.channel.send('Boop.');
     } else if (message.content === prefix + 'server') {
-        message.channel.send('Guild name: ' + message.guild.name + '\nTotal members: ' + message.guild.memberCount);
+        message.channel.send('ギルドの名前: ' + message.guild.name + '\nメンバーの総数: ' + message.guild.memberCount);
     } else if (message.content === prefix + 'user-info') {
-        message.channel.send('Your username: ' + message.author.username + '\nYour ID: ' + message.author.id);
+        message.channel.send('あなたのユーザー名: ' + message.author.username + '\nあなたのID: ' + message.author.id);
     }
 });
 
 client.login(config.token);
 ```
 
-お気づきかもしれませんが、このコードはすでに ES6 を少し使用しています。 The `const` keyword and arrow function declaration (`() => ...`) is ES6 syntax, and we recommend using it whenever possible.
+お気づきかもしれませんが、このコードはすでに ES6 を少し使用しています。 `const` と アロー関数宣言 (`() => ...`) は ES6 の構文であり、可能な限り使用することをオススメします。
 
-As for the code above, there are a few places where things can be done better. Let's look at them.
+上記のコードは改善できる箇所がいくつかあります。 それを見ていきましょう。
 
-## Template literals
+## テンプレート リテラル
 
-If you check the code above, it's currently doing things like `prefix + 'name'` and `'Your username: ' + message.author.username`, which is perfectly valid. It is a bit hard to read, though, and it's not too fun to constantly type out. Fortunately, there's a better alternative.
+上記のコードを確認してみると `prefix + 'name'` や `'Your username: ' + message.author.username` のようなことを行っていますが、これは正しいです。 ただ少し読みづらいし、これを打ち込むのはあんまり楽しくないでしょう。 ですが、幸いなことに良い代替手段があります。
 
 ```js
 // ES5 version, as we currently have it
