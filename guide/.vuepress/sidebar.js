@@ -1,14 +1,14 @@
 module.exports = {
 	'/commando/': [
 		{
-			title: 'Home',
+			title: 'ホーム',
 			children: [
 				'/',
 				'/requesting-more-content',
 			],
 		},
 		{
-			title: 'Getting Started',
+			title: 'はじめに',
 			children: [
 				'/commando/',
 				'/commando/first-command',
@@ -23,14 +23,14 @@ module.exports = {
 			],
 		},
 		{
-			title: 'Arguments',
+			title: '引数',
 			children: [
 				'/commando/args',
 				'/commando/validators',
 			],
 		},
 		{
-			title: 'Additional Information',
+			title: '追加情報',
 			children: [
 				'/commando/client-values',
 				'/commando/unknown-command-response',
@@ -39,14 +39,14 @@ module.exports = {
 	],
 	'/': [
 		{
-			title: 'Home',
+			title: 'ホーム',
 			children: [
 				'/',
 				'requesting-more-content',
 			],
 		},
 		{
-			title: 'Installations & Preparations',
+			title: 'インストールと準備',
 			children: [
 				'/preparations/',
 				'/preparations/setting-up-a-linter',
@@ -55,7 +55,7 @@ module.exports = {
 			],
 		},
 		{
-			title: 'Creating Your Bot',
+			title: 'ボットの作成',
 			children: [
 				'/creating-your-bot/',
 				'/creating-your-bot/configuration-files',
@@ -64,20 +64,20 @@ module.exports = {
 			],
 		},
 		{
-			title: 'Command Handler',
+			title: 'コマンドハンドラ',
 			children: [
 				'/command-handling/',
 				'/command-handling/adding-features',
 			],
 		},
 		{
-			title: 'Event Handler',
+			title: 'イベントハンドラ',
 			children: [
 				'/event-handling/',
 			],
 		},
 		{
-			title: 'Popular Topics',
+			title: '人気のあるトピック',
 			children: [
 				'/popular-topics/faq',
 				'/popular-topics/embeds',
@@ -94,14 +94,14 @@ module.exports = {
 			],
 		},
 		{
-			title: 'Miscellaneous',
+			title: 'その他',
 			children: [
 				'/miscellaneous/parsing-mention-arguments',
 				'/miscellaneous/useful-packages',
 			],
 		},
 		{
-			title: 'Databases',
+			title: 'データベース',
 			children: [
 				'/sequelize/',
 				'/sequelize/currency',
@@ -123,7 +123,7 @@ module.exports = {
 			],
 		},
 		{
-			title: 'Voice',
+			title: '音声',
 			children: [
 				'/voice/',
 				'/voice/understanding-voice',
@@ -134,14 +134,14 @@ module.exports = {
 			],
 		},
 		{
-			title: 'Improving Your Dev Environment',
+			title: '開発環境の改善',
 			children: [
 				'/improving-dev-environment/pm2',
 				'/improving-dev-environment/package-json-scripts',
 			],
 		},
 		{
-			title: 'Additional Information',
+			title: '追加情報',
 			children: [
 				'/additional-info/notation',
 				'/additional-info/es6-syntax',
