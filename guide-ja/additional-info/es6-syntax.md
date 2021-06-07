@@ -1,4 +1,4 @@
-# ES6 syntax examples
+# ES6 構文の例
 
 If you've used JavaScript for only a (relatively) small amount of time or don't have much experience with it, you might not be aware of what ES6 is and what beneficial features it includes. Since this is a guide primarily for Discord bots, we'll be using some discord.js code as an example of what you might have versus what you could do to benefit from ES6.
 
@@ -10,21 +10,21 @@ const client = new Discord.Client();
 const config = require('./config.json');
 
 client.once('ready', () => {
-	console.log('Ready!');
+    console.log('Ready!');
 });
 
 const { prefix } = config;
 
 client.on('message', message => {
-	if (message.content === `${prefix}ping`) {
-		message.channel.send('Pong.');
-	} else if (message.content === `${prefix}beep`) {
-		message.channel.send('Boop.');
-	} else if (message.content === `${prefix}server`) {
-		message.channel.send(`Guild name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
-	} else if (message.content === `${prefix}user-info`) {
-		message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);
-	}
+    if (message.content === prefix + 'ping') {
+        message.channel.send('Pong.');
+    } else if (message.content === prefix + 'beep') {
+        message.channel.send('Boop.');
+    } else if (message.content === prefix + 'server') {
+        message.channel.send('Guild name: ' + message.guild.name + '\nTotal members: ' + message.guild.memberCount);
+    } else if (message.content === prefix + 'user-info') {
+        message.channel.send('Your username: ' + message.author.username + '\nYour ID: ' + message.author.id);
+    }
 });
 
 client.login(config.token);
@@ -72,21 +72,21 @@ const username = 'Sanctuary';
 const password = 'pleasedonthackme';
 
 function letsPretendThisDoesSomething() {
-	return 'Yay for sample data.';
+    return 'Yay for sample data.';
 }
 ```
 
 ```js
 // regular string concatenation
-console.log(`Your username is: **${username}**.`);
-console.log(`Your password is: **${password}**.`);
+console.log('Your username is: **' + username + '**.');
+console.log('Your password is: **' + password + '**.');
 
-console.log(`1 + 1 = ${1 + 1}`);
+console.log('1 + 1 = ' + (1 + 1));
 
-console.log(`And here's a function call: ${letsPretendThisDoesSomething()}`);
+console.log('And here\'s a function call: ' + letsPretendThisDoesSomething());
 
 console.log(
-	'Putting strings on new lines\n'
+    'Putting strings on new lines\n'
     + 'can be a bit painful\n'
     + 'with string concatenation. :(',
 );
@@ -121,28 +121,28 @@ Here are some examples of ways you can benefit from arrow functions over regular
 
 ```js
 // regular functions, full ES5
-client.once('ready', () => {
-	console.log('Ready!');
+client.once('ready', function() {
+    console.log('Ready!');
 });
 
-client.on('typingStart', (channel, user) => {
-	console.log(`${user} started typing in ${channel}`);
+client.on('typingStart', function(channel, user) {
+    console.log(user + ' started typing in ' + channel);
 });
 
-client.on('message', message => {
-	console.log(`${message.author} sent: ${message.content}`);
+client.on('message', function(message) {
+    console.log(message.author + ' sent: ' + message.content);
 });
 
-const doubleAge = function(age) {
-	return `Your age doubled is: ${age * 2}`;
+var doubleAge = function(age) {
+    return 'Your age doubled is: ' + (age * 2);
 };
 
 // inside a message collector command
-const filter = function(m) {
-	return m.content === 'I agree' && !m.author.bot;
+var filter = function(m) {
+    return m.content === 'I agree' && !m.author.bot;
 };
 
-const collector = message.createMessageCollector(filter, { time: 15000 });
+var collector = message.createMessageCollector(filter, { time: 15000 });
 ```
 
 ```js
@@ -199,14 +199,14 @@ Additionally, you could do this for your commands.
 
 ```js
 client.on('message', message => {
-	const { content } = message;
+    const { content } = message;
 
-	if (content === `${prefix}ping`) {
-		// ping command here...
-	} else if (content === `${prefix}beep`) {
-		// beep command here...
-	}
-	// other commands here...
+    if (content === `${prefix}ping`) {
+        // ping command here...
+    } else if (content === `${prefix}beep`) {
+        // beep command here...
+    }
+    // other commands here...
 });
 ```
 
