@@ -62,9 +62,9 @@ else if (message.content.startsWith(`${prefix}user-info`)) {
 
 ### テンプレートリテラル vs 文字列の連結
 
-他のプログラミング言語を使ったことがある方は、「文字列補間」という言葉を知っているかもしれません。 テンプレートリテラルは、JavaScriptの文字列補間の実装になります。 If you're familiar with the heredoc syntax, it's very much like that; it allows for string interpolation, as well as multiline strings.
+他のプログラミング言語を使ったことがある方は、「文字列補間」という言葉を知っているかもしれません。 テンプレートリテラルは、JavaScriptの文字列補間の実装になります。 heredoc の構文をご存知の方は、それによく似ています。文字列の補間や、複数行の文字列も可能です。
 
-The example below won't go too much into detail about it, but if you're interested in reading more, you can [read about them on MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals).
+下の例ではあまり詳しく説明しませんが、興味のある方は[MDNを読んでみてください。](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals)
 
 ```js
 // variables/function used throughout the examples
@@ -77,7 +77,7 @@ function letsPretendThisDoesSomething() {
 ```
 
 ```js
-// regular string concatenation
+// 通常の文字列連結
 console.log('Your username is: **' + username + '**.');
 console.log('Your password is: **' + password + '**.');
 
@@ -93,7 +93,7 @@ console.log(
 ```
 
 ```js
-// template literals
+// テンプレートリテラル
 console.log(`Your password is: **${password}**.`);
 console.log(`Your username is: **${username}**.`);
 
@@ -107,11 +107,11 @@ console.log(`
     with template literals! :)
 `);
 
-// NOTE: template literals will also render the indentation inside them
-// there are ways around that, which we'll discuss in another section.
+// NOTE: テンプレートリテラルは、中のインデントもレンダリングします。
+// それを回避する方法がありますので、別のセクションでご紹介します。
 ```
 
-You can see how it makes things easier and more readable. In some cases, it can even make your code shorter! This one is something you'll want to take advantage of as much as possible.
+いかに簡単で読みやすいものになっているかがわかりますね。 場合によっては、コードが短くなることもあります。 これは、できるだけ活用したいものです。
 
 ## アロー関数
 
@@ -169,11 +169,11 @@ There are a few important things you should note here:
 
 We won't be covering the lexical `this` scope with arrow functions in here, but you can Google around if you're still curious. Again, if you aren't sure what `this` is or when you need it, reading about lexical `this` first may only confuse you.
 
-## Destructuring
+## 分割代入
 
 Destructuring is an easy way to extract items from an object or array. If you've never seen the syntax for it before, it can be a bit confusing, but it's straightforward to understand once explained!
 
-### Object destructuring
+### オブジェクトの分割代入
 
 Here's a common example where object destructuring would come in handy:
 
@@ -222,7 +222,7 @@ console.log(defaultValue);
 // 'Some default value here'
 ```
 
-### Array destructuring
+### 配列の分割代入
 
 Array destructuring syntax is very similar to object destructuring, except that you use brackets instead of curly braces. In addition, since you're using it on an array, you destructure the items in the same order the array is. Without array destructuring, this is how you'd extract items from an array:
 
